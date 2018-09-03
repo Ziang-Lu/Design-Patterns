@@ -37,7 +37,7 @@ public class PhoneBuilder {
      * @param os operating system to set
      * @return this phone builder after operating system being set
      */
-    public PhoneBuilder setOS(String os) {
+    public PhoneBuilder os(String os) {
         this.os = os;
         return this;
     }
@@ -47,7 +47,7 @@ public class PhoneBuilder {
      * @param processor processor to set
      * @return this phone builder after process being set
      */
-    public PhoneBuilder setProcessor(String processor) {
+    public PhoneBuilder processor(String processor) {
         this.processor = processor;
         return this;
     }
@@ -57,7 +57,7 @@ public class PhoneBuilder {
      * @param ram RAM to set
      * @return this phone builder after RAM being set
      */
-    public PhoneBuilder setRAM(int ram) {
+    public PhoneBuilder ram(int ram) {
         this.ram = ram;
         return this;
     }
@@ -67,7 +67,7 @@ public class PhoneBuilder {
      * @param screenSize screen size to set
      * @return this phone builder after screen size being set
      */
-    public PhoneBuilder setScreenSize(double screenSize) {
+    public PhoneBuilder screenSize(double screenSize) {
         this.screenSize = screenSize;
         return this;
     }
@@ -77,7 +77,7 @@ public class PhoneBuilder {
      * @param battery battery to set
      * @return this phone builder after battery being set
      */
-    public PhoneBuilder setBattery(int battery) {
+    public PhoneBuilder battery(int battery) {
         this.battery = battery;
         return this;
     }

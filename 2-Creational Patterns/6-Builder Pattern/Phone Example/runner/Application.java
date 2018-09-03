@@ -16,7 +16,7 @@ public class Application {
      */
     public static void main(String[] args) {
         PhoneBuilder phoneBuilder = new PhoneBuilder();
-        phoneBuilder = phoneBuilder.setOS("Android").setRAM(2).setBattery(3000);
+        phoneBuilder = phoneBuilder.os("Android").ram(2).battery(3000);
         // Note that in this way, we don't need to explicitly create phones in a complex way by specifying all the five
         // parameters in the Phone() constructor
         // Instead, we can make use of a phone builder to create and assemble the parts of a phone, and can even omit

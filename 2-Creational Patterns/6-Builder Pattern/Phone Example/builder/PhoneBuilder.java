@@ -87,6 +87,9 @@ public class PhoneBuilder {
      * @return finished phone
      */
     public Phone getPhone() {
+        if ((os == null) || (ram <= 0)) {
+            throw new IllegalStateException();
+        }
         return new Phone(os, processor, ram, screenSize, battery);
     }
 

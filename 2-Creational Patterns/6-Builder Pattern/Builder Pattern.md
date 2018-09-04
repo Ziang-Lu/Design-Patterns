@@ -67,3 +67,4 @@ The client can **delegate to different `Builder` objects to create different rep
 * Requires creating a separate `ConcreteBuilder` class for each different type of `Product`
 * Data members of `Product` aren't guaranteed to be initialized.
 * Dependency injection may be less supported.
+

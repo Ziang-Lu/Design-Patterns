@@ -2,8 +2,16 @@
 
 ### Applicability
 
+Sometimes, we need to carry out several computations / algorithms depending on certain conditions. Generally we go ahead in implementing those by applying either ternary operator or switch or if else.
+
+Though initially somehow we manage to write those programs, if the program demands become too complex, then it is difficult to frame as well as maintain such, and writing all the logic in a single place is not advisable as it yields to tight coupling.
+
+* When <u>a class defines many related behaviors and they appear in multiple conditional statements</u>
+
+  => Instead of many conditional statements, <u>move the related conditional branches into their own strategy classes</u>
+
 * When there are <u>different variants of an algorithm</u>
-* => When there are related classes that differ only in their behaviors
+* => When there are many related classes that differ only in their behaviors
 
 <br>
 
@@ -31,5 +39,6 @@ In this way, <u>the behavior can be changed without breaking the classes that us
 
 ## Benefit
 
-Deferring the decision about which algorithm to use until runtime allows the <u>calling code (the client code) to be more flexible and reusable</u>.
-
+* <u>Eliminates large number of conditional statements</u> (by delegating the specific behavior to the `Strategy` interface)
+* Provides an <u>alternative to sub-classing the `Context` class to get a variety of algorithms or behaviors</u>.
+* Deferring the decision about which algorithm to use until runtime allows the <u>calling code (the client code) to be more flexible and reusable</u>.

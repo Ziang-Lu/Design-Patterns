@@ -27,7 +27,7 @@ public class Application {
         String travelType = scanner.next();
         System.out.println("Travel Type : " + travelType);
 
-        Traveler traveler = new TravelContext();
+        Traveler traveler = new Traveler();
         if (travelType.equalsIgnoreCase("Auto")) {
             traveler.setTravelStrategy(new AutoTravelStrategy());
         } else if (travelType.equalsIgnoreCase("Bus")) {
@@ -38,6 +38,13 @@ public class Application {
             traveler.setTravelStrategy(new TrainTravelStrategy());
         }
         traveler.useStrategyToGotoAirport();
+
+        /*
+         * Please enter Travel Type: 'Auto' or 'Bus' or 'Taxi' or 'Train'
+         * Bus
+         * Travel Type : Bus
+         * Using BusTravelStrategy, the traveler is going to the airport by train, and will be charged $3.
+         */
     }
 
 }

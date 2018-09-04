@@ -26,6 +26,12 @@ public class Application {
         } catch (CloneNotSupportedException ex) {
             ex.printStackTrace();
         }
+
+        /*
+         * Output:
+         * 45
+         * 45
+         */
     }
 
 }

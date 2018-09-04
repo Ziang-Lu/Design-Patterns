@@ -37,6 +37,17 @@ public class Application {
         observer.addModule(observerIntro);
 
         designPatterns.display("\t");
+
+        /*
+         * Output:
+         * 	   Topic -  Design Patterns
+         * 	       Lecture - Intro to Design Patterns
+         * 	       Topic - Composite Pattern
+         * 	               Lecture - Intro to Composite Pattern
+         * 	               Video - Let's compose!
+         * 	       Topic -  Observer Pattern
+         * 	               Lecture - Intro to Observer Pattern
+         */
     }
 
 }

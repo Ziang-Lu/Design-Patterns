@@ -21,24 +21,29 @@ public class Application {
             Shape clonedRectangle = ShapeFactory.getShape("Rectangle");
             if (clonedRectangle != null) {
                 System.out.println("Shape: " + clonedRectangle.getType());
+                clonedRectangle.draw();
             }
             Shape clonedSquare = ShapeFactory.getShape("Square");
             if (clonedSquare != null) {
                 System.out.println("Shape: " + clonedSquare.getType());
+                clonedSquare.draw();
             }
             Shape clonedCircle = ShapeFactory.getShape("Circle");
             if (clonedCircle != null) {
                 System.out.println("Shape: " + clonedCircle.getType());
+                clonedCircle.draw();
             }
         } catch (CloneNotSupportedException ex) {
             ex.printStackTrace();
         }
 
         /*
-         * Output:
          * Shape: Rectangle
+         * In Rectangle.draw() method
          * Shape: Square
+         * In Square.draw() method
          * Shape: Circle
+         * In Circle.draw() method
          */
     }
 

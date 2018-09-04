@@ -1,5 +1,6 @@
 package runner;
 
+import builder.NewRobotBuilder;
 import builder.OldRobotBuilder;
 import builder.RobotBuilder;
 import builder.RobotEngineer;
@@ -17,14 +18,27 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        RobotBuilder oldRobotBuilder = new OldRobotBuilder();
-        RobotEngineer engineer = new RobotEngineer(oldRobotBuilder);
+        RobotEngineer engineer = new RobotEngineer(new OldRobotBuilder());
 
         engineer.makeRobot();
-
         Robot oldRobot = engineer.getRobot();
         System.out.println("Robot successfully built.");
         System.out.println(oldRobot);
+
+        engineer = new RobotEngineer(new NewRobotBuilder());
+        engineer.makeRobot();
+        Robot newRobot = engineer.getRobot();
+        System.out.println("Robot successfully built.");
+        System.out.println(newRobot);
+
+        /*
+         * Output:
+         * Robot successfully built.
+         * Robot{head=Tin Head, torso=Tin Torso, arms=Blowtorch Arms, legs=Roller Skates}
+         *
+         * Robot successfully built.
+         * Robot{head=Vibranium Head, torso=Vibranium Torso, arms=Artificial Flesh Arms, legs=Jet-Propelled Legs}
+         */
     }
 
 }

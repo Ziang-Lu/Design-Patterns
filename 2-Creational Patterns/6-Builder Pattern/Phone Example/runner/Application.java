@@ -27,6 +27,11 @@ public class Application {
         } catch (IllegalStateException ex) {
             System.out.println("Not enough specification to create a phone.");
         }
+
+        /*
+         * Output:
+         * Phone{os=Android, processor=null, ram=2, screenSize=0.0, battery=3000}
+         */
     }
 
 }

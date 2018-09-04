@@ -15,7 +15,7 @@ public class Application {
      * Main driver.
      * @param args arguments from command line
      */
-    public void main(String[] args) {
+    public static void main(String[] args) {
         GuiFactory osxFactory = OsxFactory.getInstance();
         Renderer osxRenderer = new Renderer(osxFactory);
         osxRenderer.render();
@@ -23,6 +23,12 @@ public class Application {
         GuiFactory winFactory = WinFactory.getInstance();
         Renderer winRenderer = new Renderer(winFactory);
         winRenderer.render();
+
+        /*
+         * Output:
+         * This is a MacOSX button.
+         * This is a Windows button.
+         */
     }
 
 }

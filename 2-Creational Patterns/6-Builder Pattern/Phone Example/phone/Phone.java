@@ -1,5 +1,7 @@
 package phone;
 
+import builder.PhoneBuilder;
+
 /**
  * My own modular phone class.
  *
@@ -30,18 +32,16 @@ public class Phone {
 
     /**
      * Constructor with parameter.
-     * @param os operating system of the phone
-     * @param processor processor brand of the phone
-     * @param ram RAM of the phone measured in MB
-     * @param screenSize screen size of the phone
-     * @param battery battery capacity of the phone measured in mAh
+     * This single constructor makes sure that phone creation can only be done
+     * through a phone builder.
+     * @param builder PhoneBuilder used to build this phone
      */
-    public Phone(String os, String processor, int ram, double screenSize, int battery) {
-        this.os = os;
-        this.processor = processor;
-        this.ram = ram;
-        this.screenSize = screenSize;
-        this.battery = battery;
+    public Phone(PhoneBuilder builder) {
+        this.os = builder.getOS();
+        this.processor = builder.getProcessor();
+        this.ram = builder.getRAM();
+        this.screenSize = builder.getScreenSize();
+        this.battery = builder.getBattery();
     }
 
     @Override

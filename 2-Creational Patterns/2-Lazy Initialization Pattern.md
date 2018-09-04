@@ -138,7 +138,7 @@ public class LazyInitialization {
 
 <br>
 
-### Benefits
+### Benefit
 
 <u>Impact of object instantiation is spread in time rather than concentrated in the startup phase of a system</u>, and thus mean response times can be greatly improved.
 

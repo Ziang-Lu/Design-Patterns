@@ -33,6 +33,14 @@ public class PhoneBuilder {
     private int battery;
 
     /**
+     * Accessor of the operating system.
+     * @return operating system
+     */
+    public String getOS() {
+        return os;
+    }
+
+    /**
      * Sets the operating system for a phone.
      * @param os operating system to set
      * @return this phone builder after operating system being set
@@ -40,6 +48,14 @@ public class PhoneBuilder {
     public PhoneBuilder os(String os) {
         this.os = os;
         return this;
+    }
+
+    /**
+     * Accessor of processor.
+     * @return processor.
+     */
+    public String getProcessor() {
+        return processor;
     }
 
     /**
@@ -53,6 +69,14 @@ public class PhoneBuilder {
     }
 
     /**
+     * Accessor of RAM.
+     * @return RAM
+     */
+    public int getRAM() {
+        return ram;
+    }
+
+    /**
      * Sets the RAM for a phone.
      * @param ram RAM to set
      * @return this phone builder after RAM being set
@@ -63,6 +87,14 @@ public class PhoneBuilder {
     }
 
     /**
+     * Accessor of screenSize.
+     * @return screenSize
+     */
+    public double getScreenSize() {
+        return screenSize;
+    }
+
+    /**
      * Sets the screen size for a phone.
      * @param screenSize screen size to set
      * @return this phone builder after screen size being set
@@ -70,6 +102,14 @@ public class PhoneBuilder {
     public PhoneBuilder screenSize(double screenSize) {
         this.screenSize = screenSize;
         return this;
+    }
+
+    /**
+     * Accessor of battery.
+     * @return batter
+     */
+    public int getBattery() {
+        return battery;
     }
 
     /**
@@ -90,7 +130,7 @@ public class PhoneBuilder {
         if ((os == null) || (ram <= 0)) {
             throw new IllegalStateException();
         }
-        return new Phone(os, processor, ram, screenSize, battery);
+        return new Phone(this);
     }
 
 }

@@ -71,4 +71,4 @@ Prototype Pattern is a **creational pattern** that **creates objects whose type 
 
 ### Drawback
 
-Requires to create prototypes before create other objects
+Requires creating prototypes before create other objects

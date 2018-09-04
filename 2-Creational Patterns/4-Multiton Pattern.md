@@ -139,6 +139,6 @@ public class LazyInitialization {
 
 <br>
 
-### Drawbacks
+### Drawback
 
 Similar to Singleton Pattern, Multiton Pattern <u>introduces global state into an application</u>.

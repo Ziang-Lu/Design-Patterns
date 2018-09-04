@@ -2,9 +2,7 @@
 
 ### Applicability
 
-Problem: Creating and assembling the parts of a <u>complex</u> object directly within the class is inflexible.
-
-It commits
+Problem: Creating and assembling the parts of a <u>complex</u> object directly within the class is inflexible. It commits the class to creating a particular representation of the complex object, and makes it impossible to change the representation later independently (without having to change) from the class.
 
 * How can a class (the same contruction process) create different representations of a complex object?
 
@@ -24,7 +22,7 @@ The Builder Pattern is a **creational pattern** that **constructs complex object
 
 *=> The <u>process of constructing an complex object should be generic</u> so that <u>the same process can be used to create different representations of the same complex object</u>.*
 
-* When needed, <u>delegate object creation to a `Builder` object instead of creating the objects directly</u>.
+* The client <u>delegates object creation to a `Builder` object instead of creating the objects directly</u>.
 
 * Encapsulate creating and assembling <u>the parts of a complex object in a separate `Builder` object</u>
 
@@ -38,9 +36,9 @@ In this way, we successfuly **separate the representation of a class from its co
 
 *即正如前面[1]所说, 不必在constructor中一次性specify全部的parameter, 而可以通过builder动态地添加field*
 
-*例如, 在下面的例子中仅仅specify `os` to be "Android"以及`ram` to be 2MB, 可以构造出一部phone; 在另一个情况下, 可以仅仅specify `os` to be "iOS"以及`screenSize` to be 5.5 inch 来构造出另一部phone.*
+*例如, 在Phone Example中仅仅specify `os` to be "Android"以及`ram` to be 2MB, 可以构造出一部phone; 在另一个情况下, 可以仅仅specify `os` to be "iOS"以及`screenSize` to be 5.5 inch 来构造出另一部phone.*
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/6-Builder%20Pattern/phone_example.png?raw=true">
+The client can **delegate to different `Builder` objects to create different representations of a complex object**.
 
 *正如前面[2]所说, 可以相同的construction process抽象出来, 但是却可以构造出class的不同的representation, 即不同种的object*
 
@@ -52,7 +50,20 @@ In this way, we successfuly **separate the representation of a class from its co
 
 ### Benefits
 
+* Encapsulates code for construction and representation (separation)
+
+* Allows you to vary a product's internal representation
+
+  * Also allow for inserting new implementations of how an object is built without disturbing the client code
+
+    *即创建一个新的类型的`ConcreteBuilder`*
+
+* Provides control over steps in the construction process
+
 <br>
 
-### Drawback
+### Drawbacks
 
+* Requires creating a separate `ConcreteBuilder` class for each different type of `Product`
+* Data members of `Product` aren't guaranteed to be initialized.
+* Dependency injection may be less supported.

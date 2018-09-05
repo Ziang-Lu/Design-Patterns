@@ -1,0 +1,60 @@
+package vending_machine;
+
+/**
+ * Concrete NoMoneyState that corresponds to the state of the vending machine
+ * that no money has been inserted and no product has been selected yet.
+ *
+ * @author Ziang Lu
+ */
+public class NoMoneyState implements VendingMachineState {
+
+    /**
+     * Name of this state.
+     */
+    private static final String STATE_NAME = "No Product Selected & No Money Inserted";
+    /**
+     * Singleton instance.
+     */
+    private volatile static NoMoneyState instance;
+
+    /**
+     * Gets the singleton instance.
+     * This implementation utilizes Lazy Initialization Pattern and double-check
+     * locking mechanism.
+     * @return singleton instance
+     */
+    public static NoMoneyState getInstance() {
+        if (instance == null) {
+            synchronized (NoMoneyState.class) {
+                if (instance == null) {
+                    instance = new NoMoneyState();
+                }
+            }
+        }
+        return instance;
+    }
+
+    /**
+     * Private default constructor.
+     * This has to be private so that the class instances cannot be created
+     * outside of the class.
+     */
+    private NoMoneyState() {}
+
+    @Override
+    public void displayState() {
+        System.out.println("Current state: " + STATE_NAME);
+    }
+
+    @Override
+    public void selectProductAndInsertMoney(int amount, String product) {
+        System.out.println("$" + amount + " has been inserted and " + product + " has been selected...");
+    }
+
+    @Override
+    public void dispenseProduct() {
+        System.out.println(
+                "Vending machine cannot dispense product because no money is inserted and no product is selected.");
+    }
+
+}

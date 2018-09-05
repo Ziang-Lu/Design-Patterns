@@ -30,6 +30,9 @@ class Fruit {
      */
     private static final Map<FruitType, Fruit> fruits = new HashMap<>();
 
+    /**
+     * Type of this fruit.
+     */
     private final FruitType type;
 
     /**

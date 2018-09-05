@@ -8,30 +8,58 @@ package vending_machine;
 public class VendingMachine {
 
     /**
-     * ID of this vending machine.
-     */
-    private int id;
-    /**
      * Internal state of this vending machine that controls the actual behaviors
      * of this vending machine.
      */
     private VendingMachineState myState;
+    /**
+     * Current balance in this vending machine.
+     */
+    private int balance;
+    /**
+     * Selected product in this vending machine.
+     */
+    private String selectedProduct;
 
     /**
-     * Constructor with parameter.
-     * @param id ID of the vending machine
+     * Default constructor.
      */
-    public VendingMachine(int id) {
-        this.id = id;
+    public VendingMachine() {
         myState = NoMoneyState.getInstance();
+        balance = 0;
+        selectedProduct = null;
+    }
+
+    /**
+     * Accessor of selectedProduct.
+     * @return selectedProduct
+     */
+    String getSelectedProduct() {
+        return selectedProduct;
     }
 
     /**
      * Mutator of myState.
      * @param state state to set
      */
-    public void setState(VendingMachineState state) {
+    void setState(VendingMachineState state) {
         myState = state;
+    }
+
+    /**
+     * Mutator of balance.
+     * @param balance balance to set
+     */
+    void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    /**
+     * Mutator of selectedProduct.
+     * @param selectedProduct selected product
+     */
+    void setSelectedProduct(String selectedProduct) {
+        this.selectedProduct = selectedProduct;
     }
 
     /**
@@ -41,9 +69,7 @@ public class VendingMachine {
      */
     public void insertMoneyAndSelectProduct(int amount, String product) {
         myState.displayState();
-
-        this.myState.selectProductAndInsertMoney(amount, product);
-        setState(HasMoneyState.getInstance());
+        myState.selectProductAndInsertMoney(this, amount, product);
     }
 
     /**
@@ -51,9 +77,7 @@ public class VendingMachine {
      */
     public void dispenseProduct() {
         myState.displayState();
-
-        this.myState.dispenseProduct();
-        setState(NoMoneyState.getInstance());
+        myState.dispenseProduct(this);
     }
 
 }

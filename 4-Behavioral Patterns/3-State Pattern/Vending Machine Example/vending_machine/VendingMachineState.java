@@ -18,14 +18,16 @@ public interface VendingMachineState {
 
     /**
      * Lets the user inserts some money and select a product.
+     * @param vendingMachine vending machine to operate on
      * @param amount money to insert
      * @param product product to select
      */
-    void selectProductAndInsertMoney(int amount, String product);
+    void selectProductAndInsertMoney(VendingMachine vendingMachine, int amount, String product);
 
     /**
      * Dispenses selected the product, and returns balance if any.
+     * @param vendingMachine vending machine to operate on
      */
-    void dispenseProduct();
+    void dispenseProduct(VendingMachine vendingMachine);
 
 }

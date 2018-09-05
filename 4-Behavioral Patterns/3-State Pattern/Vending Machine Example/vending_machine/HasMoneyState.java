@@ -3,6 +3,7 @@ package vending_machine;
 /**
  * Concrete HasMoney that corresponds to the state of the vending machine
  * that some money has been inserted and a product has been selected.
+ * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
@@ -47,14 +48,19 @@ public class HasMoneyState implements VendingMachineState {
     }
 
     @Override
-    public void selectProductAndInsertMoney(int amount, String product) {
+    public void selectProductAndInsertMoney(VendingMachine vendingMachine, int amount, String product) {
         System.out.println("Money already inserted and product already selected.");
         System.out.println("Please wait till it finishes the current dispensing process.");
     }
 
     @Override
-    public void dispenseProduct() {
-        System.out.println("Vending machine dispensing product...");
+    public void dispenseProduct(VendingMachine vendingMachine) {
+        System.out.println("Vending machine dispensing product " + vendingMachine.getSelectedProduct() + "...");
+        vendingMachine.setBalance(0);
+        vendingMachine.setSelectedProduct(null);
+
+        // Change state to NoMoneyState
+        vendingMachine.setState(NoMoneyState.getInstance());
     }
 
 }

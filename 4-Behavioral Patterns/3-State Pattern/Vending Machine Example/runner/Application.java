@@ -14,7 +14,7 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        VendingMachine vendingMachine = new VendingMachine(12138);
+        VendingMachine vendingMachine = new VendingMachine();
 
         vendingMachine.dispenseProduct();
         System.out.println();
@@ -39,7 +39,7 @@ public class Application {
          * Please wait till it finishes the current dispensing process.
          *
          * Current state: Product Selected & Money Inserted
-         * Vending machine dispensing product...
+         * Vending machine dispensing product Pepsi...
          */
     }
 

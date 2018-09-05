@@ -3,6 +3,7 @@ package vending_machine;
 /**
  * Concrete NoMoneyState that corresponds to the state of the vending machine
  * that no money has been inserted and no product has been selected yet.
+ * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
@@ -47,12 +48,17 @@ public class NoMoneyState implements VendingMachineState {
     }
 
     @Override
-    public void selectProductAndInsertMoney(int amount, String product) {
+    public void selectProductAndInsertMoney(VendingMachine vendingMachine, int amount, String product) {
+        vendingMachine.setBalance(amount);
+        vendingMachine.setSelectedProduct(product);
         System.out.println("$" + amount + " has been inserted and " + product + " has been selected...");
+
+        // Change state to HasMoneyState
+        vendingMachine.setState(HasMoneyState.getInstance());
     }
 
     @Override
-    public void dispenseProduct() {
+    public void dispenseProduct(VendingMachine vendingMachine) {
         System.out.println(
                 "Vending machine cannot dispense product because no money is inserted and no product is selected.");
     }

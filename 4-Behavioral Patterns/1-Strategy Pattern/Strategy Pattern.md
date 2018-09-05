@@ -40,5 +40,9 @@ In this way, <u>the behavior can be changed without breaking the classes that us
 ## Benefit
 
 * <u>Eliminates large number of conditional statements</u> (by delegating the specific behavior to the `Strategy` interface)
+
 * Provides an <u>alternative to sub-classing the `Context` class to get a variety of algorithms or behaviors</u>.
+
 * Deferring the decision about which algorithm to use until runtime allows the <u>calling code (the client code) to be more flexible and reusable</u>.
+
+  => We can easily add or remove specific behaviors without having to change the client code.

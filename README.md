@@ -28,7 +28,8 @@ This repo includes detailed tutorials and examples of various design patterns.
 **Help realize interactions among objects**
 
 * Strategy Pattern (策略模式)
-* Visitor Pattern (访问者模式)
+* Visitor Pattern (访问者模式) *** to be finished
+* State Pattern (状态模式)
 * Iterator Pattern (迭代器模式)
 * Observer Pattern (观察者模式)
 

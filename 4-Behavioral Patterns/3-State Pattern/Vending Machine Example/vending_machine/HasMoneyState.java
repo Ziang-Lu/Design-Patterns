@@ -7,7 +7,7 @@ package vending_machine;
  *
  * @author Ziang Lu
  */
-public class HasMoneyState implements VendingMachineState {
+class HasMoneyState implements VendingMachineState {
 
     /**
      * Name of this state.
@@ -24,7 +24,7 @@ public class HasMoneyState implements VendingMachineState {
      * locking mechanism.
      * @return singleton instance
      */
-    public static HasMoneyState getInstance() {
+    static HasMoneyState getInstance() {
         if (instance == null) {
             synchronized (HasMoneyState.class) {
                 if (instance == null) {

@@ -8,7 +8,7 @@ import card.Card;
  *
  * @author Ziang Lu
  */
-public class HasCorrectPinState implements AtmState {
+class HasCorrectPinState implements AtmState {
 
     @Override
     public void loadCash(AtmMachine atm, int amount) {

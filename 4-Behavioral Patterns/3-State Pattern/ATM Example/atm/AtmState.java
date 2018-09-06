@@ -11,7 +11,7 @@ import card.Card;
  *
  * @author Ziang Lu
  */
-public interface AtmState {
+interface AtmState {
 
     /**
      * Loads some cash in the given ATM.

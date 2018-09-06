@@ -9,7 +9,7 @@ package vending_machine;
  *
  * @author Ziang Lu
  */
-public interface VendingMachineState {
+interface VendingMachineState {
 
     /**
      * Displays this state.

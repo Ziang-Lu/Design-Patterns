@@ -38,3 +38,10 @@ The State Pattern is a **behavioral pattern** that **allows an object to alter i
 
 * Makes a class independent of how state-specific behaviors are implemented
 * Cleaner way for an object to <u>change its behavior at runtime without resorting to large monolithic conditional statements</u>, and thus improve maintainability   *(非常类似于Strategy Pattern)*
+
+<br>
+
+## Drawback
+
+通过implement了几个例子, 说实话我觉得这个State Pattern很不好用......因为每个state都要考虑全部的behavior的implementation, 而由于很多state对于某个request的behavior是类似的, 实际上还是会有很多重复代码.
+

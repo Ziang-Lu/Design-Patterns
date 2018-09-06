@@ -2,8 +2,6 @@
 
 ## Applicability
 
-
-
 * An object should <u>change its behavior when its internal state changes</u>.
 
 * State-specific behaviors should be defined independently. That is, the behavior of existing states should be changed and new states should be added independently.
@@ -25,6 +23,8 @@ The State Pattern is a **behavioral pattern** that **allows an object to alter i
 * Let the class delegate state-specific behavior to its current `State` object, rather than simply implement the state-specific behaviors directly within the class
 
   => <u>A class can change its behavior at runtime by changing its current state</u>.
+
+  => *In doing so, the object will appear to have changed its class.*
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-State%20Pattern/state_pattern.png?raw=true">
 

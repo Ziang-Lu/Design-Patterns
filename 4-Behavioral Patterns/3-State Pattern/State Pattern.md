@@ -32,6 +32,14 @@ The State Pattern is a **behavioral pattern** that **allows an object to alter i
 
 *有点像Strategy Pattern, 只不过将一组一组algorithms封装成不同的state,在不同的state中specify完成某个task的一组组algorithms.*
 
+***
+
+Note:
+
+Another implementation would be `Context implements State`. This makes sure that `Context` class itself requires implementations for all the behaviors. In the implementations of the behaviors, `Context` simply delegate to its `State` to perform the state-specific behaviors.
+
+***
+
 <br>
 
 ## Benefits

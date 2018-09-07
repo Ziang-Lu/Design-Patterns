@@ -8,6 +8,8 @@
 
   => The client's dependency on the sub-components should be minimized.
 
+* When an entry point is needed to each level of layered software
+
 <br>
 
 ## Definition & Explanation

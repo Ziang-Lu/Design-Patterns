@@ -33,7 +33,7 @@ An implementation of the Singleton Pattern must:
 
 ### Common Uses
 
-* Facade objects (门面对象) are often singletons because only one facade object is required.   [Facade Pattern]
+* Factory objects (工厂对象) are often singletons because only one factory is required.   [Abstract Factory Pattern]
 * State objects (状态对象) are often singletons because only one state object is required.   [State Pattern]
 
 <br>

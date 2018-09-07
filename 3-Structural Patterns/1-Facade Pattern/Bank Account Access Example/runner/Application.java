@@ -32,10 +32,13 @@ public class Application {
          * We are glad to serve you.
          *
          * Withdrawal completed! Current balance: $950.0
+         * Transaction completed!
          *
          * Withdrawal completed! Current balance: $50.0
+         * Transaction completed!
          *
          * Deposit completed! Current balance: $250.0
+         * Transaction completed!
          */
     }
 

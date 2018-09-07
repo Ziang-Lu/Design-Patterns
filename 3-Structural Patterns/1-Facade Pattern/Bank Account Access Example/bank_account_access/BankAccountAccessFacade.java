@@ -63,6 +63,7 @@ public class BankAccountAccessFacade {
         }
         // Withdraw the money
         balanceManager.withdraw(amount);
+        System.out.println("Transaction completed!");
     }
 
     /**
@@ -80,6 +81,7 @@ public class BankAccountAccessFacade {
         }
         // Deposit the money
         balanceManager.deposit(amount);
+        System.out.println("Transaction compledted!");
     }
 
 }

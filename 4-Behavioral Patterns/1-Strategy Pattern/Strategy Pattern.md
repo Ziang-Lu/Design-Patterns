@@ -46,3 +46,10 @@ In this way, <u>the behavior can be changed without breaking the classes that us
 * Deferring the decision about which algorithm to use until runtime allows the <u>calling code (the client code) to be more flexible and reusable</u>.
 
   => We can easily add or remove specific behaviors without having to change the client code.
+
+<br>
+
+## Drawback
+
+It <u>increases the number of classes</u> in the code.
+

@@ -32,6 +32,8 @@ The State Pattern is a **behavioral pattern** that **allows an object to alter i
 
 *State Pattern can be interpreted as a Stategy Pattern which is able to switch the current strategy through invocations of methods defined in the pattern's interface.*
 
+*State Pattern实际上应用了Delegation Pattern的思想, 因为它像是将object的全部行为delegate给一个它的的State对象.*
+
 *有点像Strategy Pattern, 只不过将一组一组algorithms封装成不同的state,在不同的state中specify完成某个task的一组组algorithms.*
 
 ***

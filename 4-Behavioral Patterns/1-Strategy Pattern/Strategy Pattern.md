@@ -35,6 +35,8 @@ The Strategy Pattern uses composition: behaviors of the client code are defined 
 
 In this way, <u>the behavior can be changed without breaking the classes that use it (the client), and the classes (the client) can switch between behaviors by changing the specific implementation used without requiring any significant code changed</u>.
 
+*Strategy Pattern实际上应用了Delegation Pattern的思想, 因为它像是将object的一些行为delegate给一个具体的Strategy对象.*
+
 <br>
 
 ## Benefit

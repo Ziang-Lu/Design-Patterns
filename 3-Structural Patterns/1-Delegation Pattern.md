@@ -2,7 +2,7 @@
 
 ## Definition & Explanation
 
-The Delegation Pattern is a **structural pattern** that **allows object composition to achieve the same code reuse as inheritance: an object handles a request by delegating the request to a internal object (the delegate)**, within the context of the original object.
+The Delegation Pattern is a **structural pattern** that **allows object aggregation to achieve the same code reuse as inheritance: an object handles a request by delegating the request to a internal object (the delegate)**, within the context of the original object.
 
 *Delegation Pattern passes the responsibility of the sender object to a receiver object.*
 
@@ -112,7 +112,7 @@ public class LazyEmployee implements WhoCanDesign, WhoCanCode {
 
     /**
      * Tests a program using the given tester.
-     * This method is an example of delegation without composition, but by
+     * This method is an example of delegation without aggregation, but by
      * simply passing in the receiver object for delegation.
      * @param tester tester used to test a program
      */

@@ -21,9 +21,9 @@ This repo includes detailed tutorials and examples of various design patterns.
 
 **Help compose objects and put objects together**
 
-* Delegation Pattern (委托模式) *** to be finished
-* Proxy Pattern (代理模式) *** to be finished
-* Decorator Pattern (装饰器模式) *** to be finished
+* Delegation Pattern (委托模式)
+* Proxy Pattern (代理模式)
+* Decorator Pattern (装饰器模式)
 * Facade Pattern (外观模式/门面模式)
 * Composite Pattern (复合模式)
 
@@ -32,7 +32,7 @@ This repo includes detailed tutorials and examples of various design patterns.
 **Help realize interactions among objects**
 
 * Strategy Pattern (策略模式)
-* Visitor Pattern (访问者模式) *** to be finished
+* Visitor Pattern (访问者模式)
 * State Pattern (状态模式)
 * Iterator Pattern (迭代器模式)
 * Observer Pattern (观察者模式)

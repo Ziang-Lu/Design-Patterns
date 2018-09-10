@@ -2,9 +2,11 @@
 
 ## Applicability
 
+* When we need to control many different states of an object without using `switch` or `if-else` statements
+
 * An object should <u>change its behavior when its internal state changes</u>.
 
-* State-specific behaviors should be defined independently. That is, the behavior of existing states should be changed and new states should be added independently.
+* <u>State-specific behaviors should be defined independently.</u> That is, the behavior of existing states should be changed and new states should be added independently.
 
   Implementing state-specific behavior directly within a calss is inflexible because it commits the class to a particular behavior and makes it impossible to change the behavior of an existing state or add a new state later independently from (without having to change) the class.
 
@@ -44,12 +46,15 @@ Another implementation would be `Context implements State`. This makes sure that
 
 ## Benefits
 
-* Makes a class independent of how state-specific behaviors are implemented
+* <u>Makes a class independent of how state-specific behaviors are implemented</u>
 * Cleaner way for an object to <u>change its behavior at runtime without resorting to large monolithic conditional statements</u>, and thus improve maintainability   *(非常类似于Strategy Pattern)*
 
 <br>
 
 ## Drawback
 
-通过implement了几个例子, 说实话我觉得这个State Pattern很不好用......因为每个state都要考虑全部的behavior的implementation, 而由于很多state对于某个request的behavior是类似的, 实际上还是会有很多重复代码.
+通过implement了几个例子, 说实话我觉得这个State Pattern很不好用:
+
+* 每个state都要考虑全部的behavior的implementation, 而由于很多state对于某个request的behavior是类似的, 实际上还是会有很多重复代码.
+* State之间的转换一定要考虑清楚, 所以对整个object的lifecycle和业务逻辑要求还是很高的
 

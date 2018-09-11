@@ -12,27 +12,27 @@ public class BankAccountAccessFacade {
     /**
      * Welcome screen of this bank account access.
      */
-    private WelcomeScreen welcomeScreen;
+    private final WelcomeScreen welcomeScreen;
     /**
      * Account number manager of this bank account access.
      */
-    private AccountNumberManager accountNumberManager;
+    private final AccountNumberManager accountNumberManager;
     /**
      * PIN manager of this bank account access.
      */
-    private SecurityCodeManager pinManager;
+    private final SecurityCodeManager pinManager;
     /**
      * Balance manager of this bank account access.
      */
-    private BalanceManager balanceManager;
+    private final BalanceManager balanceManager;
     /**
      * Account number provided by the client.
      */
-    private int providedAccountNumber;
+    private final int providedAccountNumber;
     /**
      * PIN provided by the client.
      */
-    private int providedPin;
+    private final int providedPin;
 
     /**
      * Constructor with parameter.

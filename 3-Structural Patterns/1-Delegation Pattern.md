@@ -86,11 +86,11 @@ public class LazyEmployee implements WhoCanDesign, WhoCanCode {
     /**
      * Receiver object of the coding delegation.
      */
-    private WhoCanCode programmer;
+    private final WhoCanCode programmer;
     /**
      * Receiver object of the designing delegation.
      */
-    private WhoCanDesign designer;
+    private final WhoCanDesign designer;
 
     /**
      * Default constructor.

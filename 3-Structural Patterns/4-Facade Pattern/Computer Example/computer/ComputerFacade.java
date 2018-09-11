@@ -25,15 +25,15 @@ public class ComputerFacade {
     /**
      * CPU of this computer.
      */
-    private CPU cpu;
+    private final CPU cpu;
     /**
      * Memory of this computer.
      */
-    private Memory memory;
+    private final Memory memory;
     /**
      * Hard drive of this computer.
      */
-    private HardDrive hardDrive;
+    private final HardDrive hardDrive;
 
     /**
      * Default constructor.

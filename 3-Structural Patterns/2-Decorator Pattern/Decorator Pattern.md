@@ -2,7 +2,7 @@
 
 ### Definition & Explanation
 
-The Decorator Pattern is a **structural pattern** that is **a wrapper that adds functionality to a class**.
+The Decorator Pattern is a **structural pattern** that is **a wrapper that adds new functionality to an existing class**.
 
 * Take a class `SampleClass`
 * Builder a class that wraps `SampleClass`: `WrapperClass`

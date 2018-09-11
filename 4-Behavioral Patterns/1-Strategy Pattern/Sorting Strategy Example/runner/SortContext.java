@@ -53,6 +53,9 @@ public class SortContext {
 
     /**
      * Sorts an array from user input.
+     * We could also do choosing sorting strategy based on the input size.
+     * Actually this would be a more practical way in most of the search
+     * engines.
      * @param array array to sort
      */
     public void sortArray(int[] array) {

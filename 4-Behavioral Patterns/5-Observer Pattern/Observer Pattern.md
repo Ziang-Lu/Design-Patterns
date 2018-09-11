@@ -1,6 +1,14 @@
 # Observer Pattern (观察者模式)
 
--> Observer Pattern is a **behaviral pattern** that is an OO solution for **interaction between one object and one or more objects**
+## Applicability
+
+
+
+<br>
+
+## Definition & Explanation
+
+-> Observer Pattern is a **behaviral pattern** that is an OO solution for **interaction between one object and one or more objects**.
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Observer%20Pattern/observer_pattern.png?raw=true">
 

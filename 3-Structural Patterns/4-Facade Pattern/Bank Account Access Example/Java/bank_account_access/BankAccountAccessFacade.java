@@ -16,7 +16,7 @@ public class BankAccountAccessFacade {
     /**
      * Account number manager of this bank account access.
      */
-    private final AccountNumberManager accountNumberManager;
+    private final AccountNumberManager accountManger;
     /**
      * PIN manager of this bank account access.
      */
@@ -41,7 +41,7 @@ public class BankAccountAccessFacade {
      */
     public BankAccountAccessFacade(int accountNumber, int pin) {
         welcomeScreen = new WelcomeScreen();
-        accountNumberManager = new AccountNumberManager();
+        accountManger = new AccountNumberManager();
         pinManager = new SecurityCodeManager();
         balanceManager = new BalanceManager();
         providedAccountNumber = accountNumber;
@@ -53,33 +53,29 @@ public class BankAccountAccessFacade {
      * @param amount amount of money to withdraw
      */
     public void withdrawCash(int amount) {
-        // Check account number
-        if (!accountNumberManager.correctAccountNumber(providedAccountNumber)) {
+        if (!correctAccountInfo()) {
             return;
         }
-        // Check PIN
-        if (!pinManager.correctPin(providedPin)) {
-            return;
-        }
-        // Withdraw the money
         balanceManager.withdraw(amount);
         System.out.println("Transaction completed!");
     }
 
     /**
-     * Deposits money to the bank account
+     * Private helper method to check the provided account number and PIN.
+     * @return whether the provided account number and PIN is correct
+     */
+    private boolean correctAccountInfo() {
+        return accountManger.correctAccountNumber(providedAccountNumber) && pinManager.correctPin(pin);
+    }
+
+    /**
+     * Deposits money to the bank account,
      * @param amount amount of money to deposit
      */
     public void depositCash(int amount) {
-        // Check account number
-        if (!accountNumberManager.correctAccountNumber(providedAccountNumber)) {
+        if (!correctAccountInfo()) {
             return;
         }
-        // Check PIN
-        if (!pinManager.correctPin(providedPin)) {
-            return;
-        }
-        // Deposit the money
         balanceManager.deposit(amount);
         System.out.println("Transaction compledted!");
     }

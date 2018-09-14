@@ -13,7 +13,7 @@ class SecurityCodeManager {
     private final int pin = 1234;
 
     /**
-     * Check whether the provided PIN is correct.
+     * Checks whether the provided PIN is correct.
      * @param providedPin PIN provided by the client
      * @return whether the provided PIN is correct
      */

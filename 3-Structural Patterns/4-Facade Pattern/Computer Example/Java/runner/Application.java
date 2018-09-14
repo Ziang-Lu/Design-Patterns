@@ -4,9 +4,9 @@ import computer.ComputerFacade;
 
 /**
  * Application that actually uses Facade Pattern.
- * Note that by using Facade Pattern, the application now doesn't necessarily to
- * know the complex logic and implementation details in the sub-components, but
- * only need to interact with the Facade.
+ * Note that by using Facade Pattern, the application now doesn't necessarily
+ * need to know the complex logic and implementation details in the
+ * sub-components, but only need to interact with the Facade.
  *
  * @author Ziang Lu
  */

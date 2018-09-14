@@ -52,7 +52,7 @@ public class SortContext {
     }
 
     /**
-     * Sorts an array from user input.
+     * Sorts the given array.
      * We could also do choosing sorting strategy based on the input size.
      * Actually this would be a more practical way in most of the search
      * engines.
@@ -60,7 +60,6 @@ public class SortContext {
      */
     public void sortArray(int[] array) {
         sortingStrategy.sort(array);
-        printArray(array);
     }
 
 }

@@ -26,7 +26,7 @@ public class Application {
         System.out.println("Array before sorting:");
         SortContext.printArray(array);
 
-        System.out.println("Enter sorting algorithm: 'BubbleSort' or 'SelectionSort' or 'InsertionSort' ");
+        System.out.println("Enter sorting algorithm: 'BubbleSort' or 'SelectionSort' or 'InsertionSor");
         Scanner scanner = new Scanner(System.in);
         String sortingAlgo = scanner.next();
         System.out.println("Sorting Algorithm : " + sortingAlgo);

@@ -11,8 +11,6 @@ The Delegation Pattern is a **structural pattern** that **allows object aggregat
 ## Code Example
 
 ```java
-package delegation;
-
 /**
  * Interface of a person who can design a program.
  */
@@ -84,20 +82,20 @@ class DangerousTester implements WhoCanTest {
 public class LazyEmployee implements WhoCanDesign, WhoCanCode {
 
     /**
-     * Receiver object of the coding delegation.
-     */
-    private final WhoCanCode programmer;
-    /**
      * Receiver object of the designing delegation.
      */
     private final WhoCanDesign designer;
+    /**
+     * Receiver object of the coding delegation.
+     */
+    private final WhoCanCode programmer;
 
     /**
      * Default constructor.
      */
     public LazyEmployee() {
-        programmer = new FastCoder();
         designer = new GoodDesigner();
+        programmer = new FastCoder();
     }
 
     @Override
@@ -139,6 +137,147 @@ public class LazyEmployee implements WhoCanDesign, WhoCanCode {
     }
 
 }
+
+```
+
+<br>
+
+```python
+#!usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Delegation Pattern demo module.
+"""
+
+__author__ = 'Ziang Lu'
+
+
+from abc import ABC, abstractmethod
+
+
+class WhoCanDesign(ABC):
+    """
+    Abstract class of a person who can design.
+    """
+    __slots__ = []
+
+    @abstractmethod
+    def design(self) -> None:
+        """
+        Designs a program.
+        :return: None
+        """
+        pass
+
+
+class GoodDesigner(WhoCanDesign):
+    """
+    Good designer.
+    """
+    __slots__ = []
+
+    def design(self) -> None:
+        print('Designed by GoodDesigner')
+
+
+class WhoCanCode(ABC):
+    """
+    Abstract class of a person who can program.
+    """
+    __slots__ = []
+
+    @abstractmethod
+    def code(self) -> None:
+        """
+        Codes a program.
+        :return: None
+        """
+        pass
+
+
+class FastCoder(WhoCanCode):
+    """
+    Fast coder.
+    """
+    __slots__ = []
+
+    def code(self):
+        print('Coded by FastCoder')
+
+
+class WhoCanTest(ABC):
+    """
+    Abstract class of a person who can test.
+    """
+    __slots__ = []
+
+    @abstractmethod
+    def test(self) -> None:
+        """
+        Tests a program.
+        :return: None
+        """
+        pass
+
+
+class DangerousTester(WhoCanTest):
+    """
+    Dangerous tester.
+    """
+    __slots__ = []
+
+    def test(self):
+        print('Tested by DangerousTester')
+
+
+class LazyEmployee(WhoCanDesign, WhoCanCode):
+    """
+    LazyEmployee class that uses Delegation Pattern to delegate some of the
+    responsibilities of this class to a receiver object.
+    This is like a lazy employee delegating his work to some outsourcing
+    companies or individuals.
+    """
+    __slots__ = ['_designer', '_programmer']
+
+    def __init__(self):
+        """
+        Default constructor.
+        """
+        self._designer = GoodDesigner()
+        self._programmer = FastCoder()
+
+    def design(self):
+        self._designer.design()
+
+    def code(self):
+        self._programmer.code()
+
+    def test(self, tester: WhoCanTest) -> None:
+        """
+        Tests a program using the given tester.
+        This method is an example of delegation without aggregation, but by
+        simply passing in the receiver object for delegation.
+        :param tester: WhoCanTest
+        :return: None
+        """
+        tester.test()
+
+
+def main():
+    employee = LazyEmployee()
+    employee.design()
+    employee.code()
+    employee.test(DangerousTester())
+
+
+if __name__ == '__main__':
+    main()
+
+# Output:
+# Designed by GoodDesigner
+# Coded by FastCoder
+# Tested by DangerousTester
 
 ```
 

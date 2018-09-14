@@ -24,8 +24,8 @@ class BalanceManager {
     }
 
     /**
-     * Checks whether there is enough balance in the bank account comparing to
-     * the given amount.
+     * Private helper method to check whether there is enough balance in the
+     * bank account comparing to the given amount.
      * @param amount amount of balance to compare
      * @return whether there is enough balance
      */

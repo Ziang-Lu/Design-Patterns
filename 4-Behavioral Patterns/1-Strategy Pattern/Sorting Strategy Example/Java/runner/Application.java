@@ -33,11 +33,11 @@ public class Application {
 
         SortContext context = new SortContext();
         if (sortingAlgo.equalsIgnoreCase("BubbleSort")) {
-            context.setSortingStrategy(new BubbleSort());
+            context.setSortingStrategy(BubbleSort.getInstance());
         } else if (sortingAlgo.equalsIgnoreCase("SelectionSort")) {
-            context.setSortingStrategy(new SelectionSort());
+            context.setSortingStrategy(SelectionSort.getInstance());
         } else if (sortingAlgo.equalsIgnoreCase("InsertionSort")) {
-            context.setSortingStrategy(new InsertionSort());
+            context.setSortingStrategy(SelectionSort.getInstance());
         }
 
         context.sortArray(array);

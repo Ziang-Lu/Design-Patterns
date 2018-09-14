@@ -3,10 +3,40 @@ package strategy;
 /**
  * Concrete Selection Sort strategy to perform the sorting task (solve the
  * sorting problem) using Selection Sort.
+ * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
 public class SelectionSort extends SortingStrategy {
+
+    /**
+     * Singleton instance.
+     */
+    private volatile static SelectionSort instance;
+
+    /**
+     * Gets the singleton instance.
+     * This implementation utilizes Lazy Initialization Pattern and double-check
+     * locking mechanism.
+     * @return singleton instance
+     */
+    public static SelectionSort getInstance() {
+        if (instance == null) {
+            synchronized (SelectionSort.class) {
+                if (instance == null) {
+                    instance = new SelectionSort();
+                }
+            }
+        }
+        return instance;
+    }
+
+    /**
+     * Private default constructor.
+     * This has to be private so that the class instances cannot be created
+     * outside of the class.
+     */
+    private SelectionSort() {}
 
     @Override
     public void sort(int[] array) {

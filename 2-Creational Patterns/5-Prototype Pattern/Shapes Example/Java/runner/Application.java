@@ -3,7 +3,7 @@ package runner;
 import prototype.Shape;
 
 /**
- * Application that actually makes use of Prototype Pattern.
+ * Application that actually uses Prototype Pattern.
  *
  * @author Ziang Lu
  */

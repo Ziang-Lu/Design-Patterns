@@ -14,7 +14,7 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        String text = "The prototype pattern is a creational design pattern in software development first described in the book Design Patterns.";
+        String text = "The Prototype Pattern is a creational design pattern in software development first described in the book Design Patterns.";
         String word = "pattern";
         WordOccurrences prototype = new WordOccurrences(text, word);
 

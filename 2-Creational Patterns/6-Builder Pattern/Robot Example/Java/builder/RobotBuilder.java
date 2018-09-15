@@ -40,6 +40,8 @@ public abstract class RobotBuilder {
      * Returns the finished robot.
      * @return finished robot
      */
-    public abstract Robot getRobot();
+    public Robot getRobot() {
+        return robot;
+    }
 
 }

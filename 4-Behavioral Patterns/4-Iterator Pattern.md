@@ -124,3 +124,104 @@ public class MyArray implements Iterable<Integer> {
 
 ```
 
+<br>
+
+```python
+#!usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Iterator Pattern demo module.
+"""
+
+__author__ = 'Ziang Lu'
+
+
+class MyArray(object):
+    """
+    MyArray that uses Iterator Pattern.
+    This class implements the Iterator Protocol, and provides an iterator used
+    to traverse the underlying array.
+    """
+    __slots__ = ['_array', '_n_elem']
+
+    def __init__(self, capacity: int):
+        """
+        Constructor with parameter.
+        :param capacity: int
+        """
+        self._array = [0] * capacity
+        self._n_elem = 0
+
+    @property
+    def n_elem(self) -> int:
+        """
+        Accessor of n_elem.
+        :return: int
+        """
+        return self._n_elem
+
+    def append(self, num: int) -> None:
+        """
+        Appends the given number to this array.
+        :param num: int
+        :return: None
+        """
+        if self._n_elem > len(self._array):
+            raise RuntimeError('This array is full!')
+        self._array[self._n_elem] = num
+        self._n_elem += 1
+
+    def __iter__(self):
+        return MyArrayIterator(self)
+
+
+class MyArrayIterator(object):
+    """
+    Iterator for MyArray.
+    """
+
+    def __init__(self, array: MyArray):
+        """
+        Constructor with parameter.
+        :param array: MyArray
+        """
+        self._array = array
+        self._iterator_ptr = 0
+
+    def __next__(self):
+        if self._iterator_ptr < self._array.n_elem:
+            next_int = self._array._array[self._iterator_ptr]
+            self._iterator_ptr += 1
+            return next_int
+        else:
+            raise StopIteration
+
+    def __iter__(self):
+        return self
+
+
+def main():
+    array = MyArray(5)
+    array.append(1)
+    array.append(2)
+    array.append(1)
+    array.append(3)
+    array.append(8)
+
+    for num in array:
+        print(num)
+
+
+if __name__ == '__main__':
+    main()
+
+# Output:
+# 1
+# 2
+# 1
+# 3
+# 8
+
+```
+

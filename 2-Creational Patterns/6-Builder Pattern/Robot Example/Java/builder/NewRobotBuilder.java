@@ -34,9 +34,4 @@ public class NewRobotBuilder extends RobotBuilder {
         robot.setLegs(new RobotLegs("Jet-Propelled Legs"));
     }
 
-    @Override
-    public Robot getRobot() {
-        return robot;
-    }
-
 }

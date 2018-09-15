@@ -34,9 +34,4 @@ public class OldRobotBuilder extends RobotBuilder {
         robot.setLegs(new RobotLegs("Roller Skates"));
     }
 
-    @Override
-    public Robot getRobot() {
-        return robot;
-    }
-
 }

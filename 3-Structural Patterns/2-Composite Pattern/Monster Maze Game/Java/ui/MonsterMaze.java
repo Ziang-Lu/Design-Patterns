@@ -5,7 +5,7 @@ import model.Room;
 import model.Treasure;
 
 /**
- * Application that actually uses Composite Pattern.
+ * Application.
  *
  * @author Ziang Lu
  */

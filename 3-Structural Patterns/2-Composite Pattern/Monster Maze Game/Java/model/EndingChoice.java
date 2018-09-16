@@ -5,7 +5,7 @@ package model;
  *
  * @author Ziang Lu
  */
-public abstract class EndingChoice extends Choice {
+public abstract class EndingChoice implements Choice {
 
     /**
      * Prints the outcome of this ending choice.

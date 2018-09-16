@@ -24,14 +24,13 @@ public class Application {
         Topic composite = new Topic("Composite Pattern");
         designPatterns.addModule(composite);
 
-        Topic observer = new Topic("Observer Pattern");
-        designPatterns.addModule(observer);
-
         Lecture compositeIntro = new Lecture("Intro to Composite Pattern");
         composite.addModule(compositeIntro);
-
         Video compositeVideo = new Video("Let's compose!");
         composite.addModule(compositeVideo);
+
+        Topic observer = new Topic("Observer Pattern");
+        designPatterns.addModule(observer);
 
         Lecture observerIntro = new Lecture("Intro to Observer Pattern");
         observer.addModule(observerIntro);
@@ -40,12 +39,12 @@ public class Application {
 
         /*
          * Output:
-         * 	   Topic -  Design Patterns
+         * 	   Topic - Design Patterns
          * 	       Lecture - Intro to Design Patterns
          * 	       Topic - Composite Pattern
          * 	               Lecture - Intro to Composite Pattern
          * 	               Video - Let's compose!
-         * 	       Topic -  Observer Pattern
+         * 	       Topic - Observer Pattern
          * 	               Lecture - Intro to Observer Pattern
          */
     }

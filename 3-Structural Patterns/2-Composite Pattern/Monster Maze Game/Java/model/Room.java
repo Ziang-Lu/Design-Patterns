@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author Ziang Lu
  */
-public class Room extends Choice {
+public class Room implementsa Choice {
 
     /**
      * Room ID.

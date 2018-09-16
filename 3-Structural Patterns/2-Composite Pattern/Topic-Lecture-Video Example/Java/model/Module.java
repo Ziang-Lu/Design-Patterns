@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Abstract Module class working as "Component".
+ * Abstract Module class that works as "Component".
  *
  * @author Ziang Lu
  */
@@ -10,14 +10,14 @@ public abstract class Module {
     /**
      * Name of this module.
      */
-    protected final String name;
+    protected final String title;
 
     /**
      * Constructor with parameter.
-     * @param name name of the module
+     * @param title title of the module
      */
-    protected Module(String name) {
-        this.name = name;
+    protected Module(String title) {
+        this.title = title;
     }
 
     /**

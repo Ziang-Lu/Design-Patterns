@@ -1,16 +1,11 @@
 package model;
 
 /**
- * Monster class working as "Leaf".
+ * Monster class working as one kind of "Leaf".
  *
  * @author Ziang Lu
  */
 public class Monster extends EndingChoice {
-
-    /**
-     * Option message for Monster.
-     */
-    private static final String OPTION_MSG = "Fight a monster!";
 
     /**
      * Treasure hidden behind this monster.
@@ -26,7 +21,7 @@ public class Monster extends EndingChoice {
 
     @Override
     public void printChoiceMessage() {
-        System.out.println(OPTION_MSG);
+        System.out.println("Fight a monster!");
     }
 
     @Override

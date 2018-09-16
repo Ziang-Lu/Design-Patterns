@@ -7,16 +7,11 @@ import model.EndingChoice;
 import model.Room;
 
 /**
- * MonsterMazeGame class.
+ * MonsterMazeGame class that actually uses Composite Pattern.
  *
  * @author Ziang Lu
  */
 public class MonsterMazeGame {
-
-    /**
-     * Prompt message for invalid input.
-     */
-    private static final String INVALID_INPUT = "You have entered an invalid input. Please try again.";
 
     /**
      * Current room.
@@ -46,7 +41,7 @@ public class MonsterMazeGame {
      */
     public void playGame() {
         printInstructions();
-        while (!gameOver) {
+        while (true) {
             String input = getPlayerInput();
             handleInput(input);
             if (gameOver) {
@@ -61,7 +56,7 @@ public class MonsterMazeGame {
     /**
      * Private helper method to print the instructions.
      */
-    private void printInstructions() {
+    private static void printInstructions() {
         System.out.println("Welcome to Monster Maze, a dangerous \"choose your own path\" game!");
         System.out.println("You will travel through the maze by selecting a choice out of every set of options.");
         System.out.println("Once you made a choice, there is no way back!");
@@ -83,7 +78,7 @@ public class MonsterMazeGame {
             }
         }
         return s.trim();
-    }
+    }ni
 
     /**
      * Private helper method to handle the given input.
@@ -108,7 +103,7 @@ public class MonsterMazeGame {
      */
     private void handleOption(int option) {
         if ((option <= 0) || (option >= curr.getNumOfChoices())) {
-            System.out.println(INVALID_INPUT);
+            System.out.println("You have entered an invalid input. Please try again.");
             return;
         }
         Choice choice = curr.getChoice(option);
@@ -129,7 +124,7 @@ public class MonsterMazeGame {
         if (input.equals("Q")) {
             gameOver = true;
         } else {
-            System.out.println(INVALID_INPUT);
+            System.out.println("You have entered an invalid input. Please try again.");
         }
     }
 

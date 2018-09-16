@@ -1,16 +1,11 @@
 package model;
 
 /**
- * Treasire class working as "Leaf".
+ * Treasure class working as one kind of "Leaf".
  *
  * @author Ziang Lu
  */
 public class Treasure extends EndingChoice {
-
-    /**
-     * Option message for Treasure.
-     */
-    private static final String OPTION_MSG = "Claim your treasure!";
 
     /**
      * Prize of this treasure.
@@ -27,7 +22,7 @@ public class Treasure extends EndingChoice {
 
     @Override
     public void printChoiceMessage() {
-        System.out.println(OPTION_MSG);
+        System.out.println("Claim your treasure!");
     }
 
     @Override

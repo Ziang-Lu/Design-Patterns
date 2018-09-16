@@ -32,7 +32,7 @@ The Facade Pattern is a **structural pattern** that **decouples the client from 
 
 *即用一个总的`Facade`把许多sub-components封装起来, 简化client的使用过程.*
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Facade%20Pattern/facade_pattern.png?raw=true" width="400px">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Facade%20Pattern/facade_pattern.png?raw=true" width="400px">
 
 In this way, the client will depend only on the simple `Facade`, and thus the client's dependency on the sub-components is greatly minimized.
 

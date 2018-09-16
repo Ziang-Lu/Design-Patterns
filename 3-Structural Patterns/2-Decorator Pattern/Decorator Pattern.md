@@ -11,3 +11,8 @@ The Decorator Pattern is a **structural pattern** that is **a wrapper that adds 
 * Reproduce the functionality of the original class, but also add some more functionalities
 
 **Stackable**: You can add decorators on decorators on decorators …… to further increase the provided functionalities.
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/2-Decorator%20Pattern/decorator_pattern.png?raw=true" witdh="500px">
+
+<br>
+

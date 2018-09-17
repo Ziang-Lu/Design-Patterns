@@ -1,6 +1,6 @@
 # Singleton Pattern (单例模式)
 
-### Applicability
+## Applicability
 
 * Exactly one object is needed to coordinate actions across the system.
 
@@ -18,7 +18,7 @@
 
 <br>
 
-### Definition & Explanation
+## Definition & Explanation
 
 => SIngle Pattern is a **creational pattern** that combines Factory Method Pattern and Lazy Initialization Pattern, which **restricts the instantiation of a class to only one single object**.
 
@@ -31,14 +31,14 @@ An implementation of the Singleton Pattern must:
 
 <br>
 
-### Common Uses
+## Common Uses
 
 * Factory objects (工厂对象) are often singletons because only one factory is required.   [Abstract Factory Pattern]
 * State objects (状态对象) are often singletons because only one state object is required.   [State Pattern]
 
 <br>
 
-### Code Example
+## Code Example
 
 ```java
 public class Singleton {
@@ -131,16 +131,14 @@ public class Singleton {
 
 <br>
 
-### Benefits
+## Benefits
 
 Singletons are often preferred to global variables because:
 
 * They do not pollute the global namespace with unnecessary variables.
 * They permit lazy allocation and initialization, whereas global variables in many languages will always consume resources.
 
-<br>
-
-### Drawback
+## Drawback
 
 Some people are critical of the Singleton Pattern and consider it to be an anti-pattern (反模式), in that it is frequently used in scenarios where <u>it is not beneficial, introduces unnecessary restrictions in situations where a sole instance of a class is not actually required, and introduces global state into an application</u>.
 

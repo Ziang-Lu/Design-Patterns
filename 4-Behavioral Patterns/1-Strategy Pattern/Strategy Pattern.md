@@ -1,6 +1,6 @@
 # Strategy Pattern (策略模式)
 
-### Applicability
+## Applicability
 
 Sometimes, we need to carry out several computations / algorithms depending on certain conditions. Generally we go ahead in implementing those by applying either ternary operator or switch or if else.
 
@@ -15,7 +15,7 @@ Though initially somehow we manage to write those programs, if the program deman
 
 <br>
 
-### Definition & Explanation
+## Definition & Explanation
 
 Strategy Pattern is a **behavioral pattern** that **provide multiple algorithms, a family of alrogithms, to perform a specific task (solve a specific problem), so that the client can select which actual implementation to use at runtime**.
 
@@ -39,7 +39,7 @@ In this way, <u>the behavior can be changed without breaking the classes that us
 
 <br>
 
-## Benefit
+## Benefits
 
 * <u>Eliminates large number of conditional statements</u> (by delegating the specific behavior to the `Strategy` interface)
 
@@ -48,8 +48,6 @@ In this way, <u>the behavior can be changed without breaking the classes that us
 * Deferring the decision about which algorithm to use until runtime allows the <u>calling code (the client code) to be more flexible and reusable</u>.
 
   => We can easily add or remove specific behaviors without having to change the client code.
-
-<br>
 
 ## Drawback
 

@@ -1,6 +1,6 @@
 # Multiton Pattern (多例模式)
 
-### Definition & Explanation
+## Definition & Explanation
 
 Multiton Pattern is a **creational pattern** expands on the singleton concept to **manage a map of named instances as key-value pairs: rather than having a single instance per application, the Multiton Pattern instead ensures a single instance per key**.
 
@@ -8,7 +8,7 @@ Multiton Pattern is a **creational pattern** expands on the singleton concept to
 
 <br>
 
-### Code Example
+## Code Example
 
 ```java
 import java.util.HashMap;
@@ -139,6 +139,6 @@ public class LazyInitialization {
 
 <br>
 
-### Drawback
+## Drawback
 
 Similar to Singleton Pattern, Multiton Pattern <u>introduces global state into an application</u>.

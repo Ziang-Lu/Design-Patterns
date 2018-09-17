@@ -1,6 +1,6 @@
 # Builder Pattern (建造者模式)
 
-### Applicability
+## Applicability
 
 Problem: Creating and assembling the parts of a <u>complex</u> object directly within the class is inflexible. It commits the class to creating a particular representation of the complex object, and makes it impossible to change the representation later independently (without having to change) from the class.
 
@@ -14,7 +14,7 @@ Problem: Creating and assembling the parts of a <u>complex</u> object directly w
 
 <br>
 
-### Definition & Explanation
+## Definition & Explanation
 
 The Builder Pattern is a **creational pattern** that **constructs complex objects made up from a bunch of its component objects, and meanwhile keeps the creation of these part objects to be independent from the main object**.
 
@@ -48,7 +48,7 @@ The client can **delegate to different `Builder` objects to create different rep
 
 <br>
 
-### Benefits
+## Benefits
 
 * Encapsulates code for construction and representation (separation)
 
@@ -60,9 +60,7 @@ The client can **delegate to different `Builder` objects to create different rep
 
 * Provides control over steps in the construction process
 
-<br>
-
-### Drawbacks
+## Drawbacks
 
 * Requires creating a separate `ConcreteBuilder` class for each different type of `Product`
 * Data members of `Product` aren't guaranteed to be initialized.

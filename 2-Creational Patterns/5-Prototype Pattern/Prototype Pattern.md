@@ -1,6 +1,6 @@
 # Prototype Pattern (原型模式)
 
-### Applicability
+## Applicability
 
 * How can objects be created so that <u>which objects to create can be specified at runtime</u>?
 
@@ -26,7 +26,7 @@
 
 <br>
 
-### Definition & Explanation
+## Definition & Explanation
 
 -> Similar to Factory Method Pattern
 
@@ -44,7 +44,7 @@ Prototype Pattern is a **creational pattern** that **creates objects whose type 
 
 <br>
 
-### Benefits
+## Benefits
 
 * Avoid subclasses of an object creator in the client application
 
@@ -67,8 +67,6 @@ Prototype Pattern is a **creational pattern** that **creates objects whose type 
 
 ***
 
-<br>
-
-### Drawback
+## Drawback
 
 Requires creating prototypes before create other objects

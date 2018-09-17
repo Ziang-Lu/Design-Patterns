@@ -51,9 +51,7 @@ Another implementation would be `Context implements State`. This makes sure that
 * <u>Makes a class independent of how state-specific behaviors are implemented</u>
 * Cleaner way for an object to <u>change its behavior at runtime without resorting to large monolithic conditional statements</u>, and thus improve maintainability   *(非常类似于Strategy Pattern)*
 
-<br>
-
-## Drawback
+## Drawbacks
 
 通过implement了几个例子, 说实话我觉得这个State Pattern很不好用:
 

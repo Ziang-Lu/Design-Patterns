@@ -1,6 +1,6 @@
 # Lazy Initialization Pattern (惰性初始化模式)
 
-### Definition & Explanation
+## Definition & Explanation
 
 => Lazy Initialization Pattern is a **creational pattern** of **delaying the initialization of objects until the first time it is needed**.
 
@@ -8,7 +8,7 @@ This is typically accomplished by augmenting an accessor method to <u>check whet
 
 <br>
 
-### Code Example
+## Code Example
 
 ```java
 import java.util.HashMap;
@@ -141,7 +141,7 @@ public class LazyInitialization {
 
 <br>
 
-### Benefit
+## Benefit
 
 <u>Impact of object instantiation is spread in time rather than concentrated in the startup phase of a system</u>, and thus mean response times can be greatly improved.
 

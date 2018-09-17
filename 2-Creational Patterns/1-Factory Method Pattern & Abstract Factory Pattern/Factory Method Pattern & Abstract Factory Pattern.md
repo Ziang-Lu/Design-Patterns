@@ -1,6 +1,6 @@
 # Factory Method Pattern (工厂方法模式) & Abstract Factory Pattern (抽象工厂模式)
 
-### Applicability (of Factory Method Pattern and Abstract Factory Pattern combined)
+## Applicability (of Factory Method Pattern and Abstract Factory Pattern combined)
 
 - How can an application be independent of how its objects are created?
 
@@ -22,7 +22,7 @@
 
 <br>
 
-### Definition & Explanation
+## Definition & Explanation
 
 ***
 

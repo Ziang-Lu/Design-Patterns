@@ -7,7 +7,7 @@ package model;
  *
  * @author Ziang Lu
  */
-public abstract class Module {
+abstract class Module {
 
     /**
      * Name of this module.

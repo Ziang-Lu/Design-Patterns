@@ -7,7 +7,7 @@ package model;
  *
  * @author Ziang Lu
  */
-public abstract class Graphic {
+abstract class Graphic {
 
     /**
      * Name of this graphic.

@@ -21,3 +21,4 @@ The Decorator Pattern is a **structural pattern** that is **a wrapper that adds 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Decorator%20Pattern/decorator_pattern.png?raw=true" witdh="500px">
 
 <br>
+

@@ -91,12 +91,12 @@ class BlueShapeDecorator(ShapeDecorator):
     """
     __slots__ = []
 
-    def __init__(self, shape_to_decorate: Shape):
+    def __init__(self, shape: Shape):
         """
         Constructor with parameter.
-        :param shape_to_decorate: Shape
+        :param shape: Shape
         """
-        super().__init__(shape_to_decorate)
+        super().__init__(shape)
 
     def draw(self) -> None:
         super().draw()
@@ -110,12 +110,12 @@ class RedShapeDecorator(ShapeDecorator):
     """
     __slots__ = []
 
-    def __init__(self, shape_to_decorate: Shape):
+    def __init__(self, shape: Shape):
         """
         Constructor with parameter.
-        :param shape_to_decorate: Shape
+        :param shape: Shape
         """
-        super().__init__(shape_to_decorate)
+        super().__init__(shape)
 
     def draw(self) -> None:
         super().draw()
@@ -130,12 +130,12 @@ class YellowOutlineShapeDecorator(ShapeDecorator):
     """
     __slots__ = []
 
-    def __init__(self, shape_to_decorate: Shape):
+    def __init__(self, shape: Shape):
         """
         Constructor with parameter.
-        :param shape_to_decorate: Shape
+        :param shape: Shape
         """
-        super().__init__(shape_to_decorate)
+        super().__init__(shape)
 
     def draw(self) -> None:
         super().draw()

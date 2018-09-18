@@ -1,7 +1,7 @@
-package shape;
+package pizza;
 
 /**
- * Abstract ShapeDecorator class that works as "Decorator".
+ * Abstract PizzaDecorator class that works as "Decorator".
  * This is essentially a wrapper that reproduces the functionality of an
  * existing class and adds new functionality to it, without impacting existing
  * structure and functionality of the objects.
@@ -17,24 +17,19 @@ package shape;
  *
  * @author Ziang Lu
  */
-abstract class ShapeDecorator implements Shape {
+abstract class PizzaDecorator implements Pizza {
 
     /**
-     * Shape to decorate.
+     * Pizza to decorate.
      */
-    protected Shape shapeToDecorate;
+    protected Pizza pizzaToDecorate;
 
     /**
      * Protected constructor with parameter.
-     * @param shape shape to decorate
+     * @param pizza pizza to decorate
      */
-    protected ShapeDecorator(Shape shape) {
-        shapeToDecorate = shape;
-    }
-
-    @Override
-    public String toString() {
-        return shapeToDecorate.toString();
+    protected PizzaDecorator(Pizza pizza) {
+        pizzaToDecorate = pizza;
     }
 
 }

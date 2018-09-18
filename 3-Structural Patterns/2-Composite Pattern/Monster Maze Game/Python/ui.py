@@ -96,17 +96,17 @@ class MonsterMazeGame(object):
 
 
 def main():
-    r1 = Room(1)
-    r2 = Room(2)
-    r3 = Room(3)
-    r4 = Room(4)
-    r5 = Room(5)
-    r6 = Room(6)
+    r1 = Room(id_=1)
+    r2 = Room(id_=2)
+    r3 = Room(id_=3)
+    r4 = Room(id_=4)
+    r5 = Room(id_=5)
+    r6 = Room(id_=6)
 
     m1 = Monster()
     m2 = Monster()
 
-    t = Treasure(100)
+    t = Treasure(prize=100)
 
     r1.add_choice(r2)
     r1.add_choice(r4)
@@ -124,7 +124,7 @@ def main():
 
     r6.add_choice(t)
 
-    game = MonsterMazeGame(r1)
+    game = MonsterMazeGame(start=r1)
     game.play_game()
 
 

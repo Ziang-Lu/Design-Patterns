@@ -2,6 +2,8 @@ package model;
 
 /**
  * Abstract Module class that works as "Component".
+ * Note that this implementations uses Design-for-Type-Safety, i.e., defining
+ * child-related operations only in "Composite"
  *
  * @author Ziang Lu
  */

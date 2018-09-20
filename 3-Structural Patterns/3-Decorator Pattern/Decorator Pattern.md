@@ -1,4 +1,4 @@
-# Decorator Pattern (装饰器模式)
+# Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)
 
 ## Applicability
 
@@ -9,6 +9,11 @@
   *即若想让某个object增加功能A, 然后再增加功能B*:
 
   * *使用inheritance: 需要在design-time创建`ClassWithAandB`, 然后创建出该object*
+
+    *然而, 很多编程语言不支持在runtime dynamically创建class; 并且, 我们也很难预测出实际情况中仅需哪些feature的组合从而在design-time只创建那些组合的subclass*
+
+    *=> 因此, 我们不得不为每一种feature的组合都创建一个subclass, which is practically infeasible.*
+
   * *使用decorator: 可以在design-time创建`DecoratorA`和`DecoratorB`, 再根据需要让其dynamically decorate原object*
 
 * Vlsnvls
@@ -36,4 +41,8 @@ The Decorator Pattern is a **structural pattern** that is **a wrapper that adds 
 *Note that since for `Decorator`, we are forwarding the request from the client to the `Component` it's decorating, we are actually in some sense using Delegation Pattern here*
 
 <br>
+
+The following diagram shows the runtime interaction of a simple example:
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Decorator%20Pattern/runtime_diagram.png?raw=true">
 

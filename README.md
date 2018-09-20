@@ -23,7 +23,7 @@ This repo includes detailed tutorials and examples of various design patterns.
 
 * Delegation Pattern (委托模式)
 * Composite Pattern (复合模式)
-* Decorator Pattern (装饰器模式)
+* Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)
 * Proxy Pattern (代理模式)
 * Facade Pattern (外观模式/门面模式)
 

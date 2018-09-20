@@ -1,18 +1,18 @@
 package shape;
 
 /**
- * BlueShapeDecorator class that works as one kind of "ConcreteDecorator".
+ * ShapeInBlue class that works as one kind of "ConcreteDecorator".
  * This class decorates blue color to a Shape ("Component") object.
  *
  * @author Ziang Lu
  */
-public class BlueShapeDecorator extends ShapeDecorator {
+public class ShapeInBlue extends ShapeDecorator {
 
     /**
      * Constructor with parameter.
      * @param shape shape to decorate
      */
-    public BlueShapeDecorator(Shape shape) {
+    public ShapeInBlue(Shape shape) {
         super(shape);
     }
 

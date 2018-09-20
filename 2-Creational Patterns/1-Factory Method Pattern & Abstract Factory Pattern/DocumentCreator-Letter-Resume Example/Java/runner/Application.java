@@ -7,8 +7,7 @@ import product_document.Letter;
 import product_document.Resume;
 
 /**
- * Main application that actually uses the concrete factories and abstract
- * products.
+ * Application that actually uses the concrete factories and abstract products.
  *
  * @author Ziang Lu
  */
@@ -20,6 +19,7 @@ public class Application {
      */
     public static void main(String[] args) {
         // Get instances from a fancy creator
+
         DocumentCreator fancyCreator = FancyDocumentCreator.getInstance();
         // Note that the creator itself is still an abstract factory DocumentCreator
 
@@ -30,6 +30,7 @@ public class Application {
         System.out.println(resume);
 
         // Get instances from a modern creator
+
         DocumentCreator modernCreator = ModernDocumentCreator.getInstance();
         // Note that the creator itself is still an abstract factory DocumentCreator
 

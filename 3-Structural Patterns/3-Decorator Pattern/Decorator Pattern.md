@@ -2,11 +2,24 @@
 
 ## Applicability
 
+* <u>Responsibilities should be added to (and removed from) an object dynamically at runtime.</u>
 
+* When using subclassing, different subclasses extend a class in different ways. But <u>an extension is bound to the class at compile-time and can't be changed at runtime</u>.
+
+  *即若想让某个object增加功能A, 然后再增加功能B*:
+
+  * *使用inheritance: 需要在design-time创建`ClassWithAandB`, 然后创建出该object*
+  * *使用decorator: 可以在design-time创建`DecoratorA`和`DecoratorB`, 再根据需要让其dynamically decorate原object*
+
+* Vlsnvls
 
 <br>
 
 ## Definition & Explanation
+
+The Decorator Pattern is a **structural pattern** that **allows behavior to be added to an individual object, dynamically, without affecting the behavior of other objects from the same class**.
+
+*即在decorate时, 我们实际上是在decorate某个具体的object, 而不是在decorate该object的class.*
 
 The Decorator Pattern is a **structural pattern** that is **a wrapper that adds new functionality to an existing class**, without impacting existing structure and functionality of the objects.
 
@@ -19,6 +32,8 @@ The Decorator Pattern is a **structural pattern** that is **a wrapper that adds 
 **Stackable: You can add decorators on decorators on decorators …… to further increase the provided functionalities.**
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Decorator%20Pattern/decorator_pattern.png?raw=true" witdh="500px">
+
+*Note that since for `Decorator`, we are forwarding the request from the client to the `Component` it's decorating, we are actually in some sense using Delegation Pattern here*
 
 <br>
 

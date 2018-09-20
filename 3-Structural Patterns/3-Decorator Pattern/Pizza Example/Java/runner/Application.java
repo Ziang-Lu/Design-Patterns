@@ -1,9 +1,9 @@
 package runner;
 
-import pizza.MozzarellaPizzaDecorator;
+import pizza.PizzaWithMozzarella;
 import pizza.Pizza;
 import pizza.PlainPizza;
-import pizza.TomatoSaucePizzaDecorator;
+import pizza.PizzaWithTomatoSauce;
 
 /**
  * Application that actually uses Decorator Pattern.
@@ -17,7 +17,7 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        Pizza myPizza = new TomatoSaucePizzaDecorator(new MozzarellaPizzaDecorator(new PlainPizza()));
+        Pizza myPizza = new PizzaWithTomatoSauce(new PizzaWithMozzarella(new PlainPizza()));
         System.out.println();
         System.out.println("Ingredients of my pizza:");
         System.out.println(myPizza.getDescription());
@@ -31,6 +31,9 @@ public class Application {
          *
          * Ingredients of my pizza:
          * Thin Dough, Mozzarella Cheese, Tomato Sauce
+         * Cost of Plain Pizza: $8.0
+         * Cost of Mozzarella Cheese: $1.0
+         * Cost of Tomato Sauce: $0.5
          * Price of my pizza: $9.5
          */
     }

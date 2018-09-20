@@ -5,7 +5,7 @@ import factory.OsxFactory;
 import factory.WinFactory;
 
 /**
- * Main application that actually uses the concrete factories.
+ * Application that actually uses the concrete factories.
  *
  * @author Ziang Lu
  */

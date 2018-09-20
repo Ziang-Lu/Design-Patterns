@@ -1,18 +1,18 @@
 package shape;
 
 /**
- * RedShapeDecorator class that works as one kind of "ConcreteDecorator".
+ * ShapeInRed class that works as one kind of "ConcreteDecorator".
  * This class decorates red color to a Shape ("Component") object.
  *
  * @author Ziang Lu
  */
-public class RedShapeDecorator extends ShapeDecorator {
+public class ShapeInRed extends ShapeDecorator {
 
     /**
      * Constructor with parameter.
      * @param shape shape to decorate
      */
-    public RedShapeDecorator(Shape shape) {
+    public ShapeInRed(Shape shape) {
         super(shape);
     }
 

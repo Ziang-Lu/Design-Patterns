@@ -67,6 +67,10 @@ class ShapeDecorator(Shape):
     "Decorator" will only have an abstract "Component" object to decorate, but
     does not need to care it will actually decorate a "ConcreteComponent" or
     another "Decorator."
+
+    Note that since for "Decorator", we are forwarding the request from the
+    client to the "Component" it's decorating, we are actually in some sense
+    using Delegation Pattern here
     """
     __slots__ = ['_shape_to_decorate']
 
@@ -76,6 +80,8 @@ class ShapeDecorator(Shape):
         :param shape_to_decorate: Shape
         """
         self._shape_to_decorate = shape_to_decorate
+        # Dynamically customize and add functionality to this Shape instance,
+        # which could either be a concrete shape or some other ShapeDecorator.
 
     def draw(self) -> None:
         self._shape_to_decorate.draw()
@@ -84,9 +90,9 @@ class ShapeDecorator(Shape):
         return repr(self._shape_to_decorate)
 
 
-class BlueShapeDecorator(ShapeDecorator):
+class ShapeInBlue(ShapeDecorator):
     """
-    BlueShapeDecorator class that works as one kind of "ConcreteDecorator".
+    ShapeInBlue class that works as one kind of "ConcreteDecorator".
     This class decorates blue color to a Shape ("Component") object.
     """
     __slots__ = []
@@ -103,9 +109,9 @@ class BlueShapeDecorator(ShapeDecorator):
         print(f'Color: Blue has been applied to {self._shape_to_decorate}.')
 
 
-class RedShapeDecorator(ShapeDecorator):
+class ShapeInRed(ShapeDecorator):
     """
-    RedShapeDecorator class that works as one kind of "ConcreteDecorator".
+    ShapeInRed class that works as one kind of "ConcreteDecorator".
     This class decorates blue color to a Shape ("Component") object.
     """
     __slots__ = []
@@ -122,9 +128,9 @@ class RedShapeDecorator(ShapeDecorator):
         print(f'Color: Red has been applied to {self._shape_to_decorate}.')
 
 
-class YellowOutlineShapeDecorator(ShapeDecorator):
+class ShapeInYellowOutline(ShapeDecorator):
     """
-    YellowOutlineShapeDecorator class that works as one kind of
+    ShapeInYellowOutline class that works as one kind of
     "ConcreteDecorator".
     This class decorates yellow outline to a Shape ("Component") object.
     """

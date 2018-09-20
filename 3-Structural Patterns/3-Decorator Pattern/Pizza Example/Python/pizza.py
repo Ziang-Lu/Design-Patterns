@@ -49,6 +49,7 @@ class PlainPizza(Pizza):
         return 'Thin Dough'
 
     def get_price(self):
+        print('Cost of Plain Pizza: $8.0')
         return 8.0
 
 
@@ -67,6 +68,10 @@ class PizzaDecorator(Pizza):
     "Decorator" will only have an abstract "Component" object to decorate, but
     does not need to care it will actually decorate a "ConcreteComponent" or
     another "Decorator."
+
+    Note that since for "Decorator", we are forwarding the request from the
+    client to the "Component" it's decorating, we are actually in some sense
+    using Delegation Pattern here
     """
     __slots__ = ['_pizza_to_decorate']
 
@@ -76,6 +81,8 @@ class PizzaDecorator(Pizza):
         :param pizza: Pizza
         """
         self._pizza_to_decorate = pizza
+        # Dynamically customize and add functionality to this Pizza instance,
+        # which could either be a PlainPizza or some other PizzaDecorator.
 
     def get_description(self):
         return self._pizza_to_decorate.get_description()
@@ -84,10 +91,9 @@ class PizzaDecorator(Pizza):
         return self._pizza_to_decorate.get_price()
 
 
-class MozzarellaPizzaDecorator(PizzaDecorator):
+class PizzaWithMozzarella(PizzaDecorator):
     """
-    MozzarellaPizzaDecorator class that works as one kind of
-    "ConcreteDecorator".
+    PizzaWithMozzarella class that works as one kind of "ConcreteDecorator".
     This class adds (decorates) mozzarella cheese to a Pizza ("Component")
     object.
     """
@@ -102,15 +108,19 @@ class MozzarellaPizzaDecorator(PizzaDecorator):
         print('Adding mozzarella cheese')
 
     def get_description(self):
+        # Returns the decorated Pizza after adding mozzarella cheese to it
         return self._pizza_to_decorate.get_description() + ', Mozzarella Cheese'
 
     def get_price(self):
+        print('Cost of Mozzarella Cheese: $1.0')
+        # Returns the cost of the decorated Pizza after adding mozzarella cheese
+        # to it
         return self._pizza_to_decorate.get_price() + 1.0
 
 
-class TomatoSaucePizzaDecorator(PizzaDecorator):
+class PizzaWithTomatoSauce(PizzaDecorator):
     """
-    TomatoSaucePizzaDecorator clas that works as one kind of
+    PizzaWithTomatoSauce clas that works as one kind of
     "ConcreteDecorator".
     This class adds (decorates) tomato sauce to Pizza ("Component") object.
     """
@@ -125,7 +135,11 @@ class TomatoSaucePizzaDecorator(PizzaDecorator):
         print('Adding tomato sauce')
 
     def get_description(self):
+        # Returns the decorated Pizza after adding tomato sauce to it
         return self._pizza_to_decorate.get_description() + ', Tomato Sauce'
 
     def get_price(self):
+        print('Cost of Tomato Sauce: $0.5')
+        # Returns the cost of the decorated Pizza after adding tomato sauce to
+        # it
         return self._pizza_to_decorate.get_price() + 0.5

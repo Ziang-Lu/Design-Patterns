@@ -15,12 +15,18 @@ package pizza;
  * does not need to care it will actually decorate a "ConcreteComponent" or
  * another "Decorator."
  *
+ * Note that since for "Decorator", we are forwarding the request from the
+ * client to the "Component" it's decorating, we are actually in some sense
+ * using Delegation Pattern here
+ *
  * @author Ziang Lu
  */
 abstract class PizzaDecorator implements Pizza {
 
     /**
      * Pizza to decorate.
+     * Dynamically customize and add functionality to this Pizza instance, which
+     * could either be a PlainPizza or some other PizzaDecorator.
      */
     protected Pizza pizzaToDecorate;
 

@@ -1,12 +1,12 @@
 
 package runner;
 
-import shape.BlueShapeDecorator;
 import shape.Circle;
 import shape.Rectangle;
-import shape.RedShapeDecorator;
 import shape.Shape;
-import shape.YellowOutlineShapeDecorator;
+import shape.ShapeInBlue;
+import shape.ShapeInRed;
+import shape.ShapeWithYellowOutline;
 
 /**
  * Application that actually uses Decorator Pattern.
@@ -20,12 +20,12 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        Shape rectangle = new BlueShapeDecorator(new Rectangle());
+        Shape rectangle = new ShapeInBlue(new Rectangle());
         rectangle.draw();
 
         System.out.println();
 
-        Shape circle = new YellowOutlineShapeDecorator(new RedShapeDecorator(new Circle()));
+        Shape circle = new YellowOutlineShapeDecorator(new ShapeInRed(new Circle()));
         circle.draw();
 
         /*

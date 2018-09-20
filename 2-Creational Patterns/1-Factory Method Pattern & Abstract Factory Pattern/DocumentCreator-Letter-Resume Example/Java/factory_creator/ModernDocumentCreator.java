@@ -18,6 +18,12 @@ public class ModernDocumentCreator implements DocumentCreator {
      */
     private volatile static ModernDocumentCreator instance = null;
 
+    /**
+     * Gets the singleton instance.
+     * This implementation utilizes Lazy Initialization Pattern and double-check
+     * locking mechanism.
+     * @return singleton instance
+     */
     public static ModernDocumentCreator getInstance() {
         if (instance == null) {
             synchronized (ModernDocumentCreator.class) {

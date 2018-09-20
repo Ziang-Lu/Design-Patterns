@@ -2,6 +2,7 @@ package pizza;
 
 /**
  * PlainPizza class that works as one kind of "ConcreteComponent".
+ * Every pizza we are going to make will start from a PlainPizza.
  *
  * @author Ziang Lu
  */
@@ -21,6 +22,7 @@ public class PlainPizza implements Pizza {
 
     @Override
     public double getPrice() {
+        System.out.println("Cost of Plain Pizza: $8.0");
         return 8.0;
     }
 

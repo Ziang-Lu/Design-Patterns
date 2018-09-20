@@ -131,6 +131,25 @@ public class Singleton {
 
 <br>
 
+```python
+class Singleton(object):
+
+    @classmethod
+    def get_instance(cls):
+        """
+        Factory method to get the singleton instance.
+        :return: Singleton
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
+```
+
+<br>
+
 ## Benefits
 
 Singletons are often preferred to global variables because:

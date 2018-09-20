@@ -6,7 +6,7 @@ import product_button.MyButton;
 /**
  * Renderer class for a specific operating system.
  * Note that a renderer knows nothing about which concrete type of GuiFactory to
- * use, and thus which concrete type of Button product to create.
+ * use, and thus which concrete type of MyButton product to create
  *
  * @author Ziang Lu
  */

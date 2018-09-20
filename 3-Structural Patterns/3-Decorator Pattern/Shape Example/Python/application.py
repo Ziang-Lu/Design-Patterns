@@ -8,18 +8,17 @@ Shape module.
 __author__ = 'Ziang Lu'
 
 from shape import (
-    BlueShapeDecorator, Circle, Rectangle, RedShapeDecorator,
-    YellowOutlineShapeDecorator
+    Circle, Rectangle, ShapeInBlue, ShapeInRed, ShapeWithYellowOutline
 )
 
 
 def main():
-    rectangle = BlueShapeDecorator(Rectangle())
+    rectangle = ShapeInBlue(Rectangle())
     rectangle.draw()
 
     print()
 
-    circle = YellowOutlineShapeDecorator(RedShapeDecorator(Circle()))
+    circle = ShapeWithYellowOutline(ShapeInRed(Circle()))
     circle.draw()
 
 

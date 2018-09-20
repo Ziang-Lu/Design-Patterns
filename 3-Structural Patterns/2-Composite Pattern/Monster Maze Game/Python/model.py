@@ -52,7 +52,7 @@ class Room(Choice):
         self._id = id_
         self._choices = [None]  # Add a dummy object
 
-    def print_choice_msg(self) -> None:
+    def print_choice_msg(self):
         print(f'Enter Room #{self._id}')
 
     def print_next_choices(self) -> None:
@@ -118,10 +118,10 @@ class Treasure(EndingChoice):
         """
         self._prize = prize
 
-    def print_choice_msg(self) -> None:
+    def print_choice_msg(self):
         print('Claim your treasure!')
 
-    def print_outcome(self) -> None:
+    def print_outcome(self):
         print(f'Your prize is {self._prize} coins.')
 
 
@@ -137,10 +137,10 @@ class Monster(EndingChoice):
         """
         self._treasure = None
 
-    def print_choice_msg(self) -> None:
+    def print_choice_msg(self):
         print('Fight a monster!')
 
-    def print_outcome(self) -> None:
+    def print_outcome(self):
         if self._treasure:
             print("Ah! You killed the monster!")
             self._treasure.print_outcome()

@@ -10,10 +10,6 @@ package vending_machine;
 class NoMoneyState implements VendingMachineState {
 
     /**
-     * Name of this state.
-     */
-    private static final String STATE_NAME = "No Product Selected & No Money Inserted";
-    /**
      * Singleton instance.
      */
     private volatile static NoMoneyState instance;
@@ -44,11 +40,11 @@ class NoMoneyState implements VendingMachineState {
 
     @Override
     public void displayState() {
-        System.out.println("Current state: " + STATE_NAME);
+        System.out.println("Current state: No Product Selected & No Money Inserted");
     }
 
     @Override
-    public void selectProductAndInsertMoney(VendingMachine vendingMachine, int amount, String product) {
+    public void insertMoneyAndSelectProduct(VendingMachine vendingMachine, int amount, String product) {
         vendingMachine.setBalance(amount);
         vendingMachine.setSelectedProduct(product);
         System.out.println("$" + amount + " has been inserted and " + product + " has been selected...");

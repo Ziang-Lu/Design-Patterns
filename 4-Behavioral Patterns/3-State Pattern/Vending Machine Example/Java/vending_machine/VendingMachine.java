@@ -6,7 +6,7 @@ package vending_machine;
  * @author Ziang Lu
  */
 public class VendingMachine {
-
+s
     /**
      * Internal state of this vending machine that controls the actual behaviors
      * of this vending machine.

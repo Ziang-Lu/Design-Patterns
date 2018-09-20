@@ -25,7 +25,6 @@ public class Card {
         if (String.valueOf(pin).length() != 4) {
             throw new RuntimeException("The PIN should be exactly 4 digits.");
         }
-
         this.pin = pin;
         this.balance = balance;
     }

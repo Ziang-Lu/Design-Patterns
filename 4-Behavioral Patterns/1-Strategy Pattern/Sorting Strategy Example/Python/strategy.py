@@ -32,10 +32,23 @@ class SelectionSort(SortingStrategy):
     """
     Concrete Selection Sort strategy to perform the sorting task (solve the
     sorting problem).
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
 
-    def sort(self, array: List[int]) -> None:
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: SelectionSort
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def sort(self, array):
         for out in range(len(array) - 1):
             min_idx = out
             for in_ in range(out + 1, len(array)):
@@ -49,10 +62,23 @@ class BubbleSort(SortingStrategy):
     """
     Concrete Bubble Sort strategy to perform the sorting task (solve the sorting
     problem).
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
 
-    def sort(self, array: List[int]) -> None:
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: BubbleSort
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def sort(self, array):
         for out in range(len(array) - 1, 0, -1):
             for in_ in range(out):
                 if array[in_] > array[in_ + 1]:
@@ -64,10 +90,23 @@ class InsertionSort(SortingStrategy):
     """
     Concrete Insertion Sort strategy to perform the sorting task (solve the
     sorting problem).
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
 
-    def sort(self, array: List[int]) -> None:
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: InsertionSort
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def sort(self, array):
         for out in range(1, len(array)):
             tmp = array[out]
             insert_idx = out

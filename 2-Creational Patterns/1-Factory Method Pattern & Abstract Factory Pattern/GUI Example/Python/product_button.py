@@ -32,7 +32,7 @@ class OsxButton(MyButton):
     """
     __slots__ = []
 
-    def paint(self) -> None:
+    def paint(self):
         print('This is a MaxOSX button.')
 
 
@@ -42,5 +42,5 @@ class WinButton(MyButton):
     """
     __slots__ = []
 
-    def paint(self) -> None:
+    def paint(self):
         print('This is a Windows button.')

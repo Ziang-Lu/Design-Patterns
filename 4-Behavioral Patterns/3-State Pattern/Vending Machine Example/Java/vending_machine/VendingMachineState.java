@@ -17,12 +17,12 @@ interface VendingMachineState {
     void displayState();
 
     /**
-     * Lets the user inserts some money and select a product.
+     * i
      * @param vendingMachine vending machine to operate on
      * @param amount money to insert
      * @param product product to select
      */
-    void selectProductAndInsertMoney(VendingMachine vendingMachine, int amount, String product);
+    void insertMoneyAndSelectProduct(VendingMachine vendingMachine, int amount, String product);
 
     /**
      * Dispenses selected the product, and returns balance if any.

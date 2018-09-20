@@ -31,10 +31,23 @@ class NormalBillingStrategy(BillingStrategy):
     """
     Concrete NormalBillingStrategy to perform the getting actual price task
     (solve the getting actual price problem) using the normal billing strategy.
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
 
-    def get_actual_price(self, raw_price: float) -> float:
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: NormalBillingStrategy
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def get_actual_price(self, raw_price):
         return raw_price
 
 
@@ -43,9 +56,22 @@ class HappyHourBillingStrategy(BillingStrategy):
     Concrete HappyHourBillingStrategy to perform the getting actual price task
     (solve the getting actual price problem) using the happy hour billing
     strategy.
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
 
-    def get_actual_price(self, raw_price: float) -> float:
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: HappyHourBillingStrategy
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def get_actual_price(self, raw_price):
         # 50% discount
         return raw_price * 0.5

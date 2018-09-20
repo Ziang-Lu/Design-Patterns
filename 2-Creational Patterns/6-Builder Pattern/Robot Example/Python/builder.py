@@ -73,16 +73,16 @@ class OldRobotBuilder(RobotBuilder):
     """
     __slots__ = []
 
-    def build_robot_head(self) -> None:
+    def build_robot_head(self):
         self._robot.set_head(RobotHead('Tin Head'))
 
-    def build_robot_torso(self) -> None:
+    def build_robot_torso(self):
         self._robot.set_torso(RobotTorso('Tin Torso'))
 
-    def build_robot_arms(self) -> None:
+    def build_robot_arms(self):
         self._robot.set_arms(RobotArms('Blowtorch Arms'))
 
-    def build_robot_legs(self) -> None:
+    def build_robot_legs(self):
         self._robot.set_legs(RobotLegs('Roller Skates'))
 
 
@@ -93,16 +93,16 @@ class NewRobotBuilder(RobotBuilder):
     """
     __slots__ = []
 
-    def build_robot_head(self) -> None:
+    def build_robot_head(self):
         self._robot.set_head(RobotHead('Vibranium Head'))
 
-    def build_robot_torso(self) -> None:
+    def build_robot_torso(self):
         self._robot.set_torso(RobotTorso('Vibranium Torso'))
 
-    def build_robot_arms(self) -> None:
+    def build_robot_arms(self):
         self._robot.set_arms(RobotArms('Artificial Flesh Arms'))
 
-    def build_robot_legs(self) -> None:
+    def build_robot_legs(self):
         self._robot.set_legs(RobotLegs('Jet-Propelled Legs'))
 
 

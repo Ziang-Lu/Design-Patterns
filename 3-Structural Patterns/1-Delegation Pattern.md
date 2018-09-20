@@ -177,7 +177,7 @@ class GoodDesigner(WhoCanDesign):
     """
     __slots__ = []
 
-    def design(self) -> None:
+    def design(self):
         print('Designed by GoodDesigner')
 
 

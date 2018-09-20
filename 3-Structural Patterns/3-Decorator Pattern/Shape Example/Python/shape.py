@@ -32,7 +32,7 @@ class Rectangle(Shape):
     """
     __slots__ = []
 
-    def draw(self) -> None:
+    def draw(self):
         print('Shape: Rectangle has been drawn.')
 
     def __repr__(self):
@@ -45,7 +45,7 @@ class Circle(Shape):
     """
     __slots__ = []
 
-    def draw(self) -> None:
+    def draw(self):
         print('Shape: Circle has been drawn.')
 
     def __repr__(self):
@@ -83,7 +83,7 @@ class ShapeDecorator(Shape):
         # Dynamically customize and add functionality to this Shape instance,
         # which could either be a concrete shape or some other ShapeDecorator.
 
-    def draw(self) -> None:
+    def draw(self):
         self._shape_to_decorate.draw()
 
     def __repr__(self):
@@ -104,7 +104,7 @@ class ShapeInBlue(ShapeDecorator):
         """
         super().__init__(shape)
 
-    def draw(self) -> None:
+    def draw(self):
         super().draw()
         print(f'Color: Blue has been applied to {self._shape_to_decorate}.')
 
@@ -123,7 +123,7 @@ class ShapeInRed(ShapeDecorator):
         """
         super().__init__(shape)
 
-    def draw(self) -> None:
+    def draw(self):
         super().draw()
         print(f'Color: Red has been applied to {self._shape_to_decorate}.')
 
@@ -143,6 +143,6 @@ class ShapeInYellowOutline(ShapeDecorator):
         """
         super().__init__(shape)
 
-    def draw(self) -> None:
+    def draw(self):
         super().draw()
         print(f'Outline: Yellow has been applied to {self._shape_to_decorate}')

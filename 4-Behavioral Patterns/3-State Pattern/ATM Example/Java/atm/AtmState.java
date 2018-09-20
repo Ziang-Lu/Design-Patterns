@@ -4,7 +4,7 @@ import card.Card;
 
 /**
  * Abstract AtmState interface that defines all the handlers for different
- * requests the ATM machine.
+ * requests for the ATM machine.
  * Different concrete states implementing this interface will provide different
  * implementations to these handlers to achieve different behaviors of the ATM
  * based on its state.
@@ -12,13 +12,6 @@ import card.Card;
  * @author Ziang Lu
  */
 interface AtmState {
-
-    /**
-     * Loads some cash in the given ATM.
-     * @param atm ATM to operate on
-     * @param amount amount of cash to load
-     */
-    void loadCash(AtmMachine atm, int amount);
 
     /**
      * Inserts a card.

@@ -3,17 +3,12 @@ package atm;
 import card.Card;
 
 /**
- * Concrete NoCardState that corresponds to the state of the ATM that a card
+ * Concrete HasCardState that corresponds to the state of the ATM that a card
  * has been inserted.
  *
  * @author Ziang Lu
  */
 class HasCardState implements AtmState {
-
-    @Override
-    public void loadCash(AtmMachine atm, int amount) {
-        System.out.println("Cannot load cash during usage of this ATM");
-    }
 
     @Override
     public void insertCard(AtmMachine atm, Card card) {

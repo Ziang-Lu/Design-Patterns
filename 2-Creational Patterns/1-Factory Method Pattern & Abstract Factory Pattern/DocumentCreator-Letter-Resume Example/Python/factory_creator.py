@@ -60,10 +60,10 @@ class FancyDocumentCreator(DocumentCreator):
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def create_letter(self) -> Letter:
+    def create_letter(self):
         return FancyLetter()
 
-    def create_resume(self) -> Resume:
+    def create_resume(self):
         return FancyResume()
 
 
@@ -86,8 +86,8 @@ class ModernDocumentCreator(DocumentCreator):
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def create_letter(self) -> Letter:
+    def create_letter(self):
         return ModernLetter()
 
-    def create_resume(self) -> Resume:
+    def create_resume(self):
         return ModernResume()

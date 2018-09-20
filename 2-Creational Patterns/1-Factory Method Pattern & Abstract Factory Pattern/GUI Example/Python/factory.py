@@ -49,7 +49,7 @@ class OsxFactory(GuiFactory):
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def create_button(self) -> MyButton:
+    def create_button(self):
         return OsxButton()
 
 
@@ -72,5 +72,5 @@ class WinFactory(GuiFactory):
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def create_button(self) -> MyButton:
+    def create_button(self):
         return WinButton()

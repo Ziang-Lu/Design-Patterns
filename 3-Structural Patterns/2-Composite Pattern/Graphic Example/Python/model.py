@@ -104,17 +104,17 @@ class GraphicComposite(Graphic):
         super().__init__(name)
         self._sub_graphics = []
 
-    def draw(self) -> None:
+    def draw(self):
         print(f'Drawing {self._name} as follows:')
         for sub_graphic in self._sub_graphics:
             sub_graphic.draw()
 
-    def translate(self, x: int, y: int) -> None:
+    def translate(self, x, y):
         print(f'Translating {self._name} as follows:')
         for sub_graphic in self._sub_graphics:
             sub_graphic.translate(x, y)
 
-    def resize(self, times: float) -> None:
+    def resize(self, times):
         print(f'Resizing {self._name} as follows:')
         for sub_graphic in self._sub_graphics:
             sub_graphic.resize(times)
@@ -140,13 +140,13 @@ class Rectangle(Graphic):
         """
         super().__init__(name)
 
-    def draw(self) -> None:
+    def draw(self):
         super()._draw_helper()
 
-    def translate(self, x: int, y: int) -> None:
+    def translate(self, x, y):
         super()._translate_helper(x, y)
 
-    def resize(self, times: float) -> None:
+    def resize(self, times):
         super()._resize_helper(times)
 
 
@@ -162,11 +162,11 @@ class Circle(Graphic):
         """
         super().__init__(name)
 
-    def draw(self) -> None:
+    def draw(self):
         super()._draw_helper()
 
-    def translate(self, x: int, y: int) -> None:
+    def translate(self, x, y):
         super()._translate_helper(x, y)
 
-    def resize(self, times: float) -> None:
+    def resize(self, times):
         super()._resize_helper(times)

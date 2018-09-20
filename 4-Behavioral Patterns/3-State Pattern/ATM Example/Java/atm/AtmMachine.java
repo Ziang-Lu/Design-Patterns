@@ -46,19 +46,19 @@ public class AtmMachine {
     }
 
     /**
-     * Accessor of insertedCard.
-     * @return inserted card
-     */
-    Card getInsertedCard() {
-        return insertedCard;
-    }
-
-    /**
      * Accessor of cash.
      * @return cash
      */
     int getCash() {
         return cash;
+    }
+
+    /**
+     * Accessor of insertedCard.
+     * @return inserted card
+     */
+    Card getInsertedCard() {
+        return insertedCard;
     }
 
     /**
@@ -83,14 +83,6 @@ public class AtmMachine {
      */
     void setCard(Card card) {
         this.insertedCard = card;
-    }
-
-    /**
-     * Loads some cash to this ATM.
-     * @param amount amount of cash to load
-     */
-    public void loadCash(int amount) {
-        myState.loadCash(this, amount);
     }
 
     /**

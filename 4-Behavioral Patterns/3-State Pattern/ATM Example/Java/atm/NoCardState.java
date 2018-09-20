@@ -11,12 +11,6 @@ import card.Card;
 class NoCardState implements AtmState {
 
     @Override
-    public void loadCash(AtmMachine atm, int amount) {
-        atm.loadCash(amount);
-        System.out.println("Successfully put $" + amount + " to this ATM");
-    }
-
-    @Override
     public void insertCard(AtmMachine atm, Card card) {
         atm.setCard(card);
 

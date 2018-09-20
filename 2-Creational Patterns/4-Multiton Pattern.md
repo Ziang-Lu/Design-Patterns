@@ -31,17 +31,6 @@ class Fruit {
      */
     private static final Map<FruitType, Fruit> fruits = new HashMap<>();
 
-    private final FruitType type;
-
-    /**
-     * Private constructor with parameter.
-     * This has to be private so that the class instances
-     * @param type type of the fruit
-     */
-    private Fruit(FruitType type) {
-        this.type = type;
-    }
-
     /**
      * Gets the corresponding fruit by the given fruit type.
      * However, this implementation is thread-unsafe. Check out the method body.
@@ -97,6 +86,20 @@ class Fruit {
             }
         }
     }
+
+    /**
+     * Type of this fruit.
+     */
+    private final FruitType type;
+
+    /**
+     * Private constructor with parameter.
+     * This has to be private so that the class instances
+     * @param type type of the fruit
+     */
+    private Fruit(FruitType type) {
+        this.type = type;
+    }
 }
 
 /**
@@ -135,6 +138,95 @@ public class LazyInitialization {
 
 }
 
+```
+
+<br>
+
+```python
+from enum import Enum
+
+
+class FruitType(Enum):
+    """
+    Fruit type.
+    """
+    APPLE = 1
+    BANANA = 2
+    NONE = 0
+
+
+class Fruit(object):
+    """
+    Fruit class.
+    """
+    __slots__ = ['_type']
+    _fruits = {}
+
+    @classmethod
+    def get_fruit_by_type(cls, type_: FruitType):
+        """
+        Gets the corresponding fruit by the given fruit type.
+        :param type_: FruitType
+        :return: Fruit
+        """
+        if type_ not in cls._fruits:
+            cls._fruits[type_] = Fruit(type_)
+        return cls._fruits[type_]
+
+    @classmethod
+    def show_all(cls) -> None:
+        """
+        Shows all fruits.
+        :return: None
+        """
+        if cls._fruits:
+            print(f'Number of fruit instances made: {len(cls._fruits)}')
+            for type_ in cls._fruits.keys():
+                type_name = str(type_)
+                pretty_type_name = cls._process_fruit_type(type_name)
+                print(pretty_type_name)
+
+    @staticmethod
+    def _process_fruit_type(fruit_type_name: str) -> str:
+        """
+        Private static helper function to process the given FruitType name.
+        :param fruit_type_name: str
+        :return: str
+        """
+        dot = fruit_type_name.find('.')
+        fruit_name =  fruit_type_name[dot + 1:]
+        return fruit_name[0] + fruit_name[1:].lower()
+
+    def __init__(self, type_: FruitType):
+        """
+        Constructor with parameter.
+        :param type_: FruitType
+        """
+        self._type = type_
+
+
+def main():
+    Fruit.get_fruit_by_type(FruitType.APPLE)
+    Fruit.show_all()
+    Fruit.get_fruit_by_type(FruitType.BANANA)
+    Fruit.show_all()
+    Fruit.get_fruit_by_type(FruitType.APPLE)
+    Fruit.show_all()
+
+
+if __name__ == '__main__':
+    main()
+
+
+# Output:
+# Number of fruit instances made: 1
+# Apple
+# Number of fruit instances made: 2
+# Apple
+# Banana
+# Number of fruit instances made: 2
+# Apple
+# Banana
 ```
 
 <br>

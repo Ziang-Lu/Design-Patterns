@@ -61,7 +61,7 @@ class Topic(Module):
         super().__init__(title)
         self._modules = []
 
-    def display(self, indent_level: str) -> None:
+    def display(self, indent_level):
         print(indent_level + 'Topic - ' + self._title)
         for submodule in self._modules:
             submodule.display(indent_level + indent_level)
@@ -88,7 +88,7 @@ class Lecture(Module):
         """
         super().__init__(title)
 
-    def display(self, indent_level: str) -> None:
+    def display(self, indent_level):
         print(indent_level + 'Lecture - ' + self._title)
 
 

@@ -3,17 +3,12 @@ package atm;
 import card.Card;
 
 /**
- * Concrete NoCardState that corresponds to the state of the ATM that a card
- * has been inserted and the correct PIN is provided.
+ * Concrete HasCorrectPinState that corresponds to the state of the ATM that a
+ * card has been inserted and the correct PIN is provided.
  *
  * @author Ziang Lu
  */
 class HasCorrectPinState implements AtmState {
-
-    @Override
-    public void loadCash(AtmMachine atm, int amount) {
-        System.out.println("Cannot load cash during usage of this ATM");
-    }
 
     @Override
     public void insertCard(AtmMachine atm, Card card) {
@@ -34,13 +29,13 @@ class HasCorrectPinState implements AtmState {
     public void requestCash(AtmMachine atm, int amount) {
         Card insertedCard = atm.getInsertedCard();
         if (insertedCard.checkBalance() < amount) {
-            System.out.println("No enough balance in the card!");
+            System.out.println("i");
             return;
         }
 
         int currCash = atm.getCash();
         if (currCash == 0) {
-            System.out.println("There is no cash in this ATM");
+            System.out.println("Ca");
         } else if (currCash < amount) {
             insertedCard.withdraw(currCash);
             atm.setCash(0);

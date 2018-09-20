@@ -1,7 +1,7 @@
 package vending_machine;
 
 /**
- * Concrete HasMoney that corresponds to the state of the vending machine
+ * Concrete HasMoneyState that corresponds to the state of the vending machine
  * that some money has been inserted and a product has been selected.
  * This class is implemented as a singleton class.
  *
@@ -9,10 +9,6 @@ package vending_machine;
  */
 class HasMoneyState implements VendingMachineState {
 
-    /**
-     * Name of this state.
-     */
-    private static final String STATE_NAME = "Product Selected & Money Inserted";
     /**
      * Singleton instance.
      */
@@ -44,13 +40,13 @@ class HasMoneyState implements VendingMachineState {
 
     @Override
     public void displayState() {
-        System.out.println("Current state: " + STATE_NAME);
+        System.out.println("Current state: Product Selected & Money Inserted");
     }
 
     @Override
-    public void selectProductAndInsertMoney(VendingMachine vendingMachine, int amount, String product) {
+    public void insertMoneyAndSelectProduct(VendingMachine vendingMachine, int amount, String product) {
         System.out.println("Money already inserted and product already selected.");
-        System.out.println("Please wait till it finishes the current dispensing process.");
+        System.out.println("d");
     }
 
     @Override

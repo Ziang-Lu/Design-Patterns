@@ -16,7 +16,6 @@
 
   * *使用decorator: 可以在design-time创建`DecoratorA`和`DecoratorB`, 再根据需要让其dynamically decorate原object*
 
-* Vlsnvls
 
 <br>
 

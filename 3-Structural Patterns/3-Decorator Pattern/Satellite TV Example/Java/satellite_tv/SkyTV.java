@@ -2,7 +2,6 @@ package satellite_tv;
 
 /**
  * SkyTV class that that works as one kind of "ConcreteComponent".
- * Every satellite TV we are going to make will start from a SkyTV.
  *
  * @author Ziang Lu
  */

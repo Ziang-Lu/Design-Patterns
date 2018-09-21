@@ -1,0 +1,6 @@
+Note that in this example, the different behaviors are in the object creation process, and within the different behaviors (methods), we are returning the newly created instances: thus, this example is somehow related to creational design patterns.
+Thus, there could be two implementations about this example:
+1. Classical implementation: include makeIceCream() as a method in the interface IceCream
+2. Incorporate Factory Method Pattern, and some concepts of Abstract Factory Pattern and Builder Pattern, and implement this example with factories
+
+Check the respective UML class diagram for detailed illustration

@@ -37,7 +37,6 @@ class SatelliteTV(ABC):
 class SkyTV(SatelliteTV):
     """
     SkyTV class that works as one kind of "ConcreteComponent".
-    Every satellite TV we are going to make will start from a SkyTV.
     """
     __slots__ = []
 

@@ -26,9 +26,10 @@ public class PizzaWithMozzarella extends PizzaDecorator {
 
     @Override
     public double getPrice() {
-        System.out.println("Cost of Mozzarella Cheese: $1.0");
         // Returns the cost of the decorated pizza after adding mozzarella cheese to it
-        return pizzaToDecorate.getPrice() + 1.0;
+        double total = pizzaToDecorate.getPrice() + 1.0;
+        System.out.println("Cost of Tomato Sauce: $1.0");
+        return total;
     }
 
 }

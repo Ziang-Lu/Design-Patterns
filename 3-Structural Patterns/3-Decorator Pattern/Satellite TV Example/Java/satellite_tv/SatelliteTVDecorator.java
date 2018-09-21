@@ -1,7 +1,7 @@
-package shape;
+package satellite_tv;
 
 /**
- * Abstract ShapeDecorator class that works as "Decorator".
+ * Abstract SatelliteTVDecorator class that works as "Decorator".
  * This is essentially a wrapper that reproduces the functionality of an
  * existing class and adds new functionality to it, without impacting existing
  * structure and functionality of the objects.
@@ -13,7 +13,7 @@ package shape;
  * "Decorator" both inherit from the common super class "Component", so that
  * "Decorator" will only have an abstract "Component" object to decorate, but
  * does not need to care it will actually decorate a "ConcreteComponent" or
- * another "Decorator."
+ * another "Decorator".
  *
  * Note that since for "Decorator", we are forwarding the request from the
  * client to the "Component" it's decorating, we are actually in some sense
@@ -21,26 +21,21 @@ package shape;
  *
  * @author Ziang Lu
  */
-abstract class ShapeDecorator implements Shape {
+abstract class SatelliteTVDecorator implements SatelliteTV {
 
     /**
-     * Shape to decorate.
-     * Dynamically customize and add functionality to this Shape instance, which
-     * could either be a concrete shape or some other ShapeDecorator.
+     * Satellite TV to decorate.
+     * Dynamically customize and add functionality to this SatelliteTV instance,
+     * which could either be a SatelliteTV or some other SatelliteTVDecorator.
      */
-    protected Shape shapeToDecorate;
+    protected SatelliteTV satelliteTV;
 
     /**
      * Protected constructor with parameter.
-     * @param shape shape to decorate
+     * @param satelliteTV satellite TV to decorate
      */
-    protected ShapeDecorator(Shape shape) {
-        shapeToDecorate = shape;
-    }
-
-    @Override
-    public String toString() {
-        return shapeToDecorate.toString();
+    protected SatelliteTVDecorator(SatelliteTV satelliteTV) {
+        this.satelliteTV = satelliteTV;
     }
 
 }

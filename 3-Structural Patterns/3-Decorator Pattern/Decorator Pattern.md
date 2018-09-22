@@ -29,11 +29,13 @@ The Decorator Pattern is a **structural pattern** that is **a wrapper that adds 
 
 => <u>Decorator is an object that adds feature to another object dynamically.</u>
 
-* Take a class `SampleClass`
-* Build a class that wraps `SampleClass`: `WrapperClass`
-* Reproduce the functionality of the original class, but also add some more functionalities
+***
 
 **Stackable: You can add decorators on decorators on decorators …… to further increase the provided functionalities.**
+
+Thus, we let different `ConcreteComponent` classes and the abstract `Decorator` both inherit from the common super class `Component`, so that `Decorator` will only have an abstract `Component` object to decorate, but doe not need to care it will actually decorate a `ConcreteComponent` or another `Decorator`.
+
+***
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Decorator%20Pattern/decorator_pattern.png?raw=true">
 

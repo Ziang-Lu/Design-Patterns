@@ -34,6 +34,7 @@ This repo includes detailed tutorials and examples of various design patterns.
 * Strategy Pattern (策略模式)
 * Visitor Pattern (访问者模式)
 * State Pattern (状态模式)
+  * Null Object Pattern (空对象模式)
 * Iterator Pattern (迭代器模式)
 * Observer Pattern (观察者模式)
 

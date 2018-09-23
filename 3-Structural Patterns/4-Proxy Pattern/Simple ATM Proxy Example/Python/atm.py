@@ -197,6 +197,7 @@ class HasCorrectPinState(AtmState):
 class AtmMachine(GetAtmData):
     """
     ATM machine class that actually uses State Pattern.
+    This class works as "RealSubject".
     """
     __slots__ = ['_my_state', '_cash', '_inserted_card']
 

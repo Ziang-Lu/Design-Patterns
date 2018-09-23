@@ -38,6 +38,8 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
    In `Proxy`: perform protection-related operations, e.g., filtering out users without enough permission, or invalid method calls
 
+   <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%201-Protection%20Proxy/protection_proxy.png?raw=true">
+
 2. Remote Proxy
 
 3. Virtual Proxy

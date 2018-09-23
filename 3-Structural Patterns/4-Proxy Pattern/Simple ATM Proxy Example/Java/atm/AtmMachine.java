@@ -5,6 +5,7 @@ import card.Card;
 
 /**
  * ATM machine class that actually uses State Pattern.
+ * This class works as "RealSubject".
  *
  * @author Ziang Lu
  */

@@ -50,7 +50,7 @@ class SharedFolder(Folder):
 class FolderProxy(Folder):
     """
     FolderProxy class that works as "Proxy".
-    An FolderProxy object acts as a proxy that controls the access to its hiding
+    A FolderProxy object acts as a proxy that controls the access to its hiding
     SharedFolder object behind the scene, performing protection-related
     operations. In this way, the "Proxy" will work on behalf of the
     "RealSubject", or the "Proxy" represents the "RealSubject".

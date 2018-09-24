@@ -2,6 +2,12 @@
 
 ## Applicability
 
+* When we <u>want to do something more about the original object which is not in the scope of the original object</u>
+
+  <u>=> Limit access to the original object</u>
+
+* Vsvs
+
 <br>
 
 ## Definition & Explanation
@@ -34,16 +40,20 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
 ## Usage Scenarios
 
-1. Protection Proxy (保护代理)
+### 1. Protection Proxy (保护代理)
 
-   In `Proxy`: perform protection-related operations, e.g., filtering out users without enough permission, or invalid method calls
+<u>In `Proxy`: perform protection-related operations</u>, e.g., filtering out users without enough permission, or invalid method calls
 
-   <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%201-Protection%20Proxy/protection_proxy.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%201-Protection%20Proxy/protection_proxy.png?raw=true">
 
-2. Remote Proxy
+### 2. Remote Proxy (远程代理)
 
-3. Virtual Proxy
+### 3. Virtual Proxy (虚拟代理)
 
-4. Smart Proxy
+* A virtual proxy is <u>a placeholder for "expensive-to-create" objects</u>.
+
+* The real "expensive-to-create" is created only when a client first requests/accesses that object. Afterwards, the `Proxy` acts as <u>a cache for that "expensive-to-create" object</u>.
+
+### 4. Smart Proxy (智能代理)
 
 <br>

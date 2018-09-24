@@ -1,9 +1,7 @@
-package folder;
-
-import user.User;
+package isp;
 
 /**
- * Abstract Folder interface that works as "Subject".
+ * Abstract InternetServiceProvider interface that works as "Subject".
  *
  * In order to let the "Proxy" controls the access to its hiding "RealSubject"
  * behind the scene, the "Proxy" needs to provide similar API as the
@@ -11,14 +9,16 @@ import user.User;
  * Therefore, we simply let this step be done via letting "RealSubject" and
  * "Proxy" share a common super class "Subject", in which we define only the
  * methods that we want the "Proxy" to provide access to.
+ *
+ * @author Ziang Lu
  */
-public interface Folder {
+public interface InternetServiceProvider {
 
     /**
-     * The given user tries to perform a read/write operation on a shared
-     * folder.
-     * @param user given user
+     * Returns the contents in the given URL.
+     * @param url given URL
+     * @return contents in the given URL
      */
-    void performReadOrWriteOperation(User user);
+    String getResource(String url);
 
 }

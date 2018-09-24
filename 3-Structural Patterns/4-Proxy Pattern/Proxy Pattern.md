@@ -54,6 +54,8 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
 * The real "expensive-to-create" is created only when a client first requests/accesses that object. Afterwards, the `Proxy` acts as <u>a cache for that "expensive-to-create" object</u>.
 
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%202-Virtual%20Proxy/virtual_proxy.png?raw=true">
+
 ### 4. Smart Proxy (智能代理)
 
 <br>

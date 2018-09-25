@@ -59,3 +59,23 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 ### 4. Smart Proxy (智能代理)
 
 <br>
+
+## Typical Usage: Proxy Server (代理服务器)
+
+- **Internet Service Provider (ISP) access control (filtering)**
+
+  Usually a company will limit the sites that its employees can or cannot access. For example, the employees are not allowed to access gaming sites during work time.
+
+  This can be achieved by using Proxy Pattern: the company simply adds a `CompanyProxyInternet` between the browser and the real ISP, and all of the requests to the real ISP must go through the `CompanyProxyInternet` first.
+
+  In `CompanyProxyInternet`, we can perform the filtering based on the requested site. In this way, the company is able to limit the browser's access to sites with the real ISP.
+
+- **Cache contents and improve performance (as a Virtual Proxy)**
+
+  In `CompanyProxyInternet`, the proxy can cache the responses of the requested sites for some time, so that next time another user under the same proxy requests the same site, `CompanyProxyInternet` will not forward the request again to the site, but simply return the response it previously cached.
+
+* **Make the actual user anonymous**
+
+  The company server can also make the actual user anonymous to the real ISP, e.g., by replacing the actual user's IP address with the company proxy's IP address, so that the real ISP will only know the request comes from the company proxy.
+
+<br>

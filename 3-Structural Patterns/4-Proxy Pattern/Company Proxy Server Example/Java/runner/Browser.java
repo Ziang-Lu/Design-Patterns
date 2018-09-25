@@ -13,6 +13,11 @@ import java.util.Scanner;
 public class Browser {
 
     /**
+     * IP address of the browser.
+     */
+    private static final String BROWSER_IP = "1.1.1.1";
+
+    /**
      * Private static helper method to get the company Internet, which is an ISP
      * proxy.
      * @return company Internet which is a proxy
@@ -25,6 +30,7 @@ public class Browser {
      * Sends a request for the user-input URL.
      */
     public void sendRequest() {
+        System.out.print("Enter the site URL: ");
         Scanner scanner = new Scanner(System.in);
         String url = "";
         if (scanner.hasNextLine()) {
@@ -33,7 +39,7 @@ public class Browser {
 
         System.out.println("Browser sending request to the ISP for " + url);
         InternetServiceProvider companyInternet = getCompanyInternet();
-        String response = companyInternet.getResource(url);
+        String response = companyInternet.getResource(url, BROWSER_IP);
         System.out.println("Browser received a response: " + response);
     }
 
@@ -49,15 +55,16 @@ public class Browser {
         /*
          * Output:
          * Browser sending request to the ISP for www.google.com
-         * [Sun Sep 23 21:42:42 PDT 2018] Request for - www.google.com
+         * [Mon Sep 24 16:02:23 PDT 2018] Request for - www.google.com from IP: 1.1.1.1
+         * [Mon Sep 24 16:02:23 PDT 2018] Request for - www.google.com from IP: 2.2.2.2
          * Browser received a response: [Contents in www.google.com]
          */
 
-        // Input: www.fancygaming.com
+        // Input: www.gaming.com
         /*
          * Output:
-         * Browser sending request to the ISP for www.fancygaming.com
-         * [Sun Sep 23 21:43:56 PDT 2018] Request for - www.fancygaming.com
+         * Browser sending request to the ISP for www.gaming.com
+         * [Mon Sep 24 16:02:47 PDT 2018] Request for - www.gaming.com from IP: 1.1.1.1
          * Browser received a response: This URL is blocked as per company policy
          */
     }

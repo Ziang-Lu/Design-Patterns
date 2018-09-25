@@ -6,10 +6,11 @@ package image;
  * "expensive-to-create" RealImage object behind the scene. In this way, the
  * "Proxy" will work on behalf of the "RealSubject", or the "Proxy" represents
  * the "RealSubject".
- * The "expensive-to-create" RealImage object is created only when a client
- * first requests/accesses that object. Afterwards, the "Proxy" acts as a cache
- * for that "expensive-to-create" RealImage object. In this way, we can avoid
- * multiple loadings of the RealImage object.
+ * ImageProxy delays the instantiation of the real "expensive-to-create"
+ * RealImage object until its behavior is called for.
+ * Afterwards, the "Proxy" acts as a cache for that "expensive-to-create"
+ * RealImage object. In this way, we can avoid multiple loadings of the
+ * RealImage object.
  *
  * @author Ziang Lu
  */

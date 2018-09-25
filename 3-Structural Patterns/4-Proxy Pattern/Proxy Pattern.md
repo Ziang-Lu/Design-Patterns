@@ -4,9 +4,9 @@
 
 * When we <u>want to do something more about the original object which is not in the scope of the original object</u>
 
-  <u>=> Limit access to the original object</u>
+  * <u>Control access to the original object</u>
+  * <u>Additional functionality should be provided when accessing the original object</u>
 
-* Vsvs
 
 <br>
 
@@ -22,6 +22,11 @@ The Proxy Pattern is a **structural pattern** that **allows for controlling how 
 
 <br>
 
+Define a separate `Proxy` object that
+
+* can be used as a substitute for another object (`RealSubject`) and
+* implements additional functionality to control access to the `RealSubject`
+
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/proxy_pattern.png?raw=true" width="400px">
 
 ***
@@ -31,6 +36,8 @@ The Proxy Pattern is a **structural pattern** that **allows for controlling how 
 In order to let the `Proxy` controls the access to its hiding `RealSubject` behind the scene, the `Proxy` needs to provide similar API as the `RealSubject`.
 
 Therefore, we simply let this step be done via letting `RealSubject` and `Proxy` share a common super class `Subject`, in which we define only the methods that we want the `Proxy` to provide access to.
+
+=> In this way, the clients can't tell whether they are working with a `RealSubject` or its `Proxy`.
 
 ***
 
@@ -46,17 +53,27 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%201-Protection%20Proxy/protection_proxy.png?raw=true">
 
-### 2. Remote Proxy (远程代理)
-
-### 3. Virtual Proxy (虚拟代理)
+### 2. Virtual Proxy (虚拟代理) / Caching Proxy (缓存代理)
 
 * A virtual proxy is <u>a placeholder for "expensive-to-create" objects</u>.
 
-* The real "expensive-to-create" is created only when a client first requests/accesses that object. Afterwards, the `Proxy` acts as <u>a cache for that "expensive-to-create" object</u>.
+* The `Proxy` delays the instantiation of the real "expensive-to-create" object until its behavior is called for.
+
+  => If its behavior is never called for, then the real "expensive-to-create" class is never instantiated.
+
+  Afterwards, the `Proxy` acts as <u>a cache for that "expensive-to-create" object</u>.
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%202-Virtual%20Proxy/virtual_proxy.png?raw=true">
 
-### 4. Smart Proxy (智能代理)
+### 3. Remote Proxy (远程代理)
+
+Scenario: <u>The proxy resides in the same network as the actual user, but the `RealSubject` does not.</u>
+
+=> A remote proxy provides <u>a local representative for an object that resides in a different network</u>.
+
+=> The proxy can contain the networking, piping, or other logic required to access the `RealSubject` across the barrier (different network).
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy.png?raw=true">
 
 <br>
 
@@ -73,6 +90,8 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 - **Cache contents and improve performance (as a Virtual Proxy)**
 
   In `CompanyProxyInternet`, the proxy can cache the responses of the requested sites for some time, so that next time another user under the same proxy requests the same site, `CompanyProxyInternet` will not forward the request again to the site, but simply return the response it previously cached.
+
+  Since the proxy is usually in the same network as the actual user, by caching the operations can be much faster, which dramatically improve the performance for the actual user (client).
 
 * **Make the actual user anonymous**
 

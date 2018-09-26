@@ -14,6 +14,8 @@
 
     *=> 因此, 我们不得不为每一种feature的组合都创建一个subclass, which is practically infeasible.*
 
+    *此外, 使用inheritance来增加功能B, 会应用于全部该subclass, 而不是只为某个object增加功能*
+
   * *使用decorator: 可以在design-time创建`DecoratorA`和`DecoratorB`, 再根据需要让其dynamically decorate原object*
 
 

@@ -14,7 +14,7 @@ public abstract class Observer {
      * Constructor with parameter.
      * @param name name of the observer
      */
-    public Observer(String name) {
+    protected Observer(String name) {
         this.name = name;
     }
 

@@ -21,7 +21,7 @@ public abstract class Subject {
      * Cosntructor with parameter.
      * @param name name of the subject
      */
-    public Subject(String name) {
+    protected Subject(String name) {
         this.name = name;
         myObservers = new HashSet<Observer>();
     }

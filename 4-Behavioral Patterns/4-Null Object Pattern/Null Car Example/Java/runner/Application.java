@@ -52,7 +52,7 @@ public class Application {
          *
          * Input: 150
          * Output:
-         *
+         * Null Car encountere
          */
     }
 

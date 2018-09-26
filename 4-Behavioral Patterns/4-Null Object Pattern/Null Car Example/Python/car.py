@@ -106,7 +106,7 @@ class NullCar(Car):
 
     def speed_up(self):
         # Do nothing
-        pass
+        print('Null Car encountered')
 
 
 class CarFactory(object):

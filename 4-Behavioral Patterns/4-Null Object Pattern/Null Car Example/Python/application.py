@@ -56,4 +56,5 @@ if __name__ == '__main__':
 #
 # Input: 150
 # Output:
-#
+# Null Car encountered
+

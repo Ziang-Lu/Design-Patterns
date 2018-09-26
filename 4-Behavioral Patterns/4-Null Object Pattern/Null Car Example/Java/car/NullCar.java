@@ -47,6 +47,7 @@ class NullCar extends Car {
     @Override
     public void speedUp() {
         // Do nothing
+        System.out.println("Null Car encountered");
     }
 
 }

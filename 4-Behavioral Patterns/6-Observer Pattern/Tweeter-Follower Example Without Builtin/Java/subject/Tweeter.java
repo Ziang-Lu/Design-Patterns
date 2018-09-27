@@ -1,11 +1,13 @@
-import java.util.Observable;
+package subject;
+
+import observer.Observer;
 
 /**
  * Tweeter class that works as "ConcreteSubject".
  *
  * @author Ziang Lu
  */
-public class Tweeter extends Observable {
+public class Tweeter extends Subject {
 
     /**
      * Name of this tweeter.
@@ -22,6 +24,7 @@ public class Tweeter extends Observable {
      */
     public Tweeter(String name) {
         this.name = name;
+        latestTweet = "";
     }
 
     /**
@@ -41,15 +44,19 @@ public class Tweeter extends Observable {
     }
 
     /**
-     * Writes a new tweet and notify all the observers.
+     * Writes a new tweet and notifies all the observers.
      */
-    public void writeTweet() {
-        latestTweet = "A wonderful day!";
+    public void writeTweeter() {
+        latestTweet = "A wonderful way with my family!";
         System.out.println(name + ": I wrote a new tweet: " + latestTweet);
-        // Note that for notifyObservers() method to take any effect, the method setChanged() must be called prior to
-        // the call to notifyObservers()
-        setChanged();
-        notifyObservers(this);
+        notifyObservers();
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : myObservers) {
+            observer.update(this);
+        }
     }
 
 }

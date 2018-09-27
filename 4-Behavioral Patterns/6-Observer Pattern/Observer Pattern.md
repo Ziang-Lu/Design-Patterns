@@ -2,7 +2,13 @@
 
 ## Applicability
 
+* A one-to-many dependency between objects should be defined, without making the objects tightly coupled.
 
+  Defining a one-to-many dependency between objects by <u>defininig one object (subject) that directly updates the state of dependent objects is inflexible, because it commits the subject to particular dependent objects, and introduces tight couple</u>.
+
+  *即: The subject has to know how to update some particular dependent object, which could implement different interfaces. => Tight couple*
+
+* It should be ensured that <u>when one object changes state, an open-ended number of dependent objects are automatically updated</u>.
 
 <br>
 

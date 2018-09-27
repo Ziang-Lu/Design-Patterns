@@ -2,7 +2,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Concrete Follower class working as "Observer".
+ * Follower class that works as "ConcreteObserver".
  *
  * @author Ziang Lu
  */
@@ -23,7 +23,9 @@ public class Follower implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println(name + ": I got an update!");
+        Tweeter tweeter = (Tweeter) arg;
+        System.out.println(name + ": I got an update from " + tweeter.getName() + " about a new tweet: " +
+                tweeter.getLatestTweet());
     }
 
 }

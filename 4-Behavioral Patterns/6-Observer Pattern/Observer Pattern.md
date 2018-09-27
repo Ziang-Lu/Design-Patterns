@@ -22,3 +22,33 @@
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Observer%20Pattern/Java_Observable_Observer.png?raw=true">
 
+***
+
+The Observer Pattern is also known as the **Publish-Subscribe Pattern**.
+
+Jargons/concepts mapping:
+
+| Observer Pattern                      | Publish-Subscribe Pattern                    |
+| ------------------------------------- | -------------------------------------------- |
+| `Subject`                             | `Publisher`                                  |
+| `Observer`                            | `Subscriber`                                 |
+| `Subject.register(Observer observer)` | `Publisher.subscribe(Subscriber normalUser)` |
+| `Subject.notifyObservers()`           | `Publisher.notifySubscribers()`              |
+| `Observer.update()`                   | `Subscriber.update()`                        |
+
+***
+
+<br>
+
+## Benefit
+
+Loose coupling
+
+=> The `Subject` (`Publisher`) doesn't need to know anything about the `Observer` (`Subscriber`).
+
+<br>
+
+## Drawback
+
+The `Subject` (`Publisher`) may send updates that don't matter to the `Observer` (`Subsciber`), e.g., some useless system messages.
+

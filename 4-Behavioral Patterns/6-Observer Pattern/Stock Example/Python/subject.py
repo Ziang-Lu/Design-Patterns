@@ -9,7 +9,7 @@ __author__ = 'Ziang Lu'
 
 from abc import ABC, abstractmethod
 
-from observer import Observer
+from company import Company
 
 
 class Subject(ABC):
@@ -24,7 +24,7 @@ class Subject(ABC):
         """
         self._my_observers = set()
 
-    def register(self, observer: Observer) -> None:
+    def register(self, observer) -> None:
         """
         Registers a new observer.
         :param observer: Observer
@@ -32,7 +32,7 @@ class Subject(ABC):
         """
         self._my_observers.add(observer)
 
-    def unregister(self, observer: Observer) -> None:
+    def unregister(self, observer) -> None:
         """
         Unregister the given observer.
         :param observer: Observer
@@ -50,43 +50,37 @@ class Subject(ABC):
         pass
 
 
-class Tweeter(Subject):
+class StockCenter(Subject):
     """
-    Tweeter class that works as "ConcreteSubject".
+    StockCenter class that works as "ConcreteSubject".
     """
-    __slots__ = ['_username', '_latest_tweet']
+    __slots__ = ['_prices']
 
-    def __init__(self, username: str):
+    COMPANY_INITIAL_PRICES = {Company.Google: 100.0, Company.Apple: 80.0}
+
+    def __init__(self):
         """
-        Constructor with parameter.
-        :param username: str
+        Default constructor.
         """
         super().__init__()
-        self._username = username
+        self._prices = self.COMPANY_INITIAL_PRICES.copy()
 
-    @property
-    def username(self) -> str:
+    def get_price(self, company: Company) -> float:
         """
-        Accessor of username.
-        :return: str
+        Gets the current price for the given company.
+        :param company: Company
+        :return: float
         """
-        return self._username
+        return self._prices[company]
 
-    @property
-    def latest_tweet(self) -> str:
+    def set_price(self, company: Company, price: float) -> None:
         """
-        Accessor of latest_tweet.
-        :return: str
+        Sets the price for the given company.
+        :param company: Company
+        :param price: float
+        :return:
         """
-        return self._latest_tweet
-
-    def write_tweet(self) -> None:
-        """
-        Writes a new tweet and notifies all the observers.
-        :return: None
-        """
-        self._latest_tweet = 'A wonderful way with my family!'
-        print(f'{self._username}: I wrote a new tweet: {self._latest_tweet}')
+        self._prices[company] = price
         self._notify_observers()
 
     def _notify_observers(self):

@@ -15,16 +15,20 @@ def main():
     trump = Tweeter('Donald Trump')
     american1 = Follower('US Citizen 1')
     american2 = Follower('US Citizen 2')
-    trump.register(american1)
-    trump.register(american2)
+    american1.follow(trump)
+    american2.follow(trump)
 
-    trump.write_tweeter()
+    print()
+    trump.write_tweet()
 
 
 if __name__ == '__main__':
     main()
 
 # Output:
+# US Citizen 1: Starting to follow Donald Trump
+# US Citizen 2: Starting to follow Donald Trump
+#
 # Donald Trump: I wrote a new tweet: A wonderful way with my family!
 # US Citizen 2: I got an update from Donald Trump about a new tweet: A wonderful way with my family!
 # US Citizen 1: I got an update from Donald Trump about a new tweet: A wonderful way with my family!

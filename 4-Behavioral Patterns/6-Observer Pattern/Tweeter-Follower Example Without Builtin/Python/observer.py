@@ -30,24 +30,44 @@ class Follower(Observer):
     """
     Follower class that works as "ConcreteObserver".
     """
-    __slots__ = ['_name']
+    __slots__ = ['_username']
 
-    def __init__(self, name: str):
-        self._name = name
+    def __init__(self, username: str):
+        """
+        Constructor with parameter.
+        :param username: str
+        """
+        self._username = username
 
     @property
-    def name(self) -> str:
-        return self._name
+    def username(self) -> str:
+        return self._username
+
+    def follow(self, tweeter) -> None:
+        """
+        Follows the given tweeter.
+        :param tweeter: Tweeter
+        """
+        print(f'{self._username}: Starting to follow {tweeter.username}')
+        tweeter.register(self)
+
+    def unfollow(self, tweeter) -> None:
+        """
+        Unfollows the given tweeter.
+        :param tweeter: Tweeter
+        """
+        print(f'{self._username}: Stops to follow {tweeter.username}')
+        tweeter.unregister(self)
 
     def update(self, subject):
         tweeter = subject
-        print(f'{self._name}: I got an update from {tweeter.name} about a new '
-              f'tweet: {tweeter.latest_tweet}')
+        print(f'{self._username}: I got an update from {tweeter.username} about'
+              f' a new tweet: {tweeter.latest_tweet}')
 
     def __eq__(self, other):
         if not isinstance(other, Follower):
             return False
-        return other.name == self._name
+        return other.username == self._username
 
     def __hash__(self):
-        return hash(self._name)
+        return hash(self._username)

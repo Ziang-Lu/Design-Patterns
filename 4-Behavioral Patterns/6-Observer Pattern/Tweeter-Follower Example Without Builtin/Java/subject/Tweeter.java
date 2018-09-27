@@ -10,9 +10,9 @@ import observer.Observer;
 public class Tweeter extends Subject {
 
     /**
-     * Name of this tweeter.
+     * Username of this tweeter.
      */
-    private final String name;
+    private final String username;
     /**
      * Latest tweet of this tweeter.
      */
@@ -20,19 +20,19 @@ public class Tweeter extends Subject {
 
     /**
      * Constructor with parameter.
-     * @param name name of the tweeter
+     * @param username username of the tweeter
      */
-    public Tweeter(String name) {
-        this.name = name;
+    public Tweeter(String username) {
+        this.username = username;
         latestTweet = "";
     }
 
     /**
-     * Accessor of name.
-     * @return name
+     * Accessor of username.
+     * @return username
      */
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
     /**
@@ -48,7 +48,7 @@ public class Tweeter extends Subject {
      */
     public void writeTweeter() {
         latestTweet = "A wonderful way with my family!";
-        System.out.println(name + ": I wrote a new tweet: " + latestTweet);
+        System.out.println(username + ": I wrote a new tweet: " + latestTweet);
         notifyObservers();
     }
 

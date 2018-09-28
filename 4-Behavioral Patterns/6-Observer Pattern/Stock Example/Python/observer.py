@@ -7,6 +7,7 @@ Observer module.
 
 __author__ = 'Ziang Lu'
 
+import threading
 from abc import ABC, abstractmethod
 
 from company import Company, process_company_name
@@ -67,7 +68,8 @@ class StockHolder(Observer):
         stock_center = subject
         curr_price = stock_center.get_price(self._stock)
         if curr_price != self._latest_price:
-            print(f'{type(self).__name__} (ID: {self._my_observer_id}) got an '
-                  f'update on {process_company_name(self._stock)} Price: '
+            print(f'{threading.current_thread().name} {type(self).__name__} '
+                  f'(ID: {self._my_observer_id}) got an update on '
+                  f'{process_company_name(self._stock)} Price: '
                   f'{curr_price:.2f}')
             self._latest_price = curr_price

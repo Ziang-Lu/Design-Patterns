@@ -45,16 +45,26 @@ public class StockCenter extends Subject {
 
     /**
      * Sets the price for the given company.
+     * Note that since the two thread shares a common StockCenter object, so if
+     * we don't make this method synchronized:
+     * The two threads may write to StockCenter.prices at the same time, leading
+     * to an update to an observer within a thread containing two price changes,
+     * which obey our initial idea to let each thread handle only one price
+     * changing.
+     * Thus, we need to make this method synchronized, so that only after one
+     * thread finished making price changes (writing to StockCenter.prices) and
+     * notifying the observers about the price change, can the other thread do
+     * its price change.
      * @param company given company
      * @param price price to set
      */
-    public void setPrice(Company company, double price) {
+    public synchronized void setPrice(Company company, double price) {
         prices.put(company, price);
         notifyObservers();
     }
 
     @Override
-    protected synchronized void notifyObservers() {
+    protected void notifyObservers() {
         for (Observer observer : myObservers) {
             observer.update(this);
         }

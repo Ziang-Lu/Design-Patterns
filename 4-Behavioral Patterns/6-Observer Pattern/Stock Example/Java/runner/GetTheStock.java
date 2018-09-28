@@ -12,7 +12,7 @@ import java.util.Random;
  * @author Ziang Lu
  */
 class GetTheStock implements Runnable {
-m
+
     /**
      * Random number generator.
      */
@@ -54,7 +54,10 @@ m
 
             double changedPercent = RANDOM_GENERATOR.nextDouble() * 0.06 - 0.03;
             double newPrice = stockCenter.getPrice(company) * (1 + changedPercent);
-            System.out.println(String.format("New price for %s: %.2f", company.toString(), newPrice));
+            System.out.println(
+                    String.format("[%s] New price for %s: %.2f",
+                            Thread.currentThread().getName(), company.toString(), newPrice)
+            );
             stockCenter.setPrice(company, newPrice);
         }
     }

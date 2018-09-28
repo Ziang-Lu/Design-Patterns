@@ -22,23 +22,23 @@ public class Application {
         StockHolder appleHolder = new StockHolder(Company.Apple);
         appleHolder.follow(stockCenter);
 
-        new Thread(new GetTheStock(stockCenter, Company.Google, 2)).start();
-        new Thread(new GetTheStock(stockCenter, Company.Apple, 2)).start();
+        new Thread(new GetTheStock(stockCenter, Company.Google, 2), "Thread-Google Price Changing").start();
+        new Thread(new GetTheStock(stockCenter, Company.Apple, 2), "Thread-Apple Price Changing").start();
 
         /*
          * Output:
-         * New price for Google: 100.29
-         * New price for Apple: 78.53
-         * StockHolder (ID: 1) got an update on Google Price: 100.29
-         * StockHolder (ID: 2) got an update on Apple Price: 78.53
-         * New price for Google: 98.34
-         * StockHolder (ID: 1) got an update on Google Price: 98.34
-         * New price for Apple: 76.73
-         * StockHolder (ID: 2) got an update on Apple Price: 76.73
-         * New price for Google: 98.58
-         * StockHolder (ID: 1) got an update on Google Price: 98.58
-         * New price for Apple: 76.50
-         * StockHolder (ID: 2) got an update on Apple Price: 76.50
+         * [Thread-Apple Price Changing] New price for Apple: 81.52
+         * [Thread-Google Price Changing] New price for Google: 99.77
+         * [Thread-Apple Price Changing] StockHolder (ID: 2) got an update on Apple Price: 81.52
+         * [Thread-Google Price Changing] StockHolder (ID: 1) got an update on Google Price: 99.77
+         * [Thread-Apple Price Changing] New price for Apple: 81.20
+         * [Thread-Google Price Changing] New price for Google: 97.57
+         * [Thread-Apple Price Changing] StockHolder (ID: 2) got an update on Apple Price: 81.20
+         * [Thread-Google Price Changing] StockHolder (ID: 1) got an update on Google Price: 97.57
+         * [Thread-Apple Price Changing] New price for Apple: 82.08
+         * [Thread-Google Price Changing] New price for Google: 99.25
+         * [Thread-Apple Price Changing] StockHolder (ID: 2) got an update on Apple Price: 82.08
+         * [Thread-Google Price Changing] StockHolder (ID: 1) got an update on Google Price: 99.25
          */
     }
 

@@ -15,9 +15,6 @@ from company import Company, process_company_name
 from observer import StockHolder
 from subject import StockCenter
 
-# Lock
-lock = threading.Lock()
-
 
 def get_the_stock(stock_center: StockCenter, company: Company,
                   interval: int) -> None:
@@ -31,15 +28,11 @@ def get_the_stock(stock_center: StockCenter, company: Company,
     for _ in range(3):
         time.sleep(interval)
 
-        lock.acquire()
-        try:
-            changed_percent = random.random() * 0.06 - 0.03
-            new_price = stock_center.get_price(company) * (1 + changed_percent)
-            print(f'New price for {process_company_name(company)}: '
-                  f'{new_price:.2f}')
-            stock_center.set_price(company, new_price)
-        finally:
-            lock.release()  # Ensure that the lock must be released
+        changed_percent = random.random() * 0.06 - 0.03
+        new_price = stock_center.get_price(company) * (1 + changed_percent)
+        print(f'{threading.current_thread().name} New price for '
+              f'{process_company_name(company)}: {new_price:.2f}')
+        stock_center.set_price(company, new_price)
 
 
 def main():
@@ -50,10 +43,12 @@ def main():
     apple_holder.follow(stock_center)
 
     threading.Thread(
-        target=get_the_stock, args=(stock_center, Company.Google, 2)
+        name='[Thread-Google Price Changing]', target=get_the_stock,
+        args=(stock_center, Company.Google, 2)
     ).start()
     threading.Thread(
-        target=get_the_stock, args=(stock_center, Company.Apple, 2)
+        name='[Thread-Apple Price Changing]', target=get_the_stock,
+        args=(stock_center, Company.Apple, 2)
     ).start()
 
 
@@ -61,15 +56,15 @@ if __name__ == '__main__':
     main()
 
 # Output:
-# New price for Google: 98.42
-# StockHolder (ID: 1) got an update on Google Price: 98.42
-# New price for Apple: 77.77
-# StockHolder (ID: 2) got an update on Apple Price: 77.77
-# New price for Google: 95.72
-# StockHolder (ID: 1) got an update on Google Price: 95.72
-# New price for Apple: 76.55
-# StockHolder (ID: 2) got an update on Apple Price: 76.55
-# New price for Google: 94.08
-# StockHolder (ID: 1) got an update on Google Price: 94.08
-# New price for Apple: 77.77
-# StockHolder (ID: 2) got an update on Apple Price: 77.77
+# [Thread-Google Price Changing] New price for Google: 97.32
+# [Thread-Apple Price Changing] New price for Apple: 78.20
+# [Thread-Google Price Changing] StockHolder (ID: 1) got an update on Google Price: 97.32
+# [Thread-Apple Price Changing] StockHolder (ID: 2) got an update on Apple Price: 78.20
+# [Thread-Google Price Changing] New price for Google: 98.93
+# [Thread-Apple Price Changing] New price for Apple: 76.70
+# [Thread-Google Price Changing] StockHolder (ID: 1) got an update on Google Price: 98.93
+# [Thread-Apple Price Changing] StockHolder (ID: 2) got an update on Apple Price: 76.70
+# [Thread-Google Price Changing] New price for Google: 96.17
+# [Thread-Apple Price Changing] New price for Apple: 77.16
+# [Thread-Google Price Changing] StockHolder (ID: 1) got an update on Google Price: 96.17
+# [Thread-Apple Price Changing] StockHolder (ID: 2) got an update on Apple Price: 77.16

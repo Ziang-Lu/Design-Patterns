@@ -8,6 +8,7 @@ Subject module.
 __author__ = 'Ziang Lu'
 
 from abc import ABC, abstractmethod
+from threading import Lock
 
 from company import Company
 
@@ -54,7 +55,7 @@ class StockCenter(Subject):
     """
     StockCenter class that works as "ConcreteSubject".
     """
-    __slots__ = ['_prices']
+    __slots__ = ['_prices', '_lock']
 
     COMPANY_INITIAL_PRICES = {Company.Google: 100.0, Company.Apple: 80.0}
 
@@ -64,6 +65,7 @@ class StockCenter(Subject):
         """
         super().__init__()
         self._prices = self.COMPANY_INITIAL_PRICES.copy()
+        self._lock = Lock()
 
     def get_price(self, company: Company) -> float:
         """
@@ -76,12 +78,26 @@ class StockCenter(Subject):
     def set_price(self, company: Company, price: float) -> None:
         """
         Sets the price for the given company.
+        Note that since the two thread shares a common StockCenter object, so if
+        we don't make this method synchronized:
+        The two threads may write to StockCenter.prices at the same time,
+        leading to an update to an observer within a thread containing two price
+        changes, which obey our initial idea to let each thread handle only one
+        price changing.
+        Thus, we need to make this method synchronized, so that only after one
+        thread finished making price changes (writing to StockCenter.prices) and
+        notifying the observers about the price change, can the other thread do
+        its price change.
         :param company: Company
         :param price: float
-        :return:
+        :return: None
         """
-        self._prices[company] = price
-        self._notify_observers()
+        self._lock.acquire()
+        try:
+            self._prices[company] = price
+            self._notify_observers()
+        finally:
+            self._lock.release()  # Ensure that the lock must be released
 
     def _notify_observers(self):
         for observer in self._my_observers:

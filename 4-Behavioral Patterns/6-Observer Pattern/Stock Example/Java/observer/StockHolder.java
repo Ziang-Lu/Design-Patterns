@@ -61,8 +61,11 @@ public class StockHolder implements Observer {
         StockCenter stockCenter = (StockCenter) subject;
         double currPrice = stockCenter.getPrice(stock);
         if (currPrice != latestPrice) {
-            System.out.println(String.format("%s (ID: %d) got an update on %s Price: %.2f", getClass().getSimpleName(),
-                myObserverID, stock.toString(), currPrice));
+            System.out.println(
+                    String.format("[%s] %s (ID: %d) got an update on %s Price: %.2f",
+                            Thread.currentThread().getName(), getClass().getSimpleName(), myObserverID,
+                            stock.toString(), currPrice)
+            );
             latestPrice = currPrice;
         }
     }

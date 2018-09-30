@@ -35,7 +35,7 @@ This repo includes detailed tutorials and examples of various design patterns.
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/Visitor%20Pattern.md">Visitor Pattern (访问者模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-State%20Pattern/State%20Pattern.md">State Pattern (状态模式)</a>
   * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-Null%20Object%20Pattern/Null%20Object%20Pattern.md">Null Object Pattern (空对象模式)</a>
-* Chain of Responsibility Pattern (责任链模式)
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Chain%20of%20Responsibility%20Pattern/Chain%20of%20Responsibility%20Pattern.md">Chain of Responsibility Pattern (责任链模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Iterator%20Pattern.md">Iterator Pattern (迭代器模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Observer%20Pattern/Observer%20Pattern.md">Observer Pattern (观察者模式)</a>
 

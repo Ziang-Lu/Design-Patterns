@@ -85,8 +85,21 @@ class NoCardState(AtmState):
     """
     Concrete NoCardState that corresponds to the state of the ATM that no card
     has been inserted yet.
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
+
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: NoCardState
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
 
     def insert_card(self, atm, card: Card) -> None:
         atm.inserted_card = card
@@ -114,8 +127,21 @@ class HasCardState(AtmState):
     """
     Concrete HasCardState that corresponds to the state of the ATM that a card
     has been inserted.
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
+
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: HasCardState
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
 
     def insert_card(self, atm, card):
         print('There is already a card inserted in this ATM')
@@ -150,8 +176,21 @@ class HasCorrectPinState(AtmState):
     """
     Concrete HasCorrectPinState that corresponds to the state of the ATM that a
     card has been inserted and the correct PIN is provided
+    This class is implemented as a singleton class.
     """
-    __slots__ = []
+
+    @classmethod
+    def get_instance(cls):
+        """
+        Gets the singleton instance.
+        :return: HasCorrectPinState
+        """
+        return cls.__new__(cls)
+
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super().__new__(cls)
+        return cls._instance
 
     def insert_card(self, atm, card):
         print('There is already a card inserted in this ATM')
@@ -199,9 +238,9 @@ class AtmMachine(object):
     """
     __slots__ = ['_my_state', '_cash', '_inserted_card']
 
-    NO_CARD_STATE = NoCardState()
-    HAS_CARD_STATE = HasCardState()
-    HAS_CORRECT_PIN_STATE = HasCorrectPinState()
+    NO_CARD_STATE = NoCardState.get_instance()
+    HAS_CARD_STATE = HasCardState.get_instance()
+    HAS_CORRECT_PIN_STATE = HasCorrectPinState.get_instance()
 
     def __init__(self):
         """

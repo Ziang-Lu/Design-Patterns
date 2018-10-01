@@ -7,7 +7,7 @@ import employee.TeamLeader;
 
 /**
  * Application that actually uses Chain of Responsibility Pattern.
- * In this example, ONLY ONE receiver object in the chain handles the request.
+ * In this example, ONLY ONE receiver in the chain handles the request.
  *
  * @author Ziang Lu
  */
@@ -18,11 +18,7 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        ManagementEmployee teamLeader = new TeamLeader();
-        ManagementEmployee projectLeader = new ProjectLeader();
-        teamLeader.setSupervisor(projectLeader);
-        ManagementEmployee hr = new HumanResource();
-        projectLeader.setSupervisor(hr);
+        ManagementEmployee teamLeader = getChainOfResponsibility();
 
         teamLeader.handleDeveloperLeaveRequest("David", 9);
 
@@ -48,6 +44,19 @@ public class Application {
          * TeamLeader cannot approve a 50-day leave. The leave request is handled to HumanResource.
          * HumanResource cannot approve a 50-day leave. No more supervisor. The leave request will be rejected.
          */
+    }
+
+    /**
+     * Private static helper method to create the chain of responsibility.
+     * @return first receiver in the chain
+     */
+    private static ManagementEmployee getChainOfResponsibility() {
+        ManagementEmployee teamLeader = new TeamLeader();
+        ManagementEmployee projectLeader = new ProjectLeader();
+        teamLeader.setSupervisor(projectLeader);
+        ManagementEmployee hr = new HumanResource();
+        projectLeader.setSupervisor(hr);
+        return teamLeader;
     }
 
 }

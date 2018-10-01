@@ -3,7 +3,7 @@
 
 """
 Application that actually uses Chain of Responsibility Pattern.
-In this example, ONE OR MORE THAN ONE receiver object in the chain handles the
+In this example, ONE OR MORE THAN ONE receivers in the chain handles the
 request.
 """
 

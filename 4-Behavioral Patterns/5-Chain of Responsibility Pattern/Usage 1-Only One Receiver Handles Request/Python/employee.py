@@ -14,6 +14,12 @@ from abc import ABC, abstractmethod
 class ManagementEmployee(ABC):
     """
     Abstract ManagementEmployee class that works as "Handler".
+
+    In order to let different "ConcreteHandler" be able to process the same
+    request, we need them to have similar API.
+    Therefore, we simply let this step be done via letting different
+    "ConcreteHandler" share a common super class "Handler", in which we define
+    the API to process a request.
     """
     __slots__ = ['_supervisor']
 
@@ -22,9 +28,9 @@ class ManagementEmployee(ABC):
         Default constructor.
         """
         self._supervisor = None  # Supervisor of this management employee.
-        # This works as the next receiver object (handler) in the chain of
-        # responsibility: if this receiver object cannot handle the request,
-        # then it passes the request to the next receiver object in the chain of
+        # This works as the next receiver (handler) in the chain of
+        # responsibility: if this receiver cannot handle the request, then it
+        # passes the request to the next receiver in the chain of
         # responsibility.
 
     def set_supervisor(self, employee) -> None:
@@ -53,12 +59,12 @@ class ManagementEmployee(ABC):
         :return: bool
         """
         if requested_leave_days <= self._get_max_approvable_leave_days():
-            # This receiver object can handle the request.
+            # This receiver can handle the request.
             # Stop here and return.
             self._approve_leave_request(developer, requested_leave_days)
             return True
         else:
-            # Pass the request to the next receiver object in the chain of
+            # Pass the request to the next receiver in the chain of
             # responsibility
             print(f'{type(self).__name__} cannot approve a '
                   f'{requested_leave_days}-day leave.', end=' ')

@@ -143,16 +143,16 @@ public class LazyInitialization {
 <br>
 
 ```python
-from enum import Enum
+from enum import Enum, auto
 
 
 class FruitType(Enum):
     """
     Fruit type.
     """
-    APPLE = 1
-    BANANA = 2
-    NONE = 0
+    APPLE = auto()
+    BANANA = auto()
+    NONE = auto()
 
 
 class Fruit(object):

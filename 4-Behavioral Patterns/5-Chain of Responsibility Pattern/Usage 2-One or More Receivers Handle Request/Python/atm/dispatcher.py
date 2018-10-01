@@ -14,6 +14,12 @@ from abc import ABC, abstractmethod
 class DollarDispatcher(ABC):
     """
     Abstract DollarDispatcher class that works as "Handler".
+
+    In order to let different "ConcreteHandler" be able to process the same
+    request, we need them to have similar API.
+    Therefore, we simply let this step be done via letting different
+    "ConcreteHandler" share a common super class "Handler", in which we define
+    the API to process a request.
     """
     __slots__ = ['_next_dispatcher']
 
@@ -23,6 +29,10 @@ class DollarDispatcher(ABC):
         :param next_dispatcher: DollarDispatcher
         """
         self._next_dispatcher = next_dispatcher
+        # This works as the next receiver (handler) in the chain of
+        # responsibility: if this receiver cannot handle the request, then it
+        # passes the request to the next receiver in the chain of
+        # responsibility.
 
     @abstractmethod
     def _get_denomination(self) -> int:
@@ -38,15 +48,15 @@ class DollarDispatcher(ABC):
         :param requested_amount: int
         :return: None
         """
-        # This receiver object handles the request.
+        # This receiver handles the request.
         denomination = self._get_denomination()
         num_of_notes = requested_amount // denomination
         if num_of_notes > 0:
             self._dispatch_dollar(denomination, num_of_notes)
         # Check whether the request needs further processing
         pending_amount = requested_amount % denomination
-        if pending_amount > 0 and self._next_dispatcher:
-            # Pass the request to the next receiver object in the chain of
+        if pending_amount > 0 and self._next_dispatcher:  # If yes
+            # Pass the request to the next receiver in the chain of
             # responsibility
             print(f'After dispatched by {type(self).__name__}: {pending_amount}'
                   f' dollars pending to be dispatched')

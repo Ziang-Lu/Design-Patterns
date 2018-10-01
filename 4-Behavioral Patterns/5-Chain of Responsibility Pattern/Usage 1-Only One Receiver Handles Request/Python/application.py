@@ -3,20 +3,31 @@
 
 """
 Application that actually uses Chain of Responsibility Pattern.
-In this example, ONLY ONE receiver object in the chain handles the request.
+In this example, ONLY ONE receiver in the chain handles the request.
 """
 
 __author__ = 'Ziang Lu'
 
-from employee import HumanResource, ProjectLeader, TeamLeader
+from employee import (
+    HumanResource, ManagementEmployee, ProjectLeader, TeamLeader
+)
 
 
-def main():
+def _get_chain_of_responsibility() -> ManagementEmployee:
+    """
+    Private helper function to get the chain of responsibility.
+    :return: ManagementEmployee
+    """
     team_leader = TeamLeader()
     project_leader = ProjectLeader()
     team_leader.set_supervisor(project_leader)
     hr = HumanResource()
     team_leader.set_supervisor(hr)
+    return team_leader
+
+
+def main():
+    team_leader = _get_chain_of_responsibility()
 
     team_leader.handle_developer_leave_request(developer='David',
                                                requested_leave_days=9)

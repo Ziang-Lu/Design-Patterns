@@ -5,15 +5,15 @@
 Company module.
 """
 
-from enum import Enum
+from enum import Enum, auto
 
 
 class Company(Enum):
     """
     Company enumeration.
     """
-    Google = 1
-    Apple = 2
+    Google = auto()
+    Apple = auto()
 
 
 def process_company_name(company: Company) -> str:

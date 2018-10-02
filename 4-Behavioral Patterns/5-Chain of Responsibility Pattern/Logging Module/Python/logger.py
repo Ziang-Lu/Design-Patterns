@@ -36,6 +36,10 @@ class Logger(ABC):
         :param logger: Logger
         """
         self._next_logger = logger
+        # This works as the next receiver (handler) in the chain of
+        # responsibility: if this receiver cannot handle the request, then it
+        # passes the request to the next receiver in the chain of
+        # responsibility.
 
     @abstractmethod
     def _my_level(self) -> LogLevel:

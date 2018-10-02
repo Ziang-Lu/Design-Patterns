@@ -26,7 +26,7 @@ This repo includes detailed tutorials and examples of various design patterns.
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Decorator%20Pattern/Decorator%20Pattern.md">Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Proxy%20Pattern.md">Proxy Pattern (代理模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Facade%20Pattern/Facade%20Pattern.md">Facade Pattern (外观模式/门面模式)</a>
-* Adapter Pattern (适配器模式/转接器模式)
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Adapter%20Pattern/Adapter%20Pattern.md">Adapter Pattern (适配器模式)</a>
 
 ## 4. Behavioral Pattern (行为型模式)
 

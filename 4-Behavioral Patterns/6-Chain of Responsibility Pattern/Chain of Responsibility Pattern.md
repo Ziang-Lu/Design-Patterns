@@ -17,7 +17,7 @@ The Chain of Responsibility of a **behavioral pattern** that **chains the receiv
 
 *(有点像一个linked-list of receivers)*
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern_illustration.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern_illustration.png?raw=true">
 
 * *Chain of Responsibility Pattern实际上应用了Delegation Pattern的思想, 因为它像将需要时, 将receiver的handle行为delegate给一个receiver.*
 * *与此同时, Chain of Responsibility Pattern又很像Decorator Pattern, 都有点像是recursively处理一个request. 即本质上Decorator Pattern就是一个各种`ConcreteDecorator`和最终的`ConcreteComponent`对于某些requests形成的chain of responsibility.*
@@ -26,7 +26,7 @@ The Chain of Responsibility of a **behavioral pattern** that **chains the receiv
 
 <br>
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern.png?raw=true">
 
 ***
 
@@ -50,7 +50,7 @@ Therefore, we simply let this step be done via letting different `ConcreteHandle
 
   * Stop here and return.
 
-  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Chain%20of%20Responsibility%20Pattern/Usage%201-Only%20One%20Receiver%20Handles%20Request/only_one_receiver_handles_request.png?raw=true" width="600px">
+  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Chain%20of%20Responsibility%20Pattern/Usage%201-Only%20One%20Receiver%20Handles%20Request/only_one_receiver_handles_request.png?raw=true" width="600px">
 
 * **>= 1 receivers** in the chain handle the request.
 
@@ -60,7 +60,7 @@ Therefore, we simply let this step be done via letting different `ConcreteHandle
     * If yes, pass the request to the next receiver for further processing
     * If no, stop here and return.
 
-  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Chain%20of%20Responsibility%20Pattern/Usage%202-One%20or%20More%20Receivers%20Handle%20Request/one_or_more_receivers_handle_request.png?raw=true"><br>
+  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Chain%20of%20Responsibility%20Pattern/Usage%202-One%20or%20More%20Receivers%20Handle%20Request/one_or_more_receivers_handle_request.png?raw=true"><br>
 
 ## Benefit
 

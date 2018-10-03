@@ -1,4 +1,4 @@
-package model;
+package living_room;
 
 /**
  * Memento class.
@@ -8,7 +8,7 @@ package model;
  *
  * @author Ziang Lu
  */
-class Memento {
+public class Memento {
 
     /**
      * Stored LED TV.

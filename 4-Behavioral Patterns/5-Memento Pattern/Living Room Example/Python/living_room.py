@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-Model module.
+Living room module.
 """
 
 __author__ = 'Ziang Lu'
+
+import copy
 
 
 class LedTV(object):
@@ -28,17 +30,19 @@ class LedTV(object):
 
 
 class Sofa(object):
-    __slots__ = ['_size']
+    __slots__ = ['_size', '_style']
 
-    def __init__(self, size: int):
+    def __init__(self, size: int, style: str):
         """
         Constructor with parameter.
         :param size: int
+        :param style: str
         """
         self._size = size
+        self._style = style
 
     def __repr__(self):
-        return f'Sofa[size={self._size}]'
+        return f'Sofa[size={self._size}, style={self._style}]'
 
 
 class Memento(object):
@@ -79,39 +83,6 @@ class Memento(object):
         return f'Memento [led_tv={self._led_tv}, sofa={self._sofa}]'
 
 
-class StorageRoom(object):
-    """
-    StorageRoom class that works as "Caretaker".
-    This class is responsible for keeping a collection of "Memento", but never
-    examines or operates on the contents of a "Memento".
-    """
-    __slots__ = ['_mementos']
-
-    def __init__(self):
-        """
-        Default constructor.
-        """
-        self._mementos = {}
-
-    def get_memento(self, tag: str) -> Memento:
-        """
-        Gets the memento associated with the given tag from this storage room.
-        :param tag: str
-        :return: Memento
-        """
-        return self._mementos[tag]
-
-    def add_memento(self, tag: str, memento: Memento) -> None:
-        """
-        Stores the given memento associated with the given tag in this storage
-        room.
-        :param tag: str
-        :param memento: Memento
-        :return: None
-        """
-        self._mementos[tag] = memento
-
-
 class LivingRoom(object):
     """
     LivingRoom class that works as "Originator".
@@ -141,47 +112,24 @@ class LivingRoom(object):
         """
         self._sofa = sofa
 
-    def create_memento_and_store(self, storage_room: StorageRoom,
-                                 tag: str) -> None:
+    def create_memento(self) -> Memento:
         """
         Creates a memento containing a snapshot of the internal state of this
-        living room and stores it in the given storage room.
-        :param storage_room: StorageRoom
-        :param tag: str
-        :return: None
-        """
-        memento = self._create_memento()
-        print(f'Created a memento for Living Room: {memento}')
-        storage_room.add_memento(tag, memento)
-
-    def _create_memento(self) -> Memento:
-        """
-        Private helper function to create a memento containing a snapshot of the
-        internal state of this living room.
+        living room.
         :return: Memento
         """
-        return Memento(self._led_tv, self._sofa)
+        memo = Memento(copy.deepcopy(self._led_tv), copy.deepcopy(self._sofa))
+        print(f'Created a memento for Living Room: {memo}')
+        return memo
 
-    def restore_state(self, storage_room: StorageRoom, tag: str) -> None:
+    def restore(self, memo: Memento) -> None:
         """
-        Restores the internal state of this living room associated with the
-        given tag from the given storage room.
-        :param storage_room: StorageRoom
-        :param tag: str
+        Restores the internal state of this living room from the given memento.
+        :param memo: Memento
         :return: None
         """
-        print(f'Living Room restoring to {tag}...')
-        self._restore(storage_room.get_memento(tag))
-
-    def _restore(self, memento: Memento) -> None:
-        """
-        Private helper function to restore the internal state of this living
-        room from the given memento.
-        :param memento: Memento
-        :return: None
-        """
-        self._led_tv = memento.led_tv
-        self._sofa = memento.sofa
+        self._led_tv = memo.led_tv
+        self._sofa = memo.sofa
 
     def __repr__(self):
         return f'LivingRoom[led_tv={self._led_tv}, sofa={self._sofa}]'

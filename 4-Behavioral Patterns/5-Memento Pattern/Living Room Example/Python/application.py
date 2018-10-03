@@ -2,33 +2,58 @@
 # -*- coding: utf-8 -*-
 
 """
-Application that actually uses Memento Pattern.
+StorageRoom module that works as "Caretaker".
+This module is responsible for keeping a collection of "Memento", but never
+examines or operates on the contents of a "Memento".
 """
 
 __author__ = 'Ziang Lu'
 
-from model import LedTV, LivingRoom, Sofa, StorageRoom
+from living_room import LedTV, LivingRoom, Memento, Sofa
+
+memo_map = {}  # Stored mapping between tags and the corresponding mementos
+
+
+def _get_memento(tag: str) -> Memento:
+    """
+    Private helper function to get the memento associated with the given tag.
+    :param tag: str
+    :return: Memento
+    """
+    return memo_map[tag]
+
+
+def _add_memento(tag: str, memo: Memento) -> None:
+    """
+    Private helper function to store the given memento associated with the given
+    tag.
+    :param tag: str
+    :param memo: Memento
+    :return: None
+    """
+    memo_map[tag] = memo
 
 
 def main():
     living_room = LivingRoom()
+
+    # Decorate the living room as classical style
     living_room.set_led_tv(LedTV(size=42, usb_support=False, price=800.0))
-    living_room.set_sofa(Sofa(size=5))
+    living_room.set_sofa(Sofa(size=5, style='classical'))
 
-    storage_room = StorageRoom()
-    living_room.create_memento_and_store(storage_room, tag="42-inch TV")
+    # Save the classical style of the living room in a memento
+    classical = living_room.create_memento()
+    classical_tag = 'Classical-Type Decoration'
+    add_memento(classical_tag, classical)
+    # Decorate the living room as modern style
     living_room.set_led_tv(LedTV(size=46, usb_support=True, price=1000.0))
-
-    living_room.create_memento_and_store(storage_room, tag="46-inch TV")
-    living_room.set_led_tv(LedTV(size=50, usb_support=True, price=1200.0))
+    living_room.set_sofa(Sofa(size=7, style='modern'))
     print(f'Living Room current state: {living_room}')
 
+    # Restore the living room to the previous saved classical style
     print()
-    living_room.restore_state(storage_room, "42-inch TV")
-    print(f'Living Room current state: {living_room}')
-
-    print()
-    living_room.restore_state(storage_room, "46-inch TV")
+    print(f'Living Room restoring to {classical_tag}...')
+    living_room.restore(get_memento(classical_tag))
     print(f'Living Room current state: {living_room}')
 
 
@@ -36,12 +61,8 @@ if __name__ == '__main__':
     main()
 
 # Output:
-# Created a memento for Living Room: Memento [led_tv=LedTV[size=42, usb_support=False, price=800.0], sofa=Sofa[size=5]]
-# Created a memento for Living Room: Memento [led_tv=LedTV[size=46, usb_support=True, price=1000.0], sofa=Sofa[size=5]]
-# Living Room current state: LivingRoom[led_tv=LedTV[size=50, usb_support=True, price=1200.0], sofa=Sofa[size=5]]
+# Created a memento for Living Room: Memento [led_tv=LedTV[size=42, usb_support=False, price=800.0], sofa=Sofa[size=5, style=classical]]
+# Living Room current state: LivingRoom[led_tv=LedTV[size=46, usb_support=True, price=1000.0], sofa=Sofa[size=7, style=modern]]
 #
-# Living Room restoring to 42-inch TV...
-# Living Room current state: LivingRoom[led_tv=LedTV[size=42, usb_support=False, price=800.0], sofa=Sofa[size=5]]
-#
-# Living Room restoring to 46-inch TV...
-# Living Room current state: LivingRoom[led_tv=LedTV[size=46, usb_support=True, price=1000.0], sofa=Sofa[size=5]]
+# Living Room restoring to Classical-Style Decoration...
+# Living Room current state: LivingRoom[led_tv=LedTV[size=42, usb_support=False, price=800.0], sofa=Sofa[size=5, style=classical]]

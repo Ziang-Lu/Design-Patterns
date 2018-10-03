@@ -1,11 +1,11 @@
-package model;
+package living_room;
 
 /**
  * LED TV class.
  *
  * @author Ziang Lu
  */
-public class LedTV {
+public class LedTV implements Cloneable {
 
     /**
      * Size of this LED TV in inch.
@@ -30,6 +30,11 @@ public class LedTV {
         this.size = size;
         this.usbSupport = usbSupport;
         this.price = price;
+    }
+
+    @Override
+    public LedTV clone() throws CloneNotSupportedException {
+        return (LedTV) super.clone();
     }
 
     @Override

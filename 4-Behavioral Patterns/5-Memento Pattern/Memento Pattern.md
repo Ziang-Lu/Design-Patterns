@@ -8,7 +8,7 @@ The Memento Pattern is a **behavioral pattern** that **can restore an object to 
 
 * `Memento`: <u>Holds a snapshot of the internal state of the `Originator`</u>
 
-  *(This is like a wrapper (a packing box) of the internal state of the `Originator`.)*
+  *(This is like a wrapper (a packing box) for the internal state of the `Originator` to be stored.)*
 
 * `Orginator`: <u>Creates a `Memento` containing a snapshot of its current internal state, and uses the `Memento` to restore its internal state</u>
 

@@ -3,8 +3,8 @@ package model;
 /**
  * Memento class.
  * This class holds a snapshot of the internal state of the "Originator".
- * This is like a wrapper (a packing box) of the internal state of the
- * "Originator".
+ * This is like a wrapper (a packing box) for the internal state of the
+ * "Originator" to be stored.
  *
  * @author Ziang Lu
  */

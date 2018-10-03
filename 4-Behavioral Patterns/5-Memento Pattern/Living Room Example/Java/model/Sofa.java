@@ -12,6 +12,10 @@ public class Sofa {
      */
     private int size;
 
+    /**
+     * Constructor with parameter.
+     * @param size size of the sofa
+     */
     public Sofa(int size) {
         this.size = size;
     }

@@ -27,7 +27,7 @@ public class StorageRoom {
     }
 
     /**
-     * Stores the given memento associated with the given tag to this storage
+     * Stores the given memento associated with the given tag in this storage
      * room.
      * @param tag tag associated with the memento to store
      * @param memento memento to store

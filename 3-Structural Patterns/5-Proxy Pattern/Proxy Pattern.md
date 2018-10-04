@@ -18,7 +18,7 @@ The Proxy Pattern is a **structural pattern** that **allows for controlling how 
 
 **=> The proxy works on behalf of the real object, or the proxy represents the real object.**
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/proxy_pattern_illustration.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Proxy%20Pattern/proxy_pattern_illustration.png?raw=true">
 
 <br>
 
@@ -27,7 +27,7 @@ Define a separate `Proxy` object that
 * can be used as a substitute for another object (`RealSubject`) and
 * implements additional functionality to control access to the `RealSubject`
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/proxy_pattern.png?raw=true" width="400px">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Proxy%20Pattern/proxy_pattern.png?raw=true" width="400px">
 
 ***
 
@@ -51,7 +51,7 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
 <u>In `Proxy`: perform protection-related operations</u>, e.g., filtering out users without enough permission, or invalid method calls
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%201-Protection%20Proxy/protection_proxy.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Proxy%20Pattern/Usage%201-Protection%20Proxy/protection_proxy.png?raw=true">
 
 ### 2. Virtual Proxy (虚拟代理) / Caching Proxy (缓存代理)
 
@@ -63,7 +63,7 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
   Afterwards, the `Proxy` acts as <u>a cache for that "expensive-to-create" object</u>.
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%202-Virtual%20Proxy/virtual_proxy.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Proxy%20Pattern/Usage%202-Virtual%20Proxy/virtual_proxy.png?raw=true">
 
 ### 3. Remote Proxy (远程代理)
 
@@ -73,7 +73,7 @@ Scenario: <u>The proxy resides in the same network as the actual user, but the `
 
 => The proxy can contain the networking, piping, or other logic required to access the `RealSubject` across the barrier (different network).
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy.png?raw=true">
 
 <br>
 

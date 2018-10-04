@@ -21,12 +21,13 @@ This repo includes detailed tutorials and examples of various design patterns.
 
 **Help compose objects and put objects together**
 
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Delegation%20Pattern.md">Delegation Pattern (委托模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/2-Composite%20Pattern/Composite%20Pattern.md">Composite Pattern (复合模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Decorator%20Pattern/Decorator%20Pattern.md">Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Proxy%20Pattern/Proxy%20Pattern.md">Proxy Pattern (代理模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Facade%20Pattern/Facade%20Pattern.md">Facade Pattern (外观模式/门面模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Adapter%20Pattern/Adapter%20Pattern.md">Adapter Pattern (适配器模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Delegation%20Pattern.md">Bridge Pattern (桥接模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/2-Delegation%20Pattern.md">Delegation Pattern (委托模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Composite%20Pattern/Composite%20Pattern.md">Composite Pattern (复合模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Decorator%20Pattern/Decorator%20Pattern.md">Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Proxy%20Pattern/Proxy%20Pattern.md">Proxy Pattern (代理模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Facade%20Pattern/Facade%20Pattern.md">Facade Pattern (外观模式/门面模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/7-Adapter%20Pattern/Adapter%20Pattern.md">Adapter Pattern (适配器模式)</a>
 
 ## 4. Behavioral Pattern (行为型模式)
 
@@ -40,10 +41,10 @@ The behavior of a systems somewhat depends on the request data: this is called "
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/Visitor%20Pattern.md">Visitor Pattern (访问者模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-State%20Pattern/State%20Pattern.md">State Pattern (状态模式)</a>
   * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-Null%20Object%20Pattern/Null%20Object%20Pattern.md">Null Object Pattern (空对象模式)</a>
-* Memento Pattern (备忘录模式)
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Chain%20of%20Responsibility%20Pattern/Chain%20of%20Responsibility%20Pattern.md">Chain of Responsibility Pattern (责任链模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Iterator%20Pattern.md">Iterator Pattern (迭代器模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Observer%20Pattern/Observer%20Pattern.md">Observer Pattern (观察者模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Memento%20Pattern.md">Memento Pattern (备忘录模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Chain%20of%20Responsibility%20Pattern/Chain%20of%20Responsibility%20Pattern.md">Chain of Responsibility Pattern (责任链模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Iterator%20Pattern.md">Iterator Pattern (迭代器模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Observer%20Pattern/Observer%20Pattern.md">Observer Pattern (观察者模式)</a>
 
 ## 5. Concurrency Pattern (并发型模式)
 

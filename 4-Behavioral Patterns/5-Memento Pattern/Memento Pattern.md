@@ -32,7 +32,7 @@ The Memento Pattern is a **behavioral pattern** that **provides the ability to r
 
 * `Caretaker`: <u>Responsible for keeping  a collection of `Memento`</u>, but never examines or operates on the contents of a `Memento`
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Memento%20Pattern/memento_pattern.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Memento%20Pattern/memento_pattern.png?raw=true" width="500px">
 
 ***
 

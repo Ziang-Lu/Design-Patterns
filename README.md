@@ -32,6 +32,10 @@ This repo includes detailed tutorials and examples of various design patterns.
 
 **Help realize interactions among objects**
 
+The behavior of a systems somewhat depends on the request data: this is called "data-driven".
+
+<u>The "data-driven" concepts are widely used in behavioral patterns to achieve loose coupling.</u>
+
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/1-Strategy%20Pattern/Strategy%20Pattern.md">Strategy Pattern (策略模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/Visitor%20Pattern.md">Visitor Pattern (访问者模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-State%20Pattern/State%20Pattern.md">State Pattern (状态模式)</a>

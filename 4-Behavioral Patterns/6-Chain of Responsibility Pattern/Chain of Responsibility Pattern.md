@@ -3,7 +3,8 @@
 ## Applicability
 
 * When we need to<u> avoid the coupling between the sender of a request and its receiver</u>
-* When <u>it should be possible that more than one receiver can handle the request</u>
+* When <u>it should be possible that more than one receiver can handle the request</u>, and new handlers can be added dynamically into the code
+* When the order in which the request is handled is important
 
 *=> Implementing a request directly within the class that sends it is inflexible, because it couples the class to a particular receiver, and makes it impossible to support multiple receivers.*
 
@@ -23,6 +24,8 @@ The Chain of Responsibility of a **behavioral pattern** that **chains the receiv
 * *与此同时, Chain of Responsibility Pattern又很像Decorator Pattern, 都有点像是recursively处理一个request. 即本质上Decorator Pattern就是一个各种`ConcreteDecorator`和最终的`ConcreteComponent`对于某些requests形成的chain of responsibility.*
 
 *(从某种意义上讲: The Chain of Responsibility Pattern is an object-oritented version of the `if ... else if ... else if ... else ... endif` idiom, with the benefit that the condition-action blocks can be dynamically rearranged and reconfigured at runtime.)*
+
+*(A typical example of Chain of Responsibility Pattern is that in a typical `try...catch` code block, there could be multiple `catch` blocks: here every `catch` block is kind of a handler to handle one particular kind of exception, so that when any exception occurs in the `try` block, it is sent to the first `catch` block to be handled; if the first `catch` block is not able to handle it, that `catch` block forwards the exception to the next `catch` block in the chain.)*
 
 <br>
 

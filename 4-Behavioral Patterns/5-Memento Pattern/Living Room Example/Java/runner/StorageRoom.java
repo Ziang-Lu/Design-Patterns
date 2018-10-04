@@ -1,8 +1,8 @@
 package runner;
 
+import living_room.IMemento;
 import living_room.LedTV;
 import living_room.LivingRoom;
-import living_room.Memento;
 import living_room.Sofa;
 
 import java.util.HashMap;
@@ -21,14 +21,14 @@ public class StorageRoom {
     /**
      * Stored mapping between tags and the corresponding mementos.
      */
-    private static Map<String, Memento> memoMap = new HashMap<>();
+    private static Map<String, IMemento> memoMap = new HashMap<>();
 
     /**
      * Gets the memento associated with the given tag from this storage room.
      * @param tag tag associated with the memento to get
      * @return corresponding memento
      */
-    private static Memento getMemento(String tag) {
+    private static IMemento getMemento(String tag) {
         return memoMap.get(tag);
     }
 
@@ -36,10 +36,10 @@ public class StorageRoom {
      * Stores the given memento associated with the given tag in this storage
      * room.
      * @param tag tag associated with the memento to store
-     * @param memento memento to store
+     * @param memo memento to store
      */
-    private static void addMemento(String tag, Memento memento) {
-        memoMap.put(tag, memento);
+    private static void addMemento(String tag, IMemento memo) {
+        memoMap.put(tag, memo);
     }
 
     /**
@@ -54,7 +54,7 @@ public class StorageRoom {
         livingRoom.setSofa(new Sofa(5, "classical"));
 
         // Save the classical style of the living room in a memento
-        Memento classical = livingRoom.createMemento();
+        IMemento classical = livingRoom.createMemento();
         String classicalTag = "Classical-Style Decoration";
         addMemento(classicalTag, classical);
         // Decorate the living room as modern style

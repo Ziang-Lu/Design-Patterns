@@ -1,6 +1,6 @@
 package runner;
 
-import player.Memento;
+import player.IMemento;
 import player.Player;
 
 import java.util.Calendar;
@@ -21,14 +21,14 @@ public class Game {
     /**
      * Stored mapping between dates and the corresponding mementos.
      */
-    private static Map<Date, Memento> memosMap = new HashMap<>();
+    private static Map<Date, IMemento> memosMap = new HashMap<>();
 
     /**
      * Gets the memento associated with the given date from this game.
      * @param date date associated with the memento to get
      * @return corresponding memento
      */
-    private static Memento getMemento(Date date) {
+    private static IMemento getMemento(Date date) {
         return memosMap.get(date);
     }
 
@@ -37,7 +37,7 @@ public class Game {
      * @param date date associated with the memento to store
      * @param memo memento to store
      */
-    private static void addMemento(Date date, Memento memo) {
+    private static void addMemento(Date date, IMemento memo) {
         memosMap.put(date, memo);
     }
 
@@ -54,9 +54,9 @@ public class Game {
         System.out.println();
         System.out.println("Entering Checkpoint-8:");
 
-        // pp
+        // Save the state of the player before entering Checkpoint-8
         Date beforeCheck8 = Calendar.getInstance().getTime();
-        Memento memo = player.createMemento();
+        IMemento memo = player.createMemento();
         addMemento(beforeCheck8, memo);
 
         int trial = 1;

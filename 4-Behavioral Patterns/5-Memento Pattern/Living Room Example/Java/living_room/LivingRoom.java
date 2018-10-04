@@ -8,6 +8,54 @@ package living_room;
 public class LivingRoom {
 
     /**
+     * Memento class.
+     * This class holds a snapshot of the internal state of the "Originator".
+     * This is like a wrapper (a packing box) for the internal state of the
+     * "Originator" to be stored.
+     */
+    private static class Memento implements IMemento {
+        /**
+         * Stored LED TV.
+         */
+        private LedTV ledTV;
+        /**
+         * Stored Sofa object.
+         */
+        private Sofa sofa;
+
+        /**
+         * Constructor with parameter.
+         * @param ledTV LED TV to store
+         * @param sofa sofa to store
+         */
+        Memento(LedTV ledTV, Sofa sofa) {
+            this.ledTV = ledTV;
+            this.sofa = sofa;
+        }
+
+        /**
+         * Accessor of ledTV.
+         * @return ledTV
+         */
+        LedTV getLedTV() {
+            return ledTV;
+        }
+
+        /**
+         * Accessor of sofa.
+         * @return sofa
+         */
+        Sofa getSofa() {
+            return sofa;
+        }
+
+        @Override
+        public String toString() {
+            return "Memento [ledTV=" + ledTV + ", sofa=" + sofa + "]";
+        }
+    }
+
+    /**
      * LED TV in this living room.
      */
     private LedTV ledTV;
@@ -44,7 +92,7 @@ public class LivingRoom {
         } catch (CloneNotSupportedException ex) {
             ex.printStackTrace();
         }
-        System.out.println("Created a memento for Living Room: " + memento);
+        System.out.println("Created a memento for Living Room: " + memo);
         return memo;
     }
 
@@ -52,9 +100,10 @@ public class LivingRoom {
      * Restores the internal state of this living room from the given memento.
      * @param memo memento to restore from
      */
-    public void restore(Memento memo) {
-        this.ledTV = memo.getLedTV();
-        this.sofa = memo.getSofa();
+    public void restore(IMemento memo) {
+        Memento memento = (Memento) memo;
+        this.ledTV = memento.getLedTV();
+        this.sofa = memento.getSofa();
     }
 
     @Override

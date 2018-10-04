@@ -12,26 +12,26 @@ __author__ = 'Ziang Lu'
 import random
 from datetime import datetime
 
-from player import Memento, Player
+from player import IMemento, Player
 
 memo_map = {}  # Stored mapping between dates and the corresponding mementos
 
 
-def _get_memento(date: datetime) -> Memento:
+def _get_memento(date: datetime) -> IMemento:
     """
     Private helper function to get the memento associated with the given date.
     :param date: datetime object
-    :return: Memento
+    :return: IMemento
     """
     return memo_map[date]
 
 
-def _add_memento(date: datetime, memo: Memento) -> None:
+def _add_memento(date: datetime, memo: IMemento) -> None:
     """
     Private helper function to store the given memento associated with the given
     date.
     :param date: datetime
-    :param memo: Memento
+    :param memo: IMemento
     :return: None
     """
     memo_map[date] = memo

@@ -41,7 +41,7 @@ An better-designed UML diagram of Memento Pattern:
 In this way, a better encapsulation is achieved:
 
 * Only `MementoOriginator` can directly access the `Memento` objects, and thus its stored state information.
-* All classes other than `MementoOriginator` can only access `Memento` objects through the mark interface `MementoIF`, so they will know nothing about the `Memento` objects.
+* All classes other than `MementoOriginator` can only access `Memento` objects through the mark interface `MementoIF`, so they will know nothing about the actual `Memento` objects.
 
 ***
 

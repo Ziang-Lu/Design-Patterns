@@ -7,8 +7,20 @@ Player module.
 
 __author__ = 'Ziang Lu'
 
+from abc import ABC
 
-class Memento(object):
+
+class IMemento(ABC):
+    """
+    Abstract IMemento class that works as a mark interface for "Memento".
+    In this way, all classes other than the "Originator" can only access
+    "Memento" objects through this mark interface, so they will know nothing
+    about the actual "Memento" objects.
+    """
+    __slots__ = []
+
+
+class Memento(IMemento):
     """
     Memento class.
     This class holds a snapshot of the internal state of the "Originator".

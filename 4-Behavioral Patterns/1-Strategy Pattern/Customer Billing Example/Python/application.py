@@ -9,8 +9,9 @@ so that the client can select which actual implementation to use at runtime.
 
 __author__ = 'Ziang Lu'
 
-from strategy import (BillingStrategy, HappyHourBillingStrategy,
-                      NormalBillingStrategy)
+from strategy import (
+    BillingStrategy, HappyHourBillingStrategy, NormalBillingStrategy
+)
 
 
 class Customer(object):
@@ -19,23 +20,23 @@ class Customer(object):
     billing strategy and the client will use that strategy to calculate the
     actual prices for drinks.
     """
-    __slots__ = ['_billing_strategy', '_drinks']
+    __slots__ = ['_curr_billing_strategy', '_drinks']
 
     def __init__(self, billing_strategy: BillingStrategy):
         """
         Constructor with parameter.
         :param billing_strategy: BillingStrategy
         """
-        self._billing_strategy = billing_strategy
+        self._curr_billing_strategy = billing_strategy
         self._drinks = []
 
     def set_billing_strategy(self, billing_strategy: BillingStrategy) -> None:
         """
-        Mutator of billing_strategy.
+        Mutator of curr_billing_strategy.
         :param billing_strategy: BillingStrategy
         :return: None
         """
-        self._billing_strategy = billing_strategy
+        self._curr_billing_strategy = billing_strategy
 
     def add_drink(self, price: float, n: int) -> None:
         """
@@ -44,7 +45,9 @@ class Customer(object):
         :param n: int
         :return: None
         """
-        self._drinks.append(self._billing_strategy.get_actual_price(price * n))
+        self._drinks.append(
+            self._curr_billing_strategy.get_actual_price(price * n)
+        )
 
     def print_bill(self) -> None:
         """

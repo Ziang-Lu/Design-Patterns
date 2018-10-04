@@ -15,9 +15,9 @@ import java.util.List;
 public class Customer {
 
     /**
-     * Billing strategy to use.
+     * Current billing strategy to use.
      */
-    private BillingStrategy billingStrategy;
+    private BillingStrategy currBillingStrategy;
     /**
      * List of drinks.
      */
@@ -28,16 +28,16 @@ public class Customer {
      * @param billingStrategy billing strategy to use
      */
     public Customer(BillingStrategy billingStrategy) {
-        this.billingStrategy = billingStrategy;
+        currBillingStrategy = billingStrategy;
         drinks = new ArrayList<>();
     }
 
     /**
-     * Mutator of billingStrategy.
+     * Mutator of currBillingStrategy.
      * @param billingStrategy billing strategy to use
      */
     public void setBillingStrategy(BillingStrategy billingStrategy) {
-        this.billingStrategy = billingStrategy;
+        this.currBillingStrategy = billingStrategy;
     }
 
     /**
@@ -46,7 +46,7 @@ public class Customer {
      * @param n number of drinks
      */
     public void addDrinks(double price, int n) {
-        drinks.add(billingStrategy.getActualPrice(price * n));
+        drinks.add(currBillingStrategy.getActualPrice(price * n));
     }
 
     /**

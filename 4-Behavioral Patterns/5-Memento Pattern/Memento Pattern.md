@@ -34,6 +34,15 @@ The Memento Pattern is a **behavioral pattern** that **provides the ability to r
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Memento%20Pattern/memento_pattern.png?raw=true" width="500px">
 
+An better-designed UML diagram of Memento Pattern:
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Memento%20Pattern/memento_pattern_improved.png?raw=true">
+
+In this way, a better encapsulation is achieved:
+
+* Only `MementoOriginator` can directly access the `Memento` objects, and thus its stored state information.
+* All classes other than `MementoOriginator` can only access `Memento` objects through the mark interface `MementoIF`, so they will know nothing about the `Memento` objects.
+
 ***
 
 某种程度、某种角度上, Memento Pattern和State Pattern有点相似:

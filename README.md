@@ -21,7 +21,7 @@ This repo includes detailed tutorials and examples of various design patterns.
 
 **Help compose objects and put objects together**
 
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Delegation%20Pattern.md">Bridge Pattern (桥接模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Bridge%20Pattern.md">Bridge Pattern (桥接模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/2-Delegation%20Pattern.md">Delegation Pattern (委托模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Composite%20Pattern/Composite%20Pattern.md">Composite Pattern (复合模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Decorator%20Pattern/Decorator%20Pattern.md">Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)</a>

@@ -1,5 +1,11 @@
 # Bridge Pattern (桥接模式)
 
+## Applicability
+
+
+
+<br>
+
 ## Definition & Explanation
 
 The Bridge Pattern is a **structrual pattern** that **separates the abstraction part and its implementation part in two different layers, so that they can be developed independently: change in one part will not affect the functionality or development of the other part**.
@@ -8,3 +14,4 @@ The Bridge Pattern is a **structrual pattern** that **separates the abstraction 
 
 **这基本就是structural pattern版本的Strategy Pattern: 本质都是把一个system (or object) 的抽象和其行为分离开.**
 
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Bridge%20Pattern/bridge_pattern.png?raw=true">

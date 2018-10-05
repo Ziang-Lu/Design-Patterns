@@ -14,6 +14,8 @@
 
 The Memento Pattern is a **behavioral pattern** that **provides the ability to restore an object to its previous state, which is like a "undo" or "rollback" operation**.
 
+(This is a behavioral pattern because it defines a manner for controlling the communication between classes or entities.)
+
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Memento%20Pattern/memento_pattern_illustration.png?raw=true">
 
 *(有点像打游戏, 打某一关卡之前先存档, 如果失败了再回来读档)*

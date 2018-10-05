@@ -11,31 +11,35 @@ __author__ = 'Ziang Lu'
 
 from living_room import IMemento, LedTV, LivingRoom, Sofa
 
-memo_map = {}  # Stored mapping between tags and the corresponding mementos
 
+class StorageRoom(object):
+    __slots__ = ['_memo_map']
 
-def _get_memento(tag: str) -> IMemento:
-    """
-    Private helper function to get the memento associated with the given tag.
-    :param tag: str
-    :return: IMemento
-    """
-    return memo_map[tag]
+    def __init__(self):
+        self._memo_map = {}
+        # Stored mapping between tags and the corresponding mementos
 
+    def get_memento(self, tag: str) -> IMemento:
+        """
+        get the memento associated with the given tag.
+        :param tag: str
+        :return: IMemento
+        """
+        return self._memo_map[tag]
 
-def _add_memento(tag: str, memo: IMemento) -> None:
-    """
-    Private helper function to store the given memento associated with the given
-    tag.
-    :param tag: str
-    :param memo: IMemento
-    :return: None
-    """
-    memo_map[tag] = memo
+    def add_memento(self, tag: str, memo: IMemento) -> None:
+        """
+        Stores the given memento associated with the given tag.
+        :param tag: str
+        :param memeo: IMemento
+        :return: None
+        """
+        self._memo_map[tag] = memo
 
 
 def main():
     living_room = LivingRoom()
+    storage_room = StorageRoom()
 
     # Decorate the living room as classical style
     living_room.set_led_tv(LedTV(size=42, usb_support=False, price=800.0))
@@ -44,7 +48,7 @@ def main():
     # Save the classical style of the living room in a memento
     classical = living_room.create_memento()
     classical_tag = 'Classical-Type Decoration'
-    _add_memento(classical_tag, classical)
+    storage_room.add_memento(classical_tag, classical)
     # Decorate the living room as modern style
     living_room.set_led_tv(LedTV(size=46, usb_support=True, price=1000.0))
     living_room.set_sofa(Sofa(size=7, style='modern'))
@@ -53,7 +57,7 @@ def main():
     # Restore the living room to the previous saved classical style
     print()
     print(f'Living Room restoring to {classical_tag}...')
-    living_room.restore(_get_memento(classical_tag))
+    living_room.restore(storage_room.get_memento(classical_tag))
     print(f'Living Room current state: {living_room}')
 
 

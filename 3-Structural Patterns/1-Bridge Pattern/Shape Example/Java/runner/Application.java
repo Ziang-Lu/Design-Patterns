@@ -31,9 +31,9 @@ public class Application {
         String color = scanner.nextLine();
         ColorImplementor colorImplementor = null;
         if (color.equalsIgnoreCase("red")) {
-            colorImplementor = new RedImplementor();
+            colorImplementor = RedImplementor.getInstance();
         } else if (color.equalsIgnoreCase("blue")) {
-            colorImplementor = new BlueImplementor();
+            colorImplementor = BlueImplementor.getInstance();
         } else {
             return;
         }

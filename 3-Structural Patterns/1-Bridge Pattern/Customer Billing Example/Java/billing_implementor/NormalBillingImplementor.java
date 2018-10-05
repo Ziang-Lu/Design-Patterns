@@ -1,20 +1,18 @@
-package color_implementor;
-
-import shape_abstraction.Shape;
+package billing_implementor;
 
 /**
- * Concrete BlueImplementor class that works as "ConcreteImplementor" to fill a
- * shape with blue color.
+ * Concrete NormalBillingImplementor class that works as "ConcreteImplementor"
+ * to get the actual price using normal billing implementor.
  * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
-public class BlueImplementor implements ColorImplementor {
+public class NormalBillingImplementor implements BillingImplementor {
 
     /**
      * Singleton instance.
      */
-    private volatile static BlueImplementor instance = null;
+    private volatile static NormalBillingImplementor instance;
 
     /**
      * Gets the singleton instance.
@@ -22,11 +20,11 @@ public class BlueImplementor implements ColorImplementor {
      * locking mechanism.
      * @return singleton instance
      */
-    public static BlueImplementor getInstance() {
+    public static NormalBillingImplementor getInstance() {
         if (instance == null) {
-            synchronized (BlueImplementor.class) {
+            synchronized (NormalBillingImplementor.class) {
                 if (instance == null) {
-                    instance = new BlueImplementor();
+                    instance = new NormalBillingImplementor();
                 }
             }
         }
@@ -38,11 +36,11 @@ public class BlueImplementor implements ColorImplementor {
      * This has to be private so that the class instances cannot be created
      * outside of the class.
      */
-    private BlueImplementor() {}
+    private NormalBillingImplementor() {}
 
     @Override
-    public void fillColor(Shape shape) {
-        System.out.println(shape.getClass().getSimpleName() + " is filled with blue color using BlueImplementor.");
+    public double getActualPrice(double rawPrice) {
+        return rawPrice;
     }
 
 }

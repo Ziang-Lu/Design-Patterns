@@ -1,9 +1,9 @@
 package runner;
 
-import strategy.BubbleSort;
-import strategy.InsertionSort;
-import strategy.SelectionSort;
-import strategy.SortingStrategy;
+import sorting_strategy.BubbleSort;
+import sorting_strategy.InsertionSort;
+import sorting_strategy.SelectionSort;
+import sorting_strategy.SortingStrategy;
 
 import java.util.Scanner;
 

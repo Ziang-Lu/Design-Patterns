@@ -9,7 +9,7 @@ so that the client can select which actual implementation to use at runtime.
 
 __author__ = 'Ziang Lu'
 
-from strategy import (
+from billing_strategy import (
     BillingStrategy, HappyHourBillingStrategy, NormalBillingStrategy
 )
 
@@ -20,7 +20,7 @@ class Customer(object):
     billing strategy and the client will use that strategy to calculate the
     actual prices for drinks.
     """
-    __slots__ = ['_curr_billing_strategy', '_drinks']
+    __slots__ = ['_curr_billing_strategy', '_rounds']
 
     def __init__(self, billing_strategy: BillingStrategy):
         """
@@ -28,7 +28,7 @@ class Customer(object):
         :param billing_strategy: BillingStrategy
         """
         self._curr_billing_strategy = billing_strategy
-        self._drinks = []
+        self._rounds = []
 
     def set_billing_strategy(self, billing_strategy: BillingStrategy) -> None:
         """
@@ -45,7 +45,7 @@ class Customer(object):
         :param n: int
         :return: None
         """
-        self._drinks.append(
+        self._rounds.append(
             self._curr_billing_strategy.get_actual_price(price * n)
         )
 
@@ -54,15 +54,15 @@ class Customer(object):
         Prints the total bill for this customer
         :return: None
         """
-        total = sum(self._drinks)
+        total = sum(self._rounds)
         print(f'Total due: {total}')
-        self._drinks.clear()
+        self._rounds.clear()
 
 
 def main():
     # Prepare billing strategies
-    normal_strategy = NormalBillingStrategy()
-    happy_hour_strategy = HappyHourBillingStrategy()
+    normal_strategy = NormalBillingStrategy.get_instance()
+    happy_hour_strategy = HappyHourBillingStrategy.get_instance()
 
     # Normal time slot
     first_customer = Customer(normal_strategy)

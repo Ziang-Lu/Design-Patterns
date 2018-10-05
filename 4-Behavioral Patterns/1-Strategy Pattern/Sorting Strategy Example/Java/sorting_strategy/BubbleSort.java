@@ -1,4 +1,4 @@
-package strategy;
+package sorting_strategy;
 
 /**
  * Concrete Bubble Sort strategy to perform the sorting task (solve the sorting

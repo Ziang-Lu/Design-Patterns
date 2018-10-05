@@ -1,4 +1,4 @@
-package strategy;
+package sorting_strategy;
 
 /**
  * Abstract sorting strategy interface to define the sorting task to perform

@@ -1,6 +1,6 @@
 package runner;
 
-import strategy.BillingStrategy;
+import billing_strategya.BillingStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +19,9 @@ public class Customer {
      */
     private BillingStrategy currBillingStrategy;
     /**
-     * List of drinks.
+     * List of drink rounds.
      */
-    private List<Double> drinks;
+    private List<Double> rounds;
 
     /**
      * Constructor with parameter.
@@ -29,7 +29,7 @@ public class Customer {
      */
     public Customer(BillingStrategy billingStrategy) {
         currBillingStrategy = billingStrategy;
-        drinks = new ArrayList<>();
+        rounds = new ArrayList<>();
     }
 
     /**
@@ -46,16 +46,16 @@ public class Customer {
      * @param n number of drinks
      */
     public void addDrinks(double price, int n) {
-        drinks.add(currBillingStrategy.getActualPrice(price * n));
+        rounds.add(currBillingStrategy.getActualPrice(price * n));
     }
 
     /**
      * Prints the total bill for this customer.
      */
     public void printBill() {
-        double sum = drinks.stream().mapToDouble(Double::doubleValue).sum();
+        double sum = rounds.stream().mapToDouble(Double::doubleValue).sum();
         System.out.println("Total due: " + sum);
-        drinks.clear();
+        rounds.clear();
     }
 
 }

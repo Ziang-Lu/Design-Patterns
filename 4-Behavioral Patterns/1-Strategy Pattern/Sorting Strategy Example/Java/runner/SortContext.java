@@ -1,6 +1,6 @@
 package runner;
 
-import strategy.SortingStrategy;
+import sorting_strategy.SortingStrategy;
 
 import java.util.Arrays;
 import java.util.Scanner;

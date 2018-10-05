@@ -19,9 +19,9 @@ def main():
 
     color = input("Enter the color to fill: 'red' or 'blue': ")
     if color.lower() == 'red':
-        color_implementor = RedImplementor()
+        color_implementor = RedImplementor.get_instance()
     elif color.lower() == 'blue':
-        color_implementor = BlueImplementor()
+        color_implementor = BlueImplementor.get_instance()
     else:
         return
     rectangle.set_color_implementor(color_implementor)

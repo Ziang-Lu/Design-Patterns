@@ -1,8 +1,8 @@
 package runner;
 
-import strategy.BillingStrategy;
-import strategy.HappyHourBillingStrategy;
-import strategy.NormalBillingStrategy;
+import billing_strategy.BillingStrategy;
+import billing_strategy.HappyHourBillingStrategy;
+import billing_strategy.NormalBillingStrategy;
 
 /**
  * Application that actually uses Strategy Pattern to provide multiple
@@ -20,8 +20,8 @@ public class Application {
      */
     public static void main(String[] args) {
         // Prepare billing strategies
-        BillingStrategy normalStrategy = new NormalBillingStrategy();
-        BillingStrategy happyHourStrategy = new HappyHourBillingStrategy();
+        BillingStrategy normalStrategy = NormalBillingStrategy.getInstance();
+        BillingStrategy happyHourStrategy = HappyHourBillingStrategy.getInstance();
 
         // Normal time slot
         Customer firstCustomer = new Customer(normalStrategy);

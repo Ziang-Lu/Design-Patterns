@@ -52,7 +52,7 @@ public abstract class PhoneCustomer {
      */
     public void call(String recipientNumber, String msg) {
         System.out.println(name + " calling " + recipientNumber + " with message: " + msg + " ...");
-        phoneExchange.call(phoneNumber, recipientNumber, msg);
+        phoneExchange.route(phoneNumber, recipientNumber, msg);
     }
 
     /**

@@ -72,7 +72,7 @@ public class PhoneExchange {
      * @param recipientNumber phone number of the recipient
      * @param msg message to send
      */
-    void call(String callerNumber, String recipientNumber, String msg) {
+    void route(String callerNumber, String recipientNumber, String msg) {
         if (!directory.containsKey(recipientNumber)) {
             System.out.println("Failed.");
             return;

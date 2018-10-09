@@ -66,7 +66,8 @@ class PhoneExchange(object):
                 valid = True
         return phone_number
 
-    def call(self, caller_number: str, recipient_number: str, msg: str) -> None:
+    def route(self, caller_number: str, recipient_number: str,
+              msg: str) -> None:
         """
         Routes a call with the given message from the given caller to a
         recipient with the given number (if any).
@@ -123,8 +124,8 @@ class PhoneCustomer(ABC):
         """
         print(f'{self._name} calling {recipient_number} with the message: {msg}'
               f' ...')
-        self._phone_exchange.call(caller_number=self._phone_number,
-                                  recipient_number=recipient_number, msg=msg)
+        self._phone_exchange.route(caller_number=self._phone_number,
+                                   recipient_number=recipient_number, msg=msg)
 
     def receive_call(self, caller_number: str, msg: str) -> None:
         """

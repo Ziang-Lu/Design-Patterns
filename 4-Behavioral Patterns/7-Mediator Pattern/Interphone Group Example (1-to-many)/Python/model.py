@@ -44,7 +44,7 @@ class InterphoneGroup(object):
         :return: None
         """
         for member in self._all_members.values():
-            if member is not sender:
+            if member is not sender:  # The sender himself should not receive the message.
                 member.receive_message(sender_name=sender.name, msg=msg)
 
     def publish_message_to_leaders(self, sender, msg: str) -> None:
@@ -55,7 +55,7 @@ class InterphoneGroup(object):
         :return: None
         """
         for leader in self._leaders:
-            if leader is not sender:
+            if leader is not sender:  # The sender himself should not receive the message.
                 leader.receive_message(sender_name=sender.name, msg=msg)
 
     def private_message(self, sender, recipient_name: str, msg: str) -> None:

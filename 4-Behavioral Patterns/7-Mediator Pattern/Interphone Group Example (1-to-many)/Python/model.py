@@ -14,7 +14,8 @@ class InterphoneGroup(object):
     """
     InterphoneGroup class that works as "Mediator".
     A "Mediator" object acts as the communication center for "Colleague"
-    objects.
+    objects by encapsulating the communication between "Colleague" objects in
+    this "Mediator" object.
     """
     __slots__ = ['_members']
 
@@ -43,8 +44,8 @@ class User(ABC):
     Abstract User class that works as "Colleague".
     When a "Colleague" object needs to communicate to another "Colleague"
     object, it does not directly call on the other "Colleague" object; instead,
-    it calls the "Mediator" object whose main duty is to route the message to
-    the destination "Colleague" object.
+    it calls the "Mediator" object whose main duty is to control and coordinate
+    the communication between "Colleague" objects.
     In this way, the communication complexity between the "Colleague" objects
     are greatly reduced.
     """

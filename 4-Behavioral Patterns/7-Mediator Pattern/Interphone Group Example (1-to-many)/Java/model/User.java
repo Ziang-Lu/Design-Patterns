@@ -4,8 +4,8 @@ package model;
  * Abstract User class that works as "Colleague".
  * When a "Colleague" object needs to communicate to another "Colleague" object,
  * it does not directly call on the other "Colleague" object; instead, it calls
- * the "Mediator" object whose main duty is to route the message to the
- * destination "Colleague" object.
+ * the "Mediator" object whose main duty is to control and coordinate the
+ * communication between "Colleague" objects.
  * In this way, the communication complexity between the "Colleague" objects are
  * greatly reduced.
  *

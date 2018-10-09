@@ -5,7 +5,9 @@ import java.util.List;
 
 /**
  * InterphoneGroup class that works as "Mediator".
- * A "Mediator" object acts as the communication center for "Colleague" objects.
+ * A "Mediator" object acts as the communication center for "Colleague" objects
+ * by encapsulating the communication between "Colleague" objects in this
+ * "Mediator" object.
  *
  * @author Ziang Lu
  */

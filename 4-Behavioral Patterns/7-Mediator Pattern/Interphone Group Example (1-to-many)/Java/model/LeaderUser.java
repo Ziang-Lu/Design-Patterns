@@ -15,4 +15,10 @@ public class LeaderUser extends User {
         super(name);
     }
 
+    @Override
+    public void joinGroup(InterphoneGroup group) {
+        this.group = group;
+        group.register(this);
+    }
+
 }

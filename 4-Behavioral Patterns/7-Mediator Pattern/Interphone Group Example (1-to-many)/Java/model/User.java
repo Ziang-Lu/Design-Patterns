@@ -20,7 +20,7 @@ public abstract class User {
     /**
      * Interphone group of this user.
      */
-    private InterphoneGroup group;
+    protected InterphoneGroup group;
 
     /**
      * Constructor with parameter.
@@ -42,18 +42,34 @@ public abstract class User {
      * Joins the given interphone group.
      * @param group interphone group to join
      */
-    public void joinGroup(InterphoneGroup group) {
-        this.group = group;
-        group.register(this);
+    public abstract void joinGroup(InterphoneGroup group);
+
+    /**
+     * Sends the given message to all the members in the group.
+     * @param msg message to send
+     */
+    public void sendToAll(String msg) {
+        System.out.println(name + " sends a public message: " + msg);
+        group.publishMessage(this, msg);
     }
 
     /**
-     * Sends the given message to the group.
+     * Sends the given message to all the leaders in the group.
      * @param msg message to send
      */
-    public void sendMessage(String msg) {
-        System.out.println(name + " sends a message: " + msg);
-        group.publishMessage(this, msg);
+    public void sendToLeaders(String msg) {
+        System.out.println(name + " sends a message to all the leaders: " + msg);
+        group.publishMessageToLeaders(this, msg);
+    }
+
+    /**
+     * Sends the given message to the given recipient.
+     * @param recipient name of the recipient
+     * @param msg message to send
+     */
+    public void sendMessage(String recipient, String msg) {
+        System.out.println(name + " sends a message to " + recipient + ": " + msg);
+        group.privateMessage(this, recipient, msg);
     }
 
     /**

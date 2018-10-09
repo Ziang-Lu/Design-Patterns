@@ -15,4 +15,10 @@ public class NormalUser extends User {
         super(name);
     }
 
+    @Override
+    public void joinGroup(InterphoneGroup group) {
+        this.group = group;
+        group.register(this);
+    }
+
 }

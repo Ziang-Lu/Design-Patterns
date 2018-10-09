@@ -22,6 +22,10 @@ The Mediator Pattern is a **behavioral pattern** that provides a mediator object
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Mediator%20Pattern/mediator_pattern_illustration.png?raw=true">
 
+*The idea of a <u>central controller</u> (the mediator) is one of the key aspects of the Mediator Pattern.*
+
+*=> When there are too many relationships between objects in your code, it's time to think of having such a centrol point of control (the mediator).*
+
 <br>
 
 ## Benefits

@@ -2,13 +2,19 @@
 
 ## Applicability
 
+* When you want to hide implementation details from clients
+
 * <u>When both the class itself and what it does vary often</u>
 
   => The class itself can be thought of as the abstraction, and what the class can do as the implementation.
 
+* When you want to <u>share an implementation among multiple objets</u>
+
 * <u>When an abstraction and its implementation should be defined and extended independently from each other</u>
 
-* When we should avoid compile-time binding between an abstraction and its implementation, so that an implementation can be selected at runtime
+* When we should <u>avoid compile-time binding between an abstraction and its implementation</u>, so that <u>an implementation can be selected at runtime</u>
+
+=> 将abstraction与其implementation分离开
 
 <br>
 
@@ -27,5 +33,5 @@ The Bridge Pattern is a **structrual pattern** that **separates the abstraction 
 ## Benefit
 
 * <u>The abstraction of a class and its implementation can be defined and extended independently from each other.</u>
-* We can achieve dynamically binding an implementation to an abstraction  at runtime.
+* We can achieve <u>dynamically binding an implementation to an abstraction at runtime</u>.
 

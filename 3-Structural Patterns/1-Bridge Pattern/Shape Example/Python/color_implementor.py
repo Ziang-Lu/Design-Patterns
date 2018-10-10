@@ -14,8 +14,8 @@ class ColorImplementor(ABC):
     """
     Abstract filling-color implementor class that works as "Implementor" to
     define the methods that the concrete implementation classes must implement.
-    This class acts as a bridge between the abstraction layer and the concrete
-    implementation classes.
+    This abstract class acts as a bridge between the abstraction layer and the
+    concrete implementation classes.
     """
     __slots__ = []
 

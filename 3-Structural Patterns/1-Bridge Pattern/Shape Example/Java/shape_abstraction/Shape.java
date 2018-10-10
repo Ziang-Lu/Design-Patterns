@@ -15,28 +15,28 @@ public abstract class Shape {
     /**
      * Fill-color implementor.
      */
-    private ColorImplementor colorImplementor;
+    private ColorImplementor colorImpl;
 
     /**
      * Draws this shape.
      */
     public void draw() {
-        System.out.println(getClass().getSimpleName() + " has been drawn without any color.");
+        System.out.println(this + " has been draw without any color.");
     }
 
     /**
-     * Mutator of colorImplementor.
-     * @param colorImplementor filling-color implementor to set
+     * Mutator of colorImpl.
+     * @param colorImpl filling-color implementor to set
      */
-    public void setColorImplementor(ColorImplementor colorImplementor) {
-        this.colorImplementor = colorImplementor;
+    public void setColorImplementor(ColorImplementor colorImpl) {
+        this.colorImpl = colorImpl;
     }
 
     /**
      * Fills the color of this shape using a filling-color implementor.
      */
     public void fillColor() {
-        colorImplementor.fillColor(this);
+        colorImpl.fillColor(this);
     }
 
 }

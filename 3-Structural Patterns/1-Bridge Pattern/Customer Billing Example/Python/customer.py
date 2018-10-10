@@ -19,25 +19,23 @@ class Customer(ABC):
     a reference to a billing implementor, so that the client will use that
     implementor to calculate the actual price for drinks.
     """
-    __slots__ = ['_curr_billing_implementor', '_rounds']
+    __slots__ = ['_curr_billing_impl', '_rounds']
 
-    def __init__(self, billing_implementor: BillingImplementor):
+    def __init__(self, billing_impl: BillingImplementor):
         """
         Constructor with parameter.
-        :param billing_implementor: BillingImplementor
+        :param billing_impl: BillingImplementor
         """
-        self._curr_billing_implementor = billing_implementor
+        self._curr_billing_impl = billing_impl
         self._rounds = []
 
-    def set_billing_implementor(
-        self, billing_implementor: BillingImplementor
-    ) -> None:
+    def set_billing_implementor(self, billing_impl: BillingImplementor) -> None:
         """
-        Mutator of billing_implementor.
-        :param billing_implementor: BillingImplementor
+        Mutator of curr_billing_impl.
+        :param billing_impl: BillingImplementor
         :return: None
         """
-        self._curr_billing_implementor = billing_implementor
+        self._curr_billing_impl = billing_impl
 
     def add_drinks(self, price: float, n: int) -> None:
         """
@@ -46,9 +44,7 @@ class Customer(ABC):
         :param n: int
         :return: None
         """
-        self._rounds.append(
-            self._curr_billing_implementor.get_actual_price(price * n)
-        )
+        self._rounds.append(self._curr_billing_impl.get_actual_price(price * n))
 
     def print_bill(self) -> None:
         """
@@ -66,12 +62,12 @@ class NormalCustomer(Customer):
     """
     __slots__ = []
 
-    def __init__(self, billing_implementor: BillingImplementor):
+    def __init__(self, billing_impl: BillingImplementor):
         """
         Constructor with parameter.
-        :param billing_implementor: BillingImplementor
+        :param billing_impl: BillingImplementor
         """
-        super().__init__(billing_implementor)
+        super().__init__(billing_impl)
         self._rounds = []
 
 
@@ -81,12 +77,12 @@ class TeenagerCustomer(Customer):
     """
     __slots__ = []
 
-    def __init__(self, billing_implementor: BillingImplementor):
+    def __init__(self, billing_impl: BillingImplementor):
         """
         Constructor with parameter.
-        :param billing_implementor: BillingImplementor
+        :param billing_impl: BillingImplementor
         """
-        super().__init__(billing_implementor)
+        super().__init__(billing_impl)
         self._rounds = []
 
     def add_drinks(self, price, n):

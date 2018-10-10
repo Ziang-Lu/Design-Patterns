@@ -1,5 +1,7 @@
 package text_editor;
 
+import javax.swing.JTextArea;
+
 /**
  * TextEditor class that works as "Originator".
  *
@@ -8,50 +10,33 @@ package text_editor;
 public class TextEditor {
 
     /**
-     * Memento class.
-     * This class holds a snapshot of the internal state of the "Originator".
-     * This is like a wrapper (a packing box) for the internal state of the
-     * "Originator" to be stored.
+     * Current text in this text editor.
      */
-    private static class Memento implements IMemento {
-        /**
-         * Stored text.
-         */
-        private String text;
+    private JTextArea textField;
 
-        /**
-         * Constructor with parameter.
-         * @param text text to store
-         */
-        Memento(String text) {
-            this.text = text;
-        }
-
-        /**
-         * Accessor of text.
-         * @return text
-         */
-        String getText() {
-            return text;
-        }
-
-        @Override
-        public String toString() {
-            return "Memento [text=" + text + "]";
-        }
+    /**
+     * Constructor with parameter.
+     * @param rows number of rows for the text field
+     * @param cols number of columns for the text field
+     */
+    public TextEditor(int rows, int cols) {
+        textField = new JTextArea(rows, cols);
     }
 
     /**
-     * Current text in this text editor.
+     * Accessor of text.
+     * @return text
      */
-    private String text = "";
+    public String getText() {
+        return textField.getText();
+    }
 
     /**
-     * Mutator of text.
-     * @param text text to set
+     * Accessor of textField.
+     * @return text field
      */
-    public void setText(String text) {
-        this.text = text;
+    public JTextArea getTextField() {
+        return textField;
     }
 
     /**
@@ -60,7 +45,7 @@ public class TextEditor {
      * @return created memento
      */
     public Memento createMemento() {
-        Memento memo = new Memento(text);
+        Memento memo = new Memento(textField.getText());
         System.out.println("Created a memento for TextEditor: " + memo);
         return memo;
     }
@@ -69,14 +54,13 @@ public class TextEditor {
      * Restores the internal state of this text editor from the given memento.
      * @param memo memento to restore from
      */
-    public void restore(IMemento memo) {
-        Memento memento = (Memento) memo;
-        text = memento.getText();
+    public void restore(Memento memo) {
+        textField.setText(memo.getText());
     }
 
     @Override
     public String toString() {
-        return "TextEditor{text=" + text + "}";
+        return "TextEditor{text=" + textField.getText() + "}";
     }
 
 }

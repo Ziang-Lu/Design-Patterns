@@ -1,10 +1,13 @@
 package runner;
 
-import text_editor.IMemento;
+import text_editor.Caretaker;
+import text_editor.Memento;
 import text_editor.TextEditor;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * TextEditorApp class that works as "Caretaker" that actually uses Memento
@@ -14,82 +17,110 @@ import java.util.List;
  *
  * @author Ziang Lu
  */
-public class TextEditorApp {
+public class TextEditorApp extends JFrame {
 
     /**
      * Text editor of this application.
      */
-    private TextEditor textEditor = new TextEditor();
+    private TextEditor textEditor = new TextEditor(5, 10);
     /**
-     * Stored mementos.
+     * Caretaker that stores all the mementos.
      */
-    private List<IMemento> mementoList = new ArrayList<>();
+    private Caretaker caretaker = new Caretaker();
     /**
      * Pointer to the last saved state.
      */
-    private int lastSavedPtr = -1;
+    private int prevStatePtr = -1;
 
     /**
-     * Writes the given text to the text editor.
-     * @param text text to write
+     * Default constructor.
      */
-    public void write(String text) {
-        textEditor.setText(text);
-        System.out.println("After writing '" + text + "': " + textEditor);
+    public TextEditorApp() {
+        // Set the basic information for this frame
+        setSize(400, 200);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("Memento Pattern demo");
+
+        // Save for the initial empty text
+        save();
+
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Text:"));
+        panel.add(textEditor.getTextField());
+
+        JButton saveButton = new JButton("Save");
+        saveButton.addActionListener((e) -> { // Java lambda expression in place of anonymous class
+            if (e.getSource() == saveButton) {
+                save();
+            }
+        });
+        panel.add(saveButton);
+
+        JButton undoButton = new JButton("Undo");
+        undoButton.addActionListener((e) -> {
+            if (e.getSource() == undoButton) {
+                undo();
+            }
+        });
+        panel.add(undoButton);
+
+        JButton redoButton = new JButton("Redo");
+        redoButton.addActionListener((e) -> {
+            if (e.getSource() == redoButton) {
+                redo();
+            }
+        });
+        panel.add(redoButton);
+
+        add(panel);
+
+        // Display this frame
+        setVisible(true);
     }
 
     /**
      * Saves the current state of the text editor.
      */
-    public void save() {
-        addMemento(textEditor.createMemento());
-        lastSavedPtr = mementoList.size() - 1;
-    }
-
-    /**
-     * Private helper method to store given memento.
-     * @param memo memento to store
-     */
-    private void addMemento(IMemento memo) {
-        mementoList.add(memo);
+    private void save() {
+        caretaker.addMemento(textEditor.createMemento());
+        prevStatePtr = caretaker.getLastMementoPtr();
     }
 
     /**
      * Undo the most recent change in the text editor.
      */
-    public void undo() {
-        if (lastSavedPtr <= 0) {
+    private void undo() {
+        if (!textEditor.getText().equals(caretaker.getMemento(prevStatePtr).getText())) {
+            Memento lastSavedState = caretaker.getMemento(prevStatePtr);
+            textEditor.restore(lastSavedState);
+        } else if (prevStatePtr <= 0) {
             System.out.println("No more undo operation available!");
-            return;
+        } else {
+            --prevStatePtr;
+            Memento prevState = caretaker.getMemento(prevStatePtr);
+            textEditor.restore(prevState);
         }
-        System.out.print("Undo operation... ");
-        --lastSavedPtr;
-        IMemento prevState = getMemento(lastSavedPtr);
-        textEditor.restore(prevState);
-        System.out.println(textEditor);
-    }
-
-    /**
-     * Private helper method to get the memento at the given index.
-     * @param idx index of the memento
-     */
-    private IMemento getMemento(int idx) {
-        return mementoList.get(idx);
     }
 
     /**
      * Redoes the most recent change in the text editor.
      */
-    public void redo() {
-        if (lastSavedPtr >= (mementoList.size() - 1)) {
+    private void redo() {
+        if (prevStatePtr >= caretaker.getLastMementoPtr()) {
             System.out.println("No more redo operation available!");
             return;
         }
-        System.out.print("Redo operation...");
-        ++lastSavedPtr;
-        IMemento nextState = getMemento(lastSavedPtr);
+        ++prevStatePtr;
+        Memento nextState = caretaker.getMemento(prevStatePtr);
         textEditor.restore(nextState);
-        System.out.println(textEditor);
+    }
+
+    /**
+     * Main driver.
+     * @param args arguments from command line
+     */
+    public static void main(String[] args) {
+        new TextEditorApp();
     }
 
 }

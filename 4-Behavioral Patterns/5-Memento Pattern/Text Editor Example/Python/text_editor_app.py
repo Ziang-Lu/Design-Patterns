@@ -7,7 +7,7 @@ Text editor application module.
 
 __author__ = 'Ziang Lu'
 
-from text_editor import IMemento, TextEditor
+from text_editor import Memento, TextEditor
 
 
 class TextEditorApp(object):
@@ -17,7 +17,7 @@ class TextEditorApp(object):
     This class is responsible for keeping a collection of "Memento", but never
     examines or operates on the contents of a "Memento".
     """
-    __slots__ = ['_text_editor', '_memento_list', '_last_saved_ptr']
+    __slots__ = ['_text_editor', '_memento_list', '_prev_state_ptr']
 
     def __init__(self):
         """
@@ -25,7 +25,7 @@ class TextEditorApp(object):
         """
         self._text_editor = TextEditor()
         self._memento_list = []
-        self._last_saved_ptr = -1
+        self._prev_state_ptr = -1
 
     def write(self, text: str) -> None:
         """
@@ -33,7 +33,7 @@ class TextEditorApp(object):
         :param text: str
         :return: None
         """
-        self._text_editor.set_text(text)
+        self._text_editor.text = text
         print(f"After writing '{text}': {self._text_editor}")
 
     def save(self) -> None:
@@ -42,12 +42,12 @@ class TextEditorApp(object):
         :return: None
         """
         self._add_memento(self._text_editor.create_memento())
-        self._last_saved_ptr = len(self._memento_list) - 1
+        self._prev_state_ptr = len(self._memento_list) - 1
 
-    def _add_memento(self, memo: IMemento) -> None:
+    def _add_memento(self, memo: Memento) -> None:
         """
         Private helper function to store the given memento.
-        :param memo: IMemento
+        :param memo: Memento
         :return: None
         """
         self._memento_list.append(memo)
@@ -57,20 +57,25 @@ class TextEditorApp(object):
         Undo the most recent change in the text editor.
         :return: None
         """
-        if self._last_saved_ptr <= 0:
-            print('No more undo operation available!')
-            return
         print('Undo operation...')
-        self._last_saved_ptr -= 1
-        prev_state = self._get_memento(self._last_saved_ptr)
-        self._text_editor.restore(prev_state)
-        print(self._text_editor)
+        if self._text_editor.text !=\
+                self._memento_list[self._prev_state_ptr].text:
+            last_saved_state = self._memento_list[self._prev_state_ptr]
+            self._text_editor.restore(last_saved_state)
+            print(self._text_editor)
+        elif self._prev_state_ptr <= 0:
+            print('No more undo operation available!')
+        else:
+            self._prev_state_ptr -= 1
+            prev_state = self._get_memento(self._prev_state_ptr)
+            self._text_editor.restore(prev_state)
+            print(self._text_editor)
 
-    def _get_memento(self, idx: int) -> IMemento:
+    def _get_memento(self, idx: int) -> Memento:
         """
         Private helper function to get the memento at the given index.
         :param idx: int
-        :return: IMemento
+        :return: Memento
         """
         return self._memento_list[idx]
 
@@ -79,11 +84,11 @@ class TextEditorApp(object):
         Redoes the most recent change in the text editor.
         :return: None
         """
-        if self._last_saved_ptr >= len(self._memento_list) - 1:
+        print('Redo operation...')
+        if self._prev_state_ptr >= len(self._memento_list) - 1:
             print('No more redo operation available!')
             return
-        print('Redo operation...')
-        self._last_saved_ptr += 1
-        next_state = self._get_memento(self._last_saved_ptr)
+        self._prev_state_ptr += 1
+        next_state = self._get_memento(self._prev_state_ptr)
         self._text_editor.restore(next_state)
         print(self._text_editor)

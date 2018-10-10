@@ -11,10 +11,10 @@ public class TeenagerCustomer extends Customer {
 
     /**
      * Constructor with parameter.
-     * @param billingImplementor billing implementor to use
+     * @param billingImpl billing implementor to use
      */
-    public TeenagerCustomer(BillingImplementor billingImplementor) {
-        super(billingImplementor);
+    public TeenagerCustomer(BillingImplementor billingImpl) {
+        super(billingImpl);
     }
 
     @Override

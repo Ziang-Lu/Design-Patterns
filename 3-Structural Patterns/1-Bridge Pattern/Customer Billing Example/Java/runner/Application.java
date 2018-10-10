@@ -20,25 +20,25 @@ public class Application {
      */
     public static void main(String[] args) {
         // Prepare the billing implementors
-        BillingImplementor normalImplementor = NormalBillingImplementor.getInstance();
-        BillingImplementor happyHourImplementor = HappyHourBillingImplementor.getInstance();
+        BillingImplementor normalImpl = NormalBillingImplementor.getInstance();
+        BillingImplementor happyHourImpl = HappyHourBillingImplementor.getInstance();
 
         // Normal time slot
-        Customer firstCustomer = new NormalCustomer(normalImplementor);
+        Customer firstCustomer = new NormalCustomer(normalImpl);
         firstCustomer.addDrinks(1.0, 1);
 
         // Happy Hour starts! [Switch billing implementor]
-        firstCustomer.setBillingImplementor(happyHourImplementor);
+        firstCustomer.setBillingImplementor(happyHourImpl);
         firstCustomer.addDrinks(1.0, 2);
 
-        Customer secondCustomer = new TeenagerCustomer(happyHourImplementor);
+        Customer secondCustomer = new TeenagerCustomer(happyHourImpl);
         secondCustomer.addDrinks(0.8, 1);
 
         // First customer checks out
         firstCustomer.printBill();
 
         // Happy Hour ends [Switch billing implementor]
-        secondCustomer.setBillingImplementor(normalImplementor);
+        secondCustomer.setBillingImplementor(normalImpl);
         secondCustomer.addDrinks(1.3, 2);
         secondCustomer.addDrinks(2.5, 1);
 

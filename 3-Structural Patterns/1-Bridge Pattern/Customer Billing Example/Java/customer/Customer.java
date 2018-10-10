@@ -18,7 +18,7 @@ public abstract class Customer {
     /**
      * Current billing implementor.
      */
-    private BillingImplementor currBillingImplementor;
+    private BillingImplementor currBillingImpl;
     /**
      * List of drink rounds.
      */
@@ -26,19 +26,19 @@ public abstract class Customer {
 
     /**
      * Constructor with parameter.
-     * @param billingImplementor billing implementor to use
+     * @param billingImpl billing implementor to use
      */
-    protected Customer(BillingImplementor billingImplementor) {
-        currBillingImplementor = billingImplementor;
+    protected Customer(BillingImplementor billingImpl) {
+        currBillingImpl = billingImplementor;
         rounds = new ArrayList<>();
     }
 
     /**
      * Mutator of billing implementor.
-     * @param billingImplementor billing implementor to set
+     * @param billingImpl billing implementor to set
      */
-    public void setBillingImplementor(BillingImplementor billingImplementor) {
-        currBillingImplementor = billingImplementor;
+    public void setBillingImplementor(BillingImplementor billingImpl) {
+        currBillingImpl = billingImpl;
     }
 
     /**
@@ -47,7 +47,7 @@ public abstract class Customer {
      * @param n number of rounds
      */
     public void addDrinks(double price, int n) {
-        rounds.add(currBillingImplementor.getActualPrice(price * n));
+        rounds.add(currBillingImpl.getActualPrice(price * n));
     }
 
     /**

@@ -2,7 +2,13 @@
 
 ## Applicability
 
+* <u>When both the class itself and what it does vary often</u>
 
+  => The class itself can be thought of as the abstraction, and what the class can do as the implementation.
+
+* <u>When an abstraction and its implementation should be defined and extended independently from each other</u>
+
+* When we should avoid compile-time binding between an abstraction and its implementation, so that an implementation can be selected at runtime
 
 <br>
 
@@ -15,3 +21,11 @@ The Bridge Pattern is a **structrual pattern** that **separates the abstraction 
 **这基本就是structural pattern版本的Strategy Pattern: 本质都是把一个system (or object) 的抽象和其行为分离开.**
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Bridge%20Pattern/bridge_pattern.png?raw=true">
+
+<br>
+
+## Benefit
+
+* <u>The abstraction of a class and its implementation can be defined and extended independently from each other.</u>
+* We can achieve dynamically binding an implementation to an abstraction  at runtime.
+

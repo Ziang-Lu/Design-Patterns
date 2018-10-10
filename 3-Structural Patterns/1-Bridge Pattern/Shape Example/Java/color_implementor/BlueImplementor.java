@@ -42,7 +42,7 @@ public class BlueImplementor implements ColorImplementor {
 
     @Override
     public void fillColor(Shape shape) {
-        System.out.println(shape.getClass().getSimpleName() + " is filled with blue color using BlueImplementor.");
+        System.out.println(shape + " is filled with blue color using BlueImplementor.");
     }
 
 }

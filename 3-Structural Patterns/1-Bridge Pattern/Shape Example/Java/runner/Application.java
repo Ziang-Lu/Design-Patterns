@@ -21,34 +21,34 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        Shape rectangle = new Rectangle();
+        Shape rectangle = new Rectangle(0.0, 0.0, 10.0, 5.0);
         rectangle.draw();
-        Shape circle = new Circle();
+        Shape circle = new Circle(0.0, 0.0, 7.0);
         circle.draw();
 
         System.out.print("Enter the color to fill: 'red' or 'blue': ");
         Scanner scanner = new Scanner(System.in);
         String color = scanner.nextLine();
-        ColorImplementor colorImplementor = null;
+        ColorImplementor colorImpl = null;
         if (color.equalsIgnoreCase("red")) {
-            colorImplementor = RedImplementor.getInstance();
+            colorImpl = RedImplementor.getInstance();
         } else if (color.equalsIgnoreCase("blue")) {
-            colorImplementor = BlueImplementor.getInstance();
+            colorImpl = BlueImplementor.getInstance();
         } else {
             return;
         }
-        rectangle.setColorImplementor(colorImplementor);
+        rectangle.setColorImplementor(colorImpl);
         rectangle.fillColor();
-        circle.setColorImplementor(colorImplementor);
+        circle.setColorImplementor(colorImpl);
         circle.fillColor();
 
         /*
          * Output:
-         * Rectangle has been drawn without any color.
-         * Circle has been drawn without any color.
+         * Rectangle{centerX=0.0, centerY=0.0, width=10.0, height=5.0} has been draw without any color.
+         * Circle{x=0.0, y=0.0, radius=7.0} has been draw without any color.
          * Enter the color to fill: 'red' or 'blue': red
-         * Rectangle is filled with red color using RedImplementor.
-         * Circle is filled with red color using RedImplementor.
+         * Rectangle{centerX=0.0, centerY=0.0, width=10.0, height=5.0} is filled with red color using RedImplementor.
+         * Circle{x=0.0, y=0.0, radius=7.0} is filled with red color using RedImplementor.
          */
     }
 

@@ -7,20 +7,8 @@ Text editor module.
 
 __author__ = 'Ziang Lu'
 
-from abc import ABC
 
-
-class IMemento(ABC):
-    """
-    Abstract IMemento class that works as a mark interface for "Memento".
-    In this way, all classes other than the "Originator" can only access
-    "Memento" objects through this mark interface, so they will know nothing
-    about the actual "Memento" objects.
-    """
-    __slots__ = []
-
-
-class Memento(IMemento):
+class Memento(object):
     """
     Memento class.
     This class holds a snapshot of the internal state of the "Originator".
@@ -30,6 +18,10 @@ class Memento(IMemento):
     __slots__ = ['_text']
 
     def __init__(self, text: str):
+        """
+        Constructor with parameter.
+        :param text: str
+        """
         self._text = text
 
     @property
@@ -56,7 +48,16 @@ class TextEditor(object):
         """
         self._text = ''
 
-    def set_text(self, text: str) -> None:
+    @property
+    def text(self) -> str:
+        """
+        Accessor of text.
+        :return: str
+        """
+        return self._text
+
+    @text.setter
+    def text(self, text: str) -> None:
         """
         Mutator of text.
         :param text: str
@@ -64,20 +65,20 @@ class TextEditor(object):
         """
         self._text = text
 
-    def create_memento(self) -> IMemento:
+    def create_memento(self) -> Memento:
         """
         Creates a memento containing a snapshot of the internal state of this
         text editor.
-        :return: IMemento
+        :return: Memento
         """
         memo = Memento(self._text)
         print(f'Created a memento for TextEditor: {memo}')
         return memo
 
-    def restore(self, memo: IMemento) -> None:
+    def restore(self, memo: Memento) -> None:
         """
         Restores the internal state of this text editor from the given memento.
-        :param memo: IMemento
+        :param memo: Memento
         :return: None
         """
         self._text = memo.text

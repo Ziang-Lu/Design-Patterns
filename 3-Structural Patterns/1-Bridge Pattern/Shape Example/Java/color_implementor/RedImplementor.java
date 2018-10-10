@@ -42,7 +42,7 @@ public class RedImplementor implements ColorImplementor {
 
     @Override
     public void fillColor(Shape shape) {
-        System.out.println(shape.getClass().getSimpleName() + " is filled with red color using RedImplementor.");
+        System.out.println(shape + " is filled with red color using RedImplementor.");
     }
 
 }

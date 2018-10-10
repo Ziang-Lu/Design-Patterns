@@ -11,10 +11,10 @@ public class NormalCustomer extends Customer {
 
     /**
      * Constructor with parameter.
-     * @param billingImplementor billing implementor to use
+     * @param billingImpl billing implementor to use
      */
-    public NormalCustomer(BillingImplementor billingImplementor) {
-        super(billingImplementor);
+    public NormalCustomer(BillingImplementor billingImpl) {
+        super(billingImpl);
     }
 
 }

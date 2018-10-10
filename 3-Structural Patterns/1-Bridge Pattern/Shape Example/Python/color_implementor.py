@@ -50,8 +50,7 @@ class RedImplementor(ColorImplementor):
         return cls._instance
 
     def fill_color(self, shape):
-        print(f'{type(shape).__name__} is filled with red color using '
-              f'RedImplementor.')
+        print(f'{shape} is filled with red color using RedImplementor.')
 
 
 class BlueImplementor(ColorImplementor):
@@ -75,5 +74,4 @@ class BlueImplementor(ColorImplementor):
         return cls._instance
 
     def fill_color(self, shape):
-        print(f'{type(shape).__name__} is filled with blue color using '
-              f'RedImplementor.')
+        print(f'{shape} is filled with blue color using RedImplementor.')

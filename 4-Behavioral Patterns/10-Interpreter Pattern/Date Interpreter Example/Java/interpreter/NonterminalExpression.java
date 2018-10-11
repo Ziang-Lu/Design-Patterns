@@ -5,11 +5,11 @@ import runner.Context;
 /**
  * NonterminalExpression (CompositeExpression) class.
  * This class should contain references to other expression instances (children
- * nodes in the syntax tree).
+ * nodes) in the syntax tree.
  *
- * The interpret(Context) method in this class and its subclasses should does
- * its own interpretation work on the given "Context", and the forwards the
- * interpret request to on the "Context" to its children nodes (expression
+ * The interpret(Context) method in this class and its subclasses should do its
+ * own interpretation work on the given "Context", and then forwards the
+ * interpret request on the "Context" to its children nodes (expression
  * instances) in the syntax tree for further interpretation.
  *
  * Note that for this particular application, the nodes (expression instances)

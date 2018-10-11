@@ -13,7 +13,7 @@ public class Context {
     /**
      * Raw date to be interpreted.
      */
-    private Date date;
+    private final Date date;
     /**
      * Temporarily stored interpretation result.
      */

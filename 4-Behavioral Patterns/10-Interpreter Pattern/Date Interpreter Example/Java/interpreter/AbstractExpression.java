@@ -3,7 +3,7 @@ package interpreter;
 import runner.Context;
 
 /**
- * Abstract AbstractExpression interface.
+ * AbstractExpression interface.
  * This interface declares interpret(Context) method that is common to all the
  * nodes (expression instances) in the syntax tree, i.e., this is the highest
  * level in the abstract syntax tree hierarchy.

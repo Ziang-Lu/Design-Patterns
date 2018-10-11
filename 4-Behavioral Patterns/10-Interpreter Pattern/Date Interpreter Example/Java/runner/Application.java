@@ -57,9 +57,9 @@ public class Application {
         if (scanner.hasNextLine()) {
             format = scanner.nextLine();
         }
-        // Here, the format is a pure text, but essentially specifies a "language" whose grammar should be well-defined
-        // Only after we defined the grammar for this "language", are we able to interpret a "sentence" (a Date object)
-        // according to this "language"
+        // Here, the format is a pure text, but essentially specifies a "language" whose grammar should be well-defined.
+        // Only after we defined the grammar for this "language" are we able to interpret a "sentence" (a Date object)
+        // according to this "language".
 
         // Construct the abstract syntax tree for this language, which essentially is the process of defining grammar
         // for this language

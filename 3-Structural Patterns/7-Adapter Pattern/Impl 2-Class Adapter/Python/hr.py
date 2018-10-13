@@ -37,7 +37,7 @@ class CompanyBillingSystem(ABC):
 
 class BillingSystemAdapter(CompanyBillingSystem, ThirdPartyBillingSystem):
     """
-    BillingSystemAdapter class that works as "Adapter".
+    Concrete BillingSystemAdapter class that works as "Adapter".
 
     Note that in this implementation, we use Object Adapter:
     - Since we cannot change the "Target" interface, in order to keep the

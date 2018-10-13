@@ -25,7 +25,7 @@ public class HumanResourceSystem {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        CompanyBillingSystem companyBillingSystem = BillingSystemAdapter.getInstance();
+        CompanyBillingSystem companyBillingSystem = CompanyBillingSystem.getInstance();
         System.out.println("Human Resource Department is trying to process salary for the company employees.");
         companyBillingSystem.processEmployeesSalary(getEmployeesInfo());
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * BillingSystemAdapter that works as "Adapter".
+ * Concrete BillingSystemAdapter class that works as "Adapter".
  *
  * Note that in this implementations, we uses Object Adapter:
  * - Since we cannot change the "Target" interface, in order to keep the
@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author Ziang Lu
  */
-class BillingSystemAdapter implements CompanyBillingSystem {
+class BillingSystemAdapter extends CompanyBillingSystem {
 
     /**
      * Singleton instance.
@@ -30,6 +30,8 @@ class BillingSystemAdapter implements CompanyBillingSystem {
 
     /**
      * Gets the singleton instance.
+     * This implementation utilizes Lazy Initialization Pattern and double-check
+     * locking mechanism.
      * @return singleton instance
      */
     public static BillingSystemAdapter getInstance() {

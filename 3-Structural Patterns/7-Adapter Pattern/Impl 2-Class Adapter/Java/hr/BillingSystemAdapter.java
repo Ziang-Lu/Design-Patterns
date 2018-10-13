@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * BillingSystemAdapter that works as "Adapter".
+ * Concrete BillingSystemAdapter that works as "Adapter".
  *
  * Note that in this implementations, we uses Object Adapter:
  * - Since we cannot change the "Target" interface, in order to keep the

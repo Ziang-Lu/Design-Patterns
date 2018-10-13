@@ -2,15 +2,21 @@
 
 ## Applicability:
 
-* When we <u>need two independent or incompactible interfaces to work together</u> (and don't want to change the code for the two independent or incompatible interfaces)
+* When we <u>want a class (即下文中的`Adaptee` class) that does not have a client-required interface (即下文中的`Target` interface) to be reused</u>
+
+  *(Often an already existing class (即下文中的`Adaptee` class) can't be reused only because its interface doesn't conform to the client-required interface (即下文中的`Target` interface).)*
+
+* When we <u>need two independent or incompactible interfaces (即下文中的`Adaptee` class和`Target` interface) to work together</u> (and don't want to change the source code for the two independent or incompatible interfaces)
 
 <br>
 
 ## Definition & Explanation
 
-The Adapter Pattern is a **structural pattern** that **involves a single class called `Adapter` which is responsible for communication between two independent or incompatible interfaces**, so that we don't have to change the code for the two independent or incompatible interfaces.
+The Adapter Pattern is a **structural pattern** that **involves a single class called `Adapter` which is responsible for communication between two independent or incompatible interfaces** (即下文中的`Adaptee` class和`Target` interface), so that we don't have to change their source code.
 
-*=> Adapter Pattern可以消除由于接口不匹配所导致的兼容性问题.*
+=> <u>Work through an `Adapter` class to reuse classes (即下文中的`Adaptee` class) that do not have the client-required interface (即下文中的`Target` interface)</u>
+
+=> Adapter Pattern可以消除由于接口不匹配所导致的兼容性问题.
 
 *Note that in the following illustration, the existing HR system and the third-party billing system independent or incompatible*
 
@@ -43,3 +49,4 @@ The Adapter Pattern is a **structural pattern** that **involves a single class c
 * <u>send the request from the client to the `Adaptee`;</u>
 * <u>return the response from the `Adaptee` back to the client.</u>
 
+*(To avoid writing something like `Target target = new Adapter()`, which explicitly instantiates an adapter in the client, we could simply make `Target` a class, and compose an `Adapter` object inside the `Target` class.)*

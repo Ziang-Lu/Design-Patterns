@@ -7,7 +7,7 @@ import java.util.List;
  *
  * By comparing the signatures of processSalary() method and the
  * CompanyBillingSystem.processEmployeesSalary() method, we can find that this
- * interface and the ThirdPartyBillingSystem are independent or incompatible
+ * class and the ThirdPartyBillingSystem are independent or incompatible
  * systems.
  *
  * @author Ziang Lu

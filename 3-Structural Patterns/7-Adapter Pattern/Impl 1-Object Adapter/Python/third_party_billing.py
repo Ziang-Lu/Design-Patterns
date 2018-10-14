@@ -42,7 +42,7 @@ class Employee(object):
 
     def __repr__(self):
         return f'Employee[id={self._id}, name={self._name}, ' \
-            f'designation={self._designation}]'
+               f'designation={self._designation}]'
 
 
 class ThirdPartyBillingSystem(object):
@@ -51,7 +51,7 @@ class ThirdPartyBillingSystem(object):
 
     By comparing the signatures of process_salary() method and the
     CompanyBillingSystem.process_employees_salary() method, we can find that
-    this interface and the ThirdPartyBillingSystem are independent or
+    this class and the ThirdPartyBillingSystem are independent or
     incompatible systems.
     """
     __slots__ = []

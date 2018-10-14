@@ -55,3 +55,5 @@ The Adapter Pattern is a **structural pattern** that **involves a single class c
 
 We could use Java reflection to achieve runtime implementation of the adaption behavior:
 
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/7-Adapter%20Pattern/Runtime%20Implementation/runtime_implementation.png?raw=true">
+

@@ -19,7 +19,7 @@ class CompanyBillingSystem(ABC):
 
     By comparing the signatures of process_employees_salary() method and the
     ThirdPartyBillingSystem.process_salary() method, we can find that this
-    interface and the ThirdPartyBillingSystem are independent or incompatible
+    class and the ThirdPartyBillingSystem are independent or incompatible
     systems.
     """
     __slots__ = []

@@ -49,4 +49,9 @@ The Adapter Pattern is a **structural pattern** that **involves a single class c
 * <u>send the request from the client to the `Adaptee`;</u>
 * <u>return the response from the `Adaptee` back to the client.</u>
 
-*(To avoid writing something like `Target target = new Adapter()`, which explicitly instantiates an adapter in the client, we could simply make `Target` a class, and compose an `Adapter` object inside the `Target` class.)*
+***
+
+**Runtime implementation**:
+
+We could use Java reflection to achieve runtime implementation of the adaption behavior:
+

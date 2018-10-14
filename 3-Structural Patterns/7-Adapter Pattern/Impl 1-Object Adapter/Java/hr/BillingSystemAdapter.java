@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author Ziang Lu
  */
-class BillingSystemAdapter extends CompanyBillingSystem {
+class BillingSystemAdapter implements CompanyBillingSystem {
 
     /**
      * Singleton instance.

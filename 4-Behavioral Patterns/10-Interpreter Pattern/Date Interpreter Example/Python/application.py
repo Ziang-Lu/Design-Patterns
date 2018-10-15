@@ -58,7 +58,7 @@ class Context(object):
 
 def _construct_syntax_tree(format_: str) -> AbstractExpression:
     """
-    Constructs the abstract syntax tree for the given format, which essentially
+    Constructs the syntax tree for the given date format, which essentially
     specifies a language whose grammar should be well-defined.
 
     Note that for this particular application, the nodes (expression instances)

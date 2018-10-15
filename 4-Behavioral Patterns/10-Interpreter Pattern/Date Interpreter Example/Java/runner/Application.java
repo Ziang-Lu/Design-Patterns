@@ -16,14 +16,14 @@ import java.util.Scanner;
 public class Application {
 
     /**
-     * Constructs the abstract syntax tree for the given format, which
-     * essentially specifies a language whose grammar should be well-defined.
+     * Constructs the syntax tree for the given date format, which essentially
+     * specifies a language whose grammar should be well-defined.
      *
      * Note that for this particular application, the nodes (expression
      * instances) in the syntax tree should be connected like a chain or
      * linked-list, rather than a tree structure.
      * @param format given format
-     * @return entry expression of the constructed abstract syntax tree
+     * @return entry expression of the constructed syntax tree
      */
     private static AbstractExpression constructSyntaxTree(String format) {
         String[] parts = format.split("-");

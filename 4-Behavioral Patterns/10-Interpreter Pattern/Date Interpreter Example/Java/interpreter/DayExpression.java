@@ -4,6 +4,7 @@ import runner.Context;
 
 /**
  * Concrete DayExpression class that works as a "NonterminalExpression".
+ * This class is responsible for interpreting the day expression (DD) of a date.
  *
  * @author Ziang Lu
  */

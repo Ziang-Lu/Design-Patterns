@@ -34,7 +34,6 @@ class NonterminalExpression(AbstractExpression):
     NonterminalExpression (CompositeExpression) class.
     This class should contain references to other expression instances (children
     nodes) in the syntax tree.
-
     The interpret(Context) method in this class and its subclasses should do its
     own interpretation work on the given "Context", and then forwards the
     interpret request on the "Context" to its children nodes (expression
@@ -77,6 +76,8 @@ class NonterminalExpression(AbstractExpression):
 class YearExpression(NonterminalExpression):
     """
     Concrete YearExpression class that works as a "NonterminalExpression".
+    This class is responsible for interpreting the year expression (YYYY) of a
+    date.
     """
     __slots__ = []
 
@@ -102,6 +103,8 @@ class YearExpression(NonterminalExpression):
 class MonthExpression(NonterminalExpression):
     """
     Concrete MonthExpression class that works as a "NonterminalExpression".
+    This class is responsible for interpreting the month expression (MM) of a
+    date.
     """
     __slots__ = []
 
@@ -127,6 +130,8 @@ class MonthExpression(NonterminalExpression):
 class DayExpression(NonterminalExpression):
     """
     Concrete DayExpression class that works as a "NonterminalExpression".
+    This class is responsible for interpreting the day expression (DD) of a
+    date.
     """
     __slots__ = []
 

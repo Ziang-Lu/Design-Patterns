@@ -4,6 +4,8 @@ import runner.Context;
 
 /**
  * Concrete YearExpression class that works as a "NonterminalExpression".
+ * This class is responsible for interpreting the year expression (YYYY) of a
+ * date.
  *
  * @author Ziang Lu
  */

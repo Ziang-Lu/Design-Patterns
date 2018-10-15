@@ -4,6 +4,8 @@ import runner.Context;
 
 /**
  * Concrete MonthExpression class that works as a "NonterminalExpression".
+ * This class is responsible for interpreting the month expression (MM) of a
+ * date.
  *
  * @author Ziang Lu
  */

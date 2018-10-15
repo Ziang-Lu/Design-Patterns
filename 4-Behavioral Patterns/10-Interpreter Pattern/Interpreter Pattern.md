@@ -35,7 +35,7 @@ The Interpreter Pattern is a **behaviral pattern** that **provides a way to inte
       * `TerminalExpression/LeafExpression`: Represents elements in the grammar that do not get replaced, and <u>do not contain a reference to another expression</u>
       * `NonterminalExpression/CompositeExpression`: Represents elements in the grammar that will be replaced during evaluation, and <u>contains references to other expression instances (children nodes in the syntax tree)</u>
 
-    <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/10-Interpreter%20Pattern/abstract_syntax_tree.png?raw=true">
+    <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/10-Interpreter%20Pattern/abstract_syntax_tree.png?raw=true" width="400px">
 
     **然而, 这个构建syntax tree的过程本身并不属于Interpreter Pattern的范畴, 而是可以由其他的工具来做好.**
 

@@ -18,6 +18,10 @@ The Adapter Pattern is a **structural pattern** that **involves a single class c
 
 => Adapter Pattern可以消除由于接口不匹配所导致的兼容性问题.
 
+*(Sometimes the `Adapter` can also validate the data to be transfered, making sure that only the correct data with the correct format goes into the application (即下文中的`Client`) from the external application (即下文中的`Adaptee` class).)*
+
+<br>
+
 *Note that in the following illustration, the existing HR system and the third-party billing system independent or incompatible*
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/7-Adapter%20Pattern/adapter_pattern_illustration.png?raw=true">
@@ -56,4 +60,12 @@ The Adapter Pattern is a **structural pattern** that **involves a single class c
 We could use an adapter factory to achieve runtime implementation of the adaption behavior:
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/7-Adapter%20Pattern/Runtime%20Implementation/runtime_implementation.png?raw=true">
+
+<br>
+
+## Benefits
+
+* <u>Successfully integrates two indepenent or incompatible systems</u>
+* Since the adapter helps keeping the codes for parsing information separated, we <u>avoid the codes for parsing information to be part of the core application</u>.
+* <u>Whenever there is a change in the outside interface, all we need to modify is the Adapter Pattern module, and the rest of the application won't be affected.</u>
 

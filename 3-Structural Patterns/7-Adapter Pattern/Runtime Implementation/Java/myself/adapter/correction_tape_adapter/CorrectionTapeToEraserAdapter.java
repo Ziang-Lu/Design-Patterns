@@ -6,7 +6,7 @@ import myself.adapter.Adapter;
 
 /**
  * Concrete CorrectionTapeToEraserAdapter class.
- * This class adapts an CorrectionTape object to an Eraser object, where
+ * This class adapts a CorrectionTape object to an Eraser object, where
  * CorrectionTape and Eraser are otherwise independent or incompatible systems.
  *
  * @author Ziang Lu

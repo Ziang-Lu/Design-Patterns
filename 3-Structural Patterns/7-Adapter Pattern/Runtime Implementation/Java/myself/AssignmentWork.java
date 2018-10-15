@@ -44,7 +44,7 @@ public class AssignmentWork {
      * Erases the given text in this assignment.
      * @param text text to erase
      */
-    void eraseAssignment(String text) {
+    void eraseContent(String text) {
         eraser.erase(text);
     }
 

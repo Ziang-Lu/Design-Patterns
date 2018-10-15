@@ -5,6 +5,8 @@ import java.util.Map;
 
 /**
  * AdapterFactory class.
+ * Through the use of an adapter factory, we can achieve runtime looking up and
+ * get the required adapter.
  * This class is implemented as a singleton class.
  *
  * @author Ziang Lu

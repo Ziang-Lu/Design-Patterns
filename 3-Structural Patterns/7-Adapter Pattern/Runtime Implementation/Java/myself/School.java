@@ -33,26 +33,26 @@ public class School {
         adapterFactory.registerAdapter(Tape.class, Eraser.class, TapeToEraserAdapter.class);
 
         // AT RUNTIME looks up and get the adapter which is able to adapt an InkPen object to a Pen object
-        Adapter inkPenToPenAdapter = adapterFactory.getAdapterFromTo(InkPen.class, Pen.class);
+        Adapter inkPenAdapter = adapterFactory.getAdapterFromTo(InkPen.class, Pen.class);
         // Adapts an InkPen object from a friend to a Pen object
-        Pen inkPenAsPen = (Pen) inkPenToPenAdapter.adapt(new InkPen());
+        Pen inkPenAsPen = (Pen) inkPenAdapter.adapt(new InkPen());
 
         assignment.setPen(inkPenAsPen);
 
-        // AT RUNTIME looks up and gets the adapter which is able to adapt an CorrectionTape object to a Eraser object
-        Adapter correctionTapeToEraserAdapter = adapterFactory.getAdapterFromTo(CorrectionTape.class, Eraser.class);
-        // Adapts an CorrectionTape object from a friend to a Eraser object
-        Eraser correctionTapeAsEraser = (Eraser) correctionTapeToEraserAdapter.adapt(new CorrectionTape());
+        // AT RUNTIME looks up and gets the adapter which is able to adapt a CorrectionTape object to an Eraser object
+        Adapter correctionTapeAdapter = adapterFactory.getAdapterFromTo(CorrectionTape.class, Eraser.class);
+        // Adapts a CorrectionTape object from a friend to an Eraser object
+        Eraser correctionTapeAsEraser = (Eraser) correctionTapeAdapter.adapt(new CorrectionTape());
 
         assignment.setEraser(correctionTapeAsEraser);
 
         assignment.doAssignment("This is the first line.");
-        assignment.eraseAssignment("Erase redundant lines");
+        assignment.eraseContent("Erase redundant contents");
 
         /*
          * Output:
          * 'This is the first line.' is written in Ink Pen.
-         * 'Erase redundant lines' is dashed out by Correction Tape.
+         * 'Erase redundant contents' is dashed out by Correction Tape.
          */
     }
 

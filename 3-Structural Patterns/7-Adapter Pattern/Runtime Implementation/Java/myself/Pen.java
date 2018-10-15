@@ -12,7 +12,7 @@ package myself;
 public interface Pen {
 
     /**
-     * Write the given text using this pen.
+     * Writes the given text using this pen.
      * @param text text to write
      */
     void write(String text);

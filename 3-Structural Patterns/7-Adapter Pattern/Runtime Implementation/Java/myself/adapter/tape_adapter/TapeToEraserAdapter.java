@@ -6,7 +6,7 @@ import myself.adapter.Adapter;
 
 /**
  * Concrete TapeToEraserAdapter class.
- * This class adapts an Tape object to an Eraser object, where Tape and Eraser
+ * This class adapts a Tape object to an Eraser object, where Tape and Eraser
  * are otherwise independent or incompatible systems.
  *
  * @author Ziang Lu

@@ -6,7 +6,7 @@ import myself.adapter.Adapter;
 
 /**
  * Concrete PilotPenToPenAdapter class.
- * This class adapts an PilotPen object to a Pen object, where PilotPen and Pen
+ * This class adapts a PilotPen object to a Pen object, where PilotPen and Pen
  * are otherwise independent or incompatible systems.
  *
  * @author Ziang Lu

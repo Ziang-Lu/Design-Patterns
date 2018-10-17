@@ -1,0 +1,51 @@
+package school;
+
+import visitor.SchoolVisitor;
+
+/**
+ * Concrete Child class that works as "ConcreteElement".
+ *
+ * @author Ziang Lu
+ */
+public class Child implements Visitable {
+
+    /**
+     * Name of this child.
+     */
+    private final String name;
+    /**
+     * Health status of this child.
+     */
+    private String healthStatus;
+
+    /**
+     * Constructor with parameter.
+     * @param name name of the child
+     */
+    Child(String name) {
+        this.name = name;
+        healthStatus = "Good";
+    }
+
+    /**
+     * Accessor of name.
+     * @return name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Mutator of healthStatus.
+     * @param healthStatus health status to set
+     */
+    public void setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus;
+    }
+
+    @Override
+    public void accept(SchoolVisitor visitor) {
+        visitor.visitChild(this);
+    }
+
+}

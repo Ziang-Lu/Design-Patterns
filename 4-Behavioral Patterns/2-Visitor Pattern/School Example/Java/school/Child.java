@@ -10,13 +10,20 @@ import visitor.SchoolVisitor;
 public class Child implements Visitable {
 
     /**
+     * Health status enumeration.
+     */
+    public enum HealthStatus {
+        GOOD, BAD
+    }
+
+    /**
      * Name of this child.
      */
     private final String name;
     /**
      * Health status of this child.
      */
-    private String healthStatus;
+    private HealthStatus healthStatus;
 
     /**
      * Constructor with parameter.
@@ -24,7 +31,7 @@ public class Child implements Visitable {
      */
     Child(String name) {
         this.name = name;
-        healthStatus = "Good";
+        healthStatus = HealthStatus.GOOD;
     }
 
     /**
@@ -39,7 +46,7 @@ public class Child implements Visitable {
      * Mutator of healthStatus.
      * @param healthStatus health status to set
      */
-    public void setHealthStatus(String healthStatus) {
+    public void setHealthStatus(HealthStatus healthStatus) {
         this.healthStatus = healthStatus;
     }
 

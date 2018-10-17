@@ -51,3 +51,5 @@ In this way, we can <u>centralize a functionality to a single `ConcreteVisitor`<
 
 * Adding new `ConcreteElement` is difficult, since it requires adding a method in each `ConcreteVisitor`
 
+  => The operational area of Visitor Pattern is limited to only very stable class hierarchies.
+

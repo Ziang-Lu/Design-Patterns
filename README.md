@@ -21,13 +21,14 @@ This repo includes detailed tutorials and examples of various design patterns.
 
 **Help compose objects and put objects together**
 
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Bridge%20Pattern.md">Bridge Pattern (桥接模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/2-Delegation%20Pattern.md">Delegation Pattern (委托模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Composite%20Pattern/Composite%20Pattern.md">Composite Pattern (复合模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Decorator%20Pattern/Decorator%20Pattern.md">Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Proxy%20Pattern/Proxy%20Pattern.md">Proxy Pattern (代理模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Facade%20Pattern/Facade%20Pattern.md">Facade Pattern (外观模式/门面模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/7-Adapter%20Pattern/Adapter%20Pattern.md">Adapter Pattern (适配器模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Flyweight%20Pattern.md">Flyweight Pattern (享元模式/轻量级模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/2-Bridge%20Pattern.md">Bridge Pattern (桥接模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/3-Delegation%20Pattern.md">Delegation Pattern (委托模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Composite%20Pattern/Composite%20Pattern.md">Composite Pattern (复合模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Decorator%20Pattern/Decorator%20Pattern.md">Decorator Pattern (装饰器模式) / Wrapper Pattern (包装模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Proxy%20Pattern.md">Proxy Pattern (代理模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/7-Facade%20Pattern/Facade%20Pattern.md">Facade Pattern (外观模式/门面模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/8-Adapter%20Pattern/Adapter%20Pattern.md">Adapter Pattern (适配器模式)</a>
 
 ## 4. Behavioral Pattern (行为型模式)
 

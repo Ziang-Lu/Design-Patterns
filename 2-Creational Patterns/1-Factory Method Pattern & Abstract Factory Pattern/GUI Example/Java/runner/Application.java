@@ -5,7 +5,8 @@ import factory.OsxFactory;
 import factory.WinFactory;
 
 /**
- * Application that actually uses the concrete factories.
+ * Application that actually uses Factory Method Pattern and Abstract Factory
+ * Pattern.
  *
  * @author Ziang Lu
  */

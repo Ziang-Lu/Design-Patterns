@@ -12,7 +12,7 @@ import myself.adapter.pilot_pen_adapter.PilotPenToPenAdapter;
 import myself.adapter.tape_adapter.TapeToEraserAdapter;
 
 /**
- * Application that actually uses Adapter Pattern.
+ * Application that actually uses Adapter Pattern runtime implementation.
  *
  * @author Ziang Lu
  */

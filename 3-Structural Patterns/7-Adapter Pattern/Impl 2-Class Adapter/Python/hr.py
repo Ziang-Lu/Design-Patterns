@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Third-party billing system module.
+Application that actually uses Class Adapter of Adapter Pattern.
 """
 
 __author__ = 'Ziang Lu'

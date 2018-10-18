@@ -103,11 +103,11 @@ class Fruit {
 }
 
 /**
- * Simple Lazy Initialization Pattern implementation.
+ * Simple Multiton Pattern implementation.
  *
  * @author Ziang Lu
  */
-public class LazyInitialization {
+public class MultitonPatternTest {
 
     /**
      * Main driver.

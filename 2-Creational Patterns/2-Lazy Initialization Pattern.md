@@ -106,7 +106,7 @@ class Fruit {
  *
  * @author Ziang Lu
  */
-public class LazyInitialization {
+public class LazyInitializationPatternTest {
 
     /**
      * Main driver.

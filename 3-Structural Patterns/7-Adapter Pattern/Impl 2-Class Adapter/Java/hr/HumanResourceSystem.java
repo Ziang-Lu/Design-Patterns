@@ -1,7 +1,7 @@
 package hr;
 
 /**
- * HumanResourceSystem that actually uses Adapter Pattern.
+ * HumanResourceSystem that actually uses Class Adapter of Adapter Pattern.
  *
  * @author Ziang Lu
  */

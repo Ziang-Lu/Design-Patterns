@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Application that actually uses the concrete factories and abstract products.
+Application that actually uses Factory Method Pattern and Abstract Factory
+Pattern.
 """
 
 __author__ = 'Ziang Lu'

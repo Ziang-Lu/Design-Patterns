@@ -7,7 +7,8 @@ import product_document.Letter;
 import product_document.Resume;
 
 /**
- * Application that actually uses the concrete factories and abstract products.
+ * Application that actually uses Factory Method Pattern and Abstract Factory
+ * Pattern.
  *
  * @author Ziang Lu
  */

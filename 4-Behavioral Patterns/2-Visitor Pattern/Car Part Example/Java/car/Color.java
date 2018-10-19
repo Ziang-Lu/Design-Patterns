@@ -6,5 +6,5 @@ package car;
  * @author Ziang Lu
  */
 public enum Color {
-    RED, ORANGE, YELLOW, GREEN, VERDANT, BLUE, PURPLE, BLACK, GRAY, WHITE
+    BLACK, BLUE, GRAY, GREEN, ORANGE, RED, PURPLE, VERDANT, WHITE, YELLOW
 }

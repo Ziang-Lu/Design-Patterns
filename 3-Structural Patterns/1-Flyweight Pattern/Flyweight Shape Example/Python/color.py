@@ -5,23 +5,20 @@
 Color module.
 """
 
+__author__ = 'Ziang Lu'
+
 from enum import Enum, auto
 
 
 class Color(Enum):
     """
-    Color enumeration module.
+    Color enumeration.
     """
     BLACK = auto()
-    BLUE = auto()
-    GRAY = auto()
     GREEN = auto()
     ORANGE = auto()
     RED = auto()
     PURPLE = auto()
-    VERDANT = auto()
-    WHITE = auto()
-    YELLOW = auto()
 
 
 def process_color(color: Color) -> str:

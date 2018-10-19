@@ -45,6 +45,8 @@ states:
 
 ***
 
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Flyweight%20Pattern/flyweight_pattern.png?raw=true">
+
 *(从某种角度上说, Flyweight Pattern也可以算是Creational pattern中的Prototype Pattern的一种变体, 只不过Prototype Pattern是从缓存的对象中直接复制, 而Flyweight Pattern则是从缓存中找到类似的对象、复制、再为extrinsic states赋值.)*
 
 <br>

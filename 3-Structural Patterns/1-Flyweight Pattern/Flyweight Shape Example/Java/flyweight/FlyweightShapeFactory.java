@@ -51,15 +51,25 @@ public class FlyweightShapeFactory {
 
     /**
      * Gets the flyweight shape of the given type.
+     *
+     * Note that since we'll be handling a large number of "ConcreteFlyweight"
+     * object requests, which may come from multiple threads, we need to take
+     * concurrency into consideration.
+     * Thus, this implementation utilizes double-check locking mechanism.
+     *
      * @param shapeType shape type to get
      * @return corresponding flyweight shape
      */
     public FlyweightShape getFlyweightShape(String shapeType) {
         if (!flyweightShapes.containsKey(shapeType)) {
-            if (shapeType.equalsIgnoreCase("circle")) {
-                flyweightShapes.put("circle", new SharedCircle());
-            } else if (shapeType.equalsIgnoreCase("rectangle")) {
-                flyweightShapes.put("rectangle", new SharedRectangle());
+            synchronized (FlyweightShapeFactory.class) {
+                if (!flyweightShapes.containsKey(shapeType)) {
+                    if (shapeType.equalsIgnoreCase("circle")) {
+                        flyweightShapes.put("circle", new SharedCircle());
+                    } else if (shapeType.equalsIgnoreCase("rectangle")) {
+                        flyweightShapes.put("rectangle", new SharedRectangle());
+                    }
+                }
             }
         }
         return flyweightShapes.get(shapeType);

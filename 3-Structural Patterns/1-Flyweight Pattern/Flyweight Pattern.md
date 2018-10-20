@@ -4,7 +4,9 @@
 
 * When we <u>need to create a large number of objects of almost similar nature</u>
 
-  => These large number of objects <u>consume a large amount of memory and decrease the performance</u>.
+  => These large number of objects <u>consume a large, unaccepted amount of memory and decrease the performance</u>.
+
+  => <u>Creating these large number of objects should be avoided</u>
 
 <br>
 
@@ -18,11 +20,13 @@ In Flyweight Pattern, the **states in the objects to be created** can be classif
 
 * **Intrinsic states (固有状态) / Invariant states (不可变状态)**
 
-  States that are **constant**, and thus are **stored in memory**
+  States that are **constant (context-independent)**, and thus are **stored in memory**
 
 * **Extrinsic states (外部状态) / Variant states (可变状态)**
 
-  States that are **NOT constant**, and **needs to be calculated on the fly**, and thus are **NOT stored in memory**
+  States that are **NOT constant (context-dependent)**, and **needs to be calculated on the fly**, and thus are **NOT stored in memory**
+
+  => We can hold the extrinsic states in an external data structure, and temporarily pass them to the `ConcreteFlyweight` when they are used.
 
 ***
 
@@ -63,7 +67,7 @@ states:
 
 ## Benefit
 
-<u>Reduces the load on memory and improves performance</u>
+<u>Greatly reduces the number of physically created objects, and thus reduces the load on memory and improves performance</u>
 
 <br>
 

@@ -3,10 +3,10 @@ package flyweight;
 /**
  * Concrete SharedCircle class.
  * This class first works as "ConcreteFlyweight", pre-defines all the intrinsic
- * states (which are constant).
- * After assignment of extrinsic states (which are NOT constant and needs to be
- * calculated on the fly) or customization, this class would work as
- * "UnsharedConcreteFlyweight".
+ * states (which are constant and context-independent).
+ * After assignment of extrinsic states (which are NOT constant,
+ * context-dependent and needs to be calculated on the fly) or customization,
+ * this class would work as "UnsharedConcreteFlyweight".
  *
  * @author Ziang Lu
  */

@@ -21,11 +21,12 @@ public class FlyweightPatternTest {
 
         /*
          * In this application, we need to create a large number of objects of similar nature, which would have consumed
-         * a large amount of memory and decrease the performance.
+         * a large, unaccepted amount of memory and decrease the performance.
          *
          * By using Flyweight Pattern, we first get the shared "ConcreteFlyweight" from the "FlyweightFactory", and then
          * customize it to get the "UnsharedConcreteFlyweight" we desire.
-         * In this way, the load on memory is reduced and the performance is improved.
+         * In this way, the number of physically created objects is greatly reduced, and thus the load on memory is
+         * reduced and the performance is improved.
          */
 
         for (int i = 0; i < 5; ++i) {

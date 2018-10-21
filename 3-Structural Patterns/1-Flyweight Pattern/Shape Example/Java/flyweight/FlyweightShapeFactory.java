@@ -1,5 +1,8 @@
 package flyweight;
 
+import flyweight.circle.SharedCircle;
+import flyweight.rectangle.SharedRectangle;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,9 +68,9 @@ public class FlyweightShapeFactory {
             synchronized (FlyweightShapeFactory.class) {
                 if (!flyweightShapes.containsKey(shapeType)) {
                     if (shapeType.equalsIgnoreCase("circle")) {
-                        flyweightShapes.put("circle", new SharedCircle());
+                        flyweightShapes.put("circle", SharedCircle.getInstance());
                     } else if (shapeType.equalsIgnoreCase("rectangle")) {
-                        flyweightShapes.put("rectangle", new SharedRectangle());
+                        flyweightShapes.put("rectangle", SharedRectangle.getInstance());
                     }
                 }
             }

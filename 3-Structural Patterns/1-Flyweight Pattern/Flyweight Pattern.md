@@ -8,6 +8,8 @@
 
   => <u>Creating these large number of objects should be avoided</u>
 
+* When you think the same bulky data is repeating for every object
+
 <br>
 
 ## Definition & Explanation
@@ -73,4 +75,5 @@ states:
 
 ## Drawback
 
-需要了解一下所要创建的对象: 需要提前区分好intrinsic states和extrinsic states
+* Since for Flyweight Pattern we are sharing an instance (with the same identity), <u>this pattern can only be used when the code does not depend on the object identity</u>.
+* 需要了解一下所要创建的对象: 需要提前区分好intrinsic states和extrinsic states

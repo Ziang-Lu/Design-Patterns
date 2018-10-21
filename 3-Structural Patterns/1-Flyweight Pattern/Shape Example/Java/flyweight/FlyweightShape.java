@@ -8,7 +8,7 @@ package flyweight;
  *
  * @author Ziang Lu
  */
-interface FlyweightShape {
+public interface FlyweightShape {
 
     /**
      * Draws this flyweight shape with the given color.

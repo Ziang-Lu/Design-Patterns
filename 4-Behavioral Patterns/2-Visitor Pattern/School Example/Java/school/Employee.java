@@ -5,6 +5,9 @@ import visitor.SchoolVisitor;
 /**
  * Concrete Employee class that works as "ConcreteElement".
  *
+ * Note that Employee class can be totally unrelated to Child class, except that
+ * they are both Visitable, and can accept a SchoolVisitor
+ *
  * @author Ziang Lu
  */
 public class Employee implements Visitable {

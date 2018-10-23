@@ -22,6 +22,8 @@ Visitor Pattern is a **behavioral pattern** that **separates an algorithm (an op
 
 *(与Strategy Patttern有点类似, 都是把系统的行为和其抽象(结构)本身分离开, 只不过Strategy Pattern使用`AbstractStrategy`对象来实现系统的行为, 而Visitor Pattern使用`Visitor`对象来实现系统的行为.)*
 
+*(由于Visitor Pattern与某一种object structure密切相关, 所以它可以与Iterator Pattern结合起来使用, 即iterate over一个包含某个object structure的对象.)*
+
 * `Element/Visitable`
   * Represents an element in the object structure
   * <u>Can be visited by a `Visitor`, so that the `Visitor` can perform algorithm (handle operation) on this `Element`</u>

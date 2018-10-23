@@ -38,6 +38,9 @@ class Visitable(ABC):
 class Employee(Visitable):
     """
     Concrete Employee class that works as "ConcreteElement".
+    
+    Note that Employee class can be totally unrelated to Child class, except
+    that they are both Visitable, and can accept a SchoolVisitor 
     """
     __slots__ = ['_name']
 
@@ -63,6 +66,9 @@ class Employee(Visitable):
 class Child(Visitable):
     """
     Concrete Child class that works as "ConcreteElement".
+
+    Note that Child class can be totally unrelated to Employee class, except
+    that they are both Visitable, and can accept a SchoolVisitor
     """
     __slots__ = ['_name', '_health_status']
 

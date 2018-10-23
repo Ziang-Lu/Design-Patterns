@@ -6,6 +6,8 @@
 
   *(这当然可以用inheritance实现, 但是那样的话未来如果增添、删除、修改这些operation就很困难: 需要直接修改该object structure的代码. => 违反了Open/Close Principle)*
 
+* When new operations need to be added frequently
+
 * When you want an object structure that <u>adding, removing, or mainitaining operations on that objet structrure</u> can be done <u>without changing its code</u>
 
   => When you want to <u>avoid pollution of concrete classes with many different operations</u>
@@ -35,9 +37,25 @@ Visitor Pattern is a **behavioral pattern** that **separates an algorithm (an op
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/visitor_pattern_sequence_diagram.png?raw=true" width="500px">
 
+***
+
+**For the car part example:**
+
+Before using Visitor Pattern, we have
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/Car%20Part%20Example/class_diagram_inheritance.png?raw=true">
+
+As we can see, <u>the functionalities `print()`, `render()`, `upgrade()` are spread out</u> in the element classes `Engine`, `Wheel`, `Light`, so <u>these functionalities are hard to understand and maintain, and also hard to add new functionalities in the future because we have to enter each element class and add that functionality</u>.
+
+<br>
+
+By using Visitor Pattern,
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/Car%20Part%20Example/class_diagram_visitor.png?raw=true">
+
 In this way, we can <u>centralize a functionality to a single `ConcreteVisitor`</u>, so that <u>an instance of this `ConcreteVisitor` class can visit each `Element` in the object structure, and implement desired functionality on that `Element`</u>.
 
-*(=> Check out the car part example)*
+***
 
 <br>
 
@@ -51,7 +69,7 @@ In this way, we can <u>centralize a functionality to a single `ConcreteVisitor`<
 
 ## Drawback
 
-* Adding new `ConcreteElement` is difficult, since it requires adding a method in each `ConcreteVisitor`
+* <u>Adding new `ConcreteElement` is difficult, since it requires adding a method in each `ConcreteVisitor`</u>
 
-  => The operational area of Visitor Pattern is limited to only very stable class hierarchies.
+  <u>=> The operational area of Visitor Pattern is limited to only very stable class hierarchies.</u>
 

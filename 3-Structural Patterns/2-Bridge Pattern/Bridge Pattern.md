@@ -26,6 +26,8 @@ The Bridge Pattern is a **structrual pattern** that **separates the abstraction 
 
 **这基本就是structural pattern版本的Strategy Pattern: 本质都是把一个system (or object) 的抽象和其行为分离开.**
 
+*("Bridge Pattern is all about preferring aggregation over inheritance.")*
+
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/2-Bridge%20Pattern/bridge_pattern.png?raw=true">
 
 <br>

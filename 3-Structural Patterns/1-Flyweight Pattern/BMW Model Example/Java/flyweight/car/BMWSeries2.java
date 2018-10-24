@@ -4,8 +4,8 @@ import flyweight.customization.BMWCarCustomization;
 
 /**
  * Concrete BMWSeries2 class.
- * This class first works as "ConcreteFlyweight", pre-defines all the intrinsic
- * states (which are constant and context-independent).
+ * This class first works as "ConcreteFlyweight" and pre-defines all the
+ * intrinsic states (which are constant and context-independent).
  * After customized with the given extrinsic states (which are NOT constant,
  * context-dependent and needs to be calculated on the fly), this class would
  * work as "UnsharedConcreteFlyweight".

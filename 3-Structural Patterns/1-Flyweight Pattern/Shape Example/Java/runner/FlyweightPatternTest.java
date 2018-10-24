@@ -1,115 +1,121 @@
 package runner;
 
-import flyweight.Color;
-import flyweight.FlyweightShapeFactory;
-import flyweight.circle.SharedCircle;
-import flyweight.circle.UnsharedCircle;
-import flyweight.rectangle.SharedRectangle;
-import flyweight.rectangle.UnsharedRectangle;
+import flyweight.FlyweightFactory;
+import flyweight.circle.FlyweightCircle;
+import flyweight.rect.FlyweightRectangle;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.Random;
 
 /**
  * Application that actually uses Flyweight Pattern.
  *
  * @author Ziang Lu
  */
-public class FlyweightPatternTest {
+public class FlyweightPatternTest extends JFrame {
+
+    /**
+     * Width of the window.
+     */
+    private static final int WINDOW_WIDTH = 1500;
+    /**
+     * Height of the window.
+     */
+    private static final int WINDOW_HEIGHT = 1000;
+    /**
+     * Candidate colors.
+     */
+    private static final Color[] COLORS = {Color.BLACK, Color.BLUE, Color. CYAN, Color.GRAY, Color.MAGENTA,
+            Color.ORANGE, Color.PINK, Color.RED, Color.YELLOW};
+
+    /**
+     * Random number generator to use.
+     */
+    private Random random = new Random();
+
+    /**
+     * Default constructor.
+     */
+    private FlyweightPatternTest() {
+        // Set the basic information for this frame
+        setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Flyweight Pattern Demo");
+
+        JPanel contentPane = new JPanel();
+        contentPane.setLayout(new BorderLayout());
+
+        JPanel drawingPanel = new JPanel();
+        contentPane.add(drawingPanel, BorderLayout.CENTER);
+
+        JButton startDrawing = new JButton("Start drawing!");
+        startDrawing.addActionListener((e) -> {
+            Graphics g = drawingPanel.getGraphics();
+            FlyweightFactory flyweightFactory = FlyweightFactory.getInstance();
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 10000; ++i) {
+                if (random.nextBoolean()) {
+                    FlyweightCircle circle = flyweightFactory.getColoredCircle(getRandomColor());
+                    circle.setX(getRandomX());
+                    circle.setY(getRandomY());
+                    circle.setRadius(getRandomY());
+                    circle.draw(g);
+                } else {
+                    FlyweightRectangle rect = flyweightFactory.getColoredRectangle(getRandomColor());
+                    rect.setTopLeftX(getRandomX());
+                    rect.setTopLeftY(getRandomY());
+                    rect.setWidth(getRandomX());
+                    rect.setHeight(getRandomY());
+                    rect.draw(g);
+                }
+            }
+            long end = System.currentTimeMillis();
+            System.out.println("It took " + (end - start) + " ms to draw 100000 circles/rectangles.");
+        });
+        contentPane.add(startDrawing, BorderLayout.SOUTH);
+
+        add(contentPane);
+
+        // Display the frame
+        setVisible(true);
+    }
+
+    /**
+     * Private helper method to get a random color.
+     * @return random color
+     */
+    private Color getRandomColor() {
+        return COLORS[random.nextInt(COLORS.length)];
+    }
+
+    /**
+     * Private helper method to get a random fraction of the window width.
+     * @return random fraction of the window width
+     */
+    private int getRandomX() {
+        return (int) (random.nextDouble() * WINDOW_WIDTH);
+    }
+
+    /**
+     * Private helper method to get a random fraction of the window height.
+     * @return random fraction of the window height
+     */
+    private int getRandomY() {
+        return (int) (random.nextDouble() * WINDOW_HEIGHT);
+    }
 
     /**
      * Main driver.
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        FlyweightShapeFactory shapeFactory = FlyweightShapeFactory.getInstance();
-
-        /*
-         * In this application, we need to create a large number of objects of similar nature, which would have consumed
-         * a large, unaccepted amount of memory and decrease the performance.
-         *
-         * By using Flyweight Pattern, we first get the shared "ConcreteFlyweight" from the "FlyweightFactory", and then
-         * customize it to get the "UnsharedConcreteFlyweight" we desire.
-         * In this way, the number of physically created objects is greatly reduced, and thus the load on memory is
-         * reduced and the performance is improved.
-         */
-
-        // We were supposed to get 90000 green Circle objects, but here we just get 5 for better display.
-        for (int i = 0; i < 5; ++i) {
-            // First get the SharedCircle from the FlyweightShapeFactory
-            SharedCircle sharedCircle = (SharedCircle) shapeFactory.getFlyweightShape("circle");
-
-            // Customize this SharedCircle to get the UnsharedCircle we desire
-            UnsharedCircle unsharedCircle = new UnsharedCircle(sharedCircle);
-            unsharedCircle.setRadius(9.0);
-            unsharedCircle.draw(Color.GREEN);
-        }
-
-        // We were supposed to get 90000 purple Circle objects, but here we just get 5 for better display.
-        for (int i = 0; i < 5; ++i) {
-            // First get the SharedCircle from the FlyweightShapeFactory
-            SharedCircle sharedCircle = (SharedCircle) shapeFactory.getFlyweightShape("circle");
-
-            // Customize this SharedCircle to get the UnsharedCircle we desire
-            UnsharedCircle unsharedCircle = new UnsharedCircle(sharedCircle);
-            unsharedCircle.setRadius(9.0);
-            unsharedCircle.draw(Color.PURPLE);
-        }
-
-        // We were supposed to get 80000 orange Circle objects, but here we just get 4 for better display.
-        for (int i = 0; i < 4; ++i) {
-            // First get the SharedCircle from the FlyweightShapeFactory
-            SharedCircle sharedCircle = (SharedCircle) shapeFactory.getFlyweightShape("circle");
-
-            // Customize this SharedCircle to get the UnsharedCircle we desire
-            UnsharedCircle unsharedCircle = new UnsharedCircle(sharedCircle);
-            unsharedCircle.setRadius(8.0);
-            unsharedCircle.draw(Color.ORANGE);
-        }
-
-        // We were supposed to get 70000 black Circle objects, but here we just get 4 for better display.
-        for (int i = 0; i < 3; ++i) {
-            // First get the SharedCircle from the FlyweightShapeFactory
-            SharedCircle sharedCircle = (SharedCircle) shapeFactory.getFlyweightShape("circle");
-
-            // Customize this SharedCircle to get the UnsharedCircle we desire
-            UnsharedCircle unsharedCircle = new UnsharedCircle(sharedCircle);
-            unsharedCircle.setRadius(7.0);
-            unsharedCircle.draw(Color.BLACK);
-        }
-
-        System.out.println();
-
-        // First get the SharedRectangle from the FlyweightShapeFactory
-        SharedRectangle sharedRect = (SharedRectangle) shapeFactory.getFlyweightShape("rectangle");
-
-        // Customize this SharedRectangle to get the UnsharedRectangle we desire
-        UnsharedRectangle unsharedRect = new UnsharedRectangle(sharedRect);
-        unsharedRect.setWidth(8.0);
-        unsharedRect.setHeight(6.0);
-        unsharedRect.draw(Color.RED);
-
-        /*
-         * Output:
-         * Creating a Shared Circle without color: SharedCircle{x=0.0, y=0.0}
-         * Circle has been drawn with GREEN: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=GREEN}
-         * Circle has been drawn with GREEN: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=GREEN}
-         * Circle has been drawn with GREEN: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=GREEN}
-         * Circle has been drawn with GREEN: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=GREEN}
-         * Circle has been drawn with GREEN: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=GREEN}
-         * Circle has been drawn with PURPLE: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=PURPLE}
-         * Circle has been drawn with PURPLE: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=PURPLE}
-         * Circle has been drawn with PURPLE: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=PURPLE}
-         * Circle has been drawn with PURPLE: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=PURPLE}
-         * Circle has been drawn with PURPLE: UnsharedCircle{x=0.0, y=0.0, radius=9.0, color=PURPLE}
-         * Circle has been drawn with ORANGE: UnsharedCircle{x=0.0, y=0.0, radius=8.0, color=ORANGE}
-         * Circle has been drawn with ORANGE: UnsharedCircle{x=0.0, y=0.0, radius=8.0, color=ORANGE}
-         * Circle has been drawn with ORANGE: UnsharedCircle{x=0.0, y=0.0, radius=8.0, color=ORANGE}
-         * Circle has been drawn with ORANGE: UnsharedCircle{x=0.0, y=0.0, radius=8.0, color=ORANGE}
-         * Circle has been drawn with BLACK: UnsharedCircle{x=0.0, y=0.0, radius=7.0, color=BLACK}
-         * Circle has been drawn with BLACK: UnsharedCircle{x=0.0, y=0.0, radius=7.0, color=BLACK}
-         * Circle has been drawn with BLACK: UnsharedCircle{x=0.0, y=0.0, radius=7.0, color=BLACK}
-         *
-         * Creating a Shared Rectangle without color: SharedRectangle{leftBottomX=0.0, leftBottomY=0.0}
-         * Rectangle has been draw with RED: UnsharedRectangle{leftBottomX=0.0, leftBottomY=0.0, width=8.0, height=6.0, color=RED}
-         */
+        new FlyweightPatternTest();
     }
 
 }

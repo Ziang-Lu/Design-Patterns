@@ -55,18 +55,6 @@ states:
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/1-Flyweight%20Pattern/flyweight_pattern.png?raw=true">
 
-***
-
-从某种角度上说, Flyweight Pattern很像creational pattern中的
-
-* Multiton Pattern, 二者都是用一个缓存来缓存一些不同类型的对象
-  * Multiton Pattern是当再次请求该对象时, 直接从缓存中拿到该对象并返回
-  * Flyweight Pattern是当再次请求类似的对象时, 从缓存中找到该类似的对象, 再通过`operation(extrinsicState)`来为extrinsic states赋值 或进行customization
-
-* Prototype Pattern, 二者都是从一个缓存中找到类似的对象
-  * Prototype Pattern是直接复制它, 来创建新对象 (因此它是一种creational pattern)
-  * Flyweight Pattern是通过`operation(extrinsicState)`来为extrinsic states赋值或进行customization (但并没有创建新对象, 而是reuse该类似对象) (因此它是一种structural pattern)
-
 <br>
 
 ## Benefit

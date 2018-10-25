@@ -20,9 +20,6 @@ The Chain of Responsibility of a **behavioral pattern** that **chains the receiv
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern_illustration.png?raw=true">
 
-* *Chain of Responsibility Pattern实际上应用了Delegation Pattern的思想, 因为它像将需要时, 将receiver的handle行为delegate给一个receiver.*
-* *与此同时, Chain of Responsibility Pattern又很像Decorator Pattern, 都有点像是recursively处理一个request. 即本质上Decorator Pattern就是一个各种`ConcreteDecorator`和最终的`ConcreteComponent`对于某些requests形成的chain of responsibility.*
-
 *(从某种意义上讲: The Chain of Responsibility Pattern is an object-oritented version of the `if ... else if ... else if ... else ... endif` idiom, with the benefit that the condition-action blocks can be dynamically rearranged and reconfigured at runtime.)*
 
 *(A typical example of Chain of Responsibility Pattern is that in a typical `try...catch` code block, there could be multiple `catch` blocks: here every `catch` block is kind of a handler to handle one particular kind of exception, so that when any exception occurs in the `try` block, it is sent to the first `catch` block to be handled; if the first `catch` block is not able to handle it, that `catch` block forwards the exception to the next `catch` block in the chain.)*

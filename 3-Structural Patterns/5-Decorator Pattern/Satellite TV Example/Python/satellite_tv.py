@@ -66,10 +66,6 @@ class SatelliteTVDecorator(SatelliteTV):
     "Decorator" will only have an abstract "Component" object to decorate, but
     does not need to care it will actually decorate a "ConcreteComponent" or
     another "Decorator".
-
-    Note that since for "Decorator", we are forwarding the request from the
-    client to the "Component" it's decorating, we are actually in some sense
-    using Delegation Pattern here
     """
     __slots__ = ['_satellite_tv']
 
@@ -97,6 +93,7 @@ class SatelliteTVWithEspn(SatelliteTVDecorator):
     This class adds (decorates) ESPN channels to a SatelliteTV ("Component")
     object.
     """
+    __slots__ = []
 
     def __init__(self, satellite_tv):
         """
@@ -127,6 +124,7 @@ class SatelliteTVWithDiscovery(SatelliteTVDecorator):
     This class adds (decorates) Discovery channels to a SatelliteTV
     ("Component") object.
     """
+    __slots__ = []
 
     def __init__(self, satellite_tv):
         """
@@ -157,6 +155,7 @@ class SatelliteTVWithCartoonNetwork(SatelliteTVDecorator):
     This class adds (decorates) Cartoon Network channels to a SatelliteTV
     ("Component") object.
     """
+    __slots__ = []
 
     def __init__(self, satellite_tv):
         """

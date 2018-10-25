@@ -15,10 +15,6 @@ package satellite_tv;
  * does not need to care it will actually decorate a "ConcreteComponent" or
  * another "Decorator".
  *
- * Note that since for "Decorator", we are forwarding the request from the
- * client to the "Component" it's decorating, we are actually in some sense
- * using Delegation Pattern here
- *
  * @author Ziang Lu
  */
 abstract class SatelliteTVDecorator implements SatelliteTV {

@@ -46,10 +46,6 @@ class Topic(Module):
     Without the abstract "Component" super class abstraction, "Component" would
     have to maintain different lists for each kind of element in its contents,
     and would need to provide separate method for each kind of element.
-
-    Note that since for "Composite", we are forwarding the request from the
-    client to its sub-components, we are actually in some sense using Delegation
-    Pattern here
     """
     __slots__ = ['_modules']
 

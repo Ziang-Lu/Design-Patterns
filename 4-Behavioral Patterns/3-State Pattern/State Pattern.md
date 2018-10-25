@@ -30,12 +30,6 @@ The State Pattern is a **behavioral pattern** that **allows an object to alter i
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-State%20Pattern/state_pattern.png?raw=true">
 
-*State Pattern can be interpreted as a Stategy Pattern which is able to switch the current strategy through invocations of methods defined in the pattern's interface.*
-
-*State Pattern实际上应用了Delegation Pattern的思想, 因为它像是将object的全部行为delegate给一个它的的State对象.*
-
-*有点像Strategy Pattern, 只不过将一组一组algorithms封装成不同的state,在不同的state中specify完成某个task的一组组algorithms.*
-
 ***
 
 Note:
@@ -49,7 +43,7 @@ Another implementation would be `Context implements State`. This makes sure that
 ## Benefits
 
 * <u>Makes a class independent of how state-specific behaviors are implemented</u>
-* Cleaner way for an object to <u>change its behavior at runtime without resorting to large monolithic conditional statements</u>, and thus improve maintainability   *(非常类似于Strategy Pattern)*
+* Cleaner way for an object to <u>change its behavior at runtime without resorting to large monolithic conditional statements</u>, and thus improve maintainability
 
 ## Drawbacks
 

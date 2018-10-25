@@ -41,8 +41,6 @@ Thus, we let different `ConcreteComponent` classes and the abstract `Decorator` 
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Decorator%20Pattern/decorator_pattern.png?raw=true">
 
-*Note that since for `Decorator`, we are forwarding the request from the client to the `Component` it's decorating, we are actually in some sense using Delegation Pattern here*
-
 <br>
 
 The following diagram shows the runtime interaction of a simple example:

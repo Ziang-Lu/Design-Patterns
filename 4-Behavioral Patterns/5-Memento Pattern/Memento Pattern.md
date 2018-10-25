@@ -45,18 +45,6 @@ In this way, a better encapsulation is achieved:
 * Only `MementoOriginator` can directly access the `Memento` objects, and thus its stored state information.
 * All classes other than `MementoOriginator` can only access `Memento` objects through the mark interface `MementoIF`, so they will know nothing about the actual `Memento` objects.
 
-***
-
-某种程度、某种角度上, Memento Pattern和State Pattern有点相似:
-
-* <u>State Pattern</u>仅仅关注<u>一个对象在各个state下的**behavior**的区别</u>, 即各个method的多态实现
-
-* <u>Memento Pattern</u>则关注与<u>一个对象在各个state下**attributes**的区别</u>, 并<u>可以把他们分别封装保存在相应的`Memento`里</u>:
-
-  每个`Memento`对应一种state保存起来, 其中记录了该state下对象的全部attribute的值
-
-***
-
 <br>
 
 ## Benefit

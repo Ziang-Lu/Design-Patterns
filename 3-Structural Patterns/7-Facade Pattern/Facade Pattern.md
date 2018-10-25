@@ -20,8 +20,6 @@ The Facade Pattern is a **structural pattern** that **decouples the client from 
 
 *This pattern hides the complexities of the larger system, and provides a simpler interface (the facade) to the client. These hidden sub-components access the system on behalf of the client.*
 
-*Facade Pattern实际上应用了Delegation Pattern的思想, 因为它像是一个wrapper把sub-components包起来, 但是又在内部将它的行为delegate给sub-components.*
-
 * A `Facade` is an object that serves as a <u>front-facing interface masking more complex underlying or structural code</u>.
 
   The `Facade` implements a simple interface in terms of the interfaces of the sub-components.

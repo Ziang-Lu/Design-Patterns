@@ -22,8 +22,6 @@
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/4-Composite%20Pattern/composite_pattern_uml.png?raw=true" width="500px">
 
-*Note that since for `Composite`, we are forwarding the request from the client to its sub-components, we are actually in some sense using Delegation Pattern here*
-
 <br>
 
 ## Design for Uniformity vs. Design for Type Safety

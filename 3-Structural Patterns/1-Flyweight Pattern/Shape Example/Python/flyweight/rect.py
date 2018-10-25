@@ -67,25 +67,25 @@ class SharedRectangle(FlyweightRectangle):
         Default constructor.
         """
         # Intrinsic states
-        self._left_bottom_x = 0.0
-        self._left_bottom_y = 0.0
+        self._bottom_left_x = 0.0
+        self._bottom_left_y = 0.0
         print(f'Creating a Shared Rectangle without color: {self}')
 
     @property
-    def left_bottom_x(self) -> float:
+    def bottom_left_x(self) -> float:
         """
-        Accessor of left_bottom_x.
+        Accessor of bottom_left_x.
         :return: float
         """
-        return self._left_bottom_x
+        return self._bottom_left_x
 
     @property
-    def left_bottom_y(self) -> float:
+    def bottom_left_y(self) -> float:
         """
-        Accessor of left_bottom_y.
+        Accessor of bottom_left_y.
         :return: float
         """
-        return self._left_bottom_y
+        return self._bottom_left_y
 
     def set_width(self, width):
         # Do nothing
@@ -100,8 +100,8 @@ class SharedRectangle(FlyweightRectangle):
         pass
 
     def __repr__(self):
-        return f'SharedRectangle [left_bottom_x={self._left_bottom_x}, ' \
-               f'left_bottom_y={self._left_bottom_y}]'
+        return f'SharedRectangle [bottom_left_x={self._bottom_left_x}, ' \
+               f'bottom_left_y={self._bottom_left_y}]'
 
 
 class UnsharedRectangle(FlyweightRectangle):
@@ -139,8 +139,8 @@ class UnsharedRectangle(FlyweightRectangle):
 
     def __repr__(self):
         s = 'UnsharedRectangle' + ' ['
-        s += f'left_bottom_x={self._flyweight_rect.left_bottom_x}' + ', '
-        s += f'left_bottom_y={self._flyweight_rect.left_bottom_y}' + ', '
+        s += f'bottom_left_x={self._flyweight_rect.bottom_left_x}' + ', '
+        s += f'bottom_left_y={self._flyweight_rect.bottom_left_y}' + ', '
         s += f'width={self._width}' + ', '
         s += f'height={self._height}' + ', '
         s += f'color={self._color}' + ']'

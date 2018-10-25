@@ -32,7 +32,8 @@ This repo includes detailed tutorials and examples of various design patterns.
 
 ## 4. Behavioral Pattern (行为型模式)
 
-**Help realize interactions among objects**
+* **Identify typical communication patterns among objects**
+* **Clarify assignment of responsibilities among objects**
 
 The behavior of a systems somewhat depends on the request data: this is called "data-driven".
 

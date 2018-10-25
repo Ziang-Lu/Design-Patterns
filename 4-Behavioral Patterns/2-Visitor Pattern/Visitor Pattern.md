@@ -37,6 +37,8 @@ Visitor Pattern is a **behavioral pattern** that **separates an algorithm (an op
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/visitor_pattern_sequence_diagram.png?raw=true" width="500px">
 
+Note that the <u>concrete elements do not have to be related through inheritance</u> at all
+
 ***
 
 **For the car part example:**
@@ -51,7 +53,7 @@ As we can see, <u>the functionalities `print()`, `render()`, `upgrade()` are spr
 
 By using Visitor Pattern,
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/Car%20Part%20Example/class_diagram_visitor.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Visitor%20Pattern/Car%20Part%20Example/class_diagram_with_visitor.png?raw=true">
 
 In this way, we can <u>centralize a functionality to a single `ConcreteVisitor`</u>, so that <u>an instance of this `ConcreteVisitor` class can visit each `Element` in the object structure, and implement desired functionality on that `Element`</u>.
 
@@ -59,11 +61,13 @@ In this way, we can <u>centralize a functionality to a single `ConcreteVisitor`<
 
 <br>
 
-## Benefit
+## Benefits
 
 * <u>Gains ability to modify operations and add new operations to existing object structure without modifying the object structure itself</u>
 
   => Avoids pollution of concrete classes with many different operations
+
+* Visitors can visit objects that don't have a common parent class.
 
 <br>
 

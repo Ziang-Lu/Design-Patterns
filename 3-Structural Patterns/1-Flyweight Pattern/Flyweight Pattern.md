@@ -14,7 +14,7 @@
 
 ## Definition & Explanation
 
-The Flyweight Pattern is a **structural pattern** that <u>when you need to create a large number of objecs of almost similar nature (which consume a large amount of memory and decrease the performance)</u>, the Flyweight Pattern **stores already existing similar objects (即下文中的`ConcreteFlyweight`) in a cache, so that they can easily be reused (shared), and creates a new object only when no matching object is found**.
+The Flyweight Pattern is a **structural pattern** that <u>when you need to create a large number of objects of almost similar nature (which consume a large amount of memory and decrease the performance)</u>, the Flyweight Pattern **stores already existing similar objects (即下文中的`ConcreteFlyweight`) in a cache, so that they can easily be reused (shared), and creates a new object only when no matching object is found**.
 
 *<u>Use sharing to efficiently support large number of fine-grained objects</u>*
 

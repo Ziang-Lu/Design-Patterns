@@ -14,9 +14,9 @@ This repo includes detailed tutorials and examples of various design patterns.
 - <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/2-Lazy%20Initialization%20Pattern.md">Lazy Initialization Pattern (惰性初始化模式)</a>
 - <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/3-Singleton%20Pattern.md">Singleton Pattern (单例模式)</a>
   - <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/4-Multiton%20Pattern.md">Multiton Pattern (多例模式)</a>
-- <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/5-Prototype%20Pattern/Prototype%20Pattern.md">Prototype Pattern (原型模式)</a>
-- <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/6-Builder%20Pattern/Builder%20Pattern.md">Builder Pattern (建造者模式)</a>
-- <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/7-Object%20Pool%20Pattern/Builder%20Pattern.md">Object Pool Pattern (对象池模式)</a>
+- <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/5-Object%20Pool%20Pattern/Builder%20Pattern.md">Object Pool Pattern (对象池模式) / N-ton Pattern (N例模式)</a>
+- <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/6-Prototype%20Pattern/Prototype%20Pattern.md">Prototype Pattern (原型模式)</a>
+- <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/7-Builder%20Pattern/Builder%20Pattern.md">Builder Pattern (建造者模式)</a>
 
 ## 3. Structural Pattern (结构型模式)
 

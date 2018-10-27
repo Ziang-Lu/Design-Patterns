@@ -14,7 +14,7 @@
 
 ## Definition & Explanation
 
-The Object Pool Pattern is a **structural pattern** that expands on the singleton concept, and <u>when you need to create a large number of objects that are expensive to create (which consume a large amount of memory and decrease the performance)</u>, the Object Pool Pattern **uses a pool (即下文中的`ReusablePool`) to limit the number of instances created (即下文中的`poolSize`) and manage them**. In this way, we can **reuse and share objects (即下文中的`Reusable`) that are expensive to create**.
+The Object Pool Pattern is a **structural pattern** that expands on the singleton concept, and <u>when you need to create a large number of objects that are expensive to create (which consume a large amount of memory and decrease the performance)</u>, the Object Pool Pattern **uses a pool (即下文中的`ReusablePool`) to limit the number of instances created (即下文中的`poolSize`) and manage them**. In this way, we can **reuse and share objects (即下文中的`Reusable` objects) that are expensive to create**.
 
 <u>=> In this way, the load on memory is reduced and the performance is improved.</u>
 
@@ -30,10 +30,10 @@ The Object Pool Pattern is a **structural pattern** that expands on the singleto
 
   When the `ReusablePool` receives a request for a `Reusable` object by a `Client`, it will first check if there is any `Reusable` object in the pool:
 
-  * If YES, it will simply return that available `Reusable` object
+  * If YES, it will simply return an available `Reusable` object in the pool
   * If NO, it will check if the pool has reached its maximum size:
     * If NO, it will create a new `Reusable` object, and return it
-    * If YES, it will wait for a previous created, currently using by a previous client `Reusable`  object to be released back to the pool, and then return that `Reusable` object
+    * If YES, it will wait for a previous created, currently using by a previous client `Reusable` object to be released back to the pool, and then return that `Reusable` object
 
   ***
 
@@ -58,4 +58,3 @@ The Object Pool Pattern may not help in modern languages with garbage collectors
   => This means that any number of "dead" objects without references can be discarded with little cost.
 
 - In contrast, keeping a large number of "live" but unused objects increase the duraction of garbage collection.
-

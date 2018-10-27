@@ -63,7 +63,7 @@ def main():
     # similar nature, which would have consumed a large, unaccepted amount of
     # memory and decrease the performance.
     #
-    # By using Flyweight Pattern, we first get the shared  "ConcreteFlyweight"
+    # By using Flyweight Pattern, we first get the shared "ConcreteFlyweight"
     # from the "FlyweightFactory", and then customize it to get the
     # "UnsharedConcreteFlyweight" we desire.
     # In this way, the number of physically created objects is greatly reduced,

@@ -37,7 +37,9 @@ The Object Pool Pattern is a **structural pattern** that expands on the singleto
 
   ***
 
-Open too many connection to the database   [Open a connection is expensive]   =>   Database overloaded
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/5-Object%20Pool%20Pattern/class_diagram.png?raw=true">
+
+<u>Important note: Always remember to clean up the `Reusable` object when it is returned back to the pool, so that it can be ready for the next use</u>
 
 <br>
 

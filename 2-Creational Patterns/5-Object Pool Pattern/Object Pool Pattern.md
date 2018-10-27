@@ -45,7 +45,17 @@ Open too many connection to the database   [Open a connection is expensive]   =>
 
 <u>Greatly reduces the number of physically created objects, and thus reduces the load on memory and improves performance</u>
 
+=> The benefits are mostly true for objects that are expensive w.r.t. time, such as <u>database connections, socket connections, threads</u> and large graphic objects like fonts or bitmaps.
+
 <br>
 
-## Drawback
+## Criticism
+
+The Object Pool Pattern may not help in modern languages with garbage collectors, such as Java, because object allocation is relatively fast in this case.
+
+- Most garbage collectors scan "live" object references, but not the memory that these objects use for their content.
+
+  => This means that any number of "dead" objects without references can be discarded with little cost.
+
+- In contrast, keeping a large number of "live" but unused objects increase the duraction of garbage collection.
 

@@ -2,8 +2,10 @@ package sql_connection;
 
 /**
  * SQLConnectionImpl class that works as "Reusable".
- * This class is expensive to instantiate, and thus can be put in a pool, and be
- * reused and shared later.
+ * This class is expensive to instantiate, which means repeatedly allocating and
+ * freeing instances of this class individually would be too expensive
+ * operations, and thus decrease the performance.
+ * Therefore, we can put the instances of this class in a pool for later reuse.
  *
  * @author Ziang Lu
  */

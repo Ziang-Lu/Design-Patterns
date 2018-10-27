@@ -16,8 +16,10 @@ from typing import Union
 class SQLConnectionImpl(object):
     """
     SQLConnectionImpl class that works as "Reusable".
-    This class is expensive to instantiate, and thus can be put in a pool, and
-    be reused and shared later.
+    This class is expensive to instantiate, which means repeatedly allocating
+    and freeing instances of this class individually would be too expensive
+    operations, and thus decrease the performance.
+    Therefore, we can put the instances of this class in a pool for later reuse.
     """
     __slots__ = ['_data']
 
@@ -52,9 +54,12 @@ class SQLConnectionImpl(object):
 class SQLConnectionImplPool(object):
     """
     SQLConnectionImplPool class that works as "ReusablePool".
-    This class limits the number of instances created (poolSize) and manage
-    them. In this way, we can share objects ("Reusable" objects) that are
-    expensive to create.
+    "Reusable" class is expensive to instantiate, which means repeatedly
+    allocating and freeing instances of this class individually would be too
+    expensive operations, and thus decrease the performance.
+    Therefore, we can use this class limits the number of instances created
+    (poolSize) and manage them. In this way, we can share objects ("Reusable"
+    objects) that are expensive to create.
     """
 
     _DEFAULT_POOL_SIZE = 10

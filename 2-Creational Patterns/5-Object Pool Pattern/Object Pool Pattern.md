@@ -4,7 +4,7 @@
 
 * When we <u>need to create a large number of same objects that are expensive to create</u>
 
-  => These large number of objects <u>consume a large, unaccepted amount of memory and decrease the performance</u>.
+  => <u>Repeatedly allocating and freeing these objects individually would be too expensive operations, and thus decrease the performance</u>
 
   => <u>Creating these large number of objects should be avoided</u>
 
@@ -14,9 +14,7 @@
 
 ## Definition & Explanation
 
-The Object Pool Pattern is a **structural pattern** that expands on the singleton concept, and <u>when you need to create a large number of objects that are expensive to create (which consume a large amount of memory and decrease the performance)</u>, the Object Pool Pattern **uses a pool (即下文中的`ReusablePool`) to limit the number of instances created (即下文中的`poolSize`) and manage them**. In this way, we can **reuse and share objects (即下文中的`Reusable` objects) that are expensive to create**.
-
-<u>=> In this way, the load on memory is reduced and the performance is improved.</u>
+The Object Pool Pattern is a **structural pattern** that expands on the singleton concept, and <u>when you need to create a large number of objects that are expensive to create (repeatedly allocating and freeing these objects individually would be too expensive operations, and thus decrease the performance)</u>, the Object Pool Pattern **uses a pool (即下文中的`ReusablePool`) to limit the number of instances created (即下文中的`poolSize`) and manage them**. In this way, we can **reuse and share objects (即下文中的`Reusable` objects) that are expensive to create**.
 
 * `ReusablePool`: <u>Managing a pool (with a size) of `Reusable` objects</u> for the `Client`s to use
 
@@ -45,7 +43,7 @@ The Object Pool Pattern is a **structural pattern** that expands on the singleto
 
 ## Benefit
 
-<u>Greatly reduces the number of physically created objects, and thus reduces the load on memory and improves performance</u>
+<u>Greatly avoids the repeated expensive instantiation process, and thus improves performance</u>
 
 => The benefits are mostly true for objects that are expensive w.r.t. time, such as <u>database connections, socket connections, threads</u> and large graphic objects like fonts or bitmaps.
 

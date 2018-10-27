@@ -3,8 +3,6 @@
 
 """
 Application that actually uses Object Pool Pattern.
-By using Object Pool Pattern, the load on memory is reduced and the performance
-is improved..
 """
 
 __author__ = 'Ziang Lu'

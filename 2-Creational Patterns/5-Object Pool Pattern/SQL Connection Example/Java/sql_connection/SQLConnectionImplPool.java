@@ -5,9 +5,12 @@ import java.util.Queue;
 
 /**
  * SQLConnectionImplPool class that works as "ReusablePool".
- * This class limits the number of instances created (poolSize) and manage them.
- * In this way, we can share objects ("Reusable" objects) that are expensive to
- * create.
+ * "Reusable" class is expensive to instantiate, which means repeatedly
+ * allocating and freeing instances of this class individually would be too
+ * expensive operations, and thus decrease the performance.
+ * Therefore, we can use this class limits the number of instances created
+ * (poolSize) and manage them. In this way, we can share objects ("Reusable"
+ * objects) that are expensive to create.
  *
  * @author Ziang Lu
  */

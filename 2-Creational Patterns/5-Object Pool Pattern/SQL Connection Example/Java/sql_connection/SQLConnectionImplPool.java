@@ -1,4 +1,4 @@
-package connection;
+package sql_connection;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -41,15 +41,24 @@ class SQLConnectionImplPool {
     }
 
     /**
+     * Private static helper method to clean up the given connection
+     * implementation ("Reusable" object).
+     * @param connectionImpl connection implementation to clean up
+     */
+    private static void cleanUp(SQLConnectionImpl connectionImpl) {
+        connectionImpl.setData(null);
+    }
+
+    /**
      * Pool size.
      */
     private int poolSize;
     /**
-     * Number of "Reusable" objects created.
+     * Number of connection implementations ("Reusable" objects) created.
      */
     private int numOfCreated;
     /**
-     * Available "Reusable" objects.
+     * Available connection implementations ("Reusable" objects).
      */
     private final Queue<SQLConnectionImpl> available;
 
@@ -68,14 +77,14 @@ class SQLConnectionImplPool {
      */
     void setPoolSize(int newPoolSize) {
         if (newPoolSize < numOfCreated) {
-            System.out.println("Cannot set a pool size smaller than the number of instances already created");
+            System.out.println("Cannot set a pool size smaller than number of instances already created");
             return;
         }
         poolSize = newPoolSize;
     }
 
     /**
-     * Acquires a connection implementation from this pool.
+     * Acquires a connection implementation ("Reusable" object) from this pool.
      * @return acquired connection implementation
      */
     SQLConnectionImpl acquireConnectionImpl() {
@@ -106,7 +115,8 @@ class SQLConnectionImplPool {
     }
 
     /**
-     * Releases the given connection implementation back to the pool.
+     * Releases the given connection implementation ("Reusable object") back to
+     * the pool.
      * @param connectionImpl connection implementation to release
      */
     void releaseConnectionImpl(SQLConnectionImpl connectionImpl) {
@@ -118,15 +128,6 @@ class SQLConnectionImplPool {
             available.offer(connectionImpl);
             available.notifyAll();
         }
-    }
-
-    /**
-     * Private helper method to clean up the connection implementation
-     * ("Reusable" object).
-     * @param connectionImpl connection implementation to clean up
-     */
-    private void cleanUp(SQLConnectionImpl connectionImpl) {
-        connectionImpl.setData(null);
     }
 
 }

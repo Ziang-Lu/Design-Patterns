@@ -1,4 +1,4 @@
-package connection;
+package sql_connection;
 
 /**
  * SQLConnectionImpl class that works as "Reusable".
@@ -27,7 +27,7 @@ class SQLConnectionImpl {
     }
 
     /**
-     * Mutator of data.
+     * Sets the underlying data to transmit.
      * @param data data to set
      */
     void setData(String data) {
@@ -39,7 +39,7 @@ class SQLConnectionImpl {
      */
     void operation() {
         System.out.println("SQL Connection Implementation operating " + data + " to SQL Server");
-        // Sleep 3 seconds to simulate the data transmission
+        // Sleep 3 seconds to simulate the data transmission process
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

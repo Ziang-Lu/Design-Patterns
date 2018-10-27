@@ -1,4 +1,4 @@
-package connection;
+package sql_connection;
 
 /**
  * SQLConnection class that works as "Client", and actually uses Object Pool
@@ -14,14 +14,14 @@ public class SQLConnection {
     /**
      * Connection pooling.
      */
-    private static SQLConnectionImplPool pool = SQLConnectionImplPool.getInstance();
+    private static final SQLConnectionImplPool POOL = SQLConnectionImplPool.getInstance();
 
     /**
      * Sets the connection pooling size.
      * @param newPoolSize SQL connection pooling size to et
      */
     public static void setPoolSize(int newPoolSize) {
-        pool.setPoolSize(newPoolSize);
+        POOL.setPoolSize(newPoolSize);
     }
 
     /**
@@ -37,13 +37,13 @@ public class SQLConnection {
     }
 
     /**
-     * Private helper method to open this connection.
+     * Private helper method to open this SQL connection.
      * This method will acquire a connection implementation from the connection
      * pooling.
      * @return acquired connection implementation
      */
     private SQLConnectionImpl open() {
-        return pool.acquireConnectionImpl();
+        return POOL.acquireConnectionImpl();
     }
 
     /**
@@ -64,7 +64,7 @@ public class SQLConnection {
      */
     public void close() {
         if (connectionImpl != null) {
-            pool.releaseConnectionImpl(connectionImpl);
+            POOL.releaseConnectionImpl(connectionImpl);
 
             // Nullify the reference to the "Reusable" object
             connectionImpl = null;

@@ -1,6 +1,6 @@
 package runner;
 
-import connection.SQLConnection;
+import sql_connection.SQLConnection;
 
 /**
  * MyThread class.
@@ -16,9 +16,13 @@ class MyThread extends Thread {
 
     @Override
     public void run() {
-        SQLConnection connection = new SQLConnection();
-        connection.operate("[" + getName() + " data]");
-        connection.close();
+        SQLConnection connection = null;
+        try {
+            connection = new SQLConnection();
+            connection.operate("[" + getName() + " data]");
+        } finally {
+            connection.close();
+        }
     }
 }
 
@@ -36,8 +40,7 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        int nThread = 20;
-        for (int i = 0; i < nThread; ++i) {
+        for (int i = 0; i < 20; ++i) {
             Thread th = new MyThread("Thread-" + i);
             th.start();
         }

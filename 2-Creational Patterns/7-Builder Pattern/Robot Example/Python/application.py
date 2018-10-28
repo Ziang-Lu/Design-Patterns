@@ -11,16 +11,13 @@ from builder import NewRobotBuilder, OldRobotBuilder, RobotEngineer
 
 
 def main():
-    engineer = RobotEngineer(OldRobotBuilder())
+    engineer = RobotEngineer()
 
-    engineer.make_robot()
-    old_robot = engineer.get_robot()
+    old_robot = engineer.make_robot(OldRobotBuilder())
     print('Robot successfully built.')
     print(old_robot)
 
-    engineer = RobotEngineer(NewRobotBuilder())
-    engineer.make_robot()
-    new_robot = engineer.get_robot()
+    new_robot = engineer.make_robot(NewRobotBuilder())
     print('Robot successfully built.')
     print(new_robot)
 

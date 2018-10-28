@@ -11,33 +11,12 @@ import robot.Robot;
 public class RobotEngineer {
 
     /**
-     * Robot builder owned by this robot engineer.
+     * Makes a robot using the given robot builder.
+     * @param robotBuilder robot builder to use
+     * @return built robot
      */
-    private final RobotBuilder robotBuilder;
-
-    /**
-     * Constructor with parameter.
-     * @param robotBuilder robot builder to be owned by the robot engineer
-     */
-    public RobotEngineer(RobotBuilder robotBuilder) {
-        this.robotBuilder = robotBuilder;
-    }
-
-    /**
-     * Makes a robot via the robot builder.
-     */
-    public void makeRobot() {
-        robotBuilder.buildRobotHead();
-        robotBuilder.buildRobotTorso();
-        robotBuilder.buildRobotArms();
-        robotBuilder.buildRobotLegs();
-    }
-
-    /**
-     * Returns a finished robot from the robot builder.
-     * @return finished robot
-     */
-    public Robot getRobot() {
+    public Robot makeRobot(RobotBuilder robotBuilder) {
+        robotBuilder.buildRobot();
         return robotBuilder.getRobot();
     }
 

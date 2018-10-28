@@ -4,6 +4,7 @@ import builder.PhoneBuilder;
 
 /**
  * My own modular phone class.
+ * This class is complex, and thus can be instantiated using Builder Pattern.
  *
  * @author Ziang Lu
  */

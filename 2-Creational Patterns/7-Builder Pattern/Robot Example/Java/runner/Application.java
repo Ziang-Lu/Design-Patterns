@@ -18,16 +18,13 @@ public class Application {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        RobotEngineer engineer = new RobotEngineer(new OldRobotBuilder());
+        RobotEngineer engineer = new RobotEngineer();
 
-        engineer.makeRobot();
-        Robot oldRobot = engineer.getRobot();
+        Robot oldRobot = engineer.makeRobot(new OldRobotBuilder());
         System.out.println("Robot successfully built.");
         System.out.println(oldRobot);
 
-        engineer = new RobotEngineer(new NewRobotBuilder());
-        engineer.makeRobot();
-        Robot newRobot = engineer.getRobot();
+        Robot newRobot = engineer.makeRobot(new NewRobotBuilder());
         System.out.println("Robot successfully built.");
         System.out.println(newRobot);
 

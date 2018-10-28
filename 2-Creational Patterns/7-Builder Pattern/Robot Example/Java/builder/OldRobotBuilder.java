@@ -15,22 +15,22 @@ import robot.RobotTorso;
 public class OldRobotBuilder extends RobotBuilder {
 
     @Override
-    public void buildRobotHead() {
+    protected void buildRobotHead() {
         robot.setHead(new RobotHead("Tin Head"));
     }
 
     @Override
-    public void buildRobotTorso() {
+    protected void buildRobotTorso() {
         robot.setTorso(new RobotTorso("Tin Torso"));
     }
 
     @Override
-    public void buildRobotArms() {
+    protected void buildRobotArms() {
         robot.setArms(new RobotArms("Blowtorch Arms"));
     }
 
     @Override
-    public void buildRobotLegs() {
+    protected void buildRobotLegs() {
         robot.setLegs(new RobotLegs("Roller Skates"));
     }
 

@@ -26,34 +26,44 @@ class RobotBuilder(ABC):
         """
         self._robot = Robot()
 
-    @abstractmethod
-    def build_robot_head(self) -> None:
+    def build_robot(self) -> None:
         """
-        Builds a robot's head.
+        Builds the robot.
+        :return: None
+        """
+        self._build_robot_head()
+        self._build_robot_torso()
+        self._build_robot_arms()
+        self._build_robot_legs()
+
+    @abstractmethod
+    def _build_robot_head(self) -> None:
+        """
+        Protected helper function to build a robot's head.
         :return: None
         """
         pass
 
     @abstractmethod
-    def build_robot_torso(self) -> None:
+    def _build_robot_torso(self) -> None:
         """
-        Builds a robot's torso.
+        Protected helper function to build a robot's torso.
         :return: None
         """
         pass
 
     @abstractmethod
-    def build_robot_arms(self) -> None:
+    def _build_robot_arms(self) -> None:
         """
-        Builds a robot's arms.
+        Protected helper function to build a robot's arms.
         :return: None
         """
         pass
 
     @abstractmethod
-    def build_robot_legs(self) -> None:
+    def _build_robot_legs(self) -> None:
         """
-        Builds a robot's legs.
+        Protected helper function to build a robot's legs.
         :return: None
         """
         pass
@@ -73,16 +83,16 @@ class OldRobotBuilder(RobotBuilder):
     """
     __slots__ = []
 
-    def build_robot_head(self):
+    def _build_robot_head(self):
         self._robot.set_head(RobotHead('Tin Head'))
 
-    def build_robot_torso(self):
+    def _build_robot_torso(self):
         self._robot.set_torso(RobotTorso('Tin Torso'))
 
-    def build_robot_arms(self):
+    def _build_robot_arms(self):
         self._robot.set_arms(RobotArms('Blowtorch Arms'))
 
-    def build_robot_legs(self):
+    def _build_robot_legs(self):
         self._robot.set_legs(RobotLegs('Roller Skates'))
 
 
@@ -93,16 +103,16 @@ class NewRobotBuilder(RobotBuilder):
     """
     __slots__ = []
 
-    def build_robot_head(self):
+    def _build_robot_head(self):
         self._robot.set_head(RobotHead('Vibranium Head'))
 
-    def build_robot_torso(self):
+    def _build_robot_torso(self):
         self._robot.set_torso(RobotTorso('Vibranium Torso'))
 
-    def build_robot_arms(self):
+    def _build_robot_arms(self):
         self._robot.set_arms(RobotArms('Artificial Flesh Arms'))
 
-    def build_robot_legs(self):
+    def _build_robot_legs(self):
         self._robot.set_legs(RobotLegs('Jet-Propelled Legs'))
 
 
@@ -111,28 +121,13 @@ class RobotEngineer(object):
     RobotEngineer class that works as a director and owns a robot builder
     (working as a factory) to make and return robots.
     """
-    __slots__ = ['_robot_builder']
+    __slots__ = []
 
-    def __init__(self, robot_builder: RobotBuilder):
-        """
-        Constructor with parameter.
-        :param robot_builder: RobotBuilder
-        """
-        self._robot_builder = robot_builder
-
-    def make_robot(self) -> None:
+    def make_robot(self, robot_builder: RobotBuilder) -> None:
         """
         Makes a robot via the robot builder.
+        :param robot_builder: RobotBuilder
         :return: None
         """
-        self._robot_builder.build_robot_head()
-        self._robot_builder.build_robot_torso()
-        self._robot_builder.build_robot_arms()
-        self._robot_builder.build_robot_legs()
-
-    def get_robot(self) -> Robot:
-        """
-        Returns a finished robot from the robot builder.
-        :return: Robot
-        """
-        return self._robot_builder.get_robot()
+        robot_builder.build_robot()
+        return robot_builder.get_robot()

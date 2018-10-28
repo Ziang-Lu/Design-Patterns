@@ -17,24 +17,34 @@ public abstract class RobotBuilder {
     protected Robot robot = new Robot();
 
     /**
-     * Builds a robot's head.
+     * Builds the robot.
      */
-    public abstract void buildRobotHead();
+    public void buildRobot() {
+        buildRobotHead();
+        buildRobotTorso();
+        buildRobotArms();
+        buildRobotLegs();
+    }
 
     /**
-     * Builds a robot's torso.
+     * Protected helper method to build a robot's head.
      */
-    public abstract void buildRobotTorso();
+    protected abstract void buildRobotHead();
 
     /**
-     * Builds a robot's arms.
+     * Protected helper method to build a robot's torso.
      */
-    public abstract void buildRobotArms();
+    protected abstract void buildRobotTorso();
 
     /**
-     * Builds a robot's legs.
+     * Protected helper method to build a robot's arms.
      */
-    public abstract void buildRobotLegs();
+    protected abstract void buildRobotArms();
+
+    /**
+     * Protected helper method to build a robot's legs.
+     */
+    protected abstract void buildRobotLegs();
 
     /**
      * Returns the finished robot.

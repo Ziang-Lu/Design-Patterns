@@ -127,16 +127,6 @@ public class MyArray implements Iterable<Integer> {
 <br>
 
 ```python
-#!usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-Iterator Pattern demo module.
-"""
-
-__author__ = 'Ziang Lu'
-
-
 class MyArray(object):
     """
     MyArray that uses Iterator Pattern.

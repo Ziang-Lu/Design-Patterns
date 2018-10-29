@@ -143,16 +143,6 @@ public class LazyEmployee implements WhoCanDesign, WhoCanCode {
 <br>
 
 ```python
-#!usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""
-Delegation Pattern demo module.
-"""
-
-__author__ = 'Ziang Lu'
-
-
 from abc import ABC, abstractmethod
 
 

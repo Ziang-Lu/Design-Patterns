@@ -2,9 +2,9 @@
 
 ## Applicability:
 
-* When a <u>system is very complex or difficult to understand</u> because the <u>system has a large number of sub-components</u> or because its source code is unavailable.
+* When a system is very complex or difficult to understand because the system has a large number of sub-components or because its source code is unavailable.
 
-* When the <u>client that access a complex subsystem directly refer to many different objects having different interfaces (tight coupling)</u>, which makes the client hard to implement, change, test and reuse
+* When the client that access a complex subsystem directly refer to many different objects having different interfaces (tight coupling), which makes the client hard to implement, change, test and reuse
 
   => The client's dependency on the sub-components should be minimized.
 
@@ -20,13 +20,12 @@ The Facade Pattern is a **structural pattern** that **decouples the client from 
 
 *This pattern hides the complexities of the larger system, and provides a simpler interface (the facade) to the client. These hidden sub-components access the system on behalf of the client.*
 
-* A `Facade` is an object that serves as a <u>front-facing interface masking more complex underlying or structural code</u>.
+* A `Facade` is an object that serves as a front-facing interface masking more complex underlying or structural code.
 
   The `Facade` implements a simple interface in terms of the interfaces of the sub-components.
 
 * The `Facade` may perform additional functionality before/after forwarding a request.
 
-  *(此时`Facade`起到一个wrapper class的作用, 也有点像一个decorator.)*
 
 *即用一个总的`Facade`把许多sub-components封装起来, 简化client的使用过程.*
 
@@ -41,5 +40,5 @@ In this way, the client will depend only on the simple `Facade`, and thus the cl
 ## Benefits
 
 * Provide a context-specific interface to more generic functionalities
-* When used in some software library, can greatly improve the usability and readability by <u>masking interaction with more complex components behing a single API</u>
+* When used in some software library, can greatly improve the usability and readability by masking interaction with more complex components behing a single API
 * Serves as a launching point for a broader refactor of monolithic or tightly-coupled systems

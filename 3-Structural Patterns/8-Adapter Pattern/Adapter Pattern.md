@@ -2,11 +2,11 @@
 
 ## Applicability:
 
-* When we <u>want a class (即下文中的`Adaptee` class) that does not have a client-required interface (即下文中的`Target` interface) to be reused</u>
+* When we want a class (即下文中的`Adaptee` class) that does not have a client-required interface (即下文中的`Target` interface) to be reused
 
   *(Often an already existing class (即下文中的`Adaptee` class) can't be reused only because its interface doesn't conform to the client-required interface (即下文中的`Target` interface).)*
 
-* When we <u>need two independent or incompactible interfaces (即下文中的`Adaptee` class和`Target` interface) to work together</u> (and don't want to change the source code for the two independent or incompatible interfaces)
+* When we need two independent or incompactible interfaces (即下文中的`Adaptee` class和`Target` interface) to work together (and don't want to change the source code for the two independent or incompatible interfaces)
 
 <br>
 
@@ -65,7 +65,7 @@ We could use an adapter factory to achieve runtime implementation of the adaptio
 
 ## Benefits
 
-* <u>Successfully integrates two indepenent or incompatible systems</u>
-* Since the adapter helps keeping the codes for parsing information separated, we <u>avoid the codes for parsing information to be part of the core application</u>.
-* <u>Whenever there is a change in the outside interface, all we need to modify is the Adapter Pattern module, and the rest of the application won't be affected.</u>
+* Successfully integrates two indepenent or incompatible systems
+* Since the adapter helps keeping the codes for parsing information separated, we avoid the codes for parsing information to be part of the core application.
+* Whenever there is a change in the outside interface, all we need to modify is the Adapter Pattern module, and the rest of the application won't be affected.
 

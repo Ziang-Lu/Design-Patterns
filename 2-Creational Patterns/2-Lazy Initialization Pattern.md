@@ -4,7 +4,7 @@
 
 => Lazy Initialization Pattern is a **creational pattern** of **delaying the initialization of objects until the first time it is needed**.
 
-This is typically accomplished by augmenting an accessor method to <u>check whether a private member, acting as a cache, has already been initialized. If it has, it is returned straight away. If not, a new instance is created, placed into the member variable, and returned to the caller just-in-time for its first use</u>.
+This is typically accomplished by augmenting an accessor method to check whether a private member, acting as a cache, has already been initialized. If it has, it is returned straight away. If not, a new instance is created, placed into the member variable, and returned to the caller just-in-time for its first use.
 
 <br>
 
@@ -232,5 +232,5 @@ if __name__ == '__main__':
 
 ## Benefit
 
-<u>Impact of object instantiation is spread in time rather than concentrated in the startup phase of a system</u>, and thus mean response times can be greatly improved.
+Impact of object instantiation is spread in time rather than concentrated in the startup phase of a system, and thus mean response times can be greatly improved.
 

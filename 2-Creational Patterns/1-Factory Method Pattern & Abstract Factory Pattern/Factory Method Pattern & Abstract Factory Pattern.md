@@ -6,7 +6,7 @@
 
 - How can a class be independent of how the objects it requires are created?
 
-- <u>The class can't anticipate the type of objects it must create</u>, i.e., the type of the object is unknown at compile time.
+- The class can't anticipate the type of objects it must create, i.e., the type of the object is unknown at compile time.
 
   *即当前class并不知道自己将创建的object的实际具体type是什么.*
 
@@ -28,7 +28,7 @@
 
 * **Factory**:
 
-  -> <u>Location of a concrete class at which objects are constructed</u>
+  => Location of a concrete class at which objects are constructed
 
 ***
 

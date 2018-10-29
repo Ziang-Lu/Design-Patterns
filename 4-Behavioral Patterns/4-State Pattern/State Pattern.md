@@ -4,9 +4,9 @@
 
 * When we need to control many different states of an object without using `switch` or `if-else` statements
 
-* An object should <u>change its behavior when its internal state changes</u>.
+* An object should change its behavior when its internal state changes.
 
-* <u>State-specific behaviors should be defined independently.</u> That is, the behavior of existing states should be changed and new states should be added independently.
+* State-specific behaviors should be defined independently. That is, the behavior of existing states should be changed and new states should be added independently.
 
   Implementing state-specific behavior directly within a calss is inflexible because it commits the class to a particular behavior and makes it impossible to change the behavior of an existing state or add a new state later independently from (without having to change) the class.
 
@@ -28,7 +28,7 @@ The State Pattern is a **behavioral pattern** that **allows an object to alter i
 
   => *In doing so, the object will appear to have changed its class.*
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-State%20Pattern/state_pattern.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-State%20Pattern/state_pattern.png?raw=true">
 
 ***
 
@@ -42,7 +42,7 @@ Another implementation would be `Context implements State`. This makes sure that
 
 ## Benefits
 
-* <u>Makes a class independent of how state-specific behaviors are implemented</u>
+* Makes a class independent of how state-specific behaviors are implemented
 * Cleaner way for an object to <u>change its behavior at runtime without resorting to large monolithic conditional statements</u>, and thus improve maintainability
 
 ## Drawbacks

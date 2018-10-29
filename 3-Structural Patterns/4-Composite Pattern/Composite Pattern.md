@@ -2,15 +2,15 @@
 
 ## Applicability
 
-* <u>Many things in the world are self-referential, as in they can contain themselves in their inherent structure.</u>
+* Many things in the world are self-referential, as in they can contain themselves in their inherent structure.
 
   e.g., branches may contain branches and leaves, folders may contain folders and files...
 
 * When defining `Part` objects and `Whole` objects that act as container for `Part` objects, clients must treat them separately, which complicates the client code.
 
-  => A part-whole hierarchy should be represented so that clients can <u>treat part and whole objects uniformly</u>.
+  => A part-whole hierarchy should be represented so that clients can treat part and whole objects uniformly.
 
-* => A part-whole hierarchy should be represented <u>as a tree structure</u>.
+* => A part-whole hierarchy should be represented as a tree structure.
 
 <br>
 

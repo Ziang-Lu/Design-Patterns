@@ -26,7 +26,7 @@ Make the class itself responsible for controlling its instantiation (that it is 
 
 An implementation of the Singleton Pattern must:
 
-* Ensure that <u>only one instance of the singleton class ever exists</u>;
+* Ensure that only one instance of the singleton class ever exists;
 * Provide global access to that instance.
 
 <br>
@@ -159,5 +159,5 @@ Singletons are often preferred to global variables because:
 
 ## Drawback
 
-Some people are critical of the Singleton Pattern and consider it to be an anti-pattern (反模式), in that it is frequently used in scenarios where <u>it is not beneficial, introduces unnecessary restrictions in situations where a sole instance of a class is not actually required, and introduces global state into an application</u>.
+Some people are critical of the Singleton Pattern and consider it to be an anti-pattern (反模式), in that it is frequently used in scenarios where it is not beneficial, introduces unnecessary restrictions in situations where a sole instance of a class is not actually required, and introduces global state into an application.
 

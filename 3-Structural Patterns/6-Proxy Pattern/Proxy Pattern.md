@@ -2,10 +2,10 @@
 
 ## Applicability
 
-* When we <u>want to do something more about the original object which is not in the scope of the original object</u>
+* When we want to do something more about the original object which is not in the scope of the original object
 
-  * <u>Control access to the original object</u>
-  * <u>Additional functionality should be provided when accessing the original object</u>
+  * Control access to the original object
+  * Additional functionality should be provided when accessing the original object
 
 
 <br>

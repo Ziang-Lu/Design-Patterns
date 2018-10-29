@@ -2,9 +2,9 @@
 
 ## Applicability
 
-* <u>Responsibilities should be added to (and removed from) an object dynamically at runtime.</u>
+* Responsibilities should be added to (and removed from) an object dynamically at runtime.
 
-* When using subclassing, different subclasses extend a class in different ways. But <u>an extension is bound to the class at compile-time and can't be changed at runtime</u>.
+* When using subclassing, different subclasses extend a class in different ways. But an extension is bound to the class at compile-time and can't be changed at runtime.
 
   *即若想让某个object增加功能A, 然后再增加功能B*:
 
@@ -45,5 +45,5 @@ Thus, we let different `ConcreteComponent` classes and the abstract `Decorator` 
 
 The following diagram shows the runtime interaction of a simple example:
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Decorator%20Pattern/runtime_diagram.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/5-Decorator%20Pattern/runtime_diagram.png?raw=true" width="600px">
 

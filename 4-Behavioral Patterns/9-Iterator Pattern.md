@@ -2,7 +2,7 @@
 
 ## Applicability:
 
-* When the <u>elements of an aggregated object should be accessed and traversed by the client code without exposing its actual internal representation (data structure)</u>
+* When the elements of an aggregated object should be accessed and traversed by the client code without exposing its actual internal representation (data structure)
 
   => New traversal operation should be defined on the aggregate object
 

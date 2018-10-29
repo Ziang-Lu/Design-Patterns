@@ -1,14 +1,31 @@
 # Template Method Pattern (模板方法模式)
 
+## Applicability
+
+* When we want to implement an algorithm, which consists of a fixed sequence of steps; however, the specific steps may vary depending on the context
+
+  ***
+
+  **Compare to a simply polymorphic override:**
+
+  In a simply polymorphic override, the base method would be entirely rewritten in subclasses, which allows radical change to the workflow. However, we want the general workflow of the base method to be fixed, and only the specific details of the workflow are allowed to change.
+
+  ***
+
+<br>
+
 ## Definition & Explanation
 
 The Template Method Pattern is a **behavioral pattern** that **defines a sequence of steps (program skeleton) of an algorithm, so that the subclasses are allowed to override the steps themselves, but not allowed to change the algorithm's structure**. In other words, in Template Method Pattern, we <u>put the general logic in the abstract parent class, and let the child classes define the specifics</u>.
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/1-Template%20Method%20Pattern/template_method_pattern_illustration.png?raw=true">
 
+=> At runtime, a concrete class is instantiated. The template method performs the overall algorithm in the same steps every time, but the details of some steps depend on which subclass was instantiated.
+
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/1-Template%20Method%20Pattern/template_method_pattern.png?raw=true">
 
-Note that the **`templateMethod()` should be defined as `final`, so that subclasses cannot override it, i.e., they cannot change the sequence of steps of the algorithm**
+* Note that **the template method should be defined as `final`, so that subclasses cannot override it, i.e., they cannot change the sequence of steps of the algorithm**
+* The `operation1()`, `operation2()`, `operation3()` methods in the abstract `Template` class works like a placeholder for the steps of the algorithm.
 
 <br>
 
@@ -42,22 +59,27 @@ abstract class TemplateHouse {
     }
 
     /**
-     * Protected helper method to build the foundation of this house.
+     * Private helper method to build the foundation of this house.
      */
-    protected abstract void buildFoundation();
+    private void buildFoundation() {
+        System.out.println("Building foundation with cement, sand and iron rods");
+    }
 
     /**
      * Protected helper method to build the pillars of this house.
+     * This method works like a placeholder for a step of the above algorithm.
      */
     protected abstract void buildPillars();
 
     /**
      * Protected helper method to build the walls of this house.
+     * This method works like a placeholder for a step of the above algorithm.
      */
     protected abstract void buildWalls();
 
     /**
      * Protected helper method to build the windows of this house.
+     * This method works like a placeholder for a step of the above algorithm.
      */
     protected abstract void buildWindows();
 }
@@ -68,11 +90,6 @@ abstract class TemplateHouse {
  * method in the abstract parent class.
  */
 class WoodenHouse extends TemplateHouse {
-    @Override
-    protected void buildFoundation() {
-        System.out.println("Building foundation with cement, sand, iron rods and wood");
-    }
-
     @Override
     protected void buildPillars() {
         System.out.println("Building pillars with Wood coating");
@@ -95,11 +112,6 @@ class WoodenHouse extends TemplateHouse {
  * method in the abstract parent class.
  */
 class GlassHouse extends TemplateHouse {
-    @Override
-    protected void buildFoundation() {
-        System.out.println("Building foundation with cement, sand and iron rods");
-    }
-
     @Override
     protected void buildPillars() {
         System.out.println("Building pillars with Glass coating");
@@ -143,7 +155,7 @@ public class TemplateMethodPatternTest {
         /*
          * Output:
          * Start building a WoodenHouse
-         * Building foundation with cement, sand, iron rods and wood
+         * Building foundation with cement, sand and iron rods
          * Building pillars with Wood coating
          * Building Wooden walls
          * Building Wooden windows
@@ -196,18 +208,18 @@ class TemplateHouse(ABC):
         self._build_windows()
         print(f'{type(self).__name__} successfully built!')
 
-    @abstractmethod
     def _build_foundation(self) -> None:
         """
-        Protected helper function to build the foundation of this house.
+        Private helper function to build the foundation of this house.
         :return: None
         """
-        pass
+        print('Building foundation with cement, sand and iron rods')
 
     @abstractmethod
     def _build_pillars(self) -> None:
         """
         Protected helper function to build the pillars of this house.
+        This method works like a placeholder for a step of the above algorithm.
         :return: None
         """
         pass
@@ -216,6 +228,7 @@ class TemplateHouse(ABC):
     def _build_walls(self) -> None:
         """
         Protected helper function to build the walls of this house.
+        This method works like a placeholder for a step of the above algorithm.
         :return: None
         """
         pass
@@ -224,6 +237,7 @@ class TemplateHouse(ABC):
     def _build_windows(self) -> None:
         """
         Protected helper function to build the windows of this house.
+        This method works like a placeholder for a step of the above algorithm.
         :return: None
         """
         pass
@@ -236,9 +250,6 @@ class WoodenHouse(TemplateHouse):
     method in the abstract parent class.
     """
     __slots__ = []
-
-    def _build_foundation(self):
-        print('Building foundation using cement, sand, iron rods and sand')
 
     def _build_pillars(self):
         print('Building pillars using Wood coating')
@@ -257,9 +268,6 @@ class GlassHouse(TemplateHouse):
     method in the abstract parent class.
     """
     __slots__ = []
-
-    def _build_foundation(self):
-        print('Building foundation using cement, sand and iron rods')
 
     def _build_pillars(self):
         print('Building pillars using Glass coating')
@@ -305,5 +313,9 @@ if __name__ == '__main__':
 
 ```
 
+<br>
 
+## Benefit
+
+Since we implement the general workflow structure only once in the abstract parent class (in `templateMethod()`), and implement the necessary variations within the workflow in subclasses (`operation1()`, `operation2()`, `operation3()`), we successfully minimized code duplication.
 

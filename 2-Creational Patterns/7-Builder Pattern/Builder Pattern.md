@@ -2,7 +2,7 @@
 
 ## Applicability
 
-Problem: Creating and assembling the parts of a <u>complex</u> object directly within the class is inflexible. It commits the class to creating a particular representation of the complex object, and makes it impossible to change the representation later independently (without having to change) from the class.
+Problem: Creating and assembling the parts of a complex object directly within the class is inflexible. It commits the class to creating a particular representation of the complex object, and makes it impossible to change the representation later independently (without having to change) from the class.
 
 * How can a class (the same contruction process) create different representations of a complex object?
 
@@ -18,19 +18,19 @@ Problem: Creating and assembling the parts of a <u>complex</u> object directly w
 
 The Builder Pattern is a **creational pattern** that **constructs complex objects made up from a bunch of its component objects, and meanwhile keeps the creation of these part objects to be independent from the main object**.
 
-*Builder Pattern <u>builds a complex object using simple objects and using a step-by-step approach</u>.*
+Builder Pattern <u>builds a complex object using simple objects and using a step-by-step approach</u>.
 
-*=> The <u>process of constructing an complex object should be generic</u> so that <u>the same process can be used to create different representations of the same complex object</u>.*
+=> The <u>process of constructing an complex object should be generic</u> so that <u>the same process can be used to create different representations of the same complex object</u>.
 
-* The client <u>delegates object creation to a `Builder` object instead of creating the objects directly</u>.
+* The client delegates object creation to a `Builder` object instead of creating the objects directly.
 
-* Encapsulate creating and assembling <u>the parts of a complex object in a separate `Builder` object</u>
+* Encapsulate creating and assembling the parts of a complex object in a separate `Builder` object
 
   `Builder` is responsible for defining the construction process for individual parts. `Builder` has those individual processes to initialize and configure the product.
 
 * `Product` is the final output object which is produced from `Builder` and as directed.
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/6-Builder%20Pattern/builder_pattern.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/7-Builder%20Pattern/builder_pattern.png?raw=true">
 
 In this way, we successfuly **separate the representation of a class from its construction process**.
 
@@ -44,7 +44,7 @@ The client can **delegate to different `Builder` objects to create different rep
 
 *例如, 在下面的例子中, `OldRobot`和`NewRobot`构造的过程是相同的, 但是通过`OldRobotBuilder`和`NewRobotBuilder`的不同implementation来实现: 在`RobotBuilder`和`RobotEngineer`中有相同的构造过程, 但是最终却构造出不同种的object.*
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/6-Builder%20Pattern/robot_example.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/7-Builder%20Pattern/robot_example.png?raw=true">
 
 <br>
 

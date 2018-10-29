@@ -233,4 +233,4 @@ if __name__ == '__main__':
 
 ## Drawback
 
-Similar to Singleton Pattern, Multiton Pattern <u>introduces global state into an application</u>.
+Similar to Singleton Pattern, Multiton Pattern introduces global state into an application.

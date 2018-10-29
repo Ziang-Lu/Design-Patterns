@@ -2,11 +2,11 @@
 
 ## Applicability
 
-* When we <u>need to create a large number of objects of almost similar nature</u>
+* When we need to create a large number of objects of almost similar nature
 
-  => These large number of objects <u>consume a large, unaccepted amount of memory and decrease the performance</u>.
+  => These large number of objects consume a large, unaccepted amount of memory and decrease the performance.
 
-  => <u>Creating these large number of objects should be avoided</u>
+  => Creating these large number of objects should be avoided
 
 * When you think the same bulky data is repeating for every object
 
@@ -18,7 +18,7 @@ The Flyweight Pattern is a **structural pattern** that <u>when you need to creat
 
 *<u>Use sharing to efficiently support large number of fine-grained objects</u>*
 
-<u>=> In this way, the load on memory is reduced and the performance is improved.</u>
+=> In this way, the load on memory is reduced and the performance is improved.
 
 In Flyweight Pattern, the **states in the objects to be created** can be classifies as:
 
@@ -59,11 +59,9 @@ states:
 
 ## Benefit
 
-<u>Greatly reduces the number of physically created objects, and thus reduces the load on memory and improves performance</u>
-
-<br>
+Greatly reduces the number of physically created objects, and thus reduces the load on memory and improves performance
 
 ## Drawback
 
-* Since for Flyweight Pattern we are sharing an instance (with the same identity), <u>this pattern can only be used when the code does not depend on the object identity</u>.
+* Since for Flyweight Pattern we are sharing an instance (with the same identity), this pattern can only be used when the code does not depend on the object identity.
 * 需要了解一下所要创建的对象: 需要提前区分好intrinsic states和extrinsic states

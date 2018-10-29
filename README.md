@@ -40,7 +40,7 @@ The behavior of a systems somewhat depends on the request data: this is called "
 
 <u>The "data-driven" concepts are widely used in behavioral patterns to achieve loose coupling.</u>
 
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/1-Template%20Method%20Pattern/Template%20Method%20Pattern.md">Template Method Pattern</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/1-Template%20Method%20Pattern/Template%20Method%20Pattern.md">Template Method Pattern (模板方法模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/2-Strategy%20Pattern/Strategy%20Pattern.md">Strategy Pattern (策略模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-Visitor%20Pattern/Visitor%20Pattern.md">Visitor Pattern (访问者模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-State%20Pattern/State%20Pattern.md">State Pattern (状态模式)</a>

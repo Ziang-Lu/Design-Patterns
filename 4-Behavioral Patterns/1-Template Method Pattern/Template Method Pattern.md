@@ -315,7 +315,8 @@ if __name__ == '__main__':
 
 <br>
 
-## Benefit
+## Benefits
 
-Since we implement the general workflow structure only once in the abstract parent class (in `templateMethod()`), and implement the necessary variations within the workflow in subclasses (`operation1()`, `operation2()`, `operation3()`), we successfully minimized code duplication.
+* Since we implement the general workflow structure only once in the abstract parent class (in `templateMethod()`), and implement the necessary variations within the workflow in subclasses (`operation1()`, `operation2()`, `operation3()`), we successfully minimized code duplication.
+* Open for extension, close for modification
 

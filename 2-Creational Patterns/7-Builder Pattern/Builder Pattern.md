@@ -38,6 +38,8 @@ In this way, we successfuly **separate the representation of a class from its co
 
 *例如, 在Phone Example中仅仅specify `os` to be "Android"以及`ram` to be 2MB, 可以构造出一部phone; 在另一个情况下, 可以仅仅specify `os` to be "iOS"以及`screenSize` to be 5.5 inch 来构造出另一部phone.*
 
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/2-Creational%20Patterns/7-Builder%20Pattern/phone_example.png?raw=true" width="600px">
+
 The client can **delegate to different `Builder` objects to create different representations of a complex object**.
 
 *正如前面[2]所说, 可以相同的construction process抽象出来, 但是却可以构造出class的不同的representation, 即不同种的object*

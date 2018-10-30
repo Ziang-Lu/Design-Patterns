@@ -42,8 +42,9 @@ The Template Method Pattern is a **behavioral pattern** that **defines a sequenc
 abstract class TemplateHouse {
     /**
      * Template method to build this house.
-     * This method contains the general logic, and let the child classes define
-     * the specifics.
+     * This method contains the general logic to build the house, which is fixed
+     * and should not be changed, and let the child classes define the
+     * specifics.
      *
      * Note that this method should be defined as "final", so that subclasses
      * cannot override it, i.e., they cannot change the sequence of steps of the
@@ -193,8 +194,9 @@ class TemplateHouse(ABC):
     def build_house(self) -> None:
         """
         Template method to build this house.
-        This method contains the general logic, and let the child classes define
-        the specifics.
+        This method contains the general logic to build the house, which is
+        fixed and should not be changed, and let the child classes define the
+        specifics.
 
         Note that this method should be defined as "final", so that subclasses
         cannot override it, i.e., they cannot change the sequence of steps of

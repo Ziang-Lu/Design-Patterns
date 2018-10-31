@@ -51,18 +51,16 @@ Scenario: <u>The proxy resides in the same network as the actual user, but the `
 
 => A remote proxy provides <u>a local representative for an object that resides in a remote network (the `RealSubject`)</u>, so that proxy can contain the networking, piping, or other logic required to access the `RealSubject` across the barrier (different network).
 
+- The client invokes the proxy as if it is invoking the remote object.
+- The proxy will handle all the low-level details of the network communication to the remote object, invoking the corresponding method on that remote object, and return the result if any to the client.
+
 ------
 
 **Example: Java Remote Method Invocation (RMI) (远程方法调用)**:
 
 <u>In Java RMI, an object on one machine (executing in one JVM) (called a "client") can invoke methods on an object in another machine (another JVM) (called a  "remote object" or "skeleton").</u>
 
-The following diagram shows this RMI process:
-
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%201-Remote%20Proxy/remote_proxy_class_diagram.png?raw=true">
-
-- The client invokes the proxy as if it is invoking the remote object.
-- The proxy will handle the communication to the remote object, invoking the corresponding method on that remote object, and return the result if any to the client.
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%201-Remote%20Proxy/java_rmi.png?raw=true">
 
 ------
 

@@ -45,13 +45,38 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
 ## Usage Scenarios
 
-### 1. Protection Proxy (保护代理)
+### 1. Remote Proxy (远程代理)
+
+Scenario: <u>The proxy resides in the same network as the actual user, but the `RealSubject` resides in a remote network.</u>
+
+=> A remote proxy provides <u>a local representative for an object that resides in a remote network (the `RealSubject`)</u>, so that proxy can contain the networking, piping, or other logic required to access the `RealSubject` across the barrier (different network).
+
+------
+
+**Example: Java Remote Method Invocation (RMI) (远程方法调用)**:
+
+<u>In Java RMI, an object on one machine (executing in one JVM) (called a "client") can invoke methods on an object in another machine (another JVM) (called a  "remote object" or "skeleton").</u>
+
+The following diagram shows this RMI process:
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%201-Remote%20Proxy/remote_proxy_class_diagram.png?raw=true">
+
+- The client invokes the proxy as if it is invoking the remote object.
+- The proxy will handle the communication to the remote object, invoking the corresponding method on that remote object, and return the result if any to the client.
+
+------
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%201-Remote%20Proxy/remote_proxy.png?raw=true" width="700px">
+
+<br>
+
+### 2. Protection Proxy (保护代理)
 
 <u>In `Proxy`: perform protection-related operations</u>, e.g., filtering out users without enough permission, or invalid method calls
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%201-Protection%20Proxy/protection_proxy.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%202-Protection%20Proxy/protection_proxy.png?raw=true">
 
-### 2. Virtual Proxy (虚拟代理) / Caching Proxy (缓存代理)
+### 3. Virtual Proxy (虚拟代理) / Caching Proxy (缓存代理)
 
 * A virtual proxy is <u>a placeholder for "expensive-to-create" objects</u>.
 
@@ -61,27 +86,7 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
   Afterwards, the `Proxy` acts as <u>a cache for that "expensive-to-create" object</u>.
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%202-Virtual%20Proxy/virtual_proxy.png?raw=true">
-
-### 3. Remote Proxy (远程代理)
-
-Scenario: <u>The proxy resides in the same network as the actual user, but the `RealSubject` resides in a remote network.</u>
-
-=> A remote proxy provides <u>a local representative for an object that resides in a remote network (the `RealSubject`)</u>, so that proxy can contain the networking, piping, or other logic required to access the `RealSubject` across the barrier (different network).
-
-***
-
-**Example: Java Remote Method Invocation (RMI) (远程方法调用)**:
-
-<u>In Java RMI, an object on one machine (executing in one JVM) (called a client) can invoke methods on an object in another machine (another JVM) (called a remote object).</u>
-
-The following diagram shows this RMI process:
-
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy_class_diagram.png?raw=true">
-
-***
-
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy.png?raw=true" width="700px">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%203-Virtual%20Proxy/virtual_proxy.png?raw=true">
 
 <br>
 

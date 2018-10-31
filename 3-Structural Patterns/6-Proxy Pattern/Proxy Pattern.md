@@ -65,13 +65,23 @@ Therefore, we simply let this step be done via letting `RealSubject` and `Proxy`
 
 ### 3. Remote Proxy (远程代理)
 
-Scenario: <u>The proxy resides in the same network as the actual user, but the `RealSubject` does not.</u>
+Scenario: <u>The proxy resides in the same network as the actual user, but the `RealSubject` resides in a remote network.</u>
 
-=> A remote proxy provides <u>a local representative for an object that resides in a different network</u>.
+=> A remote proxy provides <u>a local representative for an object that resides in a remote network (the `RealSubject`)</u>, so that proxy can contain the networking, piping, or other logic required to access the `RealSubject` across the barrier (different network).
 
-=> The proxy can contain the networking, piping, or other logic required to access the `RealSubject` across the barrier (different network).
+***
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy.png?raw=true">
+**Example: Java Remote Method Invocation (RMI) (远程方法调用)**:
+
+<u>In Java RMI, an object on one machine (executing in one JVM) (called a client) can invoke methods on an object in another machine (another JVM) (called a remote object).</u>
+
+The following diagram shows this RMI process:
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy_class_diagram.png?raw=true">
+
+***
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%203-Remote%20Proxy/remote_proxy.png?raw=true" width="700px">
 
 <br>
 

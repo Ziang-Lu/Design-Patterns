@@ -58,7 +58,7 @@ Scenario: <u>The proxy resides in the same network as the actual user, but the `
 
 **Example: Java Remote Method Invocation (RMI) (远程方法调用)**:
 
-<u>In Java RMI, an object on one machine (executing in one JVM) (called a "client") can invoke methods on an object in another machine (another JVM) (called a  "remote object" or "skeleton").</u>
+<u>In Java RMI, an object on one machine (executing in one JVM) (called a "client") can invoke methods on an object in another machine (another JVM) (called a  "remote object").</u>
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/3-Structural%20Patterns/6-Proxy%20Pattern/Usage%201-Remote%20Proxy/remote_proxy.png?raw=true">
 

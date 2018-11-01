@@ -1,7 +1,5 @@
 package remote_company;
 
-import java.rmi.Naming;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -50,8 +48,11 @@ public class ReportGeneratorImpl extends UnicastRemoteObject implements ReportGe
 
             // 2. Register the remote object in the RMI Registry
             registry.bind("report_generator", new ReportGeneratorImpl());
-            // At the same time, the corresponding remote proxy class is created dynamically at runtime, and a stub
-            // object is instantiated in the RMI Registry.
+
+            // At the same time, the corresponding remote proxy class, which also implements ReportGenerator interface,
+            // is automatically created dynamically at runtime, and a stub object is instantiated in the RMI Registry.
+            // i.e., Implicitly in registry.bind() method, we have something like:
+            // ReportGeneratorImpl_Stub stub = UnicastRemoteObject.exportObject(remote, somePort);
 
             System.out.println("[REMOTE] Registered a remote ReportGeneratorImpl object, and a corresponding stub " +
                     "object is created");

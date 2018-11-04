@@ -2,7 +2,8 @@ package local_company_owner;
 
 import remote_company.ReportGenerator;
 
-import java.rmi.Naming;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 /**
  * Application that works as "Client".
@@ -19,10 +20,14 @@ public class CompanyOwner {
      */
     public static void main(String[] args) {
         try {
-            // 3. Look up the name, and get the stub object, which is a remote proxy
-            ReportGenerator reportGenerator = (ReportGenerator) Naming.lookup("rmi://localhost:5000/report_generator");
+            // 3. Get the registry on localhost, listening on port 5000
+            Registry registry = LocateRegistry.getRegistry(null, 5000);
+
+            // 4. Look up the name, and get the stub object, which is a remote proxy
+            ReportGenerator reportGenerator = (ReportGenerator) registry.lookup("report_generator");
             System.out.println("[LOCAL] Fetched a stub object for ReportGeneratorImpl\n");
-            // 4. Invoke methods on this stub object, as if it is invoking the remote object
+
+            // 5. Invoke methods on this stub object, as if it is invoking the remote object
             System.out.println(reportGenerator.generateDailyReport());
             System.out.println("From " + reportGenerator.getClass().getSimpleName());
         } catch (Exception e) {

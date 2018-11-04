@@ -43,11 +43,11 @@ public class ReportGeneratorImpl extends UnicastRemoteObject implements ReportGe
      */
     public static void main(String[] args) {
         try {
-            // 1. Create and run the RMI Registry on port 5000
+            // 1. Create and run the RMI Registry on localhost, listening on port 5000
             Registry registry = LocateRegistry.createRegistry(5000);
 
             // 2. Register the remote object in the RMI Registry
-            registry.bind("report_generator", new ReportGeneratorImpl());
+            registry.rebind("report_generator", new ReportGeneratorImpl());
 
             // At the same time, the corresponding remote proxy class, which also implements ReportGenerator interface,
             // is automatically created dynamically at runtime, and a stub object is instantiated in the RMI Registry.

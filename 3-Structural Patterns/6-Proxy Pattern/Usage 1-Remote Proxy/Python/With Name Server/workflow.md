@@ -1,7 +1,7 @@
 1. Start the name server
 
    ```bash
-   > pyro4-ns --port 5000
+   > pyro4-ns --port=5000
    Not starting broadcast server for localhost.
    NS running on localhost:5000 (127.0.0.1)
    URI = PYRO:Pyro.NameServer@localhost:5000
@@ -10,7 +10,7 @@
    List all the registered objects in the name server
 
    ```bash
-   > pyro4-nsc list --port 5000
+   > pyro4-nsc list --port=5000
    --------START LIST
    Pyro.NameServer --> PYRO:Pyro.NameServer@localhost:5000
        metadata: ['class:Pyro4.naming.NameServer']
@@ -26,7 +26,7 @@
    List all the registered objects in the name server
 
    ```bash
-   > pyro4-nsc list --port 5000
+   > pyro4-nsc list --port=5000
    --------START LIST
    Pyro.NameServer --> PYRO:Pyro.NameServer@localhost:5000
        metadata: ['class:Pyro4.naming.NameServer']
@@ -37,6 +37,6 @@
 3. Client-side
 
    ```bash
-   python3 local_company_owner.py --ns_port 5000 --name report_generator
+   python3 local_company_owner.py --ns_port=5000 --name=report_generator
    ```
 

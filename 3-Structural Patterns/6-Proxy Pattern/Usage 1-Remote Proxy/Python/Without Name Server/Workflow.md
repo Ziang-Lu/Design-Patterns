@@ -7,6 +7,6 @@
 2. Client-side
 
    ```bash
-   python3 local_company_owner.py --hostname localhost --port 5000 --object_id report_generator
+   python3 local_company_owner.py --hostname=localhost --port=5000 --object_id=report_generator
    ```
 

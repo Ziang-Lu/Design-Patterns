@@ -1,4 +1,4 @@
-1. Start the <u>name server</u>   [Java RMI registry]
+1. Start the name server
 
    ```bash
    > pyro4-ns --port 5000
@@ -7,15 +7,36 @@
    URI = PYRO:Pyro.NameServer@localhost:5000
    ```
 
-2. List all the registered objects in the name server
+   List all the registered objects in the name server
 
    ```bash
-   > pyro4-nsc list
+   > pyro4-nsc list --port 5000
    --------START LIST
    Pyro.NameServer --> PYRO:Pyro.NameServer@localhost:5000
        metadata: ['class:Pyro4.naming.NameServer']
    --------END LIST
    ```
 
-3. Svsvsvs
+2. Server-side
+
+   ```bash
+   python3 remote_company.py
+   ```
+
+   List all the registered objects in the name server
+
+   ```bash
+   > pyro4-nsc list --port 5000
+   --------START LIST
+   Pyro.NameServer --> PYRO:Pyro.NameServer@localhost:5000
+       metadata: ['class:Pyro4.naming.NameServer']
+   report_generator --> PYRO:obj_31050e224ba34ef28a1227c5ad77fb69@localhost:55017
+   --------END LIST
+   ```
+
+3. Client-side
+
+   ```bash
+   python3 local_company_owner.py --name_server_port 5000 --name report_generator
+   ```
 

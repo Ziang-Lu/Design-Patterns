@@ -5,8 +5,6 @@
 Remote company side (server-side) module.
 """
 
-__author__ = 'Ziang Lu'
-
 from datetime import datetime
 
 import Pyro4
@@ -19,10 +17,8 @@ class ReportGeneratorImpl(object):
     This class resides in a remote machine (thus a remote network). Thus, an
     instance of this class is referred to as a "remote object", which is the
     object that the client want to call methods on.
-
-    Since Pyro will add a few Pyro-specific attributes to a remote object, we
-    better not restrict "__slots__" of this class.
     """
+    __slots__ = []
 
     def generate_daily_report(self) -> str:
         """
@@ -31,7 +27,7 @@ class ReportGeneratorImpl(object):
         networking, the type of this returned object must be serializable.
         :return: str
         """
-        print('\n[SERVER] Generating a daily report...', end='')
+        print('\n[REMOTE] Generating a daily report...', end='')
         s = '\n***** Daily Report *****\n'
         s += str(datetime.now())
         print('done')
@@ -39,21 +35,25 @@ class ReportGeneratorImpl(object):
 
 
 def setup_server():
-    # 1. Create the server (Pyro daemon)
-    # In order to nicely free the resources of the Pyro daemon when the request
-    # loop is terminated, we can use it as a context manager.
-    with Pyro4.Daemon(port=5000) as daemon:
+    # 2. Create the server (Pyro daemon)
+    with Pyro4.Daemon() as daemon:
         print('[SERVER] Server started.')
 
-        # 2. Register the remote class on the server (Pyro daemon)
-        uri = daemon.register(ReportGeneratorImpl, objectId='report_generator')
+        # 3. Register the remote class on the server (Pyro daemon)
+        uri = daemon.register(ReportGeneratorImpl)
         # If we pass in a class directly, the returned URI will be the URI of
         # that registered class; for each session (proxy connection), Pyro will
         # automatically instantiate that class.
         print(f'[SERVER] Registered a remote ReportGeneratorImpl class with '
               f'URI [{uri}] on the Pyro daemon')
 
-        # 3. Start the server (Pyro daemon)
+        # 4. Also register the remote class in the name server
+        ns = Pyro4.locateNS(port=5000)
+        ns.register('report_generator', uri)
+        print(f'[NAME SERVER] Registered a URI [{uri}] with name '
+              f'"report_generator" in the name server')
+
+        # 5. Start the server (Pyro daemon)
         daemon.requestLoop()
 
 
@@ -62,6 +62,7 @@ if __name__ == '__main__':
 
 # Output:
 # [SERVER] Server started.
-# [SERVER] Registered a remote ReportGeneratorImpl object with URI [PYRO:report_generator@localhost:5000] on the Pyro deamon
+# [SERVER] Registered a remote ReportGeneratorImpl class with URI [PYRO:obj_31050e224ba34ef28a1227c5ad77fb69@localhost:55017] on the Pyro daemon
+# [NAME SERVER] Registered a URI [PYRO:obj_31050e224ba34ef28a1227c5ad77fb69@localhost:55017] with name "report_generator" in the name server
 #
-# [SERVER] Generating a daily report...done
+# [REMOTE] Generating a daily report...done

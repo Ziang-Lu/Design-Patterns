@@ -25,7 +25,7 @@ public class CompanyOwner {
 
             // 4. Look up the name, and get the stub object, which is a remote proxy
             ReportGenerator reportGenerator = (ReportGenerator) registry.lookup("report_generator");
-            System.out.println("[LOCAL] Fetched a stub object for ReportGeneratorImpl\n");
+            System.out.println("[CLIENT] Fetched a stub object for ReportGeneratorImpl\n");
 
             // 5. Invoke methods on this stub object, as if it is invoking the remote object
             System.out.println(reportGenerator.generateDailyReport());
@@ -36,7 +36,7 @@ public class CompanyOwner {
 
         /*
          * Output:
-         * [LOCAL] Fetched a stub object for ReportGeneratorImpl
+         * [CLIENT] Fetched a stub object for ReportGeneratorImpl
          *
          * ***** Daily Report *****
          * Wed Oct 31 21:28:33 PDT 2018

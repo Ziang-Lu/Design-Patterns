@@ -15,12 +15,13 @@ import Pyro4
 def client_main(hostname: str, port: int, object_id: str):
     uri = f'PYRO:{object_id}@{hostname}:{port}'
 
-    # 4. Create a proxy object, look up the URI, and establish a proxy
-    # connection (session)
+    # 4. Create a proxy object, look up the URI on the server, and establish a
+    # proxy connection (session)
     report_generator = Pyro4.Proxy(uri)
     # If the URI is for a remote class, Pyro will instantiate a remote object on
     # the server-side, and then establish a proxy connection (session).
-    print('[LOCAL] Created a proxy object for ReportGeneratorImpl')
+    print('[CLIENT] Created a proxy object for ReportGeneratorImpl, and '
+          'established a proxy connection')
 
     # 5. Invoke methods on the proxy object, as if it is invoking the remote
     # object
@@ -34,7 +35,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--hostname', help='Hostname that the desired remote object resides in'
     )
-    parser.add_argument('--port',
+    parser.add_argument('--port', type=int,
                         help='Port number that the remote host is listening on')
     parser.add_argument(
         '--object_id',
@@ -43,11 +44,11 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    client_main(hostname=args.hostname, port=int(args.port),
+    client_main(hostname=args.hostname, port=args.port,
                 object_id=args.object_id)
 
 # Output:
-# [LOCAL] Created a proxy object for ReportGeneratorImpl
+# [CLIENT] Created a proxy object for ReportGeneratorImpl, and established a proxy connection
 #
 # ***** Daily Report *****
 # 2018-11-05 23:33:53.666541

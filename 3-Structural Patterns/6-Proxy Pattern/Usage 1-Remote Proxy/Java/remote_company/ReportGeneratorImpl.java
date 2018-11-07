@@ -29,7 +29,7 @@ public class ReportGeneratorImpl extends UnicastRemoteObject implements ReportGe
 
     @Override
     public String generateDailyReport() {
-        System.out.print("\n[REMOTE] Generating a daily report...");
+        System.out.print("\n[SERVER] Generating a daily report...");
         StringBuilder s = new StringBuilder();
         s.append("***** Daily Report *****").append('\n');
         s.append(Calendar.getInstance().getTime().toString());
@@ -52,7 +52,7 @@ public class ReportGeneratorImpl extends UnicastRemoteObject implements ReportGe
             // At the same time, the corresponding remote proxy class, which also implements ReportGenerator interface,
             // is automatically created dynamically at runtime, and a stub object is instantiated in the RMI Registry.
 
-            System.out.println("[REMOTE] Registered a remote ReportGeneratorImpl object, and a corresponding stub " +
+            System.out.println("[REGISTRY] Registered a remote ReportGeneratorImpl object, and a corresponding stub " +
                     "object is created");
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,9 +60,9 @@ public class ReportGeneratorImpl extends UnicastRemoteObject implements ReportGe
 
         /*
          * Output:
-         * [REMOTE] Registered a remote ReportGeneratorImpl object, and a corresponding stub object is created
+         * [REGISTRY] Registered a remote ReportGeneratorImpl object, and a corresponding stub object is created
          *
-         * [REMOTE] Generating a daily report...done
+         * [SERVER] Generating a daily report...done
          */
     }
 

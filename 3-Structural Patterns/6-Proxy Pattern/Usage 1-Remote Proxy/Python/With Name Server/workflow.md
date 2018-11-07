@@ -37,6 +37,6 @@
 3. Client-side
 
    ```bash
-   python3 local_company_owner.py --name_server_port 5000 --name report_generator
+   python3 local_company_owner.py --ns_port 5000 --name report_generator
    ```
 

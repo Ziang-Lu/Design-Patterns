@@ -10,9 +10,9 @@ import argparse
 import Pyro4
 
 
-def client_main(name_server_port: int, name: str):
+def client_main(ns_port: int, name: str):
     # 6. Get the name server on localhost, listening on the given port number,
-    # ns = Pyro4.locateNS(port=name_server_port)
+    # ns = Pyro4.locateNS(port=ns_port)
     # 7. Look up the name in the name server for the corresponding URI
     # uri = ns.lookup(name)
     # print(f'[CLIENT] Found the corresponding URI for name "{name}"')
@@ -24,9 +24,7 @@ def client_main(name_server_port: int, name: str):
     # the server-side, and then establish a proxy connection (session).
 
     # The above three steps can be done as follows as a shortcut:
-    report_generator = Pyro4.Proxy(
-        f'PYRONAME:{name}@localhost:{name_server_port}'
-    )
+    report_generator = Pyro4.Proxy(f'PYRONAME:{name}@localhost:{ns_port}')
     print('[CLIENT] Created a proxy object for ReportGeneratorImpl, and '
           'established a proxy connection')
 
@@ -39,7 +37,7 @@ def client_main(name_server_port: int, name: str):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--name_server_port', type=int,
+    parser.add_argument('--ns_port', type=int,
                         help='Port number that the name server is listening on')
     parser.add_argument(
         '--name',
@@ -48,7 +46,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    client_main(name_server_port=args.name_server_port, name=args.name)
+    client_main(ns_port=args.ns_port, name=args.name)
 
 # Output:
 # [CLIENT] Created a proxy object for ReportGeneratorImpl, and established a proxy connection

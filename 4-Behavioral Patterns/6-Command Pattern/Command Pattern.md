@@ -11,3 +11,7 @@ The Visitor Pattern is a **behavioral pattern** that **encapsulates a request in
 <br>
 
 ## Code Example
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Command%20Pattern/Restaurant%20Example/class_diagram.png?raw=true">
+
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Command%20Pattern/Restaurant%20Example/sequence_diagram.png?raw=true" width="500px">

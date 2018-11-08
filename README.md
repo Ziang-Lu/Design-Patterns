@@ -45,7 +45,7 @@ The behavior of a systems somewhat depends on the request data: this is called "
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-Visitor%20Pattern/Visitor%20Pattern.md">Visitor Pattern (访问者模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-State%20Pattern/State%20Pattern.md">State Pattern (状态模式)</a>
   * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-Null%20Object%20Pattern/Null%20Object%20Pattern.md">Null Object Pattern (空对象模式)</a>
-* Command Pattern (命令模式)
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Command%20Pattern/Command%20Pattern.md">Command Pattern (命令模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Memento%20Pattern/Memento%20Pattern.md">Memento Pattern (备忘录模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Chain%20of%20Responsibility%20Pattern/Chain%20of%20Responsibility%20Pattern.md">Chain of Responsibility Pattern (责任链模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/9-Mediator%20Pattern/Mediator%20Pattern.md">Mediator Pattern (中介者模式)</a>

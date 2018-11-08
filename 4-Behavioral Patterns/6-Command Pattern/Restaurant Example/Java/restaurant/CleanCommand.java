@@ -7,7 +7,7 @@ package restaurant;
  *
  * @author Ziang Lu
  */
-public class CleanCommand implements Command {
+class CleanCommand implements Command {
 
     /**
      * Reference to the "Receiver", which is responsible for, in the execute()
@@ -19,7 +19,7 @@ public class CleanCommand implements Command {
      * Constructor with parameter.
      * @param cleaner cleaner to eventually handle this clean command
      */
-    public CleanCommand(Cleaner cleaner) {
+    CleanCommand(Cleaner cleaner) {
         this.cleaner = cleaner;
         System.out.println("A new clean command [Command] has been created.");
     }

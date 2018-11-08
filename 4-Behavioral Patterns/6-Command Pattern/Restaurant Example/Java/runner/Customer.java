@@ -1,9 +1,7 @@
 package runner;
 
-import restaurant.CleanCommand;
 import restaurant.Cleaner;
 import restaurant.Cook;
-import restaurant.Order;
 import restaurant.Waiter;
 
 /**
@@ -20,37 +18,29 @@ public class Customer {
     public static void main(String[] args) {
         Cook restaurantCook = new Cook(); // Receiver
         Cleaner restaurantCleaner = new Cleaner(); // Receiver
-        Waiter restaurantWaiter = new Waiter(); // Invoker
+        Waiter restaurantWaiter = new Waiter(restaurantCook, restaurantCleaner); // Invoker
 
-        // Create a order [Command] by passing in the cook [Receiver]
-        Order order = new Order(restaurantCook);
-        order.addItem("Kung Pao Chicken");
-        order.addItem("Sesame Chicken");
-        System.out.println();
-        // Let the waiter [Invoker] execute this command
-        restaurantWaiter.executeCommand(order);
+        // Request the waiter [Invoker] to place an order [Command]
+        restaurantWaiter.placeOrder("Kung Pao Chicken", "Sesame Chicken");
 
         System.out.println();
 
-        // Create a clean command [Command] by passing in the cleaner [Receiver]
-        CleanCommand cleanCommand = new CleanCommand(restaurantCleaner);
-        System.out.println();
-        // Let the waiter [Invoker] execute this command
-        restaurantWaiter.executeCommand(cleanCommand);
+        // Request the waiter [Invoker] to clean the table [Command]
+        restaurantWaiter.clean();
 
         /*
          * Output:
+         * Waiter [Invoker] has received an order with items: [Kung Pao Chicken, Sesame Chicken].
          * A new order [Command] has been created.
          * Kung Pao Chicken has been added to the order.
          * Sesame Chicken has been added to the order.
-         *
-         * Waiter [Invoker] has received the command [Command] and start executing the command [Command] ...
+         * Waiter [Invoker] started executing the command...
          * Cook [Receiver] is cooking Sesame Chicken.
          * Cook [Receiver] is cooking Kung Pao Chicken.
          *
+         * Waiter [Invoker] has received the clean request.
          * A new clean command [Command] has been created.
-         *
-         * Waiter [Invoker] has received the command [Command] and start executing the command [Command] ...
+         * Waiter [Invoker] started executing the clean command...
          * Cleaner [Receiver] is cleaning up the table.
          */
     }

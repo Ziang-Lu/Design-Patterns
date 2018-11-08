@@ -120,18 +120,42 @@ class Waiter(object):
     """
     Waiter class that works as "Invoker".
     This class is responsible for executing the different "Command"s.
+    The "Invoker" does not know how to handle the request, but simply invoke
+    command.execute() method, and let the internal correct "Receiver" handle the
+    request.
     """
-    __slots__ = []
+    __slots__ = ['_restaurant_cook', '_restaurant_cleaner']
 
-    def execute_command(self, command: Command) -> None:
+    def __init__(self, restaurant_cook: Cook, restaurant_cleaner: Cleaner):
         """
-        Executes the given command.
-        The "Invoker" does not know how to handle the request, but simply invoke
-        command.execute() method, and let the internal correct "Receiver" handle
-        the request.
-        :param command: Command
+        Constructor with parameter.
+        :param restaurant_cook: Cook
+        :param restaurant_cleaner: Cleaner
+        """
+        self._restaurant_cook = restaurant_cook
+        self._restaurant_cleaner = restaurant_cleaner
+
+    def place_order(self, *items) -> None:
+        """
+        Places a new order with the given items.
+        :param items: tuple(str)
         :return: None
         """
-        print('Waiter [Invoker] has received the command [Command] and start '
-              'executing the command [Command] ...')
-        command.execute()
+        print(f'Waiter [Invoker] has received an order with items {items}')
+        # Create an order [Command] by passing in the cook [Receiver]
+        order = Order(self._restaurant_cook)
+        for item in items:
+            order.add_item(item)
+        print('Waiter [Invoker] started executing the command...')
+        order.execute()
+
+    def clean(self) -> None:
+        """
+        Receives a request to clean the table.
+        :return: None
+        """
+        print('Waiter [Invoker] has received the clean request.')
+        # Create a clean command [Command] by passing in the cleaner [Receiver]
+        clean_command = CleanCommand(self._restaurant_cleaner)
+        print('Waiter [Invoker] started executing the clean command...')
+        clean_command.execute()

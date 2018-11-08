@@ -10,7 +10,7 @@ import java.util.Set;
  *
  * @author Ziang Lu
  */
-public class Order implements Command {
+class Order implements Command {
 
     /**
      * Reference to the "Receiver", which is responsible for, in the execute()
@@ -26,7 +26,7 @@ public class Order implements Command {
      * Constructor with parameter.
      * @param cook cook to eventually handle this order
      */
-    public Order(Cook cook) {
+    Order(Cook cook) {
         this.cook = cook;
         items = new HashSet<>();
         System.out.println("A new order [Command] has been created.");

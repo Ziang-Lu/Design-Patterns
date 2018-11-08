@@ -49,7 +49,7 @@ def setup_server():
 
         # 4. Also register the remote class in the name server
         ns = Pyro4.locateNS(port=5000)
-        ns.register('report_generator', uri, safe=True)
+        ns.register('report_generator', uri)
         print(f'[NAME SERVER] Registered a URI [{uri}] with name '
               f'"report_generator" in the name server')
 

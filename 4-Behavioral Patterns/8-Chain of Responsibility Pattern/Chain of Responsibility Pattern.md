@@ -18,7 +18,7 @@ The Chain of Responsibility of a **behavioral pattern** that **chains the receiv
 
 *(有点像一个linked-list of receivers)*
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern_illustration.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern_illustration.png?raw=true">
 
 *(从某种意义上讲: The Chain of Responsibility Pattern is an object-oritented version of the `if ... else if ... else if ... else ... endif` idiom, with the benefit that the condition-action blocks can be dynamically rearranged and reconfigured at runtime.)*
 
@@ -26,7 +26,7 @@ The Chain of Responsibility of a **behavioral pattern** that **chains the receiv
 
 <br>
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Chain%20of%20Responsibility%20Pattern/chain_of_responsibility_pattern.png?raw=true">
 
 ***
 
@@ -50,7 +50,7 @@ Therefore, we simply let this step be done via letting different `ConcreteHandle
 
   * Stop here and return.
 
-  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Chain%20of%20Responsibility%20Pattern/Usage%201-Only%20One%20Receiver%20Handles%20Request/only_one_receiver_handles_request.png?raw=true" width="600px">
+  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Chain%20of%20Responsibility%20Pattern/Usage%201-Only%20One%20Receiver%20Handles%20Request/only_one_receiver_handles_request.png?raw=true" width="600px">
 
 * **>= 1 receivers** in the chain handle the request.
 
@@ -60,7 +60,7 @@ Therefore, we simply let this step be done via letting different `ConcreteHandle
     * If yes, pass the request to the next receiver for further processing
     * If no, stop here and return.
 
-  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Chain%20of%20Responsibility%20Pattern/Usage%202-One%20or%20More%20Receivers%20Handle%20Request/one_or_more_receivers_handle_request.png?raw=true"><br>
+  <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Chain%20of%20Responsibility%20Pattern/Usage%202-One%20or%20More%20Receivers%20Handle%20Request/one_or_more_receivers_handle_request.png?raw=true"><br>
 
 ## Benefit
 

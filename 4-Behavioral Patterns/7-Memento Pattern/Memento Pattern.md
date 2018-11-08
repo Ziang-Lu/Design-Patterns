@@ -16,7 +16,7 @@ The Memento Pattern is a **behavioral pattern** that **provides the ability to r
 
 (This is a behavioral pattern because it defines a manner for controlling the communication between classes or entities.)
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Memento%20Pattern/memento_pattern_illustration.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Memento%20Pattern/memento_pattern_illustration.png?raw=true">
 
 *(有点像打游戏, 打某一关卡之前先存档, 如果失败了再回来读档)*
 
@@ -34,11 +34,11 @@ The Memento Pattern is a **behavioral pattern** that **provides the ability to r
 
 * `Caretaker`: Responsible for keeping  a collection of `Memento`, but never examines or operates on the contents of a `Memento`
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Memento%20Pattern/memento_pattern.png?raw=true" width="500px">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Memento%20Pattern/memento_pattern.png?raw=true" width="500px">
 
 An better-designed UML diagram of Memento Pattern:
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Memento%20Pattern/memento_pattern_improved.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/7-Memento%20Pattern/memento_pattern_improved.png?raw=true">
 
 In this way, a better encapsulation is achieved:
 

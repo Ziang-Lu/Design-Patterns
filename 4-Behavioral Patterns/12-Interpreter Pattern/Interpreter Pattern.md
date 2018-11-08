@@ -14,7 +14,7 @@
 
 The Interpreter Pattern is a **behaviral pattern** that **provides a way to interpret grammer or expression for a well-defined language (i.e., working as a language interpreter)**.
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/11-Interpreter%20Pattern/interpreter_pattern_illustration.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/12-Interpreter%20Pattern/interpreter_pattern_illustration.png?raw=true">
 
 * `Context`: Contains the data to be interpreted
 
@@ -35,7 +35,7 @@ The Interpreter Pattern is a **behaviral pattern** that **provides a way to inte
       * `TerminalExpression/LeafExpression`: Represents elements in the grammar that do not get replaced, and do not contain a reference to another expression
       * `NonterminalExpression/CompositeExpression`: Represents elements in the grammar that will be replaced during evaluation, and contains references to other expression instances (children nodes in the syntax tree)
 
-    <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/11-Interpreter%20Pattern/abstract_syntax_tree.png?raw=true" width="400px">
+    <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/12-Interpreter%20Pattern/abstract_syntax_tree.png?raw=true" width="400px">
 
     **然而, 这个构建syntax tree的过程本身并不属于Interpreter Pattern的范畴, 而是可以由其他的工具来做好.**
 
@@ -43,7 +43,7 @@ The Interpreter Pattern is a **behaviral pattern** that **provides a way to inte
 
   * Invokes `interpret(Context)` method on the entry expression in the abstract syntax tree, passing in a reference to the `Context`
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/11-Interpreter%20Pattern/interpreter_pattern.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/12-Interpreter%20Pattern/interpreter_pattern.png?raw=true">
 
 *(We could notice that the structure of an abstract syntax tree is very similar to Composite Pattern.)*
 

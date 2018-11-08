@@ -6,7 +6,7 @@
 
   => By letting them directly communicate to each other, there would be too tight coupling and the code would be extremely difficult to maintain.
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Mediator%20Pattern/mediator_pattern_problem.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/9-Mediator%20Pattern/mediator_pattern_problem.png?raw=true">
 
 * It should be possible to independently change the interaction between a set of objects.
 
@@ -20,7 +20,7 @@ The Mediator Pattern is a **behavioral pattern** that provides a mediator object
 
 => This design pattern can reduce the communication complexity between multiple objects.
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/8-Mediator%20Pattern/mediator_pattern_illustration.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/9-Mediator%20Pattern/mediator_pattern_illustration.png?raw=true">
 
 *The idea of a central controller (the mediator) is one of the key aspects of the Mediator Pattern.*
 

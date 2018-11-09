@@ -14,14 +14,11 @@ class SaveCommand extends WordDocumentCommand {
         System.out.println("A save command [Command] has ben created.");
     }
 
-    /**
-     * Mutator of doc.
-     * @param doc doc to set
-     */
+    @Override
     void setDoc(WordDocument doc) {
         System.out.println("Setting the Word document [Receiver] for save command [Command] as " + doc.filename() +
                 ".");
-        this.doc = doc;
+        super.setDoc(doc);
     }
 
     @Override

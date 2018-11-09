@@ -14,14 +14,11 @@ class OpenCommand extends WordDocumentCommand {
         System.out.println("An open command [Command] has ben created.");
     }
 
-    /**
-     * Mutator of doc.
-     * @param doc doc to set
-     */
+    @Override
     void setDoc(WordDocument doc) {
         System.out.println("Setting the Word document [Receiver] for open command [Command] as " + doc.filename() +
                 ".");
-        this.doc = doc;
+        super.setDoc(doc);
     }
 
     @Override

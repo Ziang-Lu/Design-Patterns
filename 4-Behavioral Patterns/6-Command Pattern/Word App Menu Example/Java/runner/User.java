@@ -24,9 +24,10 @@ public class User {
         menu.setCommandDoc(doc);
 
         System.out.println();
-        menu.clickOpen();
-        menu.clickSave();
-        menu.clickClose();
+        menu.click("open");
+        menu.click("save");
+        menu.click("save");
+        menu.click("close");
 
         System.out.println();
         doc.printCommandHistory();
@@ -38,9 +39,10 @@ public class User {
         menu.setCommandDoc(doc2);
 
         System.out.println();
-        menu.clickOpen();
-        menu.clickSave();
-        menu.clickClose();
+        menu.click("open");
+        menu.click("save");
+        menu.click("save");
+        menu.click("close");
 
         System.out.println();
         doc2.printCommandHistory();
@@ -51,35 +53,41 @@ public class User {
          * A save command [Command] has ben created.
          * A open command [Command] has ben created.
          *
-         * Setting the Word document [Receiver] for open command [Command] as Sample File.txt.
          * Setting the Word document [Receiver] for save command [Command] as Sample File.txt.
          * Setting the Word document [Receiver] for close command [Command] as Sample File.txt.
+         * Setting the Word document [Receiver] for open command [Command] as Sample File.txt.
          *
-         * Menu [Invoker] starts executing the open command [Command]...
+         * Menu [Invoker] starts executing the open command [Command]
          * Sample File.txt has been opened.
-         * Menu [Invoker] starts executing the save command [Command]...
+         * Menu [Invoker] starts executing the save command [Command]
          * Sample File.txt has been saved.
-         * Menu [Invoker] starts executing the close command [Command]...
+         * Menu [Invoker] starts executing the save command [Command]
+         * Sample File.txt has been saved.
+         * Menu [Invoker] starts executing the close command [Command]
          * Sample File.txt has been closed.
          *
          * Command history on Sample File.txt:
          * word_app_menu.OpenCommand@39ba5a14
          * word_app_menu.SaveCommand@511baa65
+         * word_app_menu.SaveCommand@511baa65
          * word_app_menu.CloseCommand@340f438e
          *
-         * Setting the Word document [Receiver] for open command [Command] as Sample File 2.txt.
          * Setting the Word document [Receiver] for save command [Command] as Sample File 2.txt.
          * Setting the Word document [Receiver] for close command [Command] as Sample File 2.txt.
+         * Setting the Word document [Receiver] for open command [Command] as Sample File 2.txt.
          *
-         * Menu [Invoker] starts executing the open command [Command]...
+         * Menu [Invoker] starts executing the open command [Command]
          * Sample File 2.txt has been opened.
-         * Menu [Invoker] starts executing the save command [Command]...
+         * Menu [Invoker] starts executing the save command [Command]
          * Sample File 2.txt has been saved.
-         * Menu [Invoker] starts executing the close command [Command]...
+         * Menu [Invoker] starts executing the save command [Command]
+         * Sample File 2.txt has been saved.
+         * Menu [Invoker] starts executing the close command [Command]
          * Sample File 2.txt has been closed.
          *
          * Command history on Sample File 2.txt:
          * word_app_menu.OpenCommand@39ba5a14
+         * word_app_menu.SaveCommand@511baa65
          * word_app_menu.SaveCommand@511baa65
          * word_app_menu.CloseCommand@340f438e
          */

@@ -18,6 +18,14 @@ abstract class WordDocumentCommand {
     protected WordDocument doc;
 
     /**
+     * Mutator of doc.
+     * @param doc doc to set
+     */
+    void setDoc(WordDocument doc) {
+        this.doc = doc;
+    }
+
+    /**
      * Executes this command.
      * We let the receiver perform some actions and thus handle the request.
      */

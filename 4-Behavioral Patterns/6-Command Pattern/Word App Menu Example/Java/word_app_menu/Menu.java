@@ -1,5 +1,8 @@
 package word_app_menu;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Menu class that works as "Invoker".
  * This class is responsible for executing the different "Command"s.
@@ -12,50 +15,39 @@ package word_app_menu;
 public class Menu {
 
     /**
-     * Open command of this menu.
+     * Commands of this menu.
      */
-    private OpenCommand openCommand = new OpenCommand();
+    private Map<String, WordDocumentCommand> commands;
+
     /**
-     * Save command of this menu.
+     * Default constructor.
      */
-    private SaveCommand saveCommand = new SaveCommand();
-    /**
-     * Close command of this menu.
-     */
-    private CloseCommand closeCommand = new CloseCommand();
+    public Menu() {
+        commands = new HashMap<>();
+        commands.put("open", new OpenCommand());
+        commands.put("save", new SaveCommand());
+        commands.put("close", new CloseCommand());
+    }
 
     /**
      * Sets the Word document for the commands.
      * @param doc Word document to set
      */
     public void setCommandDoc(WordDocument doc) {
-        openCommand.setDoc(doc);
-        saveCommand.setDoc(doc);
-        closeCommand.setDoc(doc);
+        for (WordDocumentCommand command : commands.values()) {
+            command.setDoc(doc);
+        }
     }
 
     /**
-     * User clicks "open" button on this menu.
+     * User clicks the given button on this menu.
+     * @param button clicked button
      */
-    public void clickOpen() {
-        System.out.println("Menu [Invoker] starts executing the open command [Command]...");
-        openCommand.execute();
-    }
-
-    /**
-     * User clicks "save" button on this menu.
-     */
-    public void clickSave() {
-        System.out.println("Menu [Invoker] starts executing the save command [Command]...");
-        saveCommand.execute();
-    }
-
-    /**
-     * User clicks "close" button on this menu.
-     */
-    public void clickClose() {
-        System.out.println("Menu [Invoker] starts executing the close command [Command]...");
-        closeCommand.execute();
+    public void click(String button) {
+        if (commands.containsKey(button)) {
+            System.out.println("Menu [Invoker] starts executing the " + button + " command [Command]");
+            commands.get(button).execute();
+        }
     }
 
 }

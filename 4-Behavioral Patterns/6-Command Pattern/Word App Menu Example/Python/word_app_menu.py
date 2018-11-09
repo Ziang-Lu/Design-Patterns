@@ -77,6 +77,14 @@ class WordDocumentCommand(ABC):
         """
         self._doc = None
 
+    def set_doc(self, doc: WordDocument) -> None:
+        """
+        Mutator of doc.
+        :param doc: WordDocument
+        :return: None
+        """
+        self._doc = doc
+
     @abstractmethod
     def execute(self) -> None:
         """
@@ -100,15 +108,10 @@ class OpenCommand(WordDocumentCommand):
         super().__init__()
         print('An open command [Command] has been created.')
 
-    def set_doc(self, doc: WordDocument) -> None:
-        """
-        Mutator of doc.
-        :param doc: WordDocument
-        :return: None
-        """
+    def set_doc(self, doc):
         print(f'Setting a Word document [Receiver] for open command [Command] '
               f'as {doc.filename}.')
-        self._doc = doc
+        super().set_doc(doc)
 
     def execute(self):
         # Let the Word document [Receiver] handle this open command [Command]
@@ -128,15 +131,10 @@ class SaveCommand(WordDocumentCommand):
         super().__init__()
         print('A save command [Command] has been created.')
 
-    def set_doc(self, doc: WordDocument) -> None:
-        """
-        Mutator of doc.
-        :param doc: WordDocument
-        :return: None
-        """
+    def set_doc(self, doc):
         print(f'Setting a Word document [Receiver] for save command [Command] '
               f'as {doc.filename}.')
-        self._doc = doc
+        super().set_doc(doc)
 
     def execute(self):
         # Let the Word document [Receiver] handle this save command [Command]
@@ -156,15 +154,10 @@ class CloseCommand(WordDocumentCommand):
         super().__init__()
         print('A close command [Command] has been created.')
 
-    def set_doc(self, doc: WordDocument) -> None:
-        """
-        Mutator of doc.
-        :param doc: WordDocument
-        :return: None
-        """
+    def set_doc(self, doc):
         print(f'Setting a Word document [Receiver] for close command [Command] '
               f'as {doc.filename}.')
-        self._doc = doc
+        super().set_doc(doc)
 
     def execute(self):
         # Let the Word document [Receiver] handle this close command [Command]
@@ -179,46 +172,35 @@ class Menu(object):
     command.execute() method, and let the internal correct "Receive" handle the
     request.
     """
-    __slots__ = ['_open_command', '_save_command', '_close_command']
+    # __slots__ = ['_open_command', '_save_command', '_close_command']
+    __slots__ = ['_commands']
 
     def __init__(self):
         """
         Default constructor.
         """
-        self._open_command = OpenCommand()
-        self._save_command = SaveCommand()
-        self._close_command = CloseCommand()
+        self._commands = {
+            'open': OpenCommand(),
+            'save': SaveCommand(),
+            'close': CloseCommand()
+        }
 
-    def set_command_doc(self, doc: WordDocument):
+    def set_command_doc(self, doc: WordDocument) -> None:
         """
         Sets the Word document for the commands.
-        :param doc:
+        :param doc: WordDocument
         :return:
         """
-        self._open_command.set_doc(doc)
-        self._save_command.set_doc(doc)
-        self._close_command.set_doc(doc)
+        for command in self._commands.values():
+            command.set_doc(doc)
 
-    def click_open(self) -> None:
+    def click(self, button: str) -> None:
         """
-        User clicks "open" button on this menu.
+        User clicks the given button on this menu.
+        :param button: str
         :return: None
         """
-        print(f'Menu [Invoker] starts executing the open command [Command]...')
-        self._open_command.execute()
-
-    def click_save(self) -> None:
-        """
-        User clicks "save" button on this menu.
-        :return: None
-        """
-        print(f'Menu [Invoker] starts executing the save command [Command]...')
-        self._save_command.execute()
-
-    def click_close(self) -> None:
-        """
-        User clicks "close" button on this menu.
-        :return: None
-        """
-        print(f'Menu [Invoker] starts executing the close command [Command]...')
-        self._close_command.execute()
+        if button in self._commands:
+            print(f'Menu [Invoker] starts executing the {button} command '
+                  f'[Command]...')
+            self._commands[button].execute()

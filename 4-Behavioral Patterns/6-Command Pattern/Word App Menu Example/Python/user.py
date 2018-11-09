@@ -20,9 +20,10 @@ def main():
     menu.set_command_doc(doc)
 
     print()
-    menu.click_open()
-    menu.click_save()
-    menu.click_close()
+    menu.click('open')
+    menu.click('save')
+    menu.click('save')
+    menu.click('close')
 
     print()
     doc.print_command_history()
@@ -34,9 +35,10 @@ def main():
     menu.set_command_doc(doc2)
 
     print()
-    menu.click_open()
-    menu.click_save()
-    menu.click_close()
+    menu.click('open')
+    menu.click('save')
+    menu.click('save')
+    menu.click('close')
 
     print()
     doc2.print_command_history()
@@ -58,13 +60,16 @@ if __name__ == '__main__':
 # Sample File.txt has been opened.
 # Menu [Invoker] starts executing the save command [Command]...
 # Sample File.txt has been saved.
+# Menu [Invoker] starts executing the save command [Command]...
+# Sample File.txt has been saved.
 # Menu [Invoker] starts executing the close command [Command]...
 # Sample File.txt has been saved.
 #
 # Command history on Sample File.txt:
-# <word_app_menu.OpenCommand object at 0x11207d498>
-# <word_app_menu.SaveCommand object at 0x11207d558>
-# <word_app_menu.CloseCommand object at 0x11207d4c8>
+# <word_app_menu.OpenCommand object at 0x109edd618>
+# <word_app_menu.SaveCommand object at 0x109edd648>
+# <word_app_menu.SaveCommand object at 0x109edd648>
+# <word_app_menu.CloseCommand object at 0x109edd678>
 #
 # Setting a Word document [Receiver] for open command [Command] as Sample File 2.txt.
 # Setting a Word document [Receiver] for save command [Command] as Sample File 2.txt.
@@ -74,10 +79,13 @@ if __name__ == '__main__':
 # Sample File 2.txt has been opened.
 # Menu [Invoker] starts executing the save command [Command]...
 # Sample File 2.txt has been saved.
+# Menu [Invoker] starts executing the save command [Command]...
+# Sample File 2.txt has been saved.
 # Menu [Invoker] starts executing the close command [Command]...
 # Sample File 2.txt has been saved.
 #
 # Command history on Sample File 2.txt:
-# <word_app_menu.OpenCommand object at 0x11207d498>
-# <word_app_menu.SaveCommand object at 0x11207d558>
-# <word_app_menu.CloseCommand object at 0x11207d4c8>
+# <word_app_menu.OpenCommand object at 0x109edd618>
+# <word_app_menu.SaveCommand object at 0x109edd648>
+# <word_app_menu.SaveCommand object at 0x109edd648>
+# <word_app_menu.CloseCommand object at 0x109edd678>

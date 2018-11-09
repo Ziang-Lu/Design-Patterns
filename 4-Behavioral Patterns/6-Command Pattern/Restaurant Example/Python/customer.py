@@ -7,21 +7,23 @@ Customer module that actually uses Command Pattern.
 
 __author__ = 'Ziang Lu'
 
-from restaurant import Cleaner, Cook, Waiter
+from restaurant import CleanCommand, Cleaner, Cook, Waiter
 
 
 def main():
     restaurant_cook = Cook()  # Receiver
     restaurant_cleaner = Cleaner()  # Receiver
-    restaurant_waiter = Waiter(restaurant_cook, restaurant_cleaner)  # Invoker
+    restaurant_waiter = Waiter(restaurant_cook)  # Invoker
 
     # Request the waiter [Invoker] to place an order [Command]
     restaurant_waiter.place_order('Kung Pao Chicken', 'Sesame Chicken')
 
     print()
 
-    # Request the waiter [Invoker] to clean the table [Command]
-    restaurant_waiter.clean()
+    # Create a clean command [Command] by passing the cleaner [Receiver]
+    clean_command = CleanCommand(restaurant_cleaner)
+    # Let the waiter [Invoker] to execute the clean command [Command]
+    restaurant_waiter.clean(clean_command)
 
 
 if __name__ == '__main__':
@@ -36,7 +38,6 @@ if __name__ == '__main__':
 # Cook [Receiver] is cooking Sesame Chicken.
 # Cook [Receiver] is cooking Kung Pao Chicken.
 #
-# Waiter [Invoker] has received the clean request.
 # A new clean command [Command] has been created.
-# Waiter [Invoker] started executing the clean command...
+# Waiter [Invoker] has received the clean command [Command] and started executing the command...
 # Cleaner [Receiver] is cleaning up the table.

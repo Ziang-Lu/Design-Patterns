@@ -17,19 +17,13 @@ public class Waiter {
      * Colleague cook in the restaurant.
      */
     private final Cook restaurantCook;
-    /**
-     * Colleague cleaner in the restaurant.
-     */
-    private final Cleaner restaurantCleaner;
 
     /**
      * Constructor with parameter.
      * @param restaurantCook colleague cook
-     * @param restaurantCleaner colleague cleaner
      */
-    public Waiter(Cook restaurantCook, Cleaner restaurantCleaner) {
+    public Waiter(Cook restaurantCook) {
         this.restaurantCook = restaurantCook;
-        this.restaurantCleaner = restaurantCleaner;
     }
 
     /**
@@ -49,12 +43,10 @@ public class Waiter {
 
     /**
      * Receives a request to clean the table.
+     * @param cleanCommand clean command to execute
      */
-    public void clean() {
-        System.out.println("Waiter [Invoker] has received the clean request.");
-        // Create a clean command [Command] by passing in the cleaner [Receiver]
-        CleanCommand cleanCommand = new CleanCommand(restaurantCleaner);
-        System.out.println("Waiter [Invoker] started executing the clean command...");
+    public void clean(CleanCommand cleanCommand) {
+        System.out.println("Waiter [Invoker] has received the clean command [Command] and started executing the command...");
         cleanCommand.execute();
     }
 

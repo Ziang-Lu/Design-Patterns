@@ -124,16 +124,14 @@ class Waiter(object):
     command.execute() method, and let the internal correct "Receiver" handle the
     request.
     """
-    __slots__ = ['_restaurant_cook', '_restaurant_cleaner']
+    __slots__ = ['_restaurant_cook']
 
-    def __init__(self, restaurant_cook: Cook, restaurant_cleaner: Cleaner):
+    def __init__(self, restaurant_cook: Cook):
         """
         Constructor with parameter.
         :param restaurant_cook: Cook
-        :param restaurant_cleaner: Cleaner
         """
         self._restaurant_cook = restaurant_cook
-        self._restaurant_cleaner = restaurant_cleaner
 
     def place_order(self, *items) -> None:
         """
@@ -149,13 +147,12 @@ class Waiter(object):
         print('Waiter [Invoker] started executing the command...')
         order.execute()
 
-    def clean(self) -> None:
+    def clean(self, clean_command: CleanCommand) -> None:
         """
         Receives a request to clean the table.
+        :param clean_command: CleanCommand
         :return: None
         """
-        print('Waiter [Invoker] has received the clean request.')
-        # Create a clean command [Command] by passing in the cleaner [Receiver]
-        clean_command = CleanCommand(self._restaurant_cleaner)
-        print('Waiter [Invoker] started executing the clean command...')
+        print('Waiter [Invoker] has received the clean command [Command] and '
+              'started executing the command...')
         clean_command.execute()

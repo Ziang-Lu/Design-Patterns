@@ -1,5 +1,6 @@
 package runner;
 
+import restaurant.CleanCommand;
 import restaurant.Cleaner;
 import restaurant.Cook;
 import restaurant.Waiter;
@@ -18,15 +19,17 @@ public class Customer {
     public static void main(String[] args) {
         Cook restaurantCook = new Cook(); // Receiver
         Cleaner restaurantCleaner = new Cleaner(); // Receiver
-        Waiter restaurantWaiter = new Waiter(restaurantCook, restaurantCleaner); // Invoker
+        Waiter restaurantWaiter = new Waiter(restaurantCook); // Invoker
 
         // Request the waiter [Invoker] to place an order [Command]
         restaurantWaiter.placeOrder("Kung Pao Chicken", "Sesame Chicken");
 
         System.out.println();
 
-        // Request the waiter [Invoker] to clean the table [Command]
-        restaurantWaiter.clean();
+        // Create a clean command [Command] by passing the cleaner [Receiver]
+        CleanCommand cleanCommand = new CleanCommand(restaurantCleaner);
+        // Let the waiter [Invoker] to execute the clean command [Command]
+        restaurantWaiter.clean(cleanCommand);
 
         /*
          * Output:
@@ -38,9 +41,8 @@ public class Customer {
          * Cook [Receiver] is cooking Sesame Chicken.
          * Cook [Receiver] is cooking Kung Pao Chicken.
          *
-         * Waiter [Invoker] has received the clean request.
          * A new clean command [Command] has been created.
-         * Waiter [Invoker] started executing the clean command...
+         * Waiter [Invoker] has received the clean command [Command] started executing the command...
          * Cleaner [Receiver] is cleaning up the table.
          */
     }

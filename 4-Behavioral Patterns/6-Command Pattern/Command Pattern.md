@@ -12,4 +12,13 @@ The Visitor Pattern is a **behavioral pattern** that **encapsulates a request in
 
 ## Code Example
 
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/6-Command%20Pattern/Word%20App%20Menu%20Example/class_diagram.png?raw=true">
+
+<br>
+
+## Drawback
+
+说实话我觉得这个Command Pattern很不好用:
+
+* 对于每种receiver的每个command都需要实现一个`ReceiverCommandX`, 使得代码变得非常多且复杂
 

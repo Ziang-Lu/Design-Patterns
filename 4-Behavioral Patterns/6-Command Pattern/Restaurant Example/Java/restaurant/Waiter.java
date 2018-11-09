@@ -37,7 +37,7 @@ public class Waiter {
         for (String item : items) {
             order.addItem(item);
         }
-        System.out.println("Waiter [Invoker] started executing the command...");
+        System.out.println("Waiter [Invoker] starts executing the command...");
         order.execute();
     }
 
@@ -46,7 +46,7 @@ public class Waiter {
      * @param cleanCommand clean command to execute
      */
     public void clean(CleanCommand cleanCommand) {
-        System.out.println("Waiter [Invoker] has received the clean command [Command] and started executing the command...");
+        System.out.println("Waiter [Invoker] has received the clean command [Command] and starts executing the command...");
         cleanCommand.execute();
     }
 

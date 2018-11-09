@@ -144,7 +144,7 @@ class Waiter(object):
         order = Order(self._restaurant_cook)
         for item in items:
             order.add_item(item)
-        print('Waiter [Invoker] started executing the command...')
+        print('Waiter [Invoker] starts executing the command...')
         order.execute()
 
     def clean(self, clean_command: CleanCommand) -> None:
@@ -154,5 +154,5 @@ class Waiter(object):
         :return: None
         """
         print('Waiter [Invoker] has received the clean command [Command] and '
-              'started executing the command...')
+              'starts executing the command...')
         clean_command.execute()

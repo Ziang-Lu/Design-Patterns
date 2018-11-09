@@ -37,12 +37,12 @@ public class Customer {
          * A new order [Command] has been created.
          * Kung Pao Chicken has been added to the order.
          * Sesame Chicken has been added to the order.
-         * Waiter [Invoker] started executing the command...
+         * Waiter [Invoker] starts executing the command...
          * Cook [Receiver] is cooking Sesame Chicken.
          * Cook [Receiver] is cooking Kung Pao Chicken.
          *
          * A new clean command [Command] has been created.
-         * Waiter [Invoker] has received the clean command [Command] started executing the command...
+         * Waiter [Invoker] has received the clean command [Command] starts executing the command...
          * Cleaner [Receiver] is cleaning up the table.
          */
     }

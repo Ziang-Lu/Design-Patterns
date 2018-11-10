@@ -2,9 +2,11 @@
 
 ## Applicability
 
-* When we need to decouple the object that needs actions to be performed from the objects that actually perform those actions.
+* When we need to avoid the coupling between the invoker of a request (即下文中的`Invoker`) and a particular request (即下文中的`Command`)
 
-* When we want a list of codes to be encapsulated (即下文中的`Command`对象) so that it can be run at a later time or many times
+* When we need to decouple the object that needs actions to be performed (即下文中的`Invoker`) from the objects that actually perform those actions (即下文中的`Receiver`).
+
+* When we want a list of codes to be encapsulated (即下文中的`Command`) so that it can be run at a later time or many times
 
   (=> Whenever we want that `Command` to run, we simply let the `Invoker` call that specific `Command`'s `execute()` method.)
 
@@ -28,6 +30,7 @@ The Visitor Pattern is a **behavioral pattern** that **encapsulates a request in
 
 ## Benefits
 
+* Since the invoker is no longer coupled with the specific commands (or requests), we can dynamically specify requests at runtime.
 * Allows you to set aside a list of commands for later use
 
 <br>

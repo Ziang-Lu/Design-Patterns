@@ -24,7 +24,7 @@ class CloseCommand extends WordDocumentCommand {
     @Override
     void execute() {
         // Let the Word document [Receiver] handle this close command [Command]
-        doc.close(this);
+        doc.close();
     }
 
 }

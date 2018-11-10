@@ -24,7 +24,7 @@ class OpenCommand extends WordDocumentCommand {
     @Override
     void execute() {
         // Let the Word document [Receiver] handle this open command [Command]
-        doc.open(this);
+        doc.open();
     }
 
 }

@@ -24,7 +24,7 @@ class SaveCommand extends WordDocumentCommand {
     @Override
     void execute() {
         // Let the Word document [Receiver] handle this save command [Command]
-        doc.save(this);
+        doc.save();
     }
 
 }

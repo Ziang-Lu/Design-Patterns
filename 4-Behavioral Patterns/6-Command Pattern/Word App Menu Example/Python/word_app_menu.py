@@ -14,51 +14,39 @@ class WordDocument(object):
     """
     WordDocument class that works as the "Receiver" for "WordDocumentCommand".
     """
-    __slots__ = ['_filename', '_command_history']
+    __slots__ = ['_filename']
 
     def __init__(self, filename: str):
+        """
+        Constructor with parameter.
+        :param filename: str
+        """
         self._filename = filename
-        self._command_history = []
 
     @property
     def filename(self) -> str:
         return self._filename
 
-    def open(self, open_command) -> None:
+    def open(self) -> None:
         """
         Opens this Word document.
-        :param open_command: OpenCommand
         :return: None
         """
         print(f'{self._filename} has been opened.')
-        self._command_history.append(open_command)
 
-    def save(self, save_command) -> None:
+    def save(self) -> None:
         """
         Opens this Word document.
-        :param save_command: SaveCommand
         :return: None
         """
         print(f'{self._filename} has been saved.')
-        self._command_history.append(save_command)
 
-    def close(self, close_command) -> None:
+    def close(self) -> None:
         """
         Closes this Word document.
-        :param close_command: CloseCommand
         :return: None
         """
         print(f'{self._filename} has been saved.')
-        self._command_history.append(close_command)
-
-    def print_command_history(self) -> None:
-        """
-        Prints the command history on this Word document.
-        :return: None
-        """
-        print(f'Command history on {self._filename}:')
-        for command in self._command_history:
-            print(command)
 
 
 class WordDocumentCommand(ABC):
@@ -115,7 +103,7 @@ class OpenCommand(WordDocumentCommand):
 
     def execute(self):
         # Let the Word document [Receiver] handle this open command [Command]
-        self._doc.open(self)
+        self._doc.open()
 
 
 class SaveCommand(WordDocumentCommand):
@@ -138,7 +126,7 @@ class SaveCommand(WordDocumentCommand):
 
     def execute(self):
         # Let the Word document [Receiver] handle this save command [Command]
-        self._doc.save(self)
+        self._doc.save()
 
 
 class CloseCommand(WordDocumentCommand):
@@ -161,7 +149,7 @@ class CloseCommand(WordDocumentCommand):
 
     def execute(self):
         # Let the Word document [Receiver] handle this close command [Command]
-        self._doc.close(self)
+        self._doc.close()
 
 
 class Menu(object):
@@ -172,8 +160,7 @@ class Menu(object):
     command.execute() method, and let the internal correct "Receive" handle the
     request.
     """
-    # __slots__ = ['_open_command', '_save_command', '_close_command']
-    __slots__ = ['_commands']
+    __slots__ = ['_commands', '_command_history']
 
     def __init__(self):
         """
@@ -184,6 +171,7 @@ class Menu(object):
             'save': SaveCommand(),
             'close': CloseCommand()
         }
+        self._command_history = []
 
     def set_command_doc(self, doc: WordDocument) -> None:
         """
@@ -203,4 +191,16 @@ class Menu(object):
         if button in self._commands:
             print(f'Menu [Invoker] starts executing the {button} command '
                   f'[Command]...')
-            self._commands[button].execute()
+            # self._commands[button].execute()
+            command = self._commands[button]
+            command.execute()
+            self._command_history.append(command)
+
+    def print_command_history(self) -> None:
+        """
+        Prints the command history.
+        :return: None
+        """
+        print('Command history')
+        for command in self._command_history:
+            print(command)

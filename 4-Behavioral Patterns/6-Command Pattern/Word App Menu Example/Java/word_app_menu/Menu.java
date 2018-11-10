@@ -1,6 +1,8 @@
 package word_app_menu;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,6 +22,11 @@ public class Menu {
     private Map<String, WordDocumentCommand> commands;
 
     /**
+     * Command history.
+     */
+    private List<WordDocumentCommand> commandHistory;
+
+    /**
      * Default constructor.
      */
     public Menu() {
@@ -27,6 +34,8 @@ public class Menu {
         commands.put("open", new OpenCommand());
         commands.put("save", new SaveCommand());
         commands.put("close", new CloseCommand());
+
+        commandHistory = new ArrayList<>();
     }
 
     /**
@@ -46,7 +55,19 @@ public class Menu {
     public void click(String button) {
         if (commands.containsKey(button)) {
             System.out.println("Menu [Invoker] starts executing the " + button + " command [Command]");
-            commands.get(button).execute();
+            Command command = commands.get(button);
+            command.execute();
+            commandHistory.add(command);
+        }
+    }
+
+    /**
+     * Prints the command history invoked by this menu.
+     */
+    public void printCommandHistory() {
+        System.out.println("Command history:");
+        for (Command command : commandHistory) {
+            System.out.println(command);
         }
     }
 

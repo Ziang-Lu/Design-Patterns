@@ -25,9 +25,6 @@ def main():
     menu.click('save')
     menu.click('close')
 
-    print()
-    doc.print_command_history()
-
     doc2 = WordDocument('Sample File 2.txt')  # Receiver
 
     # Set the Word document [Receiver] for the commands [Command]
@@ -41,7 +38,7 @@ def main():
     menu.click('close')
 
     print()
-    doc2.print_command_history()
+    menu.print_command_history()
 
 
 if __name__ == '__main__':
@@ -65,12 +62,6 @@ if __name__ == '__main__':
 # Menu [Invoker] starts executing the close command [Command]...
 # Sample File.txt has been saved.
 #
-# Command history on Sample File.txt:
-# <word_app_menu.OpenCommand object at 0x109edd618>
-# <word_app_menu.SaveCommand object at 0x109edd648>
-# <word_app_menu.SaveCommand object at 0x109edd648>
-# <word_app_menu.CloseCommand object at 0x109edd678>
-#
 # Setting a Word document [Receiver] for open command [Command] as Sample File 2.txt.
 # Setting a Word document [Receiver] for save command [Command] as Sample File 2.txt.
 # Setting a Word document [Receiver] for close command [Command] as Sample File 2.txt.
@@ -84,7 +75,11 @@ if __name__ == '__main__':
 # Menu [Invoker] starts executing the close command [Command]...
 # Sample File 2.txt has been saved.
 #
-# Command history on Sample File 2.txt:
+# Command history:
+# <word_app_menu.OpenCommand object at 0x109edd618>
+# <word_app_menu.SaveCommand object at 0x109edd648>
+# <word_app_menu.SaveCommand object at 0x109edd648>
+# <word_app_menu.CloseCommand object at 0x109edd678>
 # <word_app_menu.OpenCommand object at 0x109edd618>
 # <word_app_menu.SaveCommand object at 0x109edd648>
 # <word_app_menu.SaveCommand object at 0x109edd648>

@@ -29,9 +29,6 @@ public class User {
         menu.click("save");
         menu.click("close");
 
-        System.out.println();
-        doc.printCommandHistory();
-
         WordDocument doc2 = new WordDocument("Sample File 2.txt"); // Receiver
 
         System.out.println();
@@ -45,7 +42,7 @@ public class User {
         menu.click("close");
 
         System.out.println();
-        doc2.printCommandHistory();
+        menu.printCommandHistory();
 
         /*
          * Output:
@@ -66,12 +63,6 @@ public class User {
          * Menu [Invoker] starts executing the close command [Command]
          * Sample File.txt has been closed.
          *
-         * Command history on Sample File.txt:
-         * word_app_menu.OpenCommand@39ba5a14
-         * word_app_menu.SaveCommand@511baa65
-         * word_app_menu.SaveCommand@511baa65
-         * word_app_menu.CloseCommand@340f438e
-         *
          * Setting the Word document [Receiver] for save command [Command] as Sample File 2.txt.
          * Setting the Word document [Receiver] for close command [Command] as Sample File 2.txt.
          * Setting the Word document [Receiver] for open command [Command] as Sample File 2.txt.
@@ -85,7 +76,11 @@ public class User {
          * Menu [Invoker] starts executing the close command [Command]
          * Sample File 2.txt has been closed.
          *
-         * Command history on Sample File 2.txt:
+         * Command history:
+         * word_app_menu.OpenCommand@39ba5a14
+         * word_app_menu.SaveCommand@511baa65
+         * word_app_menu.SaveCommand@511baa65
+         * word_app_menu.CloseCommand@340f438e
          * word_app_menu.OpenCommand@39ba5a14
          * word_app_menu.SaveCommand@511baa65
          * word_app_menu.SaveCommand@511baa65

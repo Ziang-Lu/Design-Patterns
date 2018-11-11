@@ -37,8 +37,10 @@ def client_main(ns_port: int, name: str):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--ns_port', type=int,
-                        help='Port number that the name server is listening on')
+    parser.add_argument(
+        '--ns_port', help='Port number that the name server is listening on',
+        type=int
+    )
     parser.add_argument(
         '--name',
         help='Name that identifies the desired object in the name server'

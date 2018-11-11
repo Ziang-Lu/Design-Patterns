@@ -35,8 +35,10 @@ if __name__ == '__main__':
     parser.add_argument(
         '--hostname', help='Hostname that the desired remote object resides in'
     )
-    parser.add_argument('--port', type=int,
-                        help='Port number that the remote host is listening on')
+    parser.add_argument(
+        '--port', help='Port number that the remote host is listening on',
+        type=int
+    )
     parser.add_argument(
         '--object_id',
         help='Object ID that identifies the desired object in the remote host'

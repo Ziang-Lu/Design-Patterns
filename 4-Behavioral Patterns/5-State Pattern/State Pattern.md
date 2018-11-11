@@ -28,7 +28,7 @@ The State Pattern is a **behavioral pattern** that **allows an object to alter i
 
   => *In doing so, the object will appear to have changed its class.*
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-State%20Pattern/state_pattern.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/5-State%20Pattern/state_pattern.png?raw=true">
 
 ***
 

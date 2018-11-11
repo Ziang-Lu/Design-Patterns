@@ -29,9 +29,9 @@ Visitor Pattern is a **behavioral pattern** that **separates an algorithm (an op
   * Encapsulates the executing algorithm (operation) on elements in the object structures
   * Can visit each `Element` in the object structure, and perform desired algorithm (handle operation) on that `Element`
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-Visitor%20Pattern/visitor_pattern.png?raw=true" width="500px">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-Visitor%20Pattern/visitor_pattern.png?raw=true" width="500px">
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-Visitor%20Pattern/visitor_pattern_sequence_diagram.png?raw=true" width="500px">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-Visitor%20Pattern/visitor_pattern_sequence_diagram.png?raw=true" width="500px">
 
 Note that the concrete elements do not have to be related through inheritance at all
 
@@ -41,7 +41,7 @@ Note that the concrete elements do not have to be related through inheritance at
 
 Before using Visitor Pattern, we have
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-Visitor%20Pattern/Car%20Part%20Example/class_diagram_inheritance.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-Visitor%20Pattern/Car%20Part%20Example/class_diagram_inheritance.png?raw=true">
 
 As we can see, the functionalities `print()`, `render()`, `upgrade()` are spread out in the element classes `Engine`, `Wheel`, `Light`, so these functionalities are hard to understand and maintain, and also hard to add new functionalities in the future because we have to enter each element class and add that functionality.
 
@@ -49,7 +49,7 @@ As we can see, the functionalities `print()`, `render()`, `upgrade()` are spread
 
 By using Visitor Pattern,
 
-<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-Visitor%20Pattern/Car%20Part%20Example/class_diagram_with_visitor.png?raw=true">
+<img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/4-Visitor%20Pattern/Car%20Part%20Example/class_diagram_with_visitor.png?raw=true">
 
 In this way, we can centralize a functionality to a single `ConcreteVisitor`, so that an instance of this `ConcreteVisitor` class can visit each `Element` in the object structure, and implement desired functionality on that `Element`.
 

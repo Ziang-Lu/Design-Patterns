@@ -3,9 +3,9 @@ package word_app_menu;
 /**
  * Abstract WordDocumentCommand class that works as "Command".
  * This abstract class represents a request, and defines only one execute()
- * method, which executes this command; this abstract also contains a reference
- * to a "Receiver", which is responsible for, in the execute() method, perform
- * some actions and thus handle the request.
+ * method, which executes this command; this abstract class also contains a
+ * reference to a "Receiver", which is responsible for, in the execute() method,
+ * perform some actions and thus handle the request.
  *
  * @author Ziang Lu
  */

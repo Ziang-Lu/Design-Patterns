@@ -53,9 +53,9 @@ class WordDocumentCommand(ABC):
     """
     Abstract WordDocumentCommand class that works as "Command".
     This abstract class represents a request, and defines only one execute()
-    method, which executes this command; this abstract also contains a reference
-    to a "Receiver", which is responsible for, in the execute() method, perform
-    some actions and thus handle the request.
+    method, which executes this command; this abstract class also contains a
+    reference to a "Receiver", which is responsible for, in the execute()
+    method, perform some actions and thus handle the request.
     """
     __slots__ = ['_doc']
 
@@ -86,6 +86,7 @@ class WordDocumentCommand(ABC):
 class OpenCommand(WordDocumentCommand):
     """
     Concrete OpenCommand class that works as "ConcreteCommand".
+    This command opens a Word document.
     """
     __slots__ = []
 
@@ -109,6 +110,7 @@ class OpenCommand(WordDocumentCommand):
 class SaveCommand(WordDocumentCommand):
     """
     Concrete SaveCommand class that works as "ConcreteCommand".
+    This command saves a Word document.
     """
     __slots__ = []
 
@@ -132,6 +134,7 @@ class SaveCommand(WordDocumentCommand):
 class CloseCommand(WordDocumentCommand):
     """
     Concrete CloseCommand class that works as "ConcreteCommand".
+    This command closes a Word document.
     """
     __slots__ = []
 

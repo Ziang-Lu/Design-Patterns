@@ -2,6 +2,7 @@ package word_app_menu;
 
 /**
  * Concrete SaveCommand class that works as "ConcreteCommand".
+ * This command saves a Word document.
  *
  * @author Ziang Lu
  */
@@ -11,7 +12,7 @@ class SaveCommand extends WordDocumentCommand {
      * Default constructor.
      */
     SaveCommand() {
-        System.out.println("A save command [Command] has ben created.");
+        System.out.println("A save command [Command] has been created.");
     }
 
     @Override

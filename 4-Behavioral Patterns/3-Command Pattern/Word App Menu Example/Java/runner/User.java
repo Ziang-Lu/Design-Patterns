@@ -46,9 +46,9 @@ public class User {
 
         /*
          * Output:
-         * An open command [Command] has ben created.
-         * A save command [Command] has ben created.
-         * A open command [Command] has ben created.
+         * An open command [Command] has been created.
+         * A save command [Command] has been created.
+         * A open command [Command] has been created.
          *
          * Setting the Word document [Receiver] for save command [Command] as Sample File.txt.
          * Setting the Word document [Receiver] for close command [Command] as Sample File.txt.

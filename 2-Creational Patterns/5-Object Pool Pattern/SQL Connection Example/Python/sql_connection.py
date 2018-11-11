@@ -61,7 +61,6 @@ class SQLConnectionImplPool(object):
     (poolSize) and manage them. In this way, we can share objects ("Reusable"
     objects) that are expensive to create.
     """
-
     _DEFAULT_POOL_SIZE = 10
 
     @classmethod

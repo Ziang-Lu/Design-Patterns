@@ -2,6 +2,7 @@ package word_app_menu;
 
 /**
  * Concrete CloseCommand class that works as "ConcreteCommand".
+ * This command closes a Word document.
  *
  * @author Ziang Lu
  */
@@ -11,7 +12,7 @@ class CloseCommand extends WordDocumentCommand {
      * Default constructor.
      */
     CloseCommand() {
-        System.out.println("A open command [Command] has ben created.");
+        System.out.println("A open command [Command] has been created.");
     }
 
     @Override

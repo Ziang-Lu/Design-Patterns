@@ -1,5 +1,7 @@
 package model.receiver;
 
+import java.util.Random;
+
 /**
  * EmailBox class that works as the "Receiver".
  *
@@ -44,7 +46,13 @@ public class EmailBox {
      * @param msg message to send
      */
     public void sendEmail(String recipientEmail, String msg) {
-        System.out.println("<Email Box> is sending '" + msg + "' to " + recipientEmail);
+        try {
+            Thread.sleep((new Random().nextInt(8) + 1) * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName() + " <Email Box> has sent '" + msg + "' to " +
+                recipientEmail);
     }
 
 }

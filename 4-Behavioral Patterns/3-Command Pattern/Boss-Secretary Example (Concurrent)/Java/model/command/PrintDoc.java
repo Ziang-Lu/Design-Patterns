@@ -11,7 +11,7 @@ import model.receiver.Printer;
  *
  * @author Ziang Lu
  */
-public class PrintDoc implements Command {
+public class PrintDoc extends Command {
 
     /**
      * Reference to the "Receiver", which is responsible for, in th execute()
@@ -29,11 +29,13 @@ public class PrintDoc implements Command {
      * Constructor with parameter.
      * @param printer printer to use
      * @param doc document to print
+     * @param priority priority of the command
      */
-    public PrintDoc(Printer printer, String doc) {
+    public PrintDoc(Printer printer, String doc, int priority) {
+        super(priority);
         this.printer = printer;
         docToPrint = doc;
-        System.out.println("A print-document command [Command] has been created.");
+        System.out.println(Thread.currentThread().getName() + " A print-document command [Command] has been created");
     }
 
     @Override

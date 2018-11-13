@@ -11,7 +11,7 @@ import model.receiver.DailyReportGenerator;
  *
  * @author Ziang Lu
  */
-public class GenerateDailyReport implements Command {
+public class GenerateDailyReport extends Command {
 
     /**
      * Reference to the "Receiver", which is responsible for, in th execute()
@@ -22,10 +22,12 @@ public class GenerateDailyReport implements Command {
     /**
      * Constructor with parameter.
      * @param reportGenerator report generator to use
+     * @param priority priority of the command
      */
-    public GenerateDailyReport(DailyReportGenerator reportGenerator) {
+    public GenerateDailyReport(DailyReportGenerator reportGenerator, int priority) {
+        super(priority);
         this.reportGenerator = reportGenerator;
-        System.out.println("A generate-daily-report command [Command] has been created.");
+        System.out.println(Thread.currentThread().getName() + " A generate-daily-report command [Command] has been created");
     }
 
     @Override

@@ -30,8 +30,19 @@ The Visitor Pattern is a **behavioral pattern** that **encapsulates a request in
 
 ## Benefits
 
-* Since the invoker is no longer coupled with the specific commands (or requests), we can dynamically specify requests at runtime.
-* Allows you to set aside a list of commands for later use
+* When the `Client` needs to perform some action, it doesn't need to be concerned about its details.
+
+  *Hides details about how to perform the action from the client*
+
+  (=> Instead, the `Client` just create a `Command` (request) by specifying its `Receiver`, pass the `Command` to the `Invoker`, and wait for the `Invoker` to execute it.)
+
+* Since the `Invoker` is no longer coupled with any specific `Command` (request), we can dynamically specify request at runtime
+
+  => The `Invoker` doesn't need to be concerned about the details, either.
+
+  (=> Instead, the `Invoker` just execute the `Command` (by calling `command.execute()` method), and let its internal correct `Receiver` handle the request.)
+
+* Allows you to set aside a list of `Command`s for later use
 
 <br>
 
@@ -39,5 +50,5 @@ The Visitor Pattern is a **behavioral pattern** that **encapsulates a request in
 
 说实话我觉得这个Command Pattern很不好用:
 
-* 对于每种receiver的每个command都需要实现一个`ReceiverCommandX`, 使得代码变得非常多且复杂
+* 对于每种不同的`Command`都需要实现一个`ReceiverCommandX`, 由于可能存在非常多的不同的`Command`, 代码变得非常多且复杂
 

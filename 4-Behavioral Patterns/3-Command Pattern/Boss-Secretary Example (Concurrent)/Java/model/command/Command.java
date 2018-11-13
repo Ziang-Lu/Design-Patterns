@@ -7,11 +7,29 @@ package model.command;
  *
  * @author Ziang Lu
  */
-public interface Command {
+public abstract class Command implements Comparable<Command> {
+
+    /**
+     * Priority of this command.
+     */
+    private int priority;
+
+    /**
+     * Constructor with parameter.
+     * @param priority priority of the command
+     */
+    protected Command(int priority) {
+        this.priority = priority;
+    }
 
     /**
      * Executes this command.
      */
-    void execute();
+    public abstract void execute();
+
+    @Override
+    public int compareTo(Command o) {
+        return Integer.compare(priority, o.priority);
+    }
 
 }

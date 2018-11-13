@@ -2,8 +2,7 @@ package model;
 
 import model.command.Command;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.PriorityQueue;
 
 /**
  * Secretary class that works as "Invoker".
@@ -17,42 +16,35 @@ import java.util.Queue;
 public class Secretary implements Runnable {
 
     /**
-     * Command queue shared by the "Invoker" and the "Client".
-     * The "Client" will keep adding commands to this queue, and the "Invoker"
-     * will keep fetching commands from this queue and execute them.
+     * Command priority queue (PQ) shared by the "Invoker" and the "Client".
+     * The "Client" will keep adding commands to this PQ, and the "Invoker" will
+     * keep fetching commands from this PQ and execute them.
      */
-    public final Queue<Command> tasks = new ArrayDeque<>();
-    /**
-     * Whether to stop this secretary thread.
-     */
-    private boolean stopThread = false;
-
-    /**
-     * Stops the secretary thread.
-     */
-    public void stopThread() {
-        stopThread = true;
-    }
+    public final PriorityQueue<Command> tasks = new PriorityQueue<>();
 
     @Override
     public void run() {
-        while (!stopThread) {
-            // Synchronize on the command queue shared by this boss and the secretary
+        while (true) {
+            Command task = null;
+            // Synchronize on the command PQ shared by this boss and the secretary
             synchronized (tasks) {
                 while (tasks.isEmpty()) {
                     try {
-                        // Wait for a new command to be added to the queue
+                        // Wait for a new command to be added to the PQ
                         tasks.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                // Fetch a command from the queue, and execute it
-                Command task = tasks.poll();
-                System.out.println("Secretary [Invoker] has fetched " + task.getClass().getSimpleName() +
-                        " from the task queue, and starts executing the command...");
-                task.execute();
+                // Fetch a command from the PQ, and execute it
+                task = tasks.poll();
+                System.out.println(
+                        Thread.currentThread().getName() + " Secretary [Invoker] has fetched " +
+                                task.getClass().getSimpleName() +
+                                " [Command] from the task priority queue, and starts executing the command..."
+                );
             }
+            task.execute();
         }
     }
 

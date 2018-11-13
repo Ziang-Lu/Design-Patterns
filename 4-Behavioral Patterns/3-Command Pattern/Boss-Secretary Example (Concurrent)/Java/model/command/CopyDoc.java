@@ -11,7 +11,7 @@ import model.receiver.Printer;
  *
  * @author Ziang Lu
  */
-public class CopyDoc implements Command {
+public class CopyDoc extends Command {
 
     /**
      * Reference to the "Receiver", which is responsible for, in th execute()
@@ -29,11 +29,13 @@ public class CopyDoc implements Command {
      * Constructor with parameter.
      * @param printer printer to use
      * @param doc document to copy
+     * @param priority priority of the command
      */
-    public CopyDoc(Printer printer, String doc) {
+    public CopyDoc(Printer printer, String doc, int priority) {
+        super(priority);
         this.printer = printer;
         docToCopy = doc;
-        System.out.println("A copy-document command [Command] has been created.");
+        System.out.println(Thread.currentThread().getName() + " A copy-document command [Command] has been created");
     }
 
     @Override

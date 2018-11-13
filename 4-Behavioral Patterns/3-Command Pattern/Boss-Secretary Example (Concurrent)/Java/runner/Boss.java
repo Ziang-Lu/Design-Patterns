@@ -10,11 +10,15 @@ import model.receiver.DailyReportGenerator;
 import model.receiver.EmailBox;
 import model.receiver.Printer;
 
-import java.util.Queue;
+import java.util.PriorityQueue;
 import java.util.Random;
 
 /**
  * Boss class that works as "Client" and actually uses Command Pattern.
+ *
+ * Note that we could have some more variants, such as:
+ * Create multiple threads, which separately but concurrently add commands to
+ * the command priority queue
  *
  * @author Ziang Lu
  */
@@ -33,17 +37,17 @@ public class Boss implements Runnable {
      */
     private Printer printer = new Printer(); // Receiver
     /**
-     * Command queue shared by the "Invoker" and the "Client".
-     * The "Client" will keep adding commands to this queue, and the "Invoker"
-     * will keep fetching commands from this queue and execute them.
+     * Command priority queue (PQ) shared by the "Invoker" and the "Client".
+     * The "Client" will keep adding commands to this PQ, and the "Invoker"
+     * will keep fetching commands from this PQ and execute them.
      */
-    private final Queue<Command> tasks;
+    private final PriorityQueue<Command> tasks;
 
     /**
      * Constructor with parameter.
-     * @param tasks command queue to add commands
+     * @param tasks command PQ to add commands
      */
-    private Boss(Queue<Command> tasks) {
+    private Boss(PriorityQueue<Command> tasks) {
         this.tasks = tasks;
     }
 
@@ -53,31 +57,26 @@ public class Boss implements Runnable {
         try {
             // For each command:
             // 1. Create a command and sets its receiver
-            // 2. Add the command to the queue shared by the client and the invoker
-            // 3. Wait for the invoker to fetch the command from the queue and executes it
+            // 2. Add the command to the PQ shared by the client and the invoker
+            // 3. Wait for the invoker to fetch the command from the PQ and executes it
 
-            Thread.sleep((randomGenerator.nextInt(4) + 1) * 1000);
-            Command generateDailyReport = new GenerateDailyReport(reportGenerator);
+            Command generateDailyReport = new GenerateDailyReport(reportGenerator, 5);
             addTask(generateDailyReport);
 
             Thread.sleep((randomGenerator.nextInt(4) + 1) * 1000);
-            System.out.println();
-            Command copyMyNameCard = new CopyDoc(printer, "Name Card of Boss");
+            Command copyMyNameCard = new CopyDoc(printer, "Name Card of Boss", 2);
             addTask(copyMyNameCard);
 
             Thread.sleep((randomGenerator.nextInt(4) + 1) * 1000);
-            System.out.println();
-            Command printMySlides = new PrintDoc(printer, "My slides");
+            Command printMySlides = new PrintDoc(printer, "My slides", 3);
             addTask(printMySlides);
 
             Thread.sleep((randomGenerator.nextInt(4) + 1) * 1000);
-            System.out.println();
-            Command emailSteve = new EmailSomeone(myEmailBox, "steverogers@gmail.com", "I need a plan of attack.");
+            Command emailSteve = new EmailSomeone(myEmailBox, "steverogers@gmail.com", "I need a plan of attack.", 4);
             addTask(emailSteve);
 
             Thread.sleep((randomGenerator.nextInt(4) + 1) * 1000);
-            System.out.println();
-            Command emailTony = new EmailSomeone(myEmailBox, "tonystark@gmail.com", "Any new tech today?");
+            Command emailTony = new EmailSomeone(myEmailBox, "tonystark@gmail.com", "Any new tech today?", 2);
             addTask(emailTony);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -85,14 +84,15 @@ public class Boss implements Runnable {
     }
 
     /**
-     * Private helper method to add the given command to the queue.
+     * Private helper method to add the given command to the PQ.
      * @param task command to add
      */
     private void addTask(Command task) {
-        // Synchronize on the command queue shared by this boss and the secretary
+        // Synchronize on the command PQ shared by this boss and the secretary
         synchronized (tasks) {
             tasks.offer(task);
-            System.out.println(task.getClass().getSimpleName() + " has been added to the task queue.");
+            System.out.println(Thread.currentThread().getName() + " " + task.getClass().getSimpleName() +
+                    " [Command] has been added to the task priority queue");
             tasks.notifyAll();
         }
     }
@@ -103,51 +103,46 @@ public class Boss implements Runnable {
      */
     public static void main(String[] args) {
         Secretary secretary = new Secretary(); // Invoker
-        Thread secretaryThread = new Thread(secretary);
+        Thread secretaryThread = new Thread(secretary, "[Secretary-Thread]");
 
         Boss boss = new Boss(secretary.tasks); // Client
-        Thread bossThread = new Thread(boss);
+        Thread bossThread = new Thread(boss, "[Boss-Thread]");
 
         secretaryThread.start();
         bossThread.start();
 
         try {
             bossThread.join();
+            secretaryThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        secretary.stopThread();
-
         /*
          * Output:
-         * A generate-daily-report command [Command] has been created.
-         * GenerateDailyReport has been added to the task queue.
-         * Secretary [Invoker] has fetched GenerateDailyReport from the task queue, and starts executing the command...
-         * <Daily Report Generator> is generating a daily report:
-         * **********
-         * Sun Nov 11 11:48:58 PST 2018
-         * **********
-         *
-         * A copy-document command [Command] has been created.
-         * CopyDoc has been added to the task queue.
-         * Secretary [Invoker] has fetched CopyDoc from the task queue, and starts executing the command...
-         * <Printer> is copying Name Card of Boss
-         *
-         * A print-document command [Command] has been created.
-         * PrintDoc has been added to the task queue.
-         * Secretary [Invoker] has fetched PrintDoc from the task queue, and starts executing the command...
-         * <Printer> is printing My slides
-         *
-         * An email-someone command [Command] has been created.
-         * EmailSomeone has been added to the task queue.
-         * Secretary [Invoker] has fetched EmailSomeone from the task queue, and starts executing the command...
-         * <Email Box> is sending 'I need a plan of attack.' to steverogers@gmail.com
-         *
-         * An email-someone command [Command] has been created.
-         * EmailSomeone has been added to the task queue.
-         * Secretary [Invoker] has fetched EmailSomeone from the task queue, and starts executing the command...
-         * <Email Box> is sending 'Any new tech today?' to tonystark@gmail.com
+         * [Boss-Thread] A generate-daily-report command [Command] has been created
+         * [Boss-Thread] GenerateDailyReport [Command] has been added to the task priority queue
+         * [Secretary-Thread] Secretary [Invoker] has fetched GenerateDailyReport [Command] from the task priority queue, and starts executing the command...
+         * [Secretary-Thread] <Daily Report Generator> is generating a daily report...
+         * [Boss-Thread] A copy-document command [Command] has been created
+         * [Boss-Thread] CopyDoc [Command] has been added to the task priority queue
+         * ***** Daily Report *****
+         * Mon Nov 12 17:47:36 PST 2018
+         * ************************
+         * [Secretary-Thread] Secretary [Invoker] has fetched CopyDoc [Command] from the task priority queue, and starts executing the command...
+         * [Secretary-Thread] <Printer> has copied Name Card of Boss
+         * [Boss-Thread] A print-document command [Command] has been created
+         * [Boss-Thread] PrintDoc [Command] has been added to the task priority queue
+         * [Secretary-Thread] Secretary [Invoker] has fetched PrintDoc [Command] from the task priority queue, and starts executing the command...
+         * [Boss-Thread] An email-someone command [Command] has been created
+         * [Secretary-Thread] <Printer> has printed My slides
+         * [Boss-Thread] EmailSomeone [Command] has been added to the task priority queue
+         * [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task priority queue, and starts executing the command...
+         * [Boss-Thread] An email-someone command [Command] has been created
+         * [Boss-Thread] EmailSomeone [Command] has been added to the task priority queue
+         * [Secretary-Thread] <Email Box> has sent 'I need a plan of attack.' to steverogers@gmail.com
+         * [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task priority queue, and starts executing the command...
+         * [Secretary-Thread] <Email Box> has sent 'Any new tech today?' to tonystark@gmail.com
          */
     }
 

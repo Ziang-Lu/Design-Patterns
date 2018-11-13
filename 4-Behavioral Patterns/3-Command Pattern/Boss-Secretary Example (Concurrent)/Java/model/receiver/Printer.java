@@ -1,5 +1,7 @@
 package model.receiver;
 
+import java.util.Random;
+
 /**
  * Printer class that works as the "Receiver".
  *
@@ -12,7 +14,12 @@ public class Printer {
      * @param doc document to print
      */
     public void printDoc(String doc) {
-        System.out.println("<Printer> is printing " + doc);
+        try {
+            Thread.sleep((new Random().nextInt(8) + 1) * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName() + " <Printer> has printed " + doc);
     }
 
     /**
@@ -20,7 +27,12 @@ public class Printer {
      * @param doc document to copy
      */
     public void copyDoc(String doc) {
-        System.out.println("<Printer> is copying " + doc);
+        try {
+            Thread.sleep((new Random().nextInt(8) + 1) * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName() + " <Printer> has copied " + doc);
     }
 
 }

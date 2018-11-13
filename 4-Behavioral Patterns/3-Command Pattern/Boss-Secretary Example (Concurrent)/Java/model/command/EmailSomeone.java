@@ -11,7 +11,7 @@ import model.receiver.EmailBox;
  *
  * @author Ziang Lu
  */
-public class EmailSomeone implements Command {
+public class EmailSomeone extends Command {
 
     /**
      * Reference to the "Receiver", which is responsible for, in th execute()
@@ -36,12 +36,14 @@ public class EmailSomeone implements Command {
      * @param emailBox email box to use
      * @param recipientEmail email address of the recipient
      * @param msg message to send
+     * @param priority priority of the command
      */
-    public EmailSomeone(EmailBox emailBox, String recipientEmail, String msg) {
+    public EmailSomeone(EmailBox emailBox, String recipientEmail, String msg, int priority) {
+        super(priority);
         this.emailBox = emailBox;
         this.recipientEmail = recipientEmail;
         msgToEmail = msg;
-        System.out.println("An email-someone command [Command] has been created.");
+        System.out.println(Thread.currentThread().getName() + " An email-someone command [Command] has been created");
     }
 
     @Override

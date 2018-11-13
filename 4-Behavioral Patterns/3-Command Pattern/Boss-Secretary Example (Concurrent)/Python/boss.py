@@ -8,7 +8,7 @@ Client module.
 import random
 import time
 from collections import deque
-from threading import Thread
+from threading import Thread, current_thread
 
 from model.command import (
     Command, CopyDoc, EmailSomeone, GenerateDailyReport, PrintDoc
@@ -21,120 +21,111 @@ class Boss(Thread):
     """
     Boss class that works as "Client" and actually uses Command Pattern.
     """
-    __slots__ = [
-        '_my_email_box', '_report_generator', '_printer', '_task_queue'
-    ]
+    __slots__ = ['_my_email_box', '_report_generator', '_printer', 'tasks']
 
-    def __init__(self, task_queue: deque):
+    def __init__(self, task_queue: deque, thread_name: str):
         """
         Constructor with parameter.
         :param task_queue: deque
+        :param thread_name: str
         """
-        super().__init__()
+        super().__init__(name=thread_name)
         self._my_email_box = EmailBox.get_instance()  # Receiver
         self._report_generator = DailyReportGenerator.get_instance()  # Receiver
         self._printer = Printer()  # Receiver
-        self._task_queue = task_queue
-        # Command queue shared by the "Invoker" and the "Client".
-        # The "Client" will keep adding commands to this queue, and the
-        # "Invoker" will keep fetching commands from this queue and execute
-        # them.
+        self.tasks = task_queue
+        # Command priority queue (PQ) shared by the "Invoker" and the "Client".
+        # The "Client" will keep adding commands to this PQ, and the "Invoker"
+        # will keep fetching commands from this PQ and execute them.
 
     def run(self):
         # For each command:
         # 1. Create a command and sets its receiver
-        # 2. Add the command to the queue shared by the client and the invoker
-        # 3. Wait for the invoker to fetch the command from the queue and
-        # executes it
+        # 2. Add the command to the PQ shared by the client and the invoker
+        # 3. Wait for the invoker to fetch the command from the PQ and executes
+        #    it
 
         time.sleep(random.randint(1, 5))
         generate_daily_report = GenerateDailyReport(
-            report_generator=self._report_generator
+            report_generator=self._report_generator, priority=5
         )
         self._add_task(generate_daily_report)
 
         time.sleep(random.randint(1, 5))
-        print()
         copy_my_name_card = CopyDoc(printer=self._printer,
-                                    doc='Name Card of boss')
+                                    doc='Name Card of boss', priority=2)
         self._add_task(copy_my_name_card)
 
         time.sleep(random.randint(1, 5))
-        print()
-        print_my_slides = PrintDoc(printer=self._printer, doc='My slides')
+        print_my_slides = PrintDoc(printer=self._printer, doc='My slides',
+                                   priority=3)
         self._add_task(print_my_slides)
 
         time.sleep(random.randint(1, 5))
-        print()
         email_steve = EmailSomeone(
             email_box=self._my_email_box,
             recipient_mail='steverogers@gmail.com',
-            msg='I need a plan of attack.'
+            msg='I need a plan of attack.', priority=4
         )
         self._add_task(email_steve)
 
         time.sleep(random.randint(1, 5))
-        print()
         email_tony = EmailSomeone(
             email_box=self._my_email_box, recipient_mail='tonystark@gmail.com',
-            msg='Any new tech today?'
+            msg='Any new tech today?', priority=2
         )
         self._add_task(email_tony)
 
     def _add_task(self, task: Command) -> None:
         """
-        Private helper function to add the given command to the queue.
+        Private helper function to add the given command to the PQ.
         :param task: Command
         :return: None
         """
         if shared_condition.acquire():
-            self._task_queue.append(task)
-            print(f'{type(task).__name__} has been added to the task queue.')
+            self.tasks.append(task)
+            print(f'{current_thread().name} {type(task).__name__} [Command] has'
+                  f' been added to the task queue')
             shared_condition.notifyAll()
             shared_condition.release()
 
 
 def main():
-    secretary = Secretary()  # Invoker
+    secretary = Secretary(thread_name='[Secretary-Thread]')  # Invoker
 
-    boss = Boss(task_queue=secretary.task_queue)  # Client
+    boss = Boss(task_queue=secretary.tasks, thread_name='[Boss-Thread]')  # Client
 
     secretary.start()
     boss.start()
 
     boss.join()
-
-    secretary.stop_thread()
+    secretary.join()
 
 
 if __name__ == '__main__':
     main()
 
 # Output:
-# A generate-daily-report command [Command] has been created.
-# GenerateDailyReport has been added to the task queue.
-# Secretary [Invoker] has fetched GenerateDailyReport from the task queue, and starts executing the command...
-# <Daily Report Generator> is generating a daily report:
-# **********
-# 2018-11-11 13:05:24
-# **********
-#
-# A copy-document [Command] has been created.
-# CopyDoc has been added to the task queue.
-# Secretary [Invoker] has fetched CopyDoc from the task queue, and starts executing the command...
-# <Printer> is copying Name Card of boss
-#
-# A print-document [Command] has been created.
-# PrintDoc has been added to the task queue.
-# Secretary [Invoker] has fetched PrintDoc from the task queue, and starts executing the command...
-# <Printer> is printing My slides.
-#
-# An email-someone command [Command] has been created.
-# EmailSomeone has been added to the task queue.
-# Secretary [Invoker] has fetched EmailSomeone from the task queue, and starts executing the command...
-# <Email Box> is sending 'I need a plan of attack.' to steverogers@gmail.com
-#
-# An email-someone command [Command] has been created.
-# EmailSomeone has been added to the task queue.
-# Secretary [Invoker] has fetched EmailSomeone from the task queue, and starts executing the command...
-# <Email Box> is sending 'Any new tech today?' to tonystark@gmail.com
+# [Boss-Thread] A generate-daily-report command [Command] has been created
+# [Boss-Thread] GenerateDailyReport [Command] has been added to the task queue
+# [Secretary-Thread] Secretary [Invoker] has fetched GenerateDailyReport [Command] from the task queue, and starts executing the command...
+# [Secretary-Thread] <Daily Report Generator> is generating a daily report...
+# [Boss-Thread] A copy-document [Command] has been created
+# [Boss-Thread] CopyDoc [Command] has been added to the task queue
+# ***** Daily Report *****
+# 2018-11-12 18:10:17
+# ************************
+# [Secretary-Thread] Secretary [Invoker] has fetched CopyDoc [Command] from the task queue, and starts executing the command...
+# [Boss-Thread] A print-document [Command] has been created
+# [Boss-Thread] PrintDoc [Command] has been added to the task queue
+# [Boss-Thread] An email-someone command [Command] has been created
+# [Boss-Thread] EmailSomeone [Command] has been added to the task queue
+# [Boss-Thread] An email-someone command [Command] has been created
+# [Boss-Thread] EmailSomeone [Command] has been added to the task queue
+# [Secretary-Thread] <Printer> has copied Name Card of boss
+# [Secretary-Thread] Secretary [Invoker] has fetched PrintDoc [Command] from the task queue, and starts executing the command...
+# [Secretary-Thread] <Printer> has printed My slides.
+# [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task queue, and starts executing the command...
+# [Secretary-Thread] <Email Box> has sent 'Any new tech today?' to tonystark@gmail.com
+# [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task queue, and starts executing the command...
+# [Secretary-Thread] <Email Box> has sent 'I need a plan of attack.' to steverogers@gmail.com

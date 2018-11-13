@@ -1,6 +1,7 @@
 package model.receiver;
 
 import java.util.Calendar;
+import java.util.Random;
 
 /**
  * DailyReportGenerator class that works as the "Receiver".
@@ -44,10 +45,16 @@ public class DailyReportGenerator {
      * Generates a daily report.
      */
     public void generateDailyReport() {
-        System.out.println("<Daily Report Generator> is generating a daily report:");
-        System.out.println("**********");
+        System.out.println(Thread.currentThread().getName() +
+                " <Daily Report Generator> is generating a daily report...");
+        try {
+            Thread.sleep((new Random().nextInt(8) + 1) * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("***** Daily Report *****");
         System.out.println(Calendar.getInstance().getTime());
-        System.out.println("**********");
+        System.out.println("************************");
     }
 
 }

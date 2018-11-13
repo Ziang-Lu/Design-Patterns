@@ -9,8 +9,10 @@ __author__ = 'Ziang Lu'
 
 from typing import Dict
 
-from interpreter import (AbstractExpression, AddOperation, MinusOperation,
-                         NumberExpression, VariableExpression)
+from interpreter import (
+    AbstractExpression, AddOperation, MinusOperation, NumberExpression,
+    VariableExpression
+)
 
 
 class Context(object):

@@ -11,8 +11,9 @@ __author__ = 'Ziang Lu'
 
 from typing import List
 
-from sorting_strategy import (BubbleSort, InsertionSort, SelectionSort,
-                              SortingStrategy)
+from sorting_strategy import (
+    BubbleSort, InsertionSort, SelectionSort, SortingStrategy
+)
 
 
 class SortContext(object):

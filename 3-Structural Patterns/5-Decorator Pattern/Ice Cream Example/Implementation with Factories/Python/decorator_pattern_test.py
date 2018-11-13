@@ -7,9 +7,10 @@ Application that actually uses Decorator Pattern.
 
 __author__ = 'Ziang Lu'
 
-from ice_cream_factory import (IceCreamWithNutsFactory,
-                               IceCreamWithSprinklesFactory,
-                               VanillaIceCreamFactory)
+from ice_cream_factory import (
+    IceCreamWithNutsFactory, IceCreamWithSprinklesFactory,
+    VanillaIceCreamFactory
+)
 
 
 def main():

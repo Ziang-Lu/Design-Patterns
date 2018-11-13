@@ -16,8 +16,9 @@ import time
 from collections import deque
 from threading import Thread, current_thread
 
-from model.command import (Command, CopyDoc, EmailSomeone, GenerateDailyReport,
-                           PrintDoc)
+from model.command import (
+    Command, CopyDoc, EmailSomeone, GenerateDailyReport, PrintDoc
+)
 from model.receiver import DailyReportGenerator, EmailBox, Printer
 from model.secretary import Secretary, shared_condition
 

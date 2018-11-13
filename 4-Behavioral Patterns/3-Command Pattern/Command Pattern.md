@@ -20,6 +20,14 @@ The Visitor Pattern is a **behavioral pattern** that **encapsulates a request in
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/3-Command%20Pattern/command_pattern.png?raw=true" width="400px">
 
+***
+
+Note that we can also add a `undo()` method in the `Command` interface:
+
+=> So that by keeping track of a history of `Command` objects, we can easily perform undo operations by retrieving the `Command` objects and invoking the `command.undo()` method.
+
+***
+
 <br>
 
 ## Code Example

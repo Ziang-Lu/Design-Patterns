@@ -3,6 +3,12 @@
 
 """
 Client module.
+
+Note that we could have some more variants, such as:
+Create multiple threads:
+- Separately but concurrently add commands to the command priority queue
+- Separately but concurrently fetch command from the command priority queue, and
+  then execute it
 """
 
 import random

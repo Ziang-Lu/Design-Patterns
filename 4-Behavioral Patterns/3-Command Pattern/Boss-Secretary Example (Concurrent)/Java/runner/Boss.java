@@ -17,8 +17,10 @@ import java.util.Random;
  * Boss class that works as "Client" and actually uses Command Pattern.
  *
  * Note that we could have some more variants, such as:
- * Create multiple threads, which separately but concurrently add commands to
- * the command priority queue
+ * Create multiple threads:
+ * - Separately but concurrently add commands to the command priority queue
+ * - Separately but concurrently fetch command from the command priority queue,
+ *   and then execute it
  *
  * @author Ziang Lu
  */

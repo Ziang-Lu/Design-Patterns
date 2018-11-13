@@ -8,7 +8,6 @@ Logger module.
 __author__ = 'Ziang Lu'
 
 from abc import ABC, abstractmethod
-
 from logging import LogLevel
 
 

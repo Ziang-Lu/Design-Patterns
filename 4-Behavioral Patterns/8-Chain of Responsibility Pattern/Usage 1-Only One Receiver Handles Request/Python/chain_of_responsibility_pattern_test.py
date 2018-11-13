@@ -8,9 +8,8 @@ In this example, ONLY ONE receiver in the chain handles the request.
 
 __author__ = 'Ziang Lu'
 
-from employee import (
-    HumanResource, ManagementEmployee, ProjectLeader, TeamLeader
-)
+from employee import (HumanResource, ManagementEmployee, ProjectLeader,
+                      TeamLeader)
 
 
 def _get_chain_of_responsibility() -> ManagementEmployee:

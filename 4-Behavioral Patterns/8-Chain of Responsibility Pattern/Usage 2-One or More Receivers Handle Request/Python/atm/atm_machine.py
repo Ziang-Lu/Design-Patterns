@@ -7,10 +7,8 @@ ATM module.
 
 __author__ = 'Ziang Lu'
 
-from atm.dispatcher import (
-    FiveDispatcher, HundredDispatcher, OneDispatcher, TenDispatcher,
-    TwentyDispatcher
-)
+from atm.dispatcher import (FiveDispatcher, HundredDispatcher, OneDispatcher,
+                            TenDispatcher, TwentyDispatcher)
 
 
 class AtmMachine(object):

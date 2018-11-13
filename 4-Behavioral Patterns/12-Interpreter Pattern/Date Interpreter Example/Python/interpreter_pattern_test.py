@@ -9,9 +9,8 @@ __author__ = 'Ziang Lu'
 
 from datetime import datetime
 
-from interpreter import (
-    AbstractExpression, DayExpression, MonthExpression, YearExpression
-)
+from interpreter import (AbstractExpression, DayExpression, MonthExpression,
+                         YearExpression)
 
 
 class Context(object):

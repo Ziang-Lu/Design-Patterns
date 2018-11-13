@@ -9,9 +9,8 @@ __author__ = 'Ziang Lu'
 
 from abc import ABC, abstractmethod
 
-from product_document import (
-    FancyLetter, FancyResume, Letter, ModernLetter, ModernResume, Resume
-)
+from product_document import (FancyLetter, FancyResume, Letter, ModernLetter,
+                              ModernResume, Resume)
 
 
 class DocumentCreator(ABC):

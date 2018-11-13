@@ -7,10 +7,8 @@ Application that actually uses Decorator Pattern.
 
 __author__ = 'Ziang Lu'
 
-from satellite_tv import (
-    SatelliteTVWithCartoonNetwork, SatelliteTVWithDiscovery,
-    SatelliteTVWithEspn, SkyTV
-)
+from satellite_tv import (SatelliteTVWithCartoonNetwork,
+                          SatelliteTVWithDiscovery, SatelliteTVWithEspn, SkyTV)
 
 
 def main():

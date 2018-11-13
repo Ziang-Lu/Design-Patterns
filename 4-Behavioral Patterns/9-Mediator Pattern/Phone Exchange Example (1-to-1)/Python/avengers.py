@@ -7,7 +7,7 @@ Application that actually uses Mediator Pattern.
 
 __author__ = 'Ziang Lu'
 
-from model import NormalPhoneCustomer, MemberPhoneCustomer, PhoneExchange
+from model import MemberPhoneCustomer, NormalPhoneCustomer, PhoneExchange
 
 
 def main():

@@ -10,9 +10,8 @@ __author__ = 'Ziang Lu'
 from abc import ABC, abstractmethod
 
 from color import Color
-from visitor import (
-    CarPartPrinter, CarPartRenderer, CarPartVisitor, CarPartUpgrader
-)
+from visitor import (CarPartPrinter, CarPartRenderer, CarPartUpgrader,
+                     CarPartVisitor)
 
 
 class CarPart(ABC):

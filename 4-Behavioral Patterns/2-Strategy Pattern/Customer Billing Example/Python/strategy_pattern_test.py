@@ -9,9 +9,8 @@ so that the client can select which actual implementation to use at runtime.
 
 __author__ = 'Ziang Lu'
 
-from billing_strategy import (
-    BillingStrategy, HappyHourBillingStrategy, NormalBillingStrategy
-)
+from billing_strategy import (BillingStrategy, HappyHourBillingStrategy,
+                              NormalBillingStrategy)
 
 
 class Customer(object):

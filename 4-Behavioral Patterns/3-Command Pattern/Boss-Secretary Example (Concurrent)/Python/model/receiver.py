@@ -7,9 +7,9 @@ Receiver module.
 
 __author__ = 'Ziang Lu'
 
+import random
 import threading
 import time
-import random
 from datetime import datetime
 
 

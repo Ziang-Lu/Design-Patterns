@@ -7,7 +7,7 @@ Application that actually use Decorator Pattern.
 
 __author__ = 'Ziang Lu'
 
-from pizza import PizzaWithMozzarella, PlainPizza, PizzaWithTomatoSauce
+from pizza import PizzaWithMozzarella, PizzaWithTomatoSauce, PlainPizza
 
 
 def main():

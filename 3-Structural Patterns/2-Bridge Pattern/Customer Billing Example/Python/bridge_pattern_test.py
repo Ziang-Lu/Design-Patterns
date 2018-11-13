@@ -7,9 +7,8 @@ Application that actually uses Bridge Pattern.
 
 __author__ = 'Ziang Lu'
 
-from billing_implementor import (
-    HappyHourBillingImplementor, NormalBillingImplementor
-)
+from billing_implementor import (HappyHourBillingImplementor,
+                                 NormalBillingImplementor)
 from customer import NormalCustomer, TeenagerCustomer
 
 

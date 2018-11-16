@@ -30,7 +30,9 @@ class Follower(Observer):
     """
     Follower class that works as "ConcreteObserver".
     """
-    __slots__ = ['_username']
+    __slots__ = ['_username', '__weakref__']
+    # In order to create weak references to Follower objects, we need to include
+    # a '__weakref__' slot.
 
     def __init__(self, username: str):
         """
@@ -41,6 +43,10 @@ class Follower(Observer):
 
     @property
     def username(self) -> str:
+        """
+        Accessor of username.
+        :return: str
+        """
         return self._username
 
     def follow(self, tweeter) -> None:

@@ -3,6 +3,7 @@ package subject;
 import company.Company;
 import observer.Observer;
 
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,8 +66,11 @@ public class StockCenter extends Subject {
 
     @Override
     protected void notifyObservers() {
-        for (Observer observer : myObservers) {
-            observer.update(this);
+        for (WeakReference<Observer> weakRef : myObservers) {
+            Observer observer = weakRef.get();
+            if (observer != null) {
+                observer.update(this);
+            }
         }
     }
 

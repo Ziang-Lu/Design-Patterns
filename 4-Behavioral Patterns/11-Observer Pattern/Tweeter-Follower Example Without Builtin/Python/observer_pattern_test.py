@@ -21,6 +21,10 @@ def main():
     print()
     trump.write_tweet()
 
+    print()
+    american1.unfollow(trump)
+    american2.unfollow(trump)
+
 
 if __name__ == '__main__':
     main()
@@ -32,3 +36,6 @@ if __name__ == '__main__':
 # Donald Trump: I wrote a new tweet: A wonderful way with my family!
 # US Citizen 2: I got an update from Donald Trump about a new tweet: A wonderful way with my family!
 # US Citizen 1: I got an update from Donald Trump about a new tweet: A wonderful way with my family!
+#
+# US Citizen 1: Stops to follow Donald Trump
+# US Citizen 2: Stops to follow Donald Trump

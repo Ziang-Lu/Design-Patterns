@@ -2,6 +2,7 @@ package subject;
 
 import observer.Observer;
 
+import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,14 +16,14 @@ public abstract class Subject {
     /**
      * Observers of this subject.
      */
-    protected final Set<Observer> myObservers = new HashSet<>();
+    protected final Set<WeakReference<Observer>> myObservers = new HashSet<>();
 
     /**
      * Registers a new observer.
      * @param observer new observer to register
      */
     public void register(Observer observer) {
-        myObservers.add(observer);
+        myObservers.add(new WeakReference<>(observer));
     }
 
     /**
@@ -30,7 +31,14 @@ public abstract class Subject {
      * @param observer observer to unregister
      */
     public void unregister(Observer observer) {
-        myObservers.remove(observer);
+        WeakReference<Observer> toRemove = null;
+        for (WeakReference<Observer> weakRef : myObservers) {
+            if (weakRef.get() == observer) {
+                toRemove = weakRef;
+                break;
+            }
+        }
+        myObservers.remove(toRemove);
     }
 
     /**

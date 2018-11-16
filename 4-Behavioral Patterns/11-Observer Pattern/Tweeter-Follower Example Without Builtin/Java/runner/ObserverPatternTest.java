@@ -24,6 +24,10 @@ public class ObserverPatternTest {
         System.out.println();
         trump.writeTweeter();
 
+        System.out.println();
+        american1.unfollow(trump);
+        american2.unfollow(trump);
+
         /*
          * Output:
          * US Citizen 1: Starting to follow Donald Trump
@@ -32,6 +36,9 @@ public class ObserverPatternTest {
          * Donald Trump: I wrote a new tweet: A wonderful way with my family!
          * US Citizen 2: I got an update from Donald Trump about a new tweet: A wonderful way with my family!
          * US Citizen 1: I got an update from Donald Trump about a new tweet: A wonderful way with my family!
+         *
+         * US Citizen 1: Stops to follow Donald Trump
+         * US Citizen 2: Stops to follow Donald Trump
          */
     }
 

@@ -2,6 +2,8 @@ package subject;
 
 import observer.Observer;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Tweeter class that works as "ConcreteSubject".
  *
@@ -54,8 +56,11 @@ public class Tweeter extends Subject {
 
     @Override
     public void notifyObservers() {
-        for (Observer observer : myObservers) {
-            observer.update(this);
+        for (WeakReference<Observer> weakRef : myObservers) {
+            Observer observer = weakRef.get();
+            if (observer != null) {
+                observer.update(this);
+            }
         }
     }
 

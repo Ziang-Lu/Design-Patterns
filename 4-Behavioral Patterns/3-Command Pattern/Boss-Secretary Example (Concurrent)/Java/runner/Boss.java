@@ -43,14 +43,18 @@ public class Boss implements Runnable {
      * The "Client" will keep adding commands to this PQ, and the "Invoker"
      * will keep fetching commands from this PQ and execute them.
      */
-    private final PriorityQueue<Command> tasks;
+    private final PriorityQueue<Command> tasks = new PriorityQueue<>();
+    /**
+     * Whether this boss has finished assigning all the tasks.
+     */
+    private boolean finishedAssignTasks = false;
 
     /**
-     * Constructor with parameter.
-     * @param tasks command PQ to add commands
+     * Accessor of finishedAssignTasks.
+     * @return whether this boss has finished assigning tasks
      */
-    private Boss(PriorityQueue<Command> tasks) {
-        this.tasks = tasks;
+    public boolean hasFinishedAssignTasks() {
+        return finishedAssignTasks;
     }
 
     @Override
@@ -80,6 +84,8 @@ public class Boss implements Runnable {
             Thread.sleep((randomGenerator.nextInt(4) + 1) * 1000);
             Command emailTony = new EmailSomeone(myEmailBox, "tonystark@gmail.com", "Any new tech today?", 2);
             addTask(emailTony);
+
+            finishedAssignTasks = true;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -104,11 +110,11 @@ public class Boss implements Runnable {
      * @param args arguments from command line
      */
     public static void main(String[] args) {
-        Secretary secretary = new Secretary(); // Invoker
-        Thread secretaryThread = new Thread(secretary, "[Secretary-Thread]");
-
-        Boss boss = new Boss(secretary.tasks); // Client
+        Boss boss = new Boss(); // Client
         Thread bossThread = new Thread(boss, "[Boss-Thread]");
+
+        Secretary secretary = new Secretary(boss, boss.tasks); // Invoker
+        Thread secretaryThread = new Thread(secretary, "[Secretary-Thread]");
 
         secretaryThread.start();
         bossThread.start();

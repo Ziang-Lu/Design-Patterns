@@ -1,6 +1,7 @@
 package model;
 
 import model.command.Command;
+import runner.Boss;
 
 import java.util.PriorityQueue;
 
@@ -16,15 +17,29 @@ import java.util.PriorityQueue;
 public class Secretary implements Runnable {
 
     /**
+     * Boss of this secretary.
+     */
+    private final Boss myBoss;
+    /**
      * Command priority queue (PQ) shared by the "Invoker" and the "Client".
      * The "Client" will keep adding commands to this PQ, and the "Invoker" will
      * keep fetching commands from this PQ and execute them.
      */
-    public final PriorityQueue<Command> tasks = new PriorityQueue<>();
+    private final PriorityQueue<Command> tasks;
+
+    /**
+     * Constructor with parameter.
+     * @param boss boss of the secretary
+     * @param tasks shared command PQ
+     */
+    public Secretary(Boss boss, PriorityQueue<Command> tasks) {
+        myBoss = boss;
+        this.tasks = tasks;
+    }
 
     @Override
     public void run() {
-        while (true) {
+        while (!myBoss.hasFinishedAssignTasks() || !tasks.isEmpty()) {
             Command task = null;
             // Synchronize on the command PQ shared by this boss and the secretary
             synchronized (tasks) {

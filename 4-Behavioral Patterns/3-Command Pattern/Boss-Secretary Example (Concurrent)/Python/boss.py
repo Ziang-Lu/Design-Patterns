@@ -13,7 +13,6 @@ Create multiple threads:
 
 import random
 import time
-from collections import deque
 from threading import Thread, current_thread
 
 from model.command import (
@@ -27,22 +26,32 @@ class Boss(Thread):
     """
     Boss class that works as "Client" and actually uses Command Pattern.
     """
-    __slots__ = ['_my_email_box', '_report_generator', '_printer', 'tasks']
+    __slots__ = [
+        '_my_email_box', '_report_generator', '_printer', 'tasks',
+        '_finished_assign_tasks'
+    ]
 
-    def __init__(self, task_queue: deque, thread_name: str):
+    def __init__(self, thread_name: str):
         """
         Constructor with parameter.
-        :param task_queue: deque
         :param thread_name: str
         """
         super().__init__(name=thread_name)
         self._my_email_box = EmailBox.get_instance()  # Receiver
         self._report_generator = DailyReportGenerator.get_instance()  # Receiver
         self._printer = Printer()  # Receiver
-        self.tasks = task_queue
+        self.tasks = []
         # Command priority queue (PQ) shared by the "Invoker" and the "Client".
         # The "Client" will keep adding commands to this PQ, and the "Invoker"
         # will keep fetching commands from this PQ and execute them.
+        self._finished_assign_tasks = False
+
+    def has_finished_assign_tasks(self) -> bool:
+        """
+        Accessor of finish_assign_tasks.
+        :return: bool
+        """
+        return self._finished_assign_tasks
 
     def run(self):
         # For each command:
@@ -82,6 +91,8 @@ class Boss(Thread):
         )
         self._add_task(email_tony)
 
+        self._finished_assign_tasks = True
+
     def _add_task(self, task: Command) -> None:
         """
         Private helper function to add the given command to the PQ.
@@ -97,9 +108,10 @@ class Boss(Thread):
 
 
 def main():
-    secretary = Secretary(thread_name='[Secretary-Thread]')  # Invoker
+    boss = Boss(thread_name='[Boss-Thread]')  # Client
 
-    boss = Boss(task_queue=secretary.tasks, thread_name='[Boss-Thread]')  # Client
+    secretary = Secretary(boss=boss, tasks=boss.tasks,
+                          thread_name='[Secretary-Thread]')  # Invoker
 
     secretary.start()
     boss.start()

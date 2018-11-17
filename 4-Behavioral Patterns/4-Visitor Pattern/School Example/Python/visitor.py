@@ -58,7 +58,7 @@ class ChildSpecialistDoctor(SchoolVisitor):
     """
     Concrete ChildSpecialistDoctor class that works as "ConcreteVisitor".
     """
-    __slots__ = []
+    __slots__ = ['_good_count', '_bad_count']
 
     def visit_employee(self, employee):
         # Do nothing
@@ -70,7 +70,17 @@ class ChildSpecialistDoctor(SchoolVisitor):
         if random.choice([True, False]):
             print('and found that {child.name} is in good health!')
             child.set_health_status(health_status='Good')
+            self._good_count += 1
         else:
             print('and found that {child.name} is NOT in good health. Please go'
                   ' to the hospital someday.')
             child.set_health_status(health_status='Bad')
+            self._bad_count += 1
+
+    def report_health_ratio(self) -> None:
+        """
+        Reports the health ratio of the school.
+        :return: None
+        """
+        health_ratio = self._good_count / (self._good_count + self._bad_count)
+        print(f'Health ratio of the school: {health_ratio}')

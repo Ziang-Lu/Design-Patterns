@@ -9,6 +9,7 @@ __author__ = 'Ziang Lu'
 
 from abc import ABC, abstractmethod
 from enum import Enum, auto
+from typing import List
 
 from visitor import ChildSpecialistDoctor, Leader, SchoolVisitor
 
@@ -38,18 +39,21 @@ class Visitable(ABC):
 class Employee(Visitable):
     """
     Concrete Employee class that works as "ConcreteElement".
-    
-    Note that Employee class can be totally unrelated to Child class, except
-    that they are both Visitable, and can accept a SchoolVisitor 
-    """
-    __slots__ = ['_name']
 
-    def __init__(self, name: str):
+    Note that Employee class can be totally unrelated to Child class, except
+    that they are both Visitable, and can accept a SchoolVisitor
+    """
+    __slots__ = ['_name', '_superiors', '_subordinates']
+
+    def __init__(self, name: str, superiors: list):
         """
         Constructor with parameter.
         :param name: str
+        :param superiors: list
         """
         self._name = name
+        self._superiors = superiors
+        self._subordinates = {}
 
     @property
     def name(self) -> str:
@@ -59,8 +63,27 @@ class Employee(Visitable):
         """
         return self._name
 
+    def add_subordinate(self, name: str, superiors: List[str],
+                        curr_idx: int) -> None:
+        """
+        Adds a subordinate to this employee.
+        :param name: str
+        :param superiors: list[str]
+        :param curr_idx: int
+        :return: None
+        """
+        # Base case
+        if curr_idx >= len(superiors) - 1:
+            self._subordinates[name] = Employee(name, superiors)
+            return
+        # Recursive case
+        next_superior = self._subordinates[superiors[curr_idx + 1]]
+        next_superior.add_subordinate(name, superiors, curr_idx + 1)
+
     def accept(self, visitor):
         visitor.visit_employee(self)
+        for subordinate in self._subordinates.values():
+            subordinate.accept(visitor)
 
 
 class Child(Visitable):
@@ -116,7 +139,7 @@ class School(object):
         """
         Default constructor.
         """
-        self._employees = []  # Employees in this school
+        self._employees = {}  # Employees in this school
         # This works as one object structure, whose elements can be visited by a
         # "Visitor", so that the "Visitor" can perform algorithm (handle
         # operation) on each element.
@@ -125,13 +148,18 @@ class School(object):
         # by a "Visitor", so that the "Visitor" can perform algorithm (handle
         # operation) on each element.
 
-    def add_employee(self, name: str) -> None:
+    def add_employee(self, name: str, superiors: List[str]) -> None:
         """
         Adds a new employee to this school.
         :param name: str
+        :param superiors: list[str]
         :return: None
         """
-        self._employees.append(Employee(name))
+        if not superiors:
+            self._employees[name] = Employee(name, superiors)
+            return
+        top_superior = superiors[0]
+        top_superior.add_subordinate(name, superiors, 0)
 
     def add_child(self, name: str) -> None:
         """
@@ -153,7 +181,7 @@ class School(object):
         # employees/children objects structure, and perform desired algorithm
         # (handle operation) on that employee/child.
 
-        for employee in self._employees:
+        for employee in self._employees.values():
             employee.accept(visitor=leader)
 
         for child in self._children:

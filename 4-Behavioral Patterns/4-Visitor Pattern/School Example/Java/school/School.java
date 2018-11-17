@@ -4,7 +4,9 @@ import visitor.ChildSpecialistDoctor;
 import visitor.Leader;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * School class that actually uses Visitor Pattern.
@@ -25,21 +27,27 @@ public class School {
      * "Visitor", so that the "Visitor" can perform algorithm (handle operation)
      * on each element.
      */
-    private List<Employee> employees = new ArrayList<>();
+    private Map<String, Employee> employees = new HashMap<>();
     /**
      * Children in this school.
      * This works as another object structure, whose elements can be visited by
      * a "Visitor", so that the "Visitor" can perform algorithm (handle
      * operation) on each element.
      */
-    private List<Child> children = new ArrayList<>();
+    private List<Visitable> children = new ArrayList<>();
 
     /**
      * Adds a new employee to this school.
      * @param name name of the new employee
+     * @param superiors of the new employee
      */
-    public void addEmployee(String name) {
-        employees.add(new Employee(name));
+    public void addEmployee(String name, List<String> superiors) {
+        if (superiors.size() == 0) {
+            employees.put(name, new Employee(name, superiors));
+            return;
+        }
+        Employee topSuperior = employees.get(superiors.get(0));
+        topSuperior.addSubordinate(name, superiors, 0);
     }
 
     /**
@@ -60,11 +68,11 @@ public class School {
         // The given leader is able to visit each employee/child in the employees/children objects structure, and
         // perform desired algorithm (handle operation) on that employee/child.
 
-        for (Employee employee : employees) {
+        for (Employee employee : employees.values()) {
             employee.accept(leader);
         }
 
-        for (Child child : children) {
+        for (Visitable child : children) {
             child.accept(leader);
         }
     }
@@ -77,7 +85,7 @@ public class School {
         // Create a doctor that is able to visit each child in the children objects structure, and perform desired
         // algorithm (handle operation) on that child
         ChildSpecialistDoctor doctor = new ChildSpecialistDoctor();
-        for (Child child : children) {
+        for (Visitable child : children) {
             child.accept(doctor);
         }
     }

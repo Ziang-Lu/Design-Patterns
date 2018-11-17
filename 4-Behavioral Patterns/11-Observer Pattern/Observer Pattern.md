@@ -40,13 +40,17 @@ Jargons/concepts mapping:
 
 <br>
 
-## Benefit
+## Drawbacks
 
-Loose coupling
+* Although the `Subject` (`Publisher`) doesn't need to know anything about the `Observer` (`Subscriber`), it still has to be aware of the existence of the `Observer` (`Subscriber`), i.e., has the reference of the `Observer` (`Subscriber`), which leads to tight-coupling
 
-=> The `Subject` (`Publisher`) doesn't need to know anything about the `Observer` (`Subscriber`).
+  => If the `Observer` (`Subscriber`) only needs to know the message itself, but not the `Subject` (`Publisher`) who publishes it, we can resolve the above tight-coupling issue by:
 
-## Drawback
+  * Introduce a message queue server between the `Subject` (`Publiser`) and the `Observer` (`Substriber`)
+  * The `Observer` (`Subscriber`) registers itself with the message queue server, and specify what kinds of messages it wants to receive.
+  * Whenever the state of the `Subject` (`Publisher`) changes, it sends the update to the message queue server, and let the message queue server publishes the message to all the interested `Observer` (`Subscriber`)
 
-The `Subject` (`Publisher`) may send updates that don't matter to the `Observer` (`Subsciber`), e.g., some useless system messages.
+  In this way, the `Subject` (`Publisher`) and the `Observer` (`Subscriber`) may know nothing about each other, and thus decreasing the coupling.
+
+* The `Subject` (`Publisher`) may send updates that don't matter to the `Observer` (`Subsciber`), e.g., some useless system messages.
 

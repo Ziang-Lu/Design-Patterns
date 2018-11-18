@@ -12,7 +12,7 @@ __author__ = 'Ziang Lu'
 from living_room import IMemento, LedTV, LivingRoom, Sofa
 
 
-class StorageRoom(object):
+class StorageRoom:
     __slots__ = ['_memo_map']
 
     def __init__(self):

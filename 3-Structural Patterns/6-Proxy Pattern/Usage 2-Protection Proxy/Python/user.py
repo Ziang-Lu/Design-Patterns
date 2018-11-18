@@ -8,7 +8,7 @@ User module.
 __author__ = 'Ziang Lu'
 
 
-class User(object):
+class User:
     __slots__ = ['_username', '_password', '_designation']
 
     def __init__(self, username: str, password: str, designation: str):

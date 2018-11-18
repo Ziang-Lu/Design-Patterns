@@ -10,7 +10,7 @@ __author__ = 'Ziang Lu'
 from abc import ABC
 
 
-class InterphoneGroup(object):
+class InterphoneGroup:
     """
     InterphoneGroup class that works as "Mediator".
     A "Mediator" object acts as the communication center for "Colleague"

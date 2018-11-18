@@ -10,7 +10,7 @@ Module for Facade Pattern models.
 from typing import List
 
 
-class CPU(object):
+class CPU:
     """
     Simple CPU representation as a sub-component of a computer.
     """
@@ -39,7 +39,7 @@ class CPU(object):
         print('CPU executing instructions...')
 
 
-class Memory(object):
+class Memory:
     """
     Simple memory representation as a sub-component of a computer.
     """
@@ -55,7 +55,7 @@ class Memory(object):
         print(f'Successfully loaded {len(data)}B data @{position:X} in memory')
 
 
-class HardDrive(object):
+class HardDrive:
     """
     Simple hard drive representation as a sub-component of a computer.
     """
@@ -72,7 +72,7 @@ class HardDrive(object):
         return read_data
 
 
-class ComputerFacade(object):
+class ComputerFacade:
     """
     Facade class for computer that serves as a front-facing interface masking
     more complex sub-components to simplify the usage for client and minimize

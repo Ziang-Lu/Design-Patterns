@@ -109,7 +109,7 @@ class NullCar(Car):
         print('Null Car encountered')
 
 
-class CarFactory(object):
+class CarFactory:
     """
     Factory CarFactory class that actually uses Null Object Pattern.
     """

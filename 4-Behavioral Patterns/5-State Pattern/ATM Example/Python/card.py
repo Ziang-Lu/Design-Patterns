@@ -8,7 +8,7 @@ Card module.
 __author__ = 'Ziang Lu'
 
 
-class Card(object):
+class Card:
     __slots__ = ['_pin', '_balance']
 
     def __init__(self, pin: int, balance: int):

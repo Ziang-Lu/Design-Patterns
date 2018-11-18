@@ -232,7 +232,7 @@ class HasCorrectPinState(AtmState):
         atm.set_state(AtmMachine.NO_CARD_STATE)
 
 
-class AtmMachine(object):
+class AtmMachine:
     """
     ATM machine class that actually uses State Pattern.
     """

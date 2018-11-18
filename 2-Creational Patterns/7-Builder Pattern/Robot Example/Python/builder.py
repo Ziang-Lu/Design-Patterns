@@ -116,7 +116,7 @@ class NewRobotBuilder(RobotBuilder):
         self._robot.set_legs(RobotLegs('Jet-Propelled Legs'))
 
 
-class RobotEngineer(object):
+class RobotEngineer:
     """
     RobotEngineer class that works as a director and owns a robot builder
     (working as a factory) to make and return robots.

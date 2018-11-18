@@ -31,7 +31,7 @@ class Adapter(ABC):
         pass
 
 
-class AdapterFactory(object):
+class AdapterFactory:
     """
     AdapterFactory class.
     Through the use of an adapters factory, we can achieve runtime looking up and

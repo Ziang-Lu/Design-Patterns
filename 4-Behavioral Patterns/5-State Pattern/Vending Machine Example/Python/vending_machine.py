@@ -10,7 +10,7 @@ __author__ = 'Ziang Lu'
 from abc import ABC, abstractmethod
 
 
-class VendingMachine(object):
+class VendingMachine:
     """
     Vending machine class that actually uses State Pattern.
     """

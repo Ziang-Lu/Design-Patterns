@@ -8,7 +8,7 @@ Friend's stuff module.
 __author__ = 'Ziang Lu'
 
 
-class InkPen(object):
+class InkPen:
     """
     InkPen class that works as "Adaptee".
 
@@ -27,7 +27,7 @@ class InkPen(object):
         print(f"'{text}' is written in Ink Pen.")
 
 
-class PilotPen(object):
+class PilotPen:
     """
     PilotPen class that works as "Adaptee".
 
@@ -46,7 +46,7 @@ class PilotPen(object):
         print(f"'{text}' is written in Pilot Pen.")
 
 
-class CorrectionTape(object):
+class CorrectionTape:
     """
     CorrectionTape class that works as "Adaptee".
 
@@ -65,7 +65,7 @@ class CorrectionTape(object):
         print(f"'{text}' is dashed out by Correction Tape.")
 
 
-class Tape(object):
+class Tape:
     """
     Tape class that works as "Adaptee".
 

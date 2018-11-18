@@ -10,7 +10,7 @@ __author__ = 'Ziang Lu'
 from typing import List
 
 
-class Employee(object):
+class Employee:
     __slots__ = ['_id', '_name', '_designation']
 
     def __init__(self, id_: int, name: str, designation: str):
@@ -45,7 +45,7 @@ class Employee(object):
                f'designation={self._designation}]'
 
 
-class ThirdPartyBillingSystem(object):
+class ThirdPartyBillingSystem:
     """
     ThirdPartyBillingSystem class that works as "Adaptee".
 

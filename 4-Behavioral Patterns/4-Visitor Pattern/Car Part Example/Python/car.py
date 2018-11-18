@@ -132,7 +132,7 @@ class Light(CarPart):
         return f'Light[color={self._color}, lightness={self._lightness}]'
 
 
-class Car(object):
+class Car:
     """
     Car class that actually uses Visitor Pattern.
     The Visitor Pattern separates an algorithm (an operation) from the object

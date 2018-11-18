@@ -15,7 +15,7 @@ from interpreter import (
 )
 
 
-class Context(object):
+class Context:
     """
     Context class.
     This class contains the data to be interpreted.

@@ -16,7 +16,7 @@ from sorting_strategy import (
 )
 
 
-class SortContext(object):
+class SortContext:
     """
     SortContext class works as an interface to the outside world: it wraps a
     sorting strategy and the client will use that strategy to sort an array.

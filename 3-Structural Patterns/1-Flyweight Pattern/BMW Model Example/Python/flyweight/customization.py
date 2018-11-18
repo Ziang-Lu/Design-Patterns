@@ -8,7 +8,7 @@ BMW car customization module.
 __author__ = 'Ziang Lu'
 
 
-class BMWCarCustomization(object):
+class BMWCarCustomization:
     """
     BMWCarCustomization class.
     This class encapsulates all the extrinsic states for a FlyweightBMWCar.

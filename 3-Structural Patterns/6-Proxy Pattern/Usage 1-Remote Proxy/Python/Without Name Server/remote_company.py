@@ -13,7 +13,7 @@ import Pyro4
 
 
 @Pyro4.expose  # Expose this class to remote method calls
-class ReportGeneratorImpl(object):
+class ReportGeneratorImpl:
     """
     ReportGeneratorImpl class that works as "RealSubject".
     This class resides in a remote machine (thus a remote network). Thus, an

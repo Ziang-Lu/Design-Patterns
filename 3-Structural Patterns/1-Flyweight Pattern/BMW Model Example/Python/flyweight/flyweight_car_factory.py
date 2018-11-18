@@ -21,7 +21,7 @@ class Model(Enum):
     Series2 = auto()
 
 
-class FlyweightBMWCarFactory(object):
+class FlyweightBMWCarFactory:
     """
     FlyweightBMWCarFactory class that actually uses Flyweight Pattern.
     Flyweight Pattern stores already existing similar objects

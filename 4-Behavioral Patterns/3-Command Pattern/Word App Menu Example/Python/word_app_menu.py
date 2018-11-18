@@ -10,7 +10,7 @@ __author__ = 'Ziang Lu'
 from abc import ABC, abstractmethod
 
 
-class WordDocument(object):
+class WordDocument:
     """
     WordDocument class that works as the "Receiver" for "WordDocumentCommand".
     """
@@ -155,7 +155,7 @@ class CloseCommand(WordDocumentCommand):
         self._doc.close()
 
 
-class Menu(object):
+class Menu:
     """
     Menu class that works as "Invoker".
     This class is responsible for executing the different "Command"s.

@@ -8,7 +8,7 @@ Module for Facade Pattern models.
 """
 
 
-class WelcomeScreen(object):
+class WelcomeScreen:
     """
     WelcomeScreen class as a sub-component of a bank account access.
     """
@@ -19,7 +19,7 @@ class WelcomeScreen(object):
         print('We are glad to serve you.')
 
 
-class AccountNumberManager(object):
+class AccountNumberManager:
     """
     AccountNumberManager class as a sub-component of a bank account access.
     """
@@ -43,7 +43,7 @@ class AccountNumberManager(object):
         return True
 
 
-class SecurityCodeManager(object):
+class SecurityCodeManager:
     """
     SecurityCodeManager class as a sub-component of a bank account access.
     """
@@ -68,7 +68,7 @@ class SecurityCodeManager(object):
         return True
 
 
-class BalanceManager(object):
+class BalanceManager:
     """
     BalanceManager class as a sub-component of a bank account access.
     """
@@ -108,7 +108,7 @@ class BalanceManager(object):
         print(f'Deposition completed! Current balance: ${self._balance}')
 
 
-class BankAccountAccessFacade(object):
+class BankAccountAccessFacade:
     """
     Facade class for bank account access that serves as a front-facing interface
     masking more complex sub-components to simplify the usage for client and

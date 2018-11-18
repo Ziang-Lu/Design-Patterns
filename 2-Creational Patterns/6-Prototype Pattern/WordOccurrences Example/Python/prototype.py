@@ -8,7 +8,7 @@ Prototype module.
 __author__ = 'Ziang Lu'
 
 
-class WordOccurrences(object):
+class WordOccurrences:
     """
     Class to buffer the positions of occurrences for a word within some text.
 

@@ -11,7 +11,7 @@ import copy
 from abc import ABC
 
 
-class LedTV(object):
+class LedTV:
     __slots__ = ['_size', '_usb_support', '_price']
 
     def __init__(self, size: int, usb_support: bool, price: float):
@@ -30,7 +30,7 @@ class LedTV(object):
                f'price={self._price}]'
 
 
-class Sofa(object):
+class Sofa:
     __slots__ = ['_size', '_style']
 
     def __init__(self, size: int, style: str):
@@ -94,7 +94,7 @@ class Memento(IMemento):
         return f'Memento [led_tv={self._led_tv}, sofa={self._sofa}]'
 
 
-class LivingRoom(object):
+class LivingRoom:
     """
     LivingRoom class that works as "Originator".
     """

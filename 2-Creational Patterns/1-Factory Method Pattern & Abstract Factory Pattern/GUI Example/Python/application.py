@@ -11,7 +11,7 @@ __author__ = 'Ziang Lu'
 from factory import GuiFactory, OsxFactory, WinFactory
 
 
-class Renderer(object):
+class Renderer:
     """
     Renderer class for a specific operating system.
     Note that a renderer knows nothing about which concrete type of GuiFactory

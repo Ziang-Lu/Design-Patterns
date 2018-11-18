@@ -13,7 +13,7 @@ from collections import deque
 from typing import Union
 
 
-class SQLConnectionImpl(object):
+class SQLConnectionImpl:
     """
     SQLConnectionImpl class that works as "Reusable".
     This class is expensive to instantiate, which means repeatedly allocating
@@ -51,7 +51,7 @@ class SQLConnectionImpl(object):
         time.sleep(3)
 
 
-class SQLConnectionImplPool(object):
+class SQLConnectionImplPool:
     """
     SQLConnectionImplPool class that works as "ReusablePool".
     "Reusable" class is expensive to instantiate, which means repeatedly
@@ -153,7 +153,7 @@ class SQLConnectionImplPool(object):
             self._condition.release()
 
 
-class SQLConnection(object):
+class SQLConnection:
     """
     SQLConnection class that works as "Client", and actually uses Object Pool
     Pattern.

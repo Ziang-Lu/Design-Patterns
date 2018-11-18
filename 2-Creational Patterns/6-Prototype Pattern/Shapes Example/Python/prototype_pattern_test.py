@@ -12,7 +12,7 @@ import copy
 from prototype import Circle, Rectangle, Shape, Square
 
 
-class ShapeFactory(object):
+class ShapeFactory:
     """
     ShapeFactory class that clones abstract shapes.
     """

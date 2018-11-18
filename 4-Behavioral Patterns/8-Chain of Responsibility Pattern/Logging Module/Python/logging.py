@@ -23,7 +23,7 @@ class LogLevel(Enum):
     ERROR = 4
 
 
-class LoggerManager(object):
+class LoggerManager:
     __slots__ = ['_first_logger', '_logging_level']
 
     def __init__(self):

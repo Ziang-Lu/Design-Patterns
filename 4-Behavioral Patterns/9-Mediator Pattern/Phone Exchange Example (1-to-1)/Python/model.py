@@ -11,7 +11,7 @@ import random
 from abc import ABC
 
 
-class PhoneExchange(object):
+class PhoneExchange:
     """
     PhoneExchange class that works as "Mediator".
     A "Mediator" object acts as the communication center for "ConcreteColleague"

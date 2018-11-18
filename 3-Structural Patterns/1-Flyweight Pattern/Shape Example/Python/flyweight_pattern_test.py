@@ -12,7 +12,7 @@ from flyweight.cirlcle import SharedCircle, UnsharedCircle
 from flyweight.rect import SharedRectangle, UnsharedRectangle
 
 
-class FlyweightShapeFactory(object):
+class FlyweightShapeFactory:
     """
     FlyweightShapeFactory class that actually uses Flyweight Pattern.
     Flyweight Pattern stores already existing similar objects

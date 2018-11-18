@@ -10,7 +10,7 @@ __author__ = 'Ziang Lu'
 from isp import CompanyInternetProxy, InternetServiceProvider
 
 
-class Browser(object):
+class Browser:
     """
     Browser class that actually uses Proxy Pattern.
     """

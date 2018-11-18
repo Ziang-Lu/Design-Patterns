@@ -13,7 +13,7 @@ import time
 from datetime import datetime
 
 
-class DailyReportGenerator(object):
+class DailyReportGenerator:
     """
     DailyReportGenerator class that works as "Receiver".
 
@@ -46,7 +46,7 @@ class DailyReportGenerator(object):
         print('************************')
 
 
-class EmailBox(object):
+class EmailBox:
     """
     EmailBox class that works as "Receiver".
 
@@ -78,7 +78,7 @@ class EmailBox(object):
               f"to {recipient_email}")
 
 
-class Printer(object):
+class Printer:
     """
     Printer class that works as "Receiver".
     """

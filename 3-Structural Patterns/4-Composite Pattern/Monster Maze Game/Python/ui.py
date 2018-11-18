@@ -10,7 +10,7 @@ __author__ = 'Ziang Lu'
 from model import EndingChoice, Monster, Room, Treasure
 
 
-class MonsterMazeGame(object):
+class MonsterMazeGame:
     """
     MonsterMazeGame class that actually uses Composite Pattern.
     """

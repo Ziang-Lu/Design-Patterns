@@ -8,7 +8,7 @@ Text editor module.
 __author__ = 'Ziang Lu'
 
 
-class Memento(object):
+class Memento:
     """
     Memento class.
     This class holds a snapshot of the internal state of the "Originator".
@@ -36,7 +36,7 @@ class Memento(object):
         return f'Memento [text={self._text}]'
 
 
-class TextEditor(object):
+class TextEditor:
     """
     TextEditor class that works as "Originator".
     """

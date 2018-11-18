@@ -132,7 +132,7 @@ public class Singleton {
 <br>
 
 ```python
-class Singleton(object):
+class Singleton:
 
     @classmethod
     def get_instance(cls):

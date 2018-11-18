@@ -123,7 +123,7 @@ class Child(Visitable):
         visitor.visit_child(self)
 
 
-class School(object):
+class School:
     """
     School class that actually uses Visitor Pattern.
     The Visitor Pattern separates an algorithm (an operation) from the object

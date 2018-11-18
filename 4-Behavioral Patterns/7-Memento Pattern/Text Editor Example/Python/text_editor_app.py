@@ -10,7 +10,7 @@ __author__ = 'Ziang Lu'
 from text_editor import Memento, TextEditor
 
 
-class TextEditorApp(object):
+class TextEditorApp:
     """
     TextEditorApp class that works as "Caretaker" that actually uses Memento
     Pattern.

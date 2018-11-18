@@ -14,7 +14,7 @@ from billing_strategy import (
 )
 
 
-class Customer(object):
+class Customer:
     """
     Customer class that works as an interface to the outside world: it wraps a
     billing strategy and the client will use that strategy to calculate the

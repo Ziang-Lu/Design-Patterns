@@ -50,7 +50,7 @@ class Eraser(ABC):
         pass
 
 
-class AssignmentWork(object):
+class AssignmentWork:
     __slots__ = ['_pen', '_eraser']
 
     def __init__(self):

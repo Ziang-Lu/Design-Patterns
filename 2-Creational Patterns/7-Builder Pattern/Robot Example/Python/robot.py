@@ -8,7 +8,7 @@ Robot module.
 __author__ = 'Ziang Lu'
 
 
-class RobotHead(object):
+class RobotHead:
     __slots__ = ['_type']
 
     def __init__(self, type_: str):
@@ -27,7 +27,7 @@ class RobotHead(object):
         return self._type
 
 
-class RobotTorso(object):
+class RobotTorso:
     __slots__ = ['_type']
 
     def __init__(self, type_: str):
@@ -46,7 +46,7 @@ class RobotTorso(object):
         return self._type
 
 
-class RobotArms(object):
+class RobotArms:
     __slots__ = ['_type']
 
     def __init__(self, type_: str):
@@ -65,7 +65,7 @@ class RobotArms(object):
         return self._type
 
 
-class RobotLegs(object):
+class RobotLegs:
     __slots__ = ['_type']
 
     def __init__(self, type_: str):
@@ -84,7 +84,7 @@ class RobotLegs(object):
         return self._type
 
 
-class Robot(object):
+class Robot:
     """
     Concrete Robot class.
     """

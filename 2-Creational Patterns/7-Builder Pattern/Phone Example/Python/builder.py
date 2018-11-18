@@ -8,7 +8,7 @@ Builder module.
 __author__ = 'Ziang Lu'
 
 
-class Phone(object):
+class Phone:
     """
     My own modular phone class.
     This class is complex, and thus can be instantiated using Builder Pattern.
@@ -32,7 +32,7 @@ class Phone(object):
                f'battery={self._battery}]'
 
 
-class PhoneBuilder(object):
+class PhoneBuilder:
     """
     PhoneBuilder class that works as a factory, a blueprint, that defines the
     construction process for a phone, i.e., how to build a phone by creating and

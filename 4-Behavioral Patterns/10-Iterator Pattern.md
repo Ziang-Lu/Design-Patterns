@@ -127,7 +127,7 @@ public class MyArray implements Iterable<Integer> {
 <br>
 
 ```python
-class MyArray(object):
+class MyArray:
     """
     MyArray that uses Iterator Pattern.
     This class implements the Iterator Protocol, and provides an iterator used
@@ -166,7 +166,7 @@ class MyArray(object):
         return MyArrayIterator(self)
 
 
-class MyArrayIterator(object):
+class MyArrayIterator:
     """
     Iterator for MyArray.
     """

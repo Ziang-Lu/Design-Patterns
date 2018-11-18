@@ -154,7 +154,7 @@ class FruitType(Enum):
     NONE = auto()
 
 
-class Fruit(object):
+class Fruit:
     """
     Fruit class.
     """

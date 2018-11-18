@@ -13,7 +13,7 @@ from atm.dispatcher import (
 )
 
 
-class AtmMachine(object):
+class AtmMachine:
     __slots__ = ['_first_dispatcher']
 
     def __init__(self):

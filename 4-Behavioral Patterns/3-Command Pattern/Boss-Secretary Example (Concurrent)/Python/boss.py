@@ -110,12 +110,14 @@ def main():
 
     secretary = Secretary(boss=boss, tasks=boss.tasks,
                           thread_name='[Secretary-Thread]')  # Invoker
+    secretary.deamon = True
 
     secretary.start()
     boss.start()
 
     boss.join()
-    secretary.join()
+    boss.tasks.join()
+    # Wait for all the tasks in the priority queue has been marked as done
 
 
 if __name__ == '__main__':

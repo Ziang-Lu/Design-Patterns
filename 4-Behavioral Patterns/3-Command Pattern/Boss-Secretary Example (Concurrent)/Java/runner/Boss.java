@@ -54,7 +54,9 @@ public class Boss implements Runnable {
      * @return whether this boss has finished assigning tasks
      */
     public boolean hasFinishedAssignTasks() {
-        return finishedAssignTasks;
+        synchronized (tasks) {
+            return finishedAssignTasks;
+        }
     }
 
     @Override
@@ -85,7 +87,10 @@ public class Boss implements Runnable {
             Command emailTony = new EmailSomeone(myEmailBox, "tonystark@gmail.com", "Any new tech today?", 2);
             addTask(emailTony);
 
-            finishedAssignTasks = true;
+            synchronized (tasks) {
+                finishedAssignTasks = true;
+                tasks.notifyAll();
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -115,6 +120,7 @@ public class Boss implements Runnable {
 
         Secretary secretary = new Secretary(boss, boss.tasks); // Invoker
         Thread secretaryThread = new Thread(secretary, "[Secretary-Thread]");
+        // We won't set this secretary thread to be daemon.
 
         secretaryThread.start();
         bossThread.start();

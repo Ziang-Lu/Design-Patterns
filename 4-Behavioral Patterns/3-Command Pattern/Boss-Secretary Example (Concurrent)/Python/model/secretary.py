@@ -40,3 +40,5 @@ class Secretary(Thread):
                   f'{type(task).__name__} [Command] from the task priority '
                   f'queue, and starts executing the command...')
             task.execute()
+            self._tasks.task_done()
+            # Mark this task in the priority queue as done

@@ -47,7 +47,7 @@ class Command(ABC):
         pass
 
     def __lt__(self, other):
-        return self._priority < other.priority
+        return self._priority > other.priority
 
 
 class EmailSomeone(Command):

@@ -29,7 +29,7 @@ public abstract class Command implements Comparable<Command> {
 
     @Override
     public int compareTo(Command o) {
-        return Integer.compare(priority, o.priority);
+        return Integer.compare(o.priority, priority);
     }
 
 }

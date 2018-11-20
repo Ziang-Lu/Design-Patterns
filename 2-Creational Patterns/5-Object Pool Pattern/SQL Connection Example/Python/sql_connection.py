@@ -9,7 +9,8 @@ __author__ = 'Ziang Lu'
 
 import threading
 import time
-from collections import deque
+# from collections import deque
+from queue import Queue
 from typing import Union
 
 
@@ -93,8 +94,9 @@ class SQLConnectionImplPool:
         """
         self._pool_size = self._DEFAULT_POOL_SIZE
         self._num_of_created = 0
-        self._available = deque()
-        self._condition = threading.Condition()
+        # self._available = deque()
+        # self._condition = threading.Condition()
+        self._available = Queue()
 
     def set_pool_size(self, new_pool_size: int) -> None:
         """
@@ -113,27 +115,18 @@ class SQLConnectionImplPool:
         Acquires a connection implementation ("Reusable" object) from this pool.
         :return: SQLConnectionImpl
         """
-        # Synchronize on the global Condition
-        if self._condition.acquire():
-            connection_impl = None
-            while connection_impl is None:
-                # Check if there is any "Reusable" object in the pool
-                if len(self._available) > 0:
-                    # Simply return an available "Reusable" object in the pool
-                    connection_impl = self._available.popleft()
-                    self._condition.release()
-                # Check whether the pool has reached its maximum size
-                elif self._num_of_created < self._pool_size:
-                    # Create a new "Reusable" object, and return it
-                    connection_impl = SQLConnectionImpl()
-                    self._num_of_created += 1
-                    self._condition.release()
-                else:
-                    # Wait for a previously created, currently using by a
-                    # previous client "Reusable" object to be released back to
-                    # the pool, and then return that Reusable object
-                    self._condition.wait()
-            return connection_impl
+        # Check if there is any "Reusable" object in the pool
+        if self._available.qsize():
+            # Simply return an available "Reusable" object in the pool
+            connection_impl = self._available.get()
+        # Check whether the pool has reached its maximum size
+        elif self._num_of_created < self._pool_size:
+            # Create a new "Reusable" object, and return it
+            connection_impl = SQLConnectionImpl()
+            self._num_of_created += 1
+        else:
+            connection_impl = self._available.get()
+        return connection_impl
 
     def release_connection_impl(self,
                                 connection_impl: SQLConnectionImpl) -> None:
@@ -143,14 +136,8 @@ class SQLConnectionImplPool:
         :param connection_impl: SQLConnectionImpl
         :return: None
         """
-        # Synchronize on the global Condition
-        if self._condition.acquire():
-            # Clean up the "Reusable" object
-            self._clean_up(connection_impl)
-
-            self._available.append(connection_impl)
-            self._condition.notify_all()
-            self._condition.release()
+        self._clean_up(connection_impl)
+        self._available.put(connection_impl)
 
 
 class SQLConnection:

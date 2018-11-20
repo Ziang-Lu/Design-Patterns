@@ -13,13 +13,14 @@ Create multiple threads:
 
 import random
 import time
+from queue import PriorityQueue
 from threading import Thread, current_thread
 
 from model.command import (
     Command, CopyDoc, EmailSomeone, GenerateDailyReport, PrintDoc
 )
 from model.receiver import DailyReportGenerator, EmailBox, Printer
-from model.secretary import Secretary, shared_condition
+from model.secretary import Secretary
 
 
 class Boss(Thread):
@@ -40,7 +41,8 @@ class Boss(Thread):
         self._my_email_box = EmailBox.get_instance()  # Receiver
         self._report_generator = DailyReportGenerator.get_instance()  # Receiver
         self._printer = Printer()  # Receiver
-        self.tasks = []
+        # self.tasks = []
+        self.tasks = PriorityQueue()
         # Command priority queue (PQ) shared by the "Invoker" and the "Client".
         # The "Client" will keep adding commands to this PQ, and the "Invoker"
         # will keep fetching commands from this PQ and execute them.
@@ -60,7 +62,6 @@ class Boss(Thread):
         # 3. Wait for the invoker to fetch the command from the PQ and executes
         #    it
 
-        time.sleep(random.randint(1, 5))
         generate_daily_report = GenerateDailyReport(
             report_generator=self._report_generator, priority=5
         )
@@ -99,12 +100,9 @@ class Boss(Thread):
         :param task: Command
         :return: None
         """
-        if shared_condition.acquire():
-            self.tasks.append(task)
-            print(f'{current_thread().name} {type(task).__name__} [Command] has'
-                  f' been added to the task queue')
-            shared_condition.notifyAll()
-            shared_condition.release()
+        self.tasks.put(task)
+        print(f'{current_thread().name} {type(task).__name__} [Command] has '
+              f'been added to the task priority queue')
 
 
 def main():
@@ -125,25 +123,25 @@ if __name__ == '__main__':
 
 # Output:
 # [Boss-Thread] A generate-daily-report command [Command] has been created
-# [Boss-Thread] GenerateDailyReport [Command] has been added to the task queue
-# [Secretary-Thread] Secretary [Invoker] has fetched GenerateDailyReport [Command] from the task queue, and starts executing the command...
+# [Boss-Thread] GenerateDailyReport [Command] has been added to the task priority queue
+# [Secretary-Thread] Secretary [Invoker] has fetched GenerateDailyReport [Command] from the task priority queue, and starts executing the command...
 # [Secretary-Thread] <Daily Report Generator> is generating a daily report...
 # [Boss-Thread] A copy-document [Command] has been created
-# [Boss-Thread] CopyDoc [Command] has been added to the task queue
-# ***** Daily Report *****
-# 2018-11-12 18:10:17
-# ************************
-# [Secretary-Thread] Secretary [Invoker] has fetched CopyDoc [Command] from the task queue, and starts executing the command...
+# [Boss-Thread] CopyDoc [Command] has been added to the task priority queue
 # [Boss-Thread] A print-document [Command] has been created
-# [Boss-Thread] PrintDoc [Command] has been added to the task queue
+# [Boss-Thread] PrintDoc [Command] has been added to the task priority queue
+# ***** Daily Report *****
+# 2018-11-19 19:52:36
+# ************************
+# [Secretary-Thread] Secretary [Invoker] has fetched PrintDoc [Command] from the task priority queue, and starts executing the command...
 # [Boss-Thread] An email-someone command [Command] has been created
-# [Boss-Thread] EmailSomeone [Command] has been added to the task queue
-# [Boss-Thread] An email-someone command [Command] has been created
-# [Boss-Thread] EmailSomeone [Command] has been added to the task queue
-# [Secretary-Thread] <Printer> has copied Name Card of boss
-# [Secretary-Thread] Secretary [Invoker] has fetched PrintDoc [Command] from the task queue, and starts executing the command...
+# [Boss-Thread] EmailSomeone [Command] has been added to the task priority queue
 # [Secretary-Thread] <Printer> has printed My slides.
-# [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task queue, and starts executing the command...
-# [Secretary-Thread] <Email Box> has sent 'Any new tech today?' to tonystark@gmail.com
-# [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task queue, and starts executing the command...
+# [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task priority queue, and starts executing the command...
+# [Boss-Thread] An email-someone command [Command] has been created
+# [Boss-Thread] EmailSomeone [Command] has been added to the task priority queue
 # [Secretary-Thread] <Email Box> has sent 'I need a plan of attack.' to steverogers@gmail.com
+# [Secretary-Thread] Secretary [Invoker] has fetched CopyDoc [Command] from the task priority queue, and starts executing the command...
+# [Secretary-Thread] <Printer> has copied Name Card of boss
+# [Secretary-Thread] Secretary [Invoker] has fetched EmailSomeone [Command] from the task priority queue, and starts executing the command...
+# [Secretary-Thread] <Email Box> has sent 'Any new tech today?' to tonystark@gmail.com

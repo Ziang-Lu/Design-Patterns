@@ -34,14 +34,15 @@ class BillingSystemAdapter extends ThirdPartyBillingSystem implements CompanyBil
      * @return singleton instance
      */
     public static BillingSystemAdapter getInstance() {
-        if (instance == null) {
+        BillingSystemAdapter localRef = instance;
+        if (localRef == null) {
             synchronized (BillingSystemAdapter.class) {
-                if (instance == null) {
-                    instance = new BillingSystemAdapter();
+                if (localRef == null) {
+                    instance = localRef = new BillingSystemAdapter();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

@@ -28,8 +28,6 @@
 
 ## Definition & Explanation
 
--> Similar to Factory Method Pattern
-
 Prototype Pattern is a **creational pattern** that **creates objects whose type is determined by a protytypical instance, which is cloned to produce new objects**.
 
 *即由现有的某个prototype通过clone的方式创建新的object*

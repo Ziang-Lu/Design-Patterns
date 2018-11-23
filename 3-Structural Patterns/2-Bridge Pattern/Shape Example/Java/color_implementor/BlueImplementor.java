@@ -23,14 +23,15 @@ public class BlueImplementor implements ColorImplementor {
      * @return singleton instance
      */
     public static BlueImplementor getInstance() {
-        if (instance == null) {
+        BlueImplementor localRef = instance;
+        if (localRef == null) {
             synchronized (BlueImplementor.class) {
-                if (instance == null) {
-                    instance = new BlueImplementor();
+                if (localRef == null) {
+                    instance = localRef = new BlueImplementor();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

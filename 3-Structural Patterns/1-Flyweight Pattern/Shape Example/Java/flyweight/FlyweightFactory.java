@@ -33,14 +33,15 @@ public class FlyweightFactory {
      * @return singleton instance
      */
     public static FlyweightFactory getInstance() {
-        if (instance == null) {
+        FlyweightFactory localRef = instance;
+        if (localRef == null) {
             synchronized (FlyweightFactory.class) {
-                if (instance == null) {
-                    instance = new FlyweightFactory();
+                if (localRef == null) {
+                    instance = localRef = new FlyweightFactory();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

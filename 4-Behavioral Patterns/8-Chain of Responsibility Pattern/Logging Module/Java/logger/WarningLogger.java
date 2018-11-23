@@ -4,6 +4,7 @@ import logging.LogLevel;
 
 /**
  * WarningLogger class that works as "ConcreteHandler".
+ * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
@@ -22,14 +23,15 @@ public class WarningLogger extends Logger {
      * @return singleton instance
      */
     public static WarningLogger getInstance(Logger logger) {
-        if (instance == null) {
+        WarningLogger localRef = instance;
+        if (localRef == null) {
             synchronized (WarningLogger.class) {
-                if (instance == null) {
-                    instance = new WarningLogger(logger);
+                if (localRef == null) {
+                    instance = localRef = new WarningLogger(logger);
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

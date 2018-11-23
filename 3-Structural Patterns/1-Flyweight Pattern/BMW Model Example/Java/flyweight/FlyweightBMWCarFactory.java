@@ -32,14 +32,15 @@ public class FlyweightBMWCarFactory {
      * @return singleton instance
      */
     public static FlyweightBMWCarFactory getInstance() {
-        if (instance == null) {
+        FlyweightBMWCarFactory localRef = instance;
+        if (localRef == null) {
             synchronized (FlyweightBMWCarFactory.class) {
-                if (instance == null) {
-                    instance = new FlyweightBMWCarFactory();
+                if (localRef == null) {
+                    instance = localRef = new FlyweightBMWCarFactory();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     public enum Model {

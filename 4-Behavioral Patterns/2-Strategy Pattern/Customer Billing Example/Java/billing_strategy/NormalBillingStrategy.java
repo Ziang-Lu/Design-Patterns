@@ -21,14 +21,15 @@ public class NormalBillingStrategy implements BillingStrategy {
      * @return singleton instance
      */
     public static NormalBillingStrategy getInstance() {
-        if (instance == null) {
+        NormalBillingStrategy localRef = instance;
+        if (localRef == null) {
             synchronized (NormalBillingStrategy.class) {
-                if (instance == null) {
-                    instance = new NormalBillingStrategy();
+                if (localRef == null) {
+                    instance = localRef = new NormalBillingStrategy();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

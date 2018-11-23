@@ -23,14 +23,15 @@ class HasCorrectPinState implements AtmState {
      * @return singleton instance
      */
     static HasCorrectPinState getInstance() {
-        if (instance == null) {
+        HasCorrectPinState localRef = instance;
+        if (localRef == null) {
             synchronized (HasCorrectPinState.class) {
-                if (instance == null) {
-                    instance = new HasCorrectPinState();
+                if (localRef == null) {
+                    instance = localRef = new HasCorrectPinState();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

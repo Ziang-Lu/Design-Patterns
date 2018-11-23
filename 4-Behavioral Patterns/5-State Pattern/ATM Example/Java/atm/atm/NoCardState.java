@@ -23,14 +23,15 @@ class NoCardState implements AtmState {
      * @return singleton instance
      */
     static NoCardState getInstance() {
-        if (instance == null) {
+        NoCardState localRef = instance;
+        if (localRef == null) {
             synchronized (NoCardState.class) {
-                if (instance == null) {
-                    instance = new NoCardState();
+                if (localRef == null) {
+                    instance = localRef = new NoCardState();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

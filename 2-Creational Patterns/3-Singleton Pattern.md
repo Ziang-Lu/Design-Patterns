@@ -77,7 +77,8 @@ public class Singleton {
      * @return singleton instance
      */
     public static Singleton getInstanceThreadSafe() {
-        if (instance == null) { // [1]   Thread-A, Thread-B
+        Singleton localRef = instance;
+        if (localRef == null) { // [1]   Thread-A, Thread-B
             synchronized (Singleton.class) { // Thread-A   ->   Thread-B
                 // For Thread-A, it simply creates the instance.
 
@@ -88,8 +89,10 @@ public class Singleton {
                 // Thus, we need to do another null-check.
                 // Now at the moment Thread-B enters this synchronized block, since Thread-A has created the instance,
                 // Thread-B will do nothing and exit the block.
+
+                localRef = instance;
                 if (instance == null) {
-                    instance = new Singleton();
+                    instance = localRef = new Singleton();
                 }
             }
         }
@@ -115,6 +118,8 @@ public class Singleton {
          * return instance. However, the instance haven't finish initialization!
          *
          * => Use "volatile" keyword on the singleton instance. Check out the comments on the singleton instance.
+         *
+         * Since we used "volatile" keyword on the singleton instance, we used a "localRef", so that the "volatile" field is only accessed once, which can improve the method's overall performance by as much as 25 percent.
          */
     }
 

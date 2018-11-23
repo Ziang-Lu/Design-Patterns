@@ -21,14 +21,15 @@ public class FiveDispatcher extends DollarDispatcher {
      * @return singleton instance
      */
     public static FiveDispatcher getInstance(DollarDispatcher dispatcher) {
-        if (instance == null) {
+        FiveDispatcher localRef = instance;
+        if (localRef == null) {
             synchronized (FiveDispatcher.class) {
-                if (instance == null) {
-                    instance = new FiveDispatcher(dispatcher);
+                if (localRef == null) {
+                    instance = localRef = new FiveDispatcher(dispatcher);
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

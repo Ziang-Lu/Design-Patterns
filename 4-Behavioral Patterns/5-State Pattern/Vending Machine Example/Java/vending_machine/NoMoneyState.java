@@ -21,14 +21,15 @@ class NoMoneyState implements VendingMachineState {
      * @return singleton instance
      */
     static NoMoneyState getInstance() {
-        if (instance == null) {
+        NoMoneyState localRef = instance;
+        if (localRef == null) {
             synchronized (NoMoneyState.class) {
-                if (instance == null) {
-                    instance = new NoMoneyState();
+                if (localRef == null) {
+                    instance = localRef = new NoMoneyState();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

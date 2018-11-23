@@ -4,6 +4,7 @@ import logging.LogLevel;
 
 /**
  * DebugLogger class that works as "ConcreteHandler".
+ * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
@@ -22,14 +23,15 @@ public class DebugLogger extends Logger {
      * @return singleton instance
      */
     public static DebugLogger getInstance(Logger logger) {
-        if (instance == null) {
+        DebugLogger localRef = instance;
+        if (localRef == null) {
             synchronized (DebugLogger.class) {
-                if (instance == null) {
-                    instance = new DebugLogger(logger);
+                if (localRef == null) {
+                    instance = localRef = new DebugLogger(logger);
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

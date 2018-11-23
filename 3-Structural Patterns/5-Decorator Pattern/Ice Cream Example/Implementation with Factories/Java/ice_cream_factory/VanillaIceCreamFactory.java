@@ -15,7 +15,7 @@ public class VanillaIceCreamFactory implements IceCreamFactory {
     /**
      * Singleton instance.
      */
-    private volatile static VanillaIceCreamFactory singleton = null;
+    private volatile static VanillaIceCreamFactory instance = null;
 
     /**
      * Gets the singleton instance.
@@ -24,14 +24,15 @@ public class VanillaIceCreamFactory implements IceCreamFactory {
      * @return singleton instance
      */
     public static VanillaIceCreamFactory getInstance() {
-        if (singleton == null) {
+        VanillaIceCreamFactory localRef = instance;
+        if (localRef == null) {
             synchronized (VanillaIceCreamFactory.class) {
-                if (singleton == null) {
-                    singleton = new VanillaIceCreamFactory();
+                if (localRef == null) {
+                    instance = localRef = new VanillaIceCreamFactory();
                 }
             }
         }
-        return singleton;
+        return localRef;
     }
 
     /**

@@ -33,14 +33,15 @@ class SQLConnectionImplPool {
      * @return singleton instance
      */
     static SQLConnectionImplPool getInstance() {
-        if (instance == null) {
+        SQLConnectionImplPool localRef = instance;
+        if (localRef == null) {
             synchronized (SQLConnectionImplPool.class) {
-                if (instance == null) {
-                    instance = new SQLConnectionImplPool();
+                if (localRef == null) {
+                    instance = localRef = new SQLConnectionImplPool();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

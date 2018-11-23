@@ -24,14 +24,15 @@ public class DailyReportGenerator {
      * @return singleton instance
      */
     public static DailyReportGenerator getInstance() {
-        if (instance == null) {
+        DailyReportGenerator localRef = instance;
+        if (localRef == null) {
             synchronized (DailyReportGenerator.class) {
-                if (instance == null) {
-                    instance = new DailyReportGenerator();
+                if (localRef == null) {
+                    instance = localRef = new DailyReportGenerator();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

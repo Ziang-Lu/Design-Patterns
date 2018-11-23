@@ -21,14 +21,15 @@ public class BubbleSort extends SortingStrategy {
      * @return singleton instance
      */
     public static BubbleSort getInstance() {
-        if (instance == null) {
+        BubbleSort localRef = instance;
+        if (localRef == null) {
             synchronized (BubbleSort.class) {
-                if (instance == null) {
-                    instance = new BubbleSort();
+                if (localRef == null) {
+                    instance = localRef = new BubbleSort();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

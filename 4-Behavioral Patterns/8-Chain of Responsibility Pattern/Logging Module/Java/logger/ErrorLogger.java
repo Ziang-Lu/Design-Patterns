@@ -4,6 +4,7 @@ import logging.LogLevel;
 
 /**
  * ErrorLogger class that works as "ConcreteHandler".
+ * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
@@ -20,15 +21,16 @@ public class ErrorLogger extends Logger {
      * locking mechanism.
      * @return singleton instance
      */
-    public static ErrorLogger getInstance() {
-        if (instance == null) {
+    public static ErrorLogger getInstance(Logger logger) {
+        ErrorLogger localRef = instance;
+        if (localRef == null) {
             synchronized (ErrorLogger.class) {
-                if (instance == null) {
-                    instance = new ErrorLogger();
+                if (localRef == null) {
+                    instance = localRef = new ErrorLogger(logger);
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

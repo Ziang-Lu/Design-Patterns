@@ -20,14 +20,15 @@ public class InsertionSort extends SortingStrategy {
      * @return singleton instance
      */
     public static InsertionSort getInstance() {
-        if (instance == null) {
+        InsertionSort localRef = instance;
+        if (localRef == null) {
             synchronized (InsertionSort.class) {
-                if (instance == null) {
-                    instance = new InsertionSort();
+                if (localRef == null) {
+                    instance = localRef = new InsertionSort();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

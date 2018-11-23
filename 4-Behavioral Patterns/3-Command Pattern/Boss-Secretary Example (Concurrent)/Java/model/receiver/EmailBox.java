@@ -23,14 +23,15 @@ public class EmailBox {
      * @return singleton instance
      */
     public static EmailBox getInstance() {
-        if (instance == null) {
+        EmailBox localRef = instance;
+        if (localRef == null) {
             synchronized (EmailBox.class) {
-                if (instance == null) {
-                    instance = new EmailBox();
+                if (localRef == null) {
+                    instance = localRef = new EmailBox();
                 }
             }
         }
-        return instance;
+        return localRef;
     }
 
     /**

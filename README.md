@@ -62,6 +62,10 @@ The behavior of a systems somewhat depends on the request data: this is called "
 * Messaging Pattern (消息模式)
 * Reactor Pattern (反应器模式)
 
+## Other Patterns
+
+* Mock Object Pattern (模拟对象模式)
+
 <br>
 
 ## Choosing a pattern:

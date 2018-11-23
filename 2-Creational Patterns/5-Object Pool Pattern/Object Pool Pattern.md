@@ -39,6 +39,16 @@ The Object Pool Pattern is a **structural pattern** that expands on the singleto
 
 Important note: Always remember to clean up the `Reusable` object when it is returned back to the pool, so that it can be ready for the next use
 
+## Typical Usages
+
+* Connection pool (连接池)
+
+  Check out `SQL Connection Example`
+
+* Thread pool (线程池)
+
+  Check out Thread Pool Pattern separately
+
 <br>
 
 ## Benefit

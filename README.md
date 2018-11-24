@@ -57,7 +57,7 @@ The behavior of a systems somewhat depends on the request data: this is called "
 
 **Support concurrency**
 
-* Thread Pool Pattern (线程池模式)
+* <a href=https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/1-Thread%20Pool%20Pattern.md>Thread Pool Pattern (线程池模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/2-Double-Checked%20Pattern.md">Double-Checked Pattern (双重检查锁定模式)</a>
 * Messaging Pattern (消息模式)
 * Reactor Pattern (反应器模式)

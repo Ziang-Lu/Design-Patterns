@@ -136,7 +136,6 @@ public class LazyInitializationPatternTest {
     }
 
 }
-
 ```
 
 <br>

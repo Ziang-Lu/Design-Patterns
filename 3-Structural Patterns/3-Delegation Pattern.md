@@ -137,7 +137,6 @@ public class LazyEmployee implements WhoCanDesign, WhoCanCode {
     }
 
 }
-
 ```
 
 <br>
@@ -268,6 +267,5 @@ if __name__ == '__main__':
 # Designed by GoodDesigner
 # Coded by FastCoder
 # Tested by DangerousTester
-
 ```
 

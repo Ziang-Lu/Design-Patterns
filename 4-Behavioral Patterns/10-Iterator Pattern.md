@@ -121,7 +121,6 @@ public class MyArray implements Iterable<Integer> {
     }
 
 }
-
 ```
 
 <br>
@@ -212,6 +211,5 @@ if __name__ == '__main__':
 # 1
 # 3
 # 8
-
 ```
 

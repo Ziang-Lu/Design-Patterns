@@ -172,7 +172,6 @@ public class TemplateMethodPatternTest {
     }
 
 }
-
 ```
 
 <br>
@@ -312,7 +311,6 @@ if __name__ == '__main__':
 # Building Glass walls
 # Building Glass windows
 # GlassHouse successfully built!
-
 ```
 
 <br>

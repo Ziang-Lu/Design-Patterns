@@ -47,7 +47,7 @@ Important note: Always remember to clean up the `Reusable` object when it is ret
 
 * Thread pool (线程池)
 
-  Check out Thread Pool Pattern separately
+  Check out <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/1-Thread%20Pool%20Pattern.md">Thread Pool Pattern</a> separately
 
 <br>
 

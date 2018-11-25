@@ -6,12 +6,14 @@ import model.command.CopyDoc;
 import model.command.EmailSomeone;
 import model.command.GenerateDailyReport;
 import model.command.PrintDoc;
+import model.command.Shutdown;
 import model.receiver.DailyReportGenerator;
 import model.receiver.EmailBox;
 import model.receiver.Printer;
 
-import java.util.PriorityQueue;
 import java.util.Random;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 /**
  * Boss class that works as "Client" and actually uses Command Pattern.
@@ -43,21 +45,7 @@ public class Boss implements Runnable {
      * The "Client" will keep adding commands to this PQ, and the "Invoker"
      * will keep fetching commands from this PQ and execute them.
      */
-    private final PriorityQueue<Command> tasks = new PriorityQueue<>();
-    /**
-     * Whether this boss has finished assigning all the tasks.
-     */
-    private boolean finishedAssignTasks = false;
-
-    /**
-     * Accessor of finishedAssignTasks.
-     * @return whether this boss has finished assigning tasks
-     */
-    public boolean hasFinishedAssignTasks() {
-        synchronized (tasks) {
-            return finishedAssignTasks;
-        }
-    }
+    private final BlockingQueue<Command> tasks = new PriorityBlockingQueue<>();
 
     @Override
     public void run() {
@@ -87,10 +75,8 @@ public class Boss implements Runnable {
             Command emailTony = new EmailSomeone(myEmailBox, "tonystark@gmail.com", "Any new tech today?", 2);
             addTask(emailTony);
 
-            synchronized (tasks) {
-                finishedAssignTasks = true;
-                tasks.notifyAll();
-            }
+            // Put the special command to shut down the secretary thread
+            addTask(new Shutdown(0));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -101,12 +87,12 @@ public class Boss implements Runnable {
      * @param task command to add
      */
     private void addTask(Command task) {
-        // Synchronize on the command PQ shared by this boss and the secretary
-        synchronized (tasks) {
-            tasks.offer(task);
+        try {
+            tasks.put(task);
             System.out.println(Thread.currentThread().getName() + " " + task.getClass().getSimpleName() +
                     " [Command] has been added to the task priority queue");
-            tasks.notifyAll();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -118,7 +104,7 @@ public class Boss implements Runnable {
         Boss boss = new Boss(); // Client
         Thread bossThread = new Thread(boss, "[Boss-Thread]");
 
-        Secretary secretary = new Secretary(boss, boss.tasks); // Invoker
+        Secretary secretary = new Secretary(boss.tasks); // Invoker
         Thread secretaryThread = new Thread(secretary, "[Secretary-Thread]");
         // We won't set this secretary thread to be daemon.
 

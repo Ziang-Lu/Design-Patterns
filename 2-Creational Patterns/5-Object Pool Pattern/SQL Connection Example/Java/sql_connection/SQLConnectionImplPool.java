@@ -101,12 +101,12 @@ class SQLConnectionImplPool {
                     // Simply return an available "Reusable" object in the pool
                     connectionImpl = available.poll();
                 } else if (numOfCreated < poolSize) { // Check whether the pool has reached its maximum size
-                    // Create a new "Reusable" object, and return it
+                    // Create a new "Reusable" object
                     connectionImpl = new SQLConnectionImpl();
                     ++numOfCreated;
                 } else {
                     // Wait for a previously created, currently using by a previous client "Reusable" object to be released
-                    // back to the pool, and then return that Reusable object
+                    // back to the pool, and then return that "Reusable" object
                     try {
                         available.wait();
                     } catch (InterruptedException e) {

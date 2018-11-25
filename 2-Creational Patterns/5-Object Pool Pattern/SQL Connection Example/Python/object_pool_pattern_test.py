@@ -12,7 +12,7 @@ import threading
 from sql_connection import SQLConnection
 
 
-def func(thread_name: str) -> None:
+def thread_func(thread_name: str) -> None:
     """
     Opens a SQL connection in a separate thread and operates on it.
     :param thread_name: str
@@ -28,9 +28,8 @@ def func(thread_name: str) -> None:
 
 def main():
     for i in range(20):
-        thread_name = f'Thread-{i}'
-        th = threading.Thread(target=func, args=(thread_name,),
-                              name=thread_name)
+        th_name = f'Thread-{i}'
+        th = threading.Thread(target=thread_func, args=(th_name,), name=th_name)
         th.start()
 
 

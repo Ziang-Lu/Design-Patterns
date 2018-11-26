@@ -22,6 +22,15 @@ The Visitor Pattern is a **behavioral pattern** that **encapsulates a request in
 
 ***
 
+一个`Thread`中的实际应用例子:
+
+* `Runnable` works as `Command`
+  * `run()` maps to `execute()`
+* `Thread` works as `Invoker`
+  * `runnable.run()` maps to `command.execute()`
+
+***
+
 Note that we can also add a `undo()` method in the `Command` interface:
 
 => So that by keeping track of a history of `Command` objects, we can easily perform undo operations by retrieving the `Command` objects and invoking the `command.undo()` method.
@@ -52,11 +61,4 @@ Note that we can also add a `undo()` method in the `Command` interface:
 
 * Allows you to set aside a list of `Command`s for later use
 
-<br>
-
-## Drawback
-
-说实话我觉得这个Command Pattern很不好用:
-
-* 对于每种不同的`Command`都需要实现一个`ReceiverCommandX`, 由于可能存在非常多的不同的`Command`, 代码变得非常多且复杂
 

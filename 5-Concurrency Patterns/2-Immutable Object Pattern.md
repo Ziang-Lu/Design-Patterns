@@ -118,12 +118,12 @@ public final class MMSCRouter {
     }
 
     /**
-     * Private static helper method to retrieve the route map from database.
+     * Private static helper method to retrieve the route map from DB.
      * @return retrieved route map
      */
     private static Map<String, MMSC> retrieveRouteMapFromDB() {
         Map<String, MMSC> routeMap = new HashMap<>();
-        // TODO implementation: retrieve from database
+        // TODO implementation: retrieve from DB
         return routeMap;
     }
 

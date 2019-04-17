@@ -30,31 +30,31 @@ class Follower(Observer):
     """
     Follower class that works as "ConcreteObserver".
     """
-    __slots__ = ['_username', '__weakref__']
+    __slots__ = ['_name', '__weakref__']
     # In order to create weak references to Follower objects, we need to include
     # a '__weakref__' slot.
 
-    def __init__(self, username: str):
+    def __init__(self, name: str):
         """
         Constructor with parameter.
-        :param username: str
+        :param name: str
         """
-        self._username = username
+        self._name = name
 
     @property
-    def username(self) -> str:
+    def name(self) -> str:
         """
-        Accessor of username.
+        Accessor of name.
         :return: str
         """
-        return self._username
+        return self._name
 
     def follow(self, tweeter) -> None:
         """
         Follows the given tweeter.
         :param tweeter: Tweeter
         """
-        print(f'{self._username}: Starting to follow {tweeter.username}')
+        print(f'{self._name}: Starting to follow {tweeter.name}')
         tweeter.register(self)
 
     def unfollow(self, tweeter) -> None:
@@ -62,18 +62,18 @@ class Follower(Observer):
         Unfollows the given tweeter.
         :param tweeter: Tweeter
         """
-        print(f'{self._username}: Stops to follow {tweeter.username}')
+        print(f'{self._name}: Stops to follow {tweeter.name}')
         tweeter.unregister(self)
 
     def update(self, subject):
         tweeter = subject
-        print(f'{self._username}: I got an update from {tweeter.username} about'
-              f' a new tweet: {tweeter.latest_tweet}')
+        print(f'{self._name}: I got an update from {tweeter.name} about a new '
+              f'tweet: {tweeter.latest_tweet.content}')
 
     def __eq__(self, other):
         if not isinstance(other, Follower):
             return False
-        return other.username == self._username
+        return other.name == self._name
 
     def __hash__(self):
-        return hash(self._username)
+        return hash(self._name)

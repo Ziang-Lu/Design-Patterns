@@ -25,7 +25,7 @@ public class Follower implements Observer {
     public void update(Observable o, Object arg) {
         Tweeter tweeter = (Tweeter) arg;
         System.out.println(name + ": I got an update from " + tweeter.getName() + " about a new tweet: " +
-                tweeter.getLatestTweet());
+                tweeter.getLatestTweet().getContent());
     }
 
 }

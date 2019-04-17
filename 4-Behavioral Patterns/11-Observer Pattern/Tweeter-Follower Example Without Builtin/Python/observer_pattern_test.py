@@ -19,7 +19,7 @@ def main():
     american2.follow(trump)
 
     print()
-    trump.write_tweet()
+    trump.write_tweet('A wonderful day with my family!')
 
     print()
     american1.unfollow(trump)
@@ -33,9 +33,9 @@ if __name__ == '__main__':
 # US Citizen 1: Starting to follow Donald Trump
 # US Citizen 2: Starting to follow Donald Trump
 #
-# Donald Trump: I wrote a new tweet: A wonderful way with my family!
-# US Citizen 2: I got an update from Donald Trump about a new tweet: A wonderful way with my family!
-# US Citizen 1: I got an update from Donald Trump about a new tweet: A wonderful way with my family!
+# Donald Trump: I wrote a new tweet: A wonderful day with my family!
+# US Citizen 2: I got an update from Donald Trump about a new tweet: A wonderful day with my family!
+# US Citizen 1: I got an update from Donald Trump about a new tweet: A wonderful day with my family!
 #
 # US Citizen 1: Stops to follow Donald Trump
 # US Citizen 2: Stops to follow Donald Trump

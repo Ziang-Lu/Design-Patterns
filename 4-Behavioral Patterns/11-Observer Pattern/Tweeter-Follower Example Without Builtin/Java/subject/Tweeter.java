@@ -3,6 +3,8 @@ package subject;
 import observer.Observer;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Tweeter class that works as "ConcreteSubject".
@@ -14,43 +16,44 @@ public class Tweeter extends Subject {
     /**
      * Username of this tweeter.
      */
-    private final String username;
+    private final String name;
     /**
-     * Latest tweet of this tweeter.
+     * Tweeter history of this tweeter.
      */
-    private String latestTweet;
+    private List<Tweet> tweetHistory;
 
     /**
      * Constructor with parameter.
-     * @param username username of the tweeter
+     * @param name name of the tweeter
      */
-    public Tweeter(String username) {
-        this.username = username;
-        latestTweet = "";
+    public Tweeter(String name) {
+        this.name = name;
+        tweetHistory = new ArrayList<>();
     }
 
     /**
-     * Accessor of username.
-     * @return username
+     * Accessor of name.
+     * @return name
      */
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Accessor of latestTweet.
-     * @return latestTweet
+     * Returns the latest tweet.
+     * @return latest tweet
      */
-    public String getLatestTweet() {
-        return latestTweet;
+    public Tweet getLatestTweet() {
+        return tweetHistory.get(tweetHistory.size() - 1);
     }
 
     /**
-     * Writes a new tweet and notifies all the observers.
+     * Writes a new tweet and notify all the observers.
+     * @param content content of the tweet
      */
-    public void writeTweeter() {
-        latestTweet = "A wonderful way with my family!";
-        System.out.println(username + ": I wrote a new tweet: " + latestTweet);
+    public void writeTweet(String content) {
+        tweetHistory.add(new Tweet(content));
+        System.out.println(name + ": I wrote a new tweet: " + content);
         notifyObservers();
     }
 

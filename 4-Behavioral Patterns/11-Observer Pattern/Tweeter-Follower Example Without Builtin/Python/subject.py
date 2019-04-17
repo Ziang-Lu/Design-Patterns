@@ -9,6 +9,7 @@ __author__ = 'Ziang Lu'
 
 import weakref
 from abc import ABC, abstractmethod
+from datetime import datetime
 
 from observer import Observer
 
@@ -55,43 +56,71 @@ class Subject(ABC):
         pass
 
 
+class Tweet:
+    """
+    Tweet class.
+    """
+    __slots__ = ['_timestamp', '_content']
+
+    def __init__(self, content: str):
+        """
+        Constructor with parameter.
+        :param content: str
+        """
+        self._timestamp = datetime.now()
+        self._content = content
+
+    @property
+    def content(self) -> str:
+        """
+        Accessor of content.
+        :return: str
+        """
+        return self._content
+
+    def __repr__(self) -> str:
+        return f'{self._timestamp} -> {self._content}'
+
+
 class Tweeter(Subject):
     """
     Tweeter class that works as "ConcreteSubject".
     """
-    __slots__ = ['_username', '_latest_tweet']
+    __slots__ = ['_name', '_tweet_history']
 
-    def __init__(self, username: str):
+    def __init__(self, name: str):
         """
         Constructor with parameter.
-        :param username: str
+        :param name: str
         """
         super().__init__()
-        self._username = username
+        self._name = name
+        self._tweet_history = []
 
     @property
-    def username(self) -> str:
+    def name(self) -> str:
         """
-        Accessor of username.
+        Accessor of name.
         :return: str
         """
-        return self._username
+        return self._name
 
     @property
-    def latest_tweet(self) -> str:
+    def latest_tweet(self) -> Tweet:
         """
-        Accessor of latest_tweet.
-        :return: str
+        Returns the latest tweet.
+        :return: Tweet
         """
-        return self._latest_tweet
+        return self._tweet_history[-1]
 
-    def write_tweet(self) -> None:
+    def write_tweet(self, content: str) -> None:
         """
         Writes a new tweet and notifies all the observers.
+        :param content: str
         :return: None
         """
-        self._latest_tweet = 'A wonderful way with my family!'
-        print(f'{self._username}: I wrote a new tweet: {self._latest_tweet}')
+        self._tweet_history.append(Tweet(content))
+        print(f'{self._name}: I wrote a new tweet: {content}')
         self._notify_observers()
 
     def _notify_observers(self):

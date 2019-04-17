@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
 /**
@@ -12,9 +14,9 @@ public class Tweeter extends Observable {
      */
     private final String name;
     /**
-     * Latest tweet of this tweeter.
+     * Tweeter history of this tweeter.
      */
-    private String latestTweet;
+    private List<Tweet> tweetHistory;
 
     /**
      * Constructor with parameter.
@@ -22,6 +24,7 @@ public class Tweeter extends Observable {
      */
     public Tweeter(String name) {
         this.name = name;
+        tweetHistory = new ArrayList<>();
     }
 
     /**
@@ -33,19 +36,20 @@ public class Tweeter extends Observable {
     }
 
     /**
-     * Accessor of latestTweet.
-     * @return latestTweet
+     * Returns the latest tweet.
+     * @return latest tweet
      */
-    public String getLatestTweet() {
-        return latestTweet;
+    public Tweet getLatestTweet() {
+        return tweetHistory.get(tweetHistory.size() - 1);
     }
 
     /**
      * Writes a new tweet and notify all the observers.
+     * @param content content of the tweet
      */
-    public void writeTweet() {
-        latestTweet = "A wonderful day!";
-        System.out.println(name + ": I wrote a new tweet: " + latestTweet);
+    public void writeTweet(String content) {
+        tweetHistory.add(new Tweet(content));
+        System.out.println(name + ": I wrote a new tweet: " + content);
         // Note that for notifyObservers() method to take any effect, the method setChanged() must be called prior to
         // the call to notifyObservers()
         setChanged();

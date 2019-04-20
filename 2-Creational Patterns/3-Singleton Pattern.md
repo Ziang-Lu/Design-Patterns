@@ -119,7 +119,8 @@ public class Singleton {
          *
          * => Use "volatile" keyword on the singleton instance. Check out the comments on the singleton instance.
          *
-         * Since we used "volatile" keyword on the singleton instance, we used a "localRef", so that the "volatile" field is only accessed once, which can improve the method's overall performance by as much as 25 percent.
+         * Since we used "volatile" keyword on the singleton instance, we used a "localRef", so that the "volatile"
+         * field is only accessed once, which can improve the method's overall performance by as much as 25 percent.
          */
     }
 

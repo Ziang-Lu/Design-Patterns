@@ -155,6 +155,43 @@ class Singleton:
 
 <br>
 
+Another implementation using a holder:
+
+```java
+public class Singleton {
+
+    /**
+     * Inner static class to hold the static singleton instance.
+     */
+    private static class SingletonHolder {
+        /**
+         * Held static singleton instance.
+         */
+        private static Singleton instance = new Singleton();
+    }
+
+    /**
+     * Factory method to get the singleton instance.
+     * @return singleton instance
+     */
+    public static Singleton getInstance() {
+        // When the inner static class is first accessed, the held static singleton instance is first created (only
+        // once).
+        return SingletonHolder.instance;
+    }
+
+    /**
+     * Private default constructor.
+     * This has to be private so that the class instances cannot be created\
+     * outside of the class.
+     */
+    private Singleton() {}
+
+}
+```
+
+<br>
+
 ## Benefits
 
 Singletons are often preferred to global variables because:

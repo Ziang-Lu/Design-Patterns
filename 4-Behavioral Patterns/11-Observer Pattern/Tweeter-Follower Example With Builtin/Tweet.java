@@ -29,7 +29,7 @@ class Tweet {
      * Accessor of content.
      * @return content
      */
-    public String getContent() {
+    String getContent() {
         return content;
     }
 

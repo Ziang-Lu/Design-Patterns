@@ -23,15 +23,14 @@ public class InfoLogger extends Logger {
      * @return singleton instance
      */
     public static InfoLogger getInstance(Logger logger) {
-        InfoLogger localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (InfoLogger.class) {
-                if (localRef == null) {
-                    instance = localRef = new InfoLogger(logger);
+                if (instance == null) {
+                    instance = new InfoLogger(logger);
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

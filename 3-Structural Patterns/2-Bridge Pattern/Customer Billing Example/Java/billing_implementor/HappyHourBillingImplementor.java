@@ -22,15 +22,14 @@ public class HappyHourBillingImplementor implements BillingImplementor {
      * @return singleton instance
      */
     public static HappyHourBillingImplementor getInstance() {
-        HappyHourBillingImplementor localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (HappyHourBillingImplementor.class) {
-                if (localRef == null) {
-                    instance = localRef = new HappyHourBillingImplementor();
+                if (instance == null) {
+                    instance = new HappyHourBillingImplementor();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

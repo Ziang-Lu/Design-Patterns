@@ -21,15 +21,14 @@ public class OneDispatcher extends DollarDispatcher {
      * @return singleton instance
      */
     public static OneDispatcher getInstance(DollarDispatcher dispatcher) {
-        OneDispatcher localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (OneDispatcher.class) {
-                if (localRef == null) {
-                    instance = localRef = new OneDispatcher(dispatcher);
+                if (instance == null) {
+                    instance = new OneDispatcher(dispatcher);
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

@@ -23,15 +23,14 @@ public class OsxFactory implements GuiFactory {
      * @return singleton instance
      */
     public static OsxFactory getInstance() {
-        OsxFactory localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (OsxFactory.class) {
-                if (localRef == null) {
-                    instance = localRef = new OsxFactory();
+                if (instance == null) {
+                    instance = new OsxFactory();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

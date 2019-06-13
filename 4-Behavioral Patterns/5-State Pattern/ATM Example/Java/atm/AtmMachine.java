@@ -12,15 +12,15 @@ public class AtmMachine {
     /**
      * Single instance for NoCardState.
      */
-    static final AtmState NO_CARD_STATE = new NoCardState();
+    static final AtmState NO_CARD_STATE = NoCardState.getInstance();
     /**
      * Single instance for HasCardState.
      */
-    static final AtmState HAS_CARD_STATE = new HasCardState();
+    static final AtmState HAS_CARD_STATE = HasCardState.getInstance();
     /**
      * Single instance for HasCorrectPinState.
      */
-    static final AtmState HAS_CORRECT_PIN_STATE = new HasCorrectPinState();
+    static final AtmState HAS_CORRECT_PIN_STATE = HasCorrectPinState.getInstance();
 
     /**
      * Internal state of this ATM that controls the actual behaviors of this

@@ -23,15 +23,14 @@ public class BMWSeries1Factory implements BMWCarFactory {
      * @return singleton instance
      */
     public static BMWSeries1Factory getInstance() {
-        BMWSeries1Factory localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (BMWSeries1Factory.class) {
-                if (localRef == null) {
-                    instance = localRef = new BMWSeries1Factory();
+                if (instance == null) {
+                    instance = new BMWSeries1Factory();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

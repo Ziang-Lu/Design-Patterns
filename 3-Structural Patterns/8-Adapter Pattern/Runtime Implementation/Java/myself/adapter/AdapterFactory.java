@@ -25,15 +25,14 @@ public class AdapterFactory {
      * @return singleton instance
      */
     public static AdapterFactory getInstance() {
-        AdapterFactory localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (AdapterFactory.class) {
-                if (localRef == null) {
-                    instance = localRef = new AdapterFactory();
+                if (instance == null) {
+                    instance = new AdapterFactory();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

@@ -22,15 +22,14 @@ class NullCar extends Car {
      * @return singleton instance
      */
     static NullCar getInstance() {
-        NullCar localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (NullCar.class) {
-                if (localRef == null) {
-                    instance = localRef = new NullCar();
+                if (instance == null) {
+                    instance = new NullCar();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

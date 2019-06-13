@@ -5,10 +5,40 @@ import card.Card;
 /**
  * Concrete HasCardState that corresponds to the state of the ATM that a card
  * has been inserted.
+ * This class is implemented as a singleton class.
  *
  * @author Ziang Lu
  */
 class HasCardState implements AtmState {
+
+    /**
+     * Singleton instance.
+     */
+    private volatile static HasCardState instance = null;
+
+    /**
+     * Gets the singleton instance.
+     * This implementation utilizes Lazy Initialization Pattern and double-check
+     * locking mechanism.
+     * @return singleton instance
+     */
+    static HasCardState getInstance() {
+        if (instance == null) {
+            synchronized (HasCardState.class) {
+                if (instance == null) {
+                    instance = new HasCardState();
+                }
+            }
+        }
+        return instance;
+    }
+
+    /**
+     * Private default constructor.
+     * This has to be private so that class instances cannot be created outside
+     * of the class.
+     */
+    private HasCardState() {}
 
     @Override
     public void insertCard(AtmMachine atm, Card card) {

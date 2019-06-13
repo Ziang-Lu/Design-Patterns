@@ -23,15 +23,14 @@ public class RedImplementor implements ColorImplementor {
      * @return singleton instance
      */
     public static RedImplementor getInstance() {
-        RedImplementor localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (RedImplementor.class) {
-                if (localRef == null) {
-                    instance = localRef = new RedImplementor();
+                if (instance == null) {
+                    instance = new RedImplementor();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

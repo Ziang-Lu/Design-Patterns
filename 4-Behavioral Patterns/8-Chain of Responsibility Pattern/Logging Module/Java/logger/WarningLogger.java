@@ -23,15 +23,14 @@ public class WarningLogger extends Logger {
      * @return singleton instance
      */
     public static WarningLogger getInstance(Logger logger) {
-        WarningLogger localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (WarningLogger.class) {
-                if (localRef == null) {
-                    instance = localRef = new WarningLogger(logger);
+                if (instance == null) {
+                    instance = new WarningLogger(logger);
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

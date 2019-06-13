@@ -22,15 +22,14 @@ public class ErrorLogger extends Logger {
      * @return singleton instance
      */
     public static ErrorLogger getInstance(Logger logger) {
-        ErrorLogger localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (ErrorLogger.class) {
-                if (localRef == null) {
-                    instance = localRef = new ErrorLogger(logger);
+                if (instance == null) {
+                    instance = new ErrorLogger(logger);
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

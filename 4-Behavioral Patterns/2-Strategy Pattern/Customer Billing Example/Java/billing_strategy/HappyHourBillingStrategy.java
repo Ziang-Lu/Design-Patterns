@@ -22,15 +22,14 @@ public class HappyHourBillingStrategy implements BillingStrategy {
      * @return singleton instance
      */
     public static HappyHourBillingStrategy getInstance() {
-        HappyHourBillingStrategy localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (HappyHourBillingStrategy.class) {
-                if (localRef == null) {
-                    instance = localRef = new HappyHourBillingStrategy();
+                if (instance == null) {
+                    instance = new HappyHourBillingStrategy();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

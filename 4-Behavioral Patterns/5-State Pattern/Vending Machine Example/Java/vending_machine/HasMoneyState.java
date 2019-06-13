@@ -21,15 +21,14 @@ class HasMoneyState implements VendingMachineState {
      * @return singleton instance
      */
     static HasMoneyState getInstance() {
-        HasMoneyState localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (HasMoneyState.class) {
-                if (localRef == null) {
-                    instance = localRef = new HasMoneyState();
+                if (instance == null) {
+                    instance = new HasMoneyState();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

@@ -106,15 +106,14 @@ public final class MMSCRouter {
      * @return singleton instance
      */
     public static MMSCRouter getInstance() {
-        MMSCRouter localRef = null;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (MMSCRouter.class) {
-                if (localRef == null) {
-                    instance = localRef = new MMSCRouter();
+                if (instance == null) {
+                    instance = new MMSCRouter();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

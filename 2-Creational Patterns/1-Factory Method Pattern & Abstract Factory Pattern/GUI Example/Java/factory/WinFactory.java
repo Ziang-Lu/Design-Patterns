@@ -23,15 +23,14 @@ public class WinFactory implements GuiFactory {
      * @return singleton instance
      */
     public static WinFactory getInstance() {
-        WinFactory localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (WinFactory.class) {
-                if (localRef == null) {
-                    instance = localRef = new WinFactory();
+                if (instance == null) {
+                    instance = new WinFactory();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

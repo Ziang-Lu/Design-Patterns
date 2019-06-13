@@ -25,15 +25,14 @@ public class FancyDocumentCreator implements DocumentCreator {
      * @return singleton instance
      */
     public static FancyDocumentCreator getInstance() {
-        FancyDocumentCreator localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (FancyDocumentCreator.class) {
-                if (localRef == null) {
-                    instance = localRef = new FancyDocumentCreator();
+                if (instance == null) {
+                    instance = new FancyDocumentCreator();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

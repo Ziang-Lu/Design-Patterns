@@ -21,15 +21,14 @@ public class SelectionSort extends SortingStrategy {
      * @return singleton instance
      */
     public static SelectionSort getInstance() {
-        SelectionSort localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (SelectionSort.class) {
-                if (localRef == null) {
-                    instance = localRef = new SelectionSort();
+                if (instance == null) {
+                    instance = new SelectionSort();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

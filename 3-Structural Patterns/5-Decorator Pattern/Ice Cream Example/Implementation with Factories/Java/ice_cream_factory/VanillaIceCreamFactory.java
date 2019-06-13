@@ -24,15 +24,14 @@ public class VanillaIceCreamFactory implements IceCreamFactory {
      * @return singleton instance
      */
     public static VanillaIceCreamFactory getInstance() {
-        VanillaIceCreamFactory localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (VanillaIceCreamFactory.class) {
-                if (localRef == null) {
-                    instance = localRef = new VanillaIceCreamFactory();
+                if (instance == null) {
+                    instance = new VanillaIceCreamFactory();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

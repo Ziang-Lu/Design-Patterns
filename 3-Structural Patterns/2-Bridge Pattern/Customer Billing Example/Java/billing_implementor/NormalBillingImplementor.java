@@ -21,15 +21,14 @@ public class NormalBillingImplementor implements BillingImplementor {
      * @return singleton instance
      */
     public static NormalBillingImplementor getInstance() {
-        NormalBillingImplementor localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (NormalBillingImplementor.class) {
-                if (localRef == null) {
-                    instance = localRef = new NormalBillingImplementor();
+                if (instance == null) {
+                    instance = new NormalBillingImplementor();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

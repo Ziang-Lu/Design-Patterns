@@ -23,15 +23,14 @@ public class DebugLogger extends Logger {
      * @return singleton instance
      */
     public static DebugLogger getInstance(Logger logger) {
-        DebugLogger localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (DebugLogger.class) {
-                if (localRef == null) {
-                    instance = localRef = new DebugLogger(logger);
+                if (instance == null) {
+                    instance = new DebugLogger(logger);
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

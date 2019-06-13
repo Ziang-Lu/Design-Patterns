@@ -25,15 +25,14 @@ public class ModernDocumentCreator implements DocumentCreator {
      * @return singleton instance
      */
     public static ModernDocumentCreator getInstance() {
-        ModernDocumentCreator localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (ModernDocumentCreator.class) {
-                if (localRef == null) {
-                    instance = localRef = new ModernDocumentCreator();
+                if (instance == null) {
+                    instance = new ModernDocumentCreator();
                 }
             }
         }
-        return localRef;
+        return instance;
     }
 
     /**

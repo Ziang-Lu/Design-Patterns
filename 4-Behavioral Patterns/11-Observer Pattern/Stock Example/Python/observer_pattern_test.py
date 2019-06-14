@@ -8,8 +8,8 @@ Application that actually uses Observer Pattern with multi-threading.
 __author__ = 'Ziang Lu'
 
 import random
-import threading
 import time
+from threading import Thread
 
 from company import Company, process_company_name
 from observer import StockHolder
@@ -42,11 +42,11 @@ def main():
     apple_holder = StockHolder(Company.Apple)
     apple_holder.follow(stock_center)
 
-    threading.Thread(
+    Thread(
         name='[Thread-Google Price Changing]', target=get_the_stock,
         args=(stock_center, Company.Google, 2)
     ).start()
-    threading.Thread(
+    Thread(
         name='[Thread-Apple Price Changing]', target=get_the_stock,
         args=(stock_center, Company.Apple, 2)
     ).start()

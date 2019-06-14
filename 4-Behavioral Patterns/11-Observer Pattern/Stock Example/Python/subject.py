@@ -8,7 +8,7 @@ Subject module.
 __author__ = 'Ziang Lu'
 
 from abc import ABC, abstractmethod
-from threading import Lock
+from threading import Condition
 
 from company import Company
 
@@ -55,7 +55,7 @@ class StockCenter(Subject):
     """
     StockCenter class that works as "ConcreteSubject".
     """
-    __slots__ = ['_prices', '_lock']
+    __slots__ = ['_prices', '_condition']
 
     COMPANY_INITIAL_PRICES = {Company.Google: 100.0, Company.Apple: 80.0}
 
@@ -78,12 +78,12 @@ class StockCenter(Subject):
     def set_price(self, company: Company, price: float) -> None:
         """
         Sets the price for the given company.
-        Note that since the two thread shares a common StockCenter object, so if
+        Note that since the two threads share a common StockCenter object, so if
         we don't make this method synchronized:
         The two threads may write to StockCenter.prices at the same time,
         leading to an update to an observer within a thread containing two price
-        changes, which obey our initial idea to let each thread handle only one
-        price changing.
+        changes, which violates our initial idea to let each thread handle only
+        one price changing.
         Thus, we need to make this method synchronized, so that only after one
         thread finished making price changes (writing to StockCenter.prices) and
         notifying the observers about the price change, can the other thread do
@@ -92,12 +92,12 @@ class StockCenter(Subject):
         :param price: float
         :return: None
         """
-        self._lock.acquire()
+        self._condition.acquire()
         try:
             self._prices[company] = price
             self._notify_observers()
         finally:
-            self._lock.release()  # Ensure that the lock must be released
+            self._condition.release()  # Ensure that the lock must be released
 
     def _notify_observers(self):
         for observer in self._my_observers:

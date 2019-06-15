@@ -22,22 +22,6 @@
 
 <img src="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/11-Observer%20Pattern/Java_Observable_Observer.png?raw=true">
 
-***
-
-The Observer Pattern is also known as the **Publish-Subscribe Pattern**.
-
-Jargons/concepts mapping:
-
-| Observer Pattern                      | Publish-Subscribe Pattern                    |
-| ------------------------------------- | -------------------------------------------- |
-| `Subject`                             | `Publisher`                                  |
-| `Observer`                            | `Subscriber`                                 |
-| `Subject.register(Observer observer)` | `Publisher.subscribe(Subscriber normalUser)` |
-| `Subject.notifyObservers()`           | `Publisher.notifySubscribers()`              |
-| `Observer.update()`                   | `Subscriber.update()`                        |
-
-***
-
 <br>
 
 ## Drawbacks

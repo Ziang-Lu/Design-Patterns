@@ -21,8 +21,8 @@ class Browser:
     @staticmethod
     def _get_company_internet() -> InternetServiceProvider:
         """
-        Private static helper function to get the company Internet, which is an
-        ISP proxy.
+        Private helper method to get the company Internet, which is an ISP
+        proxy.
         :return: InternetServiceProvider
         """
         return CompanyInternetProxy()

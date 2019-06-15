@@ -12,8 +12,7 @@ from car import Car, CarFactory
 
 def _drive_car(desired_max_speed: int, car: Car) -> None:
     """
-    Private helper function to drive the given car to the given desired max
-    speed.
+    Private helper method to drive the given car to the given desired max speed.
     :param desired_max_speed: int
     :param car: Car
     :return: None

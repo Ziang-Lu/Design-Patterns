@@ -15,7 +15,7 @@ public abstract class SortingStrategy {
     public abstract void sort(int[] array);
 
     /**
-     * Protected helper function to swap two numbers in the given array.
+     * Protected helper method to swap two numbers in the given array.
      * @param array array to swap
      * @param i first index
      * @param j second index

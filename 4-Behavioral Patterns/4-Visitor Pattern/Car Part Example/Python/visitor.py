@@ -84,8 +84,7 @@ class CarPartRenderer(CarPartVisitor):
     @staticmethod
     def _print_rendered_color(car_part, color: Color) -> None:
         """
-        Private static helper function to print the rendered color of the given
-        car part.
+        Private helper method to print the rendered color of the given car part.
         :param car_part: CarPart
         :param color: Color
         :return: None

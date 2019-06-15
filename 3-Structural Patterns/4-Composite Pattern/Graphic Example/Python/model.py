@@ -36,7 +36,7 @@ class Graphic(ABC):
 
     def _draw_helper(self):
         """
-        Protected helper function to draw this graphic.
+        Protected helper method to draw this graphic.
         :return: None
         """
         print(f'Drawing {self._name}')
@@ -53,7 +53,7 @@ class Graphic(ABC):
 
     def _translate_helper(self, x: int, y: int) -> None:
         """
-        Protected helper function to translate this graphic.
+        Protected helper method to translate this graphic.
         :param x: int
         :param y: int
         :return: None
@@ -71,7 +71,7 @@ class Graphic(ABC):
 
     def _resize_helper(self, times: float) -> None:
         """
-        Protected helper function to resize this graphic.
+        Protected helper method to resize this graphic.
         :param times: float
         :return: None
         """

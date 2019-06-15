@@ -81,8 +81,8 @@ class SQLConnectionImplPool:
     @staticmethod
     def _clean_up(conn_impl: SQLConnectionImpl) -> None:
         """
-        Private static helper function to clean up the given connection
-        implementation ("Reusable" object).
+        Private helper method to clean up the given connection implementation
+        ("Reusable" object).
         :param conn_impl: SQLConnectionImpl
         :return: None
         """
@@ -180,7 +180,7 @@ class SQLConnection:
 
     def _open(self) -> SQLConnectionImpl:
         """
-        Private helper function to open this SQL connection.
+        Private helper method to open this SQL connection.
         This method will acquire a connection implementation from the connection
         pooling.
         :return: SQLConnectionImpl

@@ -91,8 +91,8 @@ class CompanyInternetProxy(InternetServiceProvider):
     @staticmethod
     def _is_blocked(url: str) -> bool:
         """
-        Private static helper function to check whether the given URL is blocked
-        by this proxy.
+        Private helper method to check whether the given URL is blocked by this
+        proxy.
         :param url: str
         :return: bool
         """

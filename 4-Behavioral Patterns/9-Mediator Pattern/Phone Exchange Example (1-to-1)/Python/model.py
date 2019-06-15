@@ -23,7 +23,7 @@ class PhoneExchange:
     @staticmethod
     def _get_three_digit() -> str:
         """
-        Static helper function to generate a three-digit string.
+        Helper method to generate a three-digit string.
         :return: str
         """
         return str(random.randint(100, 999))
@@ -31,7 +31,7 @@ class PhoneExchange:
     @staticmethod
     def _get_four_digit() -> str:
         """
-        Static helper function to generate a four-digit string.
+        Helper method to generate a four-digit string.
         :return: str
         """
         return str(random.randint(1000, 9999))
@@ -55,7 +55,7 @@ class PhoneExchange:
 
     def _get_phone_number(self) -> str:
         """
-        Private helper function to generate a phone number.
+        Private helper method to generate a phone number.
         :return: str
         """
         valid = False

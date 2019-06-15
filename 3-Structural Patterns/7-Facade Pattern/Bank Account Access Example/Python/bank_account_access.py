@@ -92,7 +92,8 @@ class BalanceManager:
 
     def _has_enough_balance(self, amount: float) -> bool:
         """
-        Private helper function to check
+        Private helper method to check whether there is enough balance in the
+        bank account comparing to the given amount.
         :param amount: float
         :return: bool
         """
@@ -146,7 +147,7 @@ class BankAccountAccessFacade:
 
     def _correct_account_info(self) -> bool:
         """
-        Private helper function to check the provided account number and PIN.
+        Private helper method to check the provided account number and PIN.
         :return: bool
         """
         return self._account_manager.correct_account_number(self._account_number) \

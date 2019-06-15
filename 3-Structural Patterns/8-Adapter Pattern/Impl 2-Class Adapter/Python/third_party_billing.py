@@ -54,8 +54,8 @@ class BillingSystemAdapter(CompanyBillingSystem, ThirdPartyBillingSystem):
         employees_info: List[List[str]]
     ) -> List[Employee]:
         """
-        Private static helper function to convert String array of employee
-        information to list of Employee objects.
+        Private helper method to convert String array of employee information to
+        list of Employee objects.
         :param employees_info: list[list[str]]
         :return: list[Employee]
         """
@@ -93,7 +93,7 @@ class BillingSystemAdapter(CompanyBillingSystem, ThirdPartyBillingSystem):
 
 def _get_employee_info() -> List[List[str]]:
     """
-    Private helper function to get the employee information.
+    Private helper method to get the employee information.
     :return: list[list[str]]
     """
     return [

@@ -62,7 +62,7 @@ class Logger(ABC):
 
     def _log_message(self, msg: str, level: LogLevel) -> None:
         """
-        Private helper function to log the given message of the given level.
+        Private helper method to log the given message of the given level.
         :param msg: str
         :param level: LogLevel
         :return: None

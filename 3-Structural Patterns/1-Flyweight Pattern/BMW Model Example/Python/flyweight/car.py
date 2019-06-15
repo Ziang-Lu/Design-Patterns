@@ -49,7 +49,7 @@ class FlyweightBMWCar(ABC):
     @abstractmethod
     def _get_base_price(self) -> int:
         """
-        Protected helper function to get the base price for this car (without
+        Protected helper method to get the base price for this car (without
         customization).
         :return: int
         """

@@ -39,7 +39,7 @@ class MonsterMazeGame:
 
     def _print_instructions(self) -> None:
         """
-        Private helper function to print the instructions.
+        Private helper method to print the instructions.
         :return: None
         """
         print(
@@ -55,7 +55,7 @@ class MonsterMazeGame:
 
     def _handle_input(self, input_: str) -> None:
         """
-        Private helper function to handle the given input.
+        Private helper method to handle the given input.
         :param input_: str
         :return: None
         """
@@ -69,7 +69,7 @@ class MonsterMazeGame:
 
     def _handle_option(self, option: int) -> None:
         """
-        Helper function to handle the given option in the current room.
+        Helper method to handle the given option in the current room.
         :param option: int
         :return: None
         """
@@ -85,7 +85,7 @@ class MonsterMazeGame:
 
     def _handle_state_change(self, input_: str) -> None:
         """
-        Helper function to handle state change according to the given input.
+        Helper method to handle state change according to the given input.
         :param input_: str
         :return: None
         """

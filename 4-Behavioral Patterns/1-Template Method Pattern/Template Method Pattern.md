@@ -211,7 +211,7 @@ class TemplateHouse(ABC):
 
     def _build_foundation(self) -> None:
         """
-        Private helper function to build the foundation of this house.
+        Private helper method to build the foundation of this house.
         :return: None
         """
         print('Building foundation with cement, sand and iron rods')
@@ -219,7 +219,7 @@ class TemplateHouse(ABC):
     @abstractmethod
     def _build_pillars(self) -> None:
         """
-        Protected helper function to build the pillars of this house.
+        Protected helper method to build the pillars of this house.
         This method works like a placeholder for a step of the above algorithm.
         :return: None
         """
@@ -228,7 +228,7 @@ class TemplateHouse(ABC):
     @abstractmethod
     def _build_walls(self) -> None:
         """
-        Protected helper function to build the walls of this house.
+        Protected helper method to build the walls of this house.
         This method works like a placeholder for a step of the above algorithm.
         :return: None
         """
@@ -237,7 +237,7 @@ class TemplateHouse(ABC):
     @abstractmethod
     def _build_windows(self) -> None:
         """
-        Protected helper function to build the windows of this house.
+        Protected helper method to build the windows of this house.
         This method works like a placeholder for a step of the above algorithm.
         :return: None
         """

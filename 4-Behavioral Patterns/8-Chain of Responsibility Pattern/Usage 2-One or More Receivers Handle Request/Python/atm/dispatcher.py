@@ -64,7 +64,7 @@ class DollarDispatcher(ABC):
 
     def _dispatch_dollar(self, denomination: int, num_of_notes: int) -> None:
         """
-        Private helper function to dispatch the given number of notes for the
+        Private helper method to dispatch the given number of notes for the
         given denomination.
         :param denomination: int
         :param num_of_notes: int

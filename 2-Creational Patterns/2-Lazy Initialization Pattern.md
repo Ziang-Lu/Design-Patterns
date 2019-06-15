@@ -187,7 +187,7 @@ class Fruit:
     @staticmethod
     def _process_fruit_type(fruit_type_name: str) -> str:
         """
-        Private static helper function to process the given FruitType name.
+        Private helper method to process the given FruitType name.
         :param fruit_type_name: str
         :return: str
         """

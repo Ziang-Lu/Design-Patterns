@@ -46,7 +46,7 @@ class TextEditorApp:
 
     def _add_memento(self, memo: Memento) -> None:
         """
-        Private helper function to store the given memento.
+        Private helper method to store the given memento.
         :param memo: Memento
         :return: None
         """
@@ -73,7 +73,7 @@ class TextEditorApp:
 
     def _get_memento(self, idx: int) -> Memento:
         """
-        Private helper function to get the memento at the given index.
+        Private helper method to get the memento at the given index.
         :param idx: int
         :return: Memento
         """

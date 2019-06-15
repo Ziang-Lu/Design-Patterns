@@ -39,7 +39,7 @@ class RobotBuilder(ABC):
     @abstractmethod
     def _build_robot_head(self) -> None:
         """
-        Protected helper function to build a robot's head.
+        Protected helper method to build a robot's head.
         :return: None
         """
         pass
@@ -47,7 +47,7 @@ class RobotBuilder(ABC):
     @abstractmethod
     def _build_robot_torso(self) -> None:
         """
-        Protected helper function to build a robot's torso.
+        Protected helper method to build a robot's torso.
         :return: None
         """
         pass
@@ -55,7 +55,7 @@ class RobotBuilder(ABC):
     @abstractmethod
     def _build_robot_arms(self) -> None:
         """
-        Protected helper function to build a robot's arms.
+        Protected helper method to build a robot's arms.
         :return: None
         """
         pass
@@ -63,7 +63,7 @@ class RobotBuilder(ABC):
     @abstractmethod
     def _build_robot_legs(self) -> None:
         """
-        Protected helper function to build a robot's legs.
+        Protected helper method to build a robot's legs.
         :return: None
         """
         pass

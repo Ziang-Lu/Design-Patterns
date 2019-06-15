@@ -80,7 +80,7 @@ class ManagementEmployee(ABC):
     def _approve_leave_request(self, name: str,
                                requested_leave_days: int) -> None:
         """
-        Private helper function to approve the leave request from the given
+        Private helper method to approve the leave request from the given
         employee for the given number of days.
         :param name: str
         :param requested_leave_days: int

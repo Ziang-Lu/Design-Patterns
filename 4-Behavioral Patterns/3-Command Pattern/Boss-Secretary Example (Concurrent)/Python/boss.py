@@ -68,13 +68,15 @@ class Boss(Thread):
         self._add_task(generate_daily_report)
 
         time.sleep(random.randint(1, 5))
-        copy_my_name_card = CopyDoc(printer=self._printer,
-                                    doc='Name Card of boss', priority=2)
+        copy_my_name_card = CopyDoc(
+            printer=self._printer, doc='Name Card of boss', priority=2
+        )
         self._add_task(copy_my_name_card)
 
         time.sleep(random.randint(1, 5))
-        print_my_slides = PrintDoc(printer=self._printer, doc='My slides',
-                                   priority=3)
+        print_my_slides = PrintDoc(
+            printer=self._printer, doc='My slides', priority=3
+        )
         self._add_task(print_my_slides)
 
         time.sleep(random.randint(1, 5))
@@ -96,7 +98,7 @@ class Boss(Thread):
 
     def _add_task(self, task: Command) -> None:
         """
-        Private helper function to add the given command to the PQ.
+        Private helper method to add the given command to the PQ.
         :param task: Command
         :return: None
         """
@@ -108,8 +110,9 @@ class Boss(Thread):
 def main():
     boss = Boss(thread_name='[Boss-Thread]')  # Client
 
-    secretary = Secretary(boss=boss, tasks=boss.tasks,
-                          thread_name='[Secretary-Thread]')  # Invoker
+    secretary = Secretary(
+        boss=boss, tasks=boss.tasks, thread_name='[Secretary-Thread]'
+    )  # Invoker
     secretary.deamon = True
 
     secretary.start()

@@ -51,7 +51,7 @@ The behavior of a systems somewhat depends on the request data: this is called "
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/9-Mediator%20Pattern/Mediator%20Pattern.md">Mediator Pattern (中介者模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/10-Iterator%20Pattern.md">Iterator Pattern (迭代器模式)</a>
 * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/11-Observer%20Pattern/Observer%20Pattern.md">Observer Pattern (观察者模式)</a>
-  * Publish-Subscribe Pattern (发布-订阅模式)
+  * <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/4-Behavioral%20Patterns/12-Publish-Subscribe%20Pattern/Publish-Subscribe%20Pattern.md">Publish-Subscribe Pattern (发布-订阅模式)
 
 ## 5. Concurrency Pattern (并发型模式)
 

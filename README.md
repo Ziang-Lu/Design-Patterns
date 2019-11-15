@@ -57,9 +57,9 @@ The behavior of a systems somewhat depends on the request data: this is called "
 
 **Support concurrency**
 
-* <a href=https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/1-Thread%20Pool%20Pattern.md>Thread Pool Pattern (线程池模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/2-Immutable-Object%20Pattern.md">Immutable Object Pattern (不可变对象模式)</a>
-* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/3-Double-Checked%20Pattern.md">Double-Checked Pattern (双重检查锁定模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/1-Immutable-Object%20Pattern.md">Immutable Object Pattern (不可变对象模式)</a>
+* <a href="https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/2-Double-Checked%20Pattern.md">Double-Checked Pattern (双重检查锁定模式)</a>
+* <a href=https://github.com/Ziang-Lu/Design-Patterns/blob/master/5-Concurrency%20Patterns/3-Thread%20Pool%20Pattern.md>Thread Pool Pattern (线程池模式)</a>
 
 ## Other Patterns
 

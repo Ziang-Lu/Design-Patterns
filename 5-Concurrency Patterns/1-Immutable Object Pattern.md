@@ -2,7 +2,7 @@
 
 ## Applicability
 
-When we have **multiple threads concurrently accessing a shared object's states**, we have the **data consistency problem**:
+When we have **multiple threads concurrently accessing a shared object's states**, we have the **data consistency problem**,
 
 * The states of the shared object don't change very frequently.
 
@@ -12,7 +12,7 @@ When we have **multiple threads concurrently accessing a shared object's states*
 
 ## Definition & Explanation
 
-We can use **objects whose states that are visible to the world are immutable ("Immutable Objects")**, so that these shared objects are "in nature" thread-safe.
+We can use **objects whose states that are visible to the world are immutable ("immutable objects")**, so that these shared objects are "in nature" thread-safe.
 
 <br>
 
@@ -38,7 +38,7 @@ public final class MMSC {
      */
     private final String url;
     /**
-     * Maximum attachment size in Bytes allowed by this MMSC.
+     * Maximum attachment size in bytes allowed by this MMSC.
      */
     private final int maxAttachmentSizeInBytes;
 
@@ -131,7 +131,7 @@ public final class MMSCRouter {
      * @param map map to deep copy
      * @return deep copy of the given map
      */
-    private Map<String, MMSC> deepCopy(Map<String, MMSC> map) {
+    private static Map<String, MMSC> deepCopy(Map<String, MMSC> map) {
         Map<String, MMSC> copy = new HashMap<>();
         for (Map.Entry<String, MMSC> entry : map.entrySet()) {
             String msisdnPrefix = entry.getKey();
@@ -169,10 +169,10 @@ public final class MMSCRouter {
      * @return defensive copy of route map
      */
     public Map<String, MMSC> getRouteMap() {
-        // Since HashMap class is mutable, if we return routeMap directly, it is possible that it got modified from
+        // Since HashMap class is mutable, if we return routeMap directly, it is possible that it gets modified from
         // outside of this class.
-        // Thus, we need to make a defensive copy first, and then return the defensive copy.
-        return Map.copyOf(deepCopy(routeMap));
+        // Thus, we need to return a defensive copy.
+        return deepCopy(routeMap);
     }
 
 }

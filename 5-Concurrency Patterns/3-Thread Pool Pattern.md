@@ -110,7 +110,7 @@ public class ThreadPoolDemo {
             // executing tasks, and prevent waiting tasks from starting.
         }
         // Upon termination, the executor service has no tasks actively executing, no tasks currently awaiting
-        // execution, and no new tasks are allowed to be submitted
+        // execution, and no new tasks are allowed to be submitted.
         System.out.println("All tasks completed.");
 
         /*
@@ -141,7 +141,6 @@ import requests
 
 sites = [
     'http://europe.wsj.com/',
-    'http://some-made-up-domain.com/',
     'http://www.bbc.co.uk/',
     'http://www.cnn.com/',
     'http://www.foxnews.com/',
@@ -173,7 +172,6 @@ with cf.ThreadPoolExecutor(max_workers=10) as pool:
             print(f'{url} page is {page_size} bytes.')
 
 # Output:
-# http://some-made-up-domain.com/ page is 301 bytes.
 # http://www.foxnews.com/ page is 216594 bytes.
 # http://www.cnn.com/ page is 1725827 bytes.
 # http://europe.wsj.com/ page is 979035 bytes.

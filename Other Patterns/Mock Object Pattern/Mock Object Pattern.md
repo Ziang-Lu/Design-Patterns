@@ -24,7 +24,7 @@
 
 *例如, 在汽车设计中, 我们想要测试真实人类在被汽车冲撞时的动态behavior, 但是我们不能真的使用真实人类来进行测试.*
 
-*因此, 我们使用一个mock假人傀儡来模拟真实人类的behavior......*
+*因此, 我们使用一个mock假人来模拟真实人类的behavior......*
 
 <br>
 
@@ -47,4 +47,4 @@
 
 <br>
 
-**Note that when mock objects are replaced back by real objects, the end-to-end functionality will need further testing. These will be integration tests rather than unit tests**
+**Note that when mock objects are replaced back by real objects, the end-to-end functionality will need further testing. These will be integration tests rather than unit tests.**

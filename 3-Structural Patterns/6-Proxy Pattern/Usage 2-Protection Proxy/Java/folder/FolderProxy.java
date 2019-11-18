@@ -20,9 +20,9 @@ public class FolderProxy implements Folder {
 
     @Override
     public void performReadOrWriteOperation(User user) {
-        // Before we forward the request to the real shared folder, perform protection-related operations
+        // Before we forward the request to the real shared folder, perform protection-related operations.
         // In this case, this would be checking the designation of the user, and see if the user has the permission to
-        // perform a read/write operation on a shared folder
+        // perform a read/write operation on a shared folder.
         if (user.designation().equalsIgnoreCase("CEO") ||
                 (user.designation().equalsIgnoreCase("Manager"))) {
             System.out.println("FolderProxy: 'FolderProxy will forward the request to the real SharedFolder object.'");

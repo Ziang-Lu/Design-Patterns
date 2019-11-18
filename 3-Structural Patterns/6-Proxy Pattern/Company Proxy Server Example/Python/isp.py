@@ -83,10 +83,9 @@ class CompanyInternetProxy(InternetServiceProvider):
     company proxy's IP address, so that the real ISP will only know the request
     comes from the company proxy.
     """
-    __slots__ = ['_real_isp']
+    __slots__ = ['_real_isp', '_cache']
 
     _PROXY_IP = '2.2.2.2'
-    _cache = {}
 
     @staticmethod
     def _is_blocked(url: str) -> bool:
@@ -103,6 +102,7 @@ class CompanyInternetProxy(InternetServiceProvider):
         Default constructor.
         """
         self._real_isp = Vodafone()
+        self._cache = {}
 
     def get_resource(self, url, ip):
         self._log_request(url, ip)
@@ -110,11 +110,11 @@ class CompanyInternetProxy(InternetServiceProvider):
         if self._is_blocked(url):
             return 'This URL is blocked as per company policy'
         # 2. Check whether the response of the requested URL has already been
-        # cached
+        #    cached
         if url in self._cache:
             return self._cache[url]
         # 3. Forward the request to the real ISP, replacing the actual user's IP
-        # address with the company proxy's IP address
+        #    address with the company proxy's IP address
         response = self._real_isp.get_resource(url, self._PROXY_IP)
         # Put the response in the cache
         self._cache[url] = response

@@ -41,10 +41,10 @@ public class CompanyInternetProxy extends InternetServiceProvider {
     private static Map<String, String> cache = new HashMap<>();
 
     /**
-     * Private static helper method to check whether the given URL is blocked by
-     * this proxy.
-     * @param url given URL
-     * @return whether the given URL is blocked
+     * Private static helper method to check whether the requested URL is
+     * blocked by this proxy.
+     * @param url requested URL
+     * @return whether the requested URL is blocked
      */
     private static boolean isBlocked(String url) {
         return url.contains("gaming");
@@ -67,7 +67,7 @@ public class CompanyInternetProxy extends InternetServiceProvider {
             return cache.get(url);
         }
         // 3. Forward the request to the real ISP, replacing the actual user's IP address with the company proxy's IP
-        // address
+        //    address
         String response = realIsp.getResource(url, PROXY_IP);
         // Put the response in the cache
         cache.put(url, response);

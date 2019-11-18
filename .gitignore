@@ -6,3 +6,6 @@
 # Python compilatio files
 __pycache__/
 *.pyc
+
+# Project files
+.vscode/

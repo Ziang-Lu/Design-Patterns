@@ -31,7 +31,9 @@ public abstract class InternetServiceProvider {
      * @param ip IP address of the requester
      */
     protected void logRequest(String url, String ip) {
-        System.out.println("[" + Calendar.getInstance().getTime() + "] Request for - " + url + " from IP: " + ip);
+        System.out.println(
+            String.format("[%s] Request for - %s from IP: %s", Calendar.getInstance().getTime(), url, ip)
+        );
     }
 
 }

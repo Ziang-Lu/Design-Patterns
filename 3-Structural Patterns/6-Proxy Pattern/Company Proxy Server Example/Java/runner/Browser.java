@@ -1,7 +1,7 @@
 package runner;
 
-import isp.InternetServiceProvider;
 import isp.CompanyInternetProxy;
+import isp.InternetServiceProvider;
 
 import java.util.Scanner;
 

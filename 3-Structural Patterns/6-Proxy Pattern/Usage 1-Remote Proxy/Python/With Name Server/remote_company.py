@@ -17,8 +17,10 @@ class ReportGeneratorImpl:
     This class resides in a remote machine (thus a remote network). Thus, an
     instance of this class is referred to as a "remote object", which is the
     object that the client want to call methods on.
+
+    Since Pyro will add a few Pyro-specific attributes to a remote object, we
+    better not restrict "__slots__" of this class.
     """
-    __slots__ = []
 
     def generate_daily_report(self) -> str:
         """
@@ -37,10 +39,10 @@ class ReportGeneratorImpl:
 def setup_server():
     # 2. Create the server (Pyro daemon)
     with Pyro4.Daemon() as daemon:
-        print('[SERVER] Server started.')
+        print('[SERVER] Server created.')
 
         # 3. Register the remote class on the server (Pyro daemon)
-        uri = daemon.register(ReportGeneratorImpl)
+        uri = daemon.register(ReportGeneratorImpl)  # An automatic ObjectId will be allocated.
         # If we pass in a class directly, the returned URI will be the URI of
         # that registered class; for each session (proxy connection), Pyro will
         # automatically instantiate that class.
@@ -61,7 +63,7 @@ if __name__ == '__main__':
     setup_server()
 
 # Output:
-# [SERVER] Server started.
+# [SERVER] Server created.
 # [SERVER] Registered a remote ReportGeneratorImpl class with URI [PYRO:obj_31050e224ba34ef28a1227c5ad77fb69@localhost:55017] on the Pyro daemon
 # [NAME SERVER] Registered a URI [PYRO:obj_31050e224ba34ef28a1227c5ad77fb69@localhost:55017] with name "report_generator" in the name server
 #

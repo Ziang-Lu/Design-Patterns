@@ -43,7 +43,7 @@ def setup_server():
     # In order to nicely free the resources of the Pyro daemon when the request
     # loop is terminated, we can use it as a context manager.
     with Pyro4.Daemon(port=5000) as daemon:
-        print('[SERVER] Server started.')
+        print('[SERVER] Server created.')
 
         # 2. Register the remote class on the server (Pyro daemon)
         uri = daemon.register(ReportGeneratorImpl, objectId='report_generator')
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     setup_server()
 
 # Output:
-# [SERVER] Server started.
+# [SERVER] Server created.
 # [SERVER] Registered a remote ReportGeneratorImpl object with URI [PYRO:report_generator@localhost:5000] on the Pyro deamon
 #
 # [SERVER] Generating a daily report...done

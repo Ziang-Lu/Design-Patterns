@@ -24,6 +24,18 @@
 
 <br>
 
+## Implementation Detail
+
+In the `Subject` itself, we keep track of the `Observer`s.
+
+-> When there is no other reference on that specific `Observer`, we won't need that `Observer` anymore and want GC to collect it.
+
+-> However, due to the fact that the `Subject` still holding an extra (strong) reference on that `Observer`, it won't be collected by GC.
+
+Thus, we can use **weak references** to keep track of the `Observer`s, so that when there is no other reference on that specific `Observer`, GC will feel free to collect it.
+
+<br>
+
 ## Drawbacks
 
 * Although the `Subject` (`Publisher`) doesn't need to know anything about the `Observer` (`Subscriber`), it still has to be aware of the existence of the `Observer` (`Subscriber`), i.e., has the reference of the `Observer` (`Subscriber`), which leads to tight-coupling

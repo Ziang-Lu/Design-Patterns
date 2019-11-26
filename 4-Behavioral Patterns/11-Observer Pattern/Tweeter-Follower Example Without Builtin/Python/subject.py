@@ -10,6 +10,7 @@ __author__ = 'Ziang Lu'
 import weakref
 from abc import ABC, abstractmethod
 from datetime import datetime
+from typing import Optional
 
 from observer import Observer
 
@@ -106,11 +107,13 @@ class Tweeter(Subject):
         return self._name
 
     @property
-    def latest_tweet(self) -> Tweet:
+    def latest_tweet(self) -> Optional[Tweet]:
         """
         Returns the latest tweet.
-        :return: Tweet
+        :return: Tweet or None
         """
+        if not self._tweet_history:
+            return None
         return self._tweet_history[-1]
 
     def write_tweet(self, content: str) -> None:

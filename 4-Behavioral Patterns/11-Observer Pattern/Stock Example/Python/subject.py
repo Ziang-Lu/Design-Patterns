@@ -7,6 +7,7 @@ Subject module.
 
 __author__ = 'Ziang Lu'
 
+import weakref
 from abc import ABC, abstractmethod
 from threading import Condition
 
@@ -31,7 +32,7 @@ class Subject(ABC):
         :param observer: Observer
         :return: None
         """
-        self._my_observers.add(observer)
+        self._my_observers.add(weakref.ref(observer))
 
     def unregister(self, observer) -> None:
         """
@@ -39,8 +40,12 @@ class Subject(ABC):
         :param observer: Observer
         :return: None
         """
-        if observer in self._my_observers:
-            self._my_observers.remove(observer)
+        to_remove = None
+        for weak_ref in self._my_observers:
+            if weak_ref() is observer:
+                to_remove = weak_ref
+                break
+        self._my_observers.remove(to_remove)
 
     @abstractmethod
     def _notify_observers(self) -> None:

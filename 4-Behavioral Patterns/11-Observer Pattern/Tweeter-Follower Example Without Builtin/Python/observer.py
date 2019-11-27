@@ -32,7 +32,8 @@ class Follower(Observer):
     """
     __slots__ = ['_name', '__weakref__']
     # In order to create weak references to Follower objects, we need to include
-    # a '__weakref__' slot.
+    # a '__weakref__' slot, or Python will throw "TypeError: cannot create
+    # weak reference to 'Follower' object"
 
     def __init__(self, name: str):
         """

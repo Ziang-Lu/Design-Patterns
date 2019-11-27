@@ -4,8 +4,8 @@ import company.Company;
 import observer.Observer;
 
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * StockCenter class that works as "ConcreteSubject".
@@ -28,7 +28,7 @@ public class StockCenter extends Subject {
      * Default constructor.
      */
     public StockCenter() {
-        companyInitialPrices = new HashMap<>();
+        companyInitialPrices = new ConcurrentHashMap<>();
         companyInitialPrices.put(Company.Google, 100.0);
         companyInitialPrices.put(Company.Apple, 80.0);
 
@@ -47,19 +47,20 @@ public class StockCenter extends Subject {
     /**
      * Sets the price for the given company.
      * Note that since the two thread shares a common StockCenter object, so if
-     * we don't make this method synchronized:
+     * we don't synchronize this operation:
      * The two threads may write to StockCenter.prices at the same time, leading
      * to an update to an observer within a thread containing two price changes,
      * which obey our initial idea to let each thread handle only one price
      * changing.
-     * Thus, we need to make this method synchronized, so that only after one
+     * Thus, we need to synchronize this operation, so that only after one
      * thread finished making price changes (writing to StockCenter.prices) and
      * notifying the observers about the price change, can the other thread do
      * its price change.
+     * We synchronize this operation by using ConcurrentHashMap.
      * @param company given company
      * @param price price to set
      */
-    public synchronized void setPrice(Company company, double price) {
+    public void setPrice(Company company, double price) {
         prices.put(company, price);
         notifyObservers();
     }

@@ -7,8 +7,8 @@ Observer module.
 
 __author__ = 'Ziang Lu'
 
-import threading
 from abc import ABC, abstractmethod
+from threading import current_thread
 
 from company import Company, process_company_name
 from subject import StockCenter, Subject
@@ -34,9 +34,14 @@ class StockHolder(Observer):
     """
     StockHolder class that works as "ConcreteObserver".
     """
-    _observer_id = 0
+    __slots__ = [
+        '_my_observer_id', '_stock', '_stock_latest_price', '__weakref__'
+    ]
+    # In order to create weak references to StockHolder objects, we need to
+    # include a '__weakref__' slot, or Python will throw "TypeError: cannot
+    # create weak reference to 'StockHolder' object"
 
-    __slots__ = ['_my_observer_id', '_stock', '_latest_price']
+    _observer_id = 0
 
     def __init__(self, stock: Company):
         """
@@ -46,7 +51,7 @@ class StockHolder(Observer):
         StockHolder._observer_id += 1
         self._my_observer_id = StockHolder._observer_id
         self._stock = stock
-        self._latest_price = StockCenter.COMPANY_INITIAL_PRICES[stock]
+        self._stock_latest_price = StockCenter.COMPANY_INITIAL_PRICES[stock]
 
     def follow(self, stock_center: StockCenter) -> None:
         """
@@ -67,9 +72,9 @@ class StockHolder(Observer):
     def update(self, subject):
         stock_center = subject
         curr_price = stock_center.get_price(self._stock)
-        if curr_price != self._latest_price:
-            print(f'{threading.current_thread().name} {type(self).__name__} '
-                  f'(ID: {self._my_observer_id}) got an update on '
+        if curr_price != self._stock_latest_price:
+            print(f'{current_thread().name} {type(self).__name__} (ID: '
+                  f'{self._my_observer_id}) got an update on '
                   f'{process_company_name(self._stock)} Price: '
                   f'{curr_price:.2f}')
-            self._latest_price = curr_price
+            self._stock_latest_price = curr_price

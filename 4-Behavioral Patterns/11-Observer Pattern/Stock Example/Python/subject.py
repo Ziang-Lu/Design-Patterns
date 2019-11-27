@@ -24,7 +24,7 @@ class Subject(ABC):
         """
         Default constructor.
         """
-        self._my_observers = set()
+        self._my_observers = weakref.WeakSet()
 
     def register(self, observer) -> None:
         """
@@ -32,7 +32,7 @@ class Subject(ABC):
         :param observer: Observer
         :return: None
         """
-        self._my_observers.add(weakref.ref(observer))
+        self._my_observers.add(observer)
 
     def unregister(self, observer) -> None:
         """
@@ -40,12 +40,7 @@ class Subject(ABC):
         :param observer: Observer
         :return: None
         """
-        to_remove = None
-        for weak_ref in self._my_observers:
-            if weak_ref() is observer:
-                to_remove = weak_ref
-                break
-        self._my_observers.remove(to_remove)
+        self._my_observers.discard(observer)
 
     @abstractmethod
     def _notify_observers(self) -> None:
@@ -70,7 +65,7 @@ class StockCenter(Subject):
         """
         super().__init__()
         self._prices = self.COMPANY_INITIAL_PRICES.copy()
-        self._lock = Lock()
+        self._condition = Condition()
 
     def get_price(self, company: Company) -> float:
         """

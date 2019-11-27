@@ -5,6 +5,8 @@
 Company module.
 """
 
+__author__ = 'Ziang Lu'
+
 from enum import Enum, auto
 
 

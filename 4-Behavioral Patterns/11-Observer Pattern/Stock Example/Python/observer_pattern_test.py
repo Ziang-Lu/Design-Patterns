@@ -9,7 +9,7 @@ __author__ = 'Ziang Lu'
 
 import random
 import time
-from threading import Thread
+from threading import Thread, current_thread
 
 from company import Company, process_company_name
 from observer import StockHolder
@@ -19,7 +19,7 @@ from subject import StockCenter
 def get_the_stock(stock_center: StockCenter, company: Company,
                   interval: int) -> None:
     """
-    Simulates a thread monitoring the changing price for the given company.
+    Thread function monitoring the changing price for the given company.
     :param stock_center: StockCenter
     :param company: Company
     :param interval: int
@@ -30,7 +30,7 @@ def get_the_stock(stock_center: StockCenter, company: Company,
 
         changed_percent = random.random() * 0.06 - 0.03
         new_price = stock_center.get_price(company) * (1 + changed_percent)
-        print(f'{threading.current_thread().name} New price for '
+        print(f'{current_thread().name} New price for '
               f'{process_company_name(company)}: {new_price:.2f}')
         stock_center.set_price(company, new_price)
 

@@ -25,7 +25,10 @@ class Subject(ABC):
         """
         Default constructor.
         """
-        self._my_observers = set()
+        self._my_observers = weakref.WeakSet()
+        # WeakSet class keeps weak references to its elements. An element will
+        # be discarded when no strong reference to it exists anymore.
+        # -> This is exactly what we want.
 
     def register(self, observer: Observer) -> None:
         """
@@ -33,7 +36,7 @@ class Subject(ABC):
         :param observer: Observer
         :return: None
         """
-        self._my_observers.add(weakref.ref(observer))
+        self._my_observers.add(observer)
 
     def unregister(self, observer: Observer) -> None:
         """
@@ -41,12 +44,7 @@ class Subject(ABC):
         :param observer: Observer
         :return: None
         """
-        to_remove = None
-        for weak_ref in self._my_observers:
-            if weak_ref() is observer:
-                to_remove = weak_ref
-                break
-        self._my_observers.remove(to_remove)
+        self._my_observers.discard(observer)
 
     @abstractmethod
     def _notify_observers(self) -> None:
@@ -127,7 +125,5 @@ class Tweeter(Subject):
         self._notify_observers()
 
     def _notify_observers(self):
-        for weak_ref in self._my_observers:
-            observer = weak_ref()
-            if observer:
-                observer.update(self)
+        for observer in self._my_observers:
+            observer.update(self)

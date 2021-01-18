@@ -61,7 +61,7 @@ public class PhoneBuilder {
     /**
      * Sets the processor for a phone.
      * @param processor processor to set
-     * @return this phone builder after process being set
+     * @return this phone builder after processor being set
      */
     public PhoneBuilder processor(String processor) {
         this.processor = processor;

@@ -3,7 +3,7 @@
 # Java compilation files
 *.javac
 
-# Python compilatio files
+# Python compilation files
 __pycache__/
 *.pyc
 
